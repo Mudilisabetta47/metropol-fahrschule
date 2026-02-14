@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { MapPin, Phone, Mail, Clock, ArrowUpRight } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, ArrowUpRight, Car } from "lucide-react";
 
 const Footer = () => {
   return (
@@ -25,7 +25,7 @@ const Footer = () => {
           <div>
             <div className="mb-5 flex items-center gap-2.5">
               <div className="flex h-9 w-9 items-center justify-center rounded-xl gradient-primary">
-                <span className="text-lg font-black text-primary-foreground font-display">M</span>
+                <Car className="h-4 w-4 text-primary-foreground" />
               </div>
               <div className="flex flex-col leading-none">
                 <span className="text-base font-bold text-foreground">Fahrschule</span>
