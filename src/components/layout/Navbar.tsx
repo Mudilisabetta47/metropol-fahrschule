@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowRight, Moon, Sun } from "lucide-react";
+import { useTheme } from "next-themes";
 import { motion, AnimatePresence } from "framer-motion";
 import logoImage from "@/assets/logo.avif";
 const navLinks = [
@@ -15,6 +16,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const location = useLocation();
+  const { theme, setTheme } = useTheme();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -88,8 +90,17 @@ const Navbar = () => {
             })}
           </nav>
 
-          {/* CTA Button - arrow circle + text like reference */}
-          <div className="hidden lg:flex items-center">
+          {/* Dark mode toggle + CTA Button */}
+          <div className="hidden lg:flex items-center gap-2">
+            <button
+              onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+              className={`flex h-10 w-10 items-center justify-center rounded-xl transition-colors ${
+                showSolid ? "text-foreground hover:bg-secondary" : "text-primary-foreground hover:bg-primary-foreground/10"
+              }`}
+              aria-label="Dark Mode umschalten"
+            >
+              {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+            </button>
             <Button asChild className="group rounded-full pl-1.5 pr-6 py-2 h-12 gap-3 gradient-primary text-primary-foreground font-bold text-[15px] shadow-cta hover:shadow-glow transition-all duration-300 border-0">
               <Link to="/kontakt">
                 <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-foreground/20 transition-all duration-300 group-hover:bg-primary-foreground/30">
@@ -150,8 +161,15 @@ const Navbar = () => {
                     {link.label}
                   </Link>
                 ))}
-                <div className="mt-4">
-                  <Button className="w-full rounded-xl gradient-primary text-primary-foreground font-bold border-0 shadow-cta" asChild>
+                <div className="mt-4 flex gap-2">
+                  <button
+                    onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                    className="flex h-11 w-11 items-center justify-center rounded-xl border border-border text-foreground hover:bg-secondary transition-colors"
+                    aria-label="Dark Mode umschalten"
+                  >
+                    {theme === "dark" ? <Sun className="h-5 w-5" /> : <Moon className="h-5 w-5" />}
+                  </button>
+                  <Button className="flex-1 rounded-xl gradient-primary text-primary-foreground font-bold border-0 shadow-cta" asChild>
                     <Link to="/kontakt">
                       <ArrowRight className="h-4 w-4 mr-2" /> Freie Fahrt!
                     </Link>
