@@ -5,6 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Car, Bike, Truck, Bus, ChevronRight, ArrowRight, Sparkles, Zap, Shield, Clock } from "lucide-react";
 import SEO from "@/components/SEO";
+import heroKlassen from "@/assets/hero-klassen.jpg";
 import classPkw from "@/assets/class-pkw.jpg";
 import classMotorrad from "@/assets/class-motorrad.jpg";
 import classLkw from "@/assets/class-lkw.jpg";
@@ -118,7 +119,7 @@ const LicenseClasses = () => {
       {/* Premium Hero with image */}
       <section className="relative overflow-hidden pt-20">
         <div className="absolute inset-0">
-          <img src={classPkw} alt="Metropol Fahrschulwagen" className="h-full w-full object-cover" />
+          <img src={heroKlassen} alt="Metropol Fahrzeugflotte" className="h-full w-full object-cover" />
         </div>
         <div className="hero-overlay absolute inset-0 noise" />
         <div className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 h-[600px] w-[600px] rounded-full bg-primary/8 blur-[150px]" />
