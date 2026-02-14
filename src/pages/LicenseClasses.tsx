@@ -160,7 +160,7 @@ const LicenseClasses = () => {
                 onMouseEnter={() => setHoveredIndex(i)}
                 onMouseLeave={() => setHoveredIndex(null)}
               >
-                <Link to={`/fuehrerschein-${c.slug}`} className="block h-full">
+                <Link to={`/fuehrerschein/${c.slug}`} className="block h-full">
                   <div className="group relative h-full overflow-hidden rounded-3xl border border-primary/20 bg-card p-8 md:p-10 transition-all duration-500 hover:-translate-y-2 hover:border-primary/40">
                     {/* Glow effect */}
                     <div className={`absolute -top-20 -right-20 h-40 w-40 rounded-full bg-gradient-to-br ${c.gradient} opacity-0 blur-[80px] transition-opacity duration-700 group-hover:opacity-20`} />
@@ -227,7 +227,7 @@ const LicenseClasses = () => {
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.06, duration: 0.5 }}
               >
-                <Link to={`/fuehrerschein-${c.slug}`} className="block h-full">
+                <Link to={`/fuehrerschein/${c.slug}`} className="block h-full">
                   <div className="group relative h-full overflow-hidden rounded-2xl border border-border bg-card p-7 transition-all duration-500 hover:-translate-y-1.5 hover:border-primary/30 hover:shadow-card-hover">
                     {/* Subtle glow */}
                     <div className={`absolute -top-16 -right-16 h-32 w-32 rounded-full bg-gradient-to-br ${c.gradient} opacity-0 blur-[60px] transition-opacity duration-700 group-hover:opacity-15`} />
