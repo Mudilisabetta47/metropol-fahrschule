@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Clock, ChevronRight } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 import SEO from "@/components/SEO";
+import heroKontakt from "@/assets/hero-kontakt.jpg";
 
 const Contact = () => {
   return (
@@ -12,7 +13,11 @@ const Contact = () => {
         canonical="https://fahrschule-metropol.de/kontakt"
       />
 
-      <section className="gradient-dark py-20 noise relative overflow-hidden">
+      <section className="relative overflow-hidden py-20 noise">
+        <div className="absolute inset-0">
+          <img src={heroKontakt} alt="Metropol Fahrschulwagen" className="h-full w-full object-cover" />
+        </div>
+        <div className="hero-overlay absolute inset-0 noise" />
         <div className="container relative z-10 mx-auto px-4 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
             <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">Dein erster Schritt</span>
