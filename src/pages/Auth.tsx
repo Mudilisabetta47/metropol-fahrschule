@@ -11,23 +11,39 @@ import { Lock, Mail } from "lucide-react";
 const Auth = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isSignUp, setIsSignUp] = useState(false);
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
   const navigate = useNavigate();
 
-  const handleLogin = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email.trim() || !password) {
       toast({ title: "Bitte E-Mail und Passwort eingeben.", variant: "destructive" });
       return;
     }
+    if (isSignUp && password.length < 6) {
+      toast({ title: "Passwort muss mindestens 6 Zeichen haben.", variant: "destructive" });
+      return;
+    }
     setLoading(true);
     try {
-      const { error } = await supabase.auth.signInWithPassword({ email: email.trim(), password });
-      if (error) throw error;
-      navigate("/dashboard");
+      if (isSignUp) {
+        const { error } = await supabase.auth.signUp({
+          email: email.trim(),
+          password,
+          options: { emailRedirectTo: window.location.origin },
+        });
+        if (error) throw error;
+        toast({ title: "Registrierung erfolgreich!", description: "Bitte bestätige deine E-Mail-Adresse, um dich anzumelden." });
+        setIsSignUp(false);
+      } else {
+        const { error } = await supabase.auth.signInWithPassword({ email: email.trim(), password });
+        if (error) throw error;
+        navigate("/dashboard");
+      }
     } catch (err: any) {
-      toast({ title: "Login fehlgeschlagen", description: err.message || "Bitte überprüfe deine Zugangsdaten.", variant: "destructive" });
+      toast({ title: isSignUp ? "Registrierung fehlgeschlagen" : "Login fehlgeschlagen", description: err.message || "Bitte überprüfe deine Eingaben.", variant: "destructive" });
     } finally {
       setLoading(false);
     }
@@ -46,10 +62,14 @@ const Auth = () => {
               <span className="text-xl font-black text-primary-foreground font-display">M</span>
             </div>
           </div>
-          <h1 className="mb-1 text-center text-xl font-bold text-foreground font-display">Mitarbeiter-Login</h1>
-          <p className="mb-6 text-center text-sm text-muted-foreground">Melde dich an, um das Dashboard zu nutzen.</p>
+          <h1 className="mb-1 text-center text-xl font-bold text-foreground font-display">
+            {isSignUp ? "Mitarbeiter-Registrierung" : "Mitarbeiter-Login"}
+          </h1>
+          <p className="mb-6 text-center text-sm text-muted-foreground">
+            {isSignUp ? "Erstelle deinen Account." : "Melde dich an, um das Dashboard zu nutzen."}
+          </p>
 
-          <form onSubmit={handleLogin} className="space-y-4">
+          <form onSubmit={handleSubmit} className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="email">E-Mail</Label>
               <div className="relative">
@@ -65,9 +85,16 @@ const Auth = () => {
               </div>
             </div>
             <Button type="submit" variant="cta" className="w-full" disabled={loading}>
-              {loading ? "Wird angemeldet…" : "Anmelden"}
+              {loading ? (isSignUp ? "Wird registriert…" : "Wird angemeldet…") : (isSignUp ? "Registrieren" : "Anmelden")}
             </Button>
           </form>
+
+          <p className="mt-4 text-center text-sm text-muted-foreground">
+            {isSignUp ? "Bereits registriert?" : "Noch kein Account?"}{" "}
+            <button onClick={() => setIsSignUp(!isSignUp)} className="font-semibold text-primary hover:underline">
+              {isSignUp ? "Zum Login" : "Jetzt registrieren"}
+            </button>
+          </p>
         </div>
       </motion.div>
     </div>
