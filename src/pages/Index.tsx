@@ -128,10 +128,22 @@ const Index = () => {
       {/* Hero */}
       <section ref={heroRef} className="relative flex min-h-screen items-center overflow-hidden">
         <motion.div style={{ y: heroY }} className="absolute inset-0">
+          {/* Video for mobile */}
+          <video
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="h-full w-full object-cover md:hidden"
+            poster={heroImage}
+          >
+            <source src="/hero-mobile.mp4" type="video/mp4" />
+          </video>
+          {/* Image for desktop */}
           <img
             src={heroImage}
             alt="Fahrschule Metropol – Modernes Fahrschulauto in der Stadt"
-            className="h-full w-full object-cover"
+            className="hidden md:block h-full w-full object-cover"
             loading="eager"
           />
         </motion.div>
