@@ -16,6 +16,8 @@ export interface LicenseClassData {
     includes: string;
     exam: string;
   };
+  prerequisites: string[];
+  advantages: string[];
   description: string[];
   process: { step: string; title: string; text: string }[];
   faqs: LicenseClassFAQ[];
@@ -35,6 +37,18 @@ export const licenseClasses: LicenseClassData[] = [
       includes: "Theorie & Praxis, Sonderfahrten, Erste-Hilfe-Kurs",
       exam: "Theoretische & praktische Prüfung",
     },
+    prerequisites: [
+      "Mindestalter 17 Jahre (BF17) oder 18 Jahre",
+      "Sehtest & Erste-Hilfe-Kurs",
+      "Gültiger Personalausweis oder Reisepass",
+    ],
+    advantages: [
+      "Moderne Fahrzeuge (BMW, VW, Mercedes)",
+      "98% Erstbestehensquote",
+      "Flexible Fahrstunden – auch abends & samstags",
+      "Erfahrene, geduldige Fahrlehrer",
+      "Prüfungsstrecken-Training inklusive",
+    ],
     description: [
       "Der Führerschein Klasse B ist der meistgemachte Führerschein in Deutschland. Er berechtigt dich, Kraftfahrzeuge bis 3.500 kg zulässiges Gesamtgewicht zu führen – inklusive Anhänger bis 750 kg.",
       "Bei Fahrschule Metropol begleiten wir dich von der ersten Theoriestunde bis zur bestandenen Prüfung. Unsere erfahrenen Fahrlehrer sorgen dafür, dass du dich sicher im Straßenverkehr bewegst.",
@@ -64,8 +78,19 @@ export const licenseClasses: LicenseClassData[] = [
       minAge: "17 Jahre (BF17) / 18 Jahre",
       duration: "Ca. 3–6 Monate",
       includes: "Automatik-Ausbildung + 10 Schaltstunden, Sonderfahrten",
-      exam: "Theoretische & praktische Prüfung (Automatik) + Schaltkompetenznachweis",
+      exam: "Prüfung auf Automatik + Schaltkompetenznachweis",
     },
+    prerequisites: [
+      "Mindestalter 17 Jahre (BF17) oder 18 Jahre",
+      "Sehtest & Erste-Hilfe-Kurs",
+      "Gültiger Personalausweis oder Reisepass",
+    ],
+    advantages: [
+      "Prüfung auf Automatik – einfacher & stressfreier",
+      "Trotzdem Schaltwagen fahren erlaubt",
+      "Moderne Automatik-Fahrzeuge",
+      "Erfahrene Fahrlehrer für beide Varianten",
+    ],
     description: [
       "Klasse B197 ist die moderne Alternative zum klassischen Klasse-B-Führerschein. Du lernst hauptsächlich auf einem Automatik-Fahrzeug – das ist einfacher und stressfreier.",
       "Mit nur 10 zusätzlichen Fahrstunden auf einem Schaltwagen und einer internen Prüfung erhältst du die volle Berechtigung, auch Schaltwagen zu fahren.",
@@ -96,6 +121,17 @@ export const licenseClasses: LicenseClassData[] = [
       includes: "Theorie & Praxis, Sonderfahrten, Schutzausrüstung erforderlich",
       exam: "Theoretische & praktische Prüfung",
     },
+    prerequisites: [
+      "Mindestalter 24 Jahre (Direkteinstieg) oder 20 Jahre (Aufstieg von A2)",
+      "Sehtest & Erste-Hilfe-Kurs",
+      "Motorradhelm (Pflicht), Schutzkleidung empfohlen",
+    ],
+    advantages: [
+      "Alle Motorräder ohne Leistungsbeschränkung",
+      "Leidenschaftliche Motorrad-Fahrlehrer",
+      "Moderne Ausbildungsmotorräder",
+      "Leihausrüstung verfügbar",
+    ],
     description: [
       "Der Führerschein Klasse A ist der Königsweg für Motorradfahrer. Er erlaubt dir das Fahren aller Motorräder und dreirädrigen Kraftfahrzeuge – ohne Leistungsbeschränkung.",
       "Beim Direkteinstieg musst du mindestens 24 Jahre alt sein. Hast du bereits den A2-Führerschein seit mindestens 2 Jahren, kannst du mit 20 Jahren aufsteigen.",
@@ -126,6 +162,17 @@ export const licenseClasses: LicenseClassData[] = [
       includes: "Theorie & Praxis, Sonderfahrten",
       exam: "Theoretische & praktische Prüfung",
     },
+    prerequisites: [
+      "Mindestalter 18 Jahre",
+      "Sehtest & Erste-Hilfe-Kurs",
+      "Motorradhelm (Pflicht)",
+    ],
+    advantages: [
+      "Riesige Auswahl an A2-Motorrädern",
+      "Aufstieg auf Klasse A nach 2 Jahren möglich",
+      "Moderne Ausbildungsmotorräder",
+      "Erfahrene Motorrad-Fahrlehrer",
+    ],
     description: [
       "Mit Klasse A2 darfst du Motorräder mit einer Leistung von maximal 35 kW (48 PS) fahren. Das Leistungsgewicht darf 0,2 kW/kg nicht übersteigen.",
       "Klasse A2 ist ideal für den Einstieg ab 18 Jahren. Nach 2 Jahren kannst du auf die unbeschränkte Klasse A aufsteigen – mit vereinfachter Prüfung.",
@@ -156,6 +203,17 @@ export const licenseClasses: LicenseClassData[] = [
       includes: "Theorie & Praxis, Sonderfahrten",
       exam: "Theoretische & praktische Prüfung",
     },
+    prerequisites: [
+      "Mindestalter 16 Jahre",
+      "Sehtest & Erste-Hilfe-Kurs",
+      "Anmeldung 6 Monate vorher möglich",
+    ],
+    advantages: [
+      "Mobil ab 16 Jahren",
+      "Perfekte Grundlage für A2 und A",
+      "Verkürzte Ausbildung bei Aufstieg",
+      "Erfahrene Motorrad-Fahrlehrer",
+    ],
     description: [
       "Klasse A1 ist der erste Schritt in die Motorradwelt. Ab 16 Jahren darfst du Leichtkrafträder bis 125 ccm Hubraum und 11 kW (15 PS) Leistung fahren.",
       "A1 ist ideal für Jugendliche, die früh mobil sein möchten. Später kannst du über A2 bis zum unbeschränkten Klasse-A-Führerschein aufsteigen.",
@@ -186,6 +244,17 @@ export const licenseClasses: LicenseClassData[] = [
       includes: "Theorie & Praxis",
       exam: "Theoretische & praktische Prüfung",
     },
+    prerequisites: [
+      "Mindestalter 15 Jahre",
+      "Sehtest & Erste-Hilfe-Kurs",
+      "Anmeldung 6 Monate vorher möglich",
+    ],
+    advantages: [
+      "Schnellster Weg zur Mobilität",
+      "Kompakte Ausbildung (1–2 Monate)",
+      "Keine Sonderfahrten nötig",
+      "Ideal für den Schulweg",
+    ],
     description: [
       "Mit Klasse AM darfst du zweirädrige Kleinkrafträder (Mopeds, Roller) und dreirädrige Kleinkraftfahrzeuge bis 45 km/h fahren.",
       "Der AM-Führerschein ist der schnellste Weg zur Mobilität für Jugendliche ab 15 Jahren. Perfekt für den Schulweg oder die Freizeit.",
@@ -213,9 +282,19 @@ export const licenseClasses: LicenseClassData[] = [
     details: {
       minAge: "17 Jahre (BF17) / 18 Jahre",
       duration: "Ca. 1–2 Monate",
-      includes: "Nur Praxis (keine Theorie nötig), Sonderfahrten mit Anhänger",
+      includes: "Nur Praxis, Sonderfahrten mit Anhänger",
       exam: "Nur praktische Prüfung",
     },
+    prerequisites: [
+      "Führerschein Klasse B (Vorbesitz)",
+      "Mindestalter 17/18 Jahre",
+    ],
+    advantages: [
+      "Keine Theorieprüfung erforderlich",
+      "Kompakte Ausbildung",
+      "Wohnwagen, Pferdeanhänger & mehr",
+      "Sonderfahrten mit Anhänger inklusive",
+    ],
     description: [
       "Mit Klasse BE darfst du Anhänger über 750 kg an deinen PKW hängen – das Gesamtgewicht des Anhängers darf bis 3.500 kg betragen.",
       "Voraussetzung ist der Besitz von Klasse B. Die Ausbildung besteht nur aus praktischen Fahrstunden – eine Theorieprüfung ist nicht erforderlich.",
@@ -246,6 +325,16 @@ export const licenseClasses: LicenseClassData[] = [
       includes: "4 Theorie- + 5 Praxiseinheiten (je 90 Min.)",
       exam: "Keine Prüfung erforderlich",
     },
+    prerequisites: [
+      "Mindestalter 25 Jahre",
+      "Mindestens 5 Jahre Klasse B im Besitz",
+    ],
+    advantages: [
+      "Keine Prüfung erforderlich",
+      "Schnelle Erweiterung in 2–4 Wochen",
+      "125er-Motorräder fahren",
+      "Kompakte Ausbildung (4 Theorie + 5 Praxis)",
+    ],
     description: [
       "Mit der B196-Erweiterung darfst du Leichtkrafträder bis 125 ccm und 11 kW fahren – ganz ohne zusätzliche Prüfung.",
       "Voraussetzung: Du musst mindestens 25 Jahre alt sein und seit mindestens 5 Jahren den Klasse-B-Führerschein besitzen.",
@@ -276,6 +365,16 @@ export const licenseClasses: LicenseClassData[] = [
       includes: "Nur Theorieunterricht",
       exam: "Nur theoretische Prüfung",
     },
+    prerequisites: [
+      "Mindestalter 16 Jahre",
+      "Sehtest & Erste-Hilfe-Kurs",
+    ],
+    advantages: [
+      "Keine praktische Prüfung",
+      "In Klasse B bereits enthalten",
+      "Schnelle Ausbildung (2–4 Wochen)",
+      "Ideal für Land-/Forstwirtschaft",
+    ],
     description: [
       "Klasse L berechtigt zum Fahren von Zugmaschinen mit einer bauartbedingten Höchstgeschwindigkeit von max. 40 km/h für land- oder forstwirtschaftliche Zwecke.",
       "Mit Anhänger darf nicht schneller als 25 km/h gefahren werden. Klasse L ist rein theoretisch – es gibt keine praktische Prüfung.",
