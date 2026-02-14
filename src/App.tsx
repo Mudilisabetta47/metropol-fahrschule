@@ -15,6 +15,8 @@ import Locations from "./pages/Locations";
 import Bremen from "./pages/locations/Bremen";
 import Garbsen from "./pages/locations/Garbsen";
 import Hannover from "./pages/locations/Hannover";
+import Auth from "./pages/Auth";
+import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -38,6 +40,8 @@ const App = () => (
             <Route path="/standorte/bremen" element={<Bremen />} />
             <Route path="/standorte/garbsen" element={<Garbsen />} />
             <Route path="/standorte/hannover" element={<Hannover />} />
+            <Route path="/login" element={<Auth />} />
+            <Route path="/dashboard" element={<Dashboard />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </main>
