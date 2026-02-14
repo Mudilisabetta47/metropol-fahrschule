@@ -1,12 +1,19 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ArrowRight } from "lucide-react";
+import { Menu, X, ArrowRight, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import logoImage from "@/assets/logo.avif";
+
+const fuehrerscheinDropdown = [
+  { label: "Führerscheinklassen", path: "/fuehrerscheinklassen" },
+  { label: "Erste-Hilfe-Kurs", path: "/erste-hilfe" },
+  { label: "Aufbauseminar (ASF)", path: "/aufbauseminar" },
+];
+
 const navLinks = [
   { label: "Startseite", num: "01", path: "/" },
-  { label: "Führerschein", num: "02", path: "/fuehrerscheinklassen" },
+  { label: "Führerschein", num: "02", path: "/fuehrerscheinklassen", hasDropdown: true },
   { label: "Ausbildungsklassen", num: "03", path: "/preise" },
   { label: "Kontakt", num: "04", path: "/kontakt" },
 ];
@@ -14,6 +21,9 @@ const navLinks = [
 const Navbar = () => {
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
   const location = useLocation();
 
   useEffect(() => {
@@ -22,10 +32,19 @@ const Navbar = () => {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  useEffect(() => { setOpen(false); }, [location.pathname]);
+  useEffect(() => { setOpen(false); setDropdownOpen(false); }, [location.pathname]);
 
   const isHome = location.pathname === "/";
   const showSolid = scrolled || !isHome;
+
+  const handleMouseEnter = () => {
+    clearTimeout(timeoutRef.current);
+    setDropdownOpen(true);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = setTimeout(() => setDropdownOpen(false), 150);
+  };
 
   return (
     <>
@@ -36,11 +55,9 @@ const Navbar = () => {
             : "bg-transparent"
         }`}
       >
-        {/* Top accent line */}
         <div className="h-[3px] w-full gradient-primary" />
 
         <div className="container mx-auto flex h-[72px] items-center justify-between px-4 lg:h-[80px]">
-          {/* Logo - city skyline style like reference */}
           <Link to="/" className="flex items-center group">
             <img
               src={logoImage}
@@ -51,13 +68,81 @@ const Navbar = () => {
             />
           </Link>
 
-          {/* Spacer */}
           <div className="flex-1" />
 
-          {/* Desktop Nav - right aligned, numbered items */}
+          {/* Desktop Nav */}
           <nav className="hidden items-center gap-1 lg:flex">
             {navLinks.map((link) => {
-              const isActive = location.pathname === link.path;
+              const isActive = location.pathname === link.path ||
+                (link.hasDropdown && (location.pathname.startsWith("/fuehrerschein") || location.pathname === "/erste-hilfe" || location.pathname === "/aufbauseminar"));
+
+              if (link.hasDropdown) {
+                return (
+                  <div
+                    key={link.path}
+                    ref={dropdownRef}
+                    className="relative"
+                    onMouseEnter={handleMouseEnter}
+                    onMouseLeave={handleMouseLeave}
+                  >
+                    <Link
+                      to={link.path}
+                      className={`group relative flex items-center gap-0.5 px-5 py-2 text-[15px] transition-all duration-200 ${
+                        isActive
+                          ? showSolid ? "text-foreground" : "text-primary-foreground"
+                          : showSolid
+                          ? "text-muted-foreground hover:text-foreground"
+                          : "text-primary-foreground/50 hover:text-primary-foreground"
+                      }`}
+                    >
+                      <span className="font-medium tracking-wide">{link.label}</span>
+                      <sup className={`ml-0.5 text-[10px] font-bold ${
+                        isActive ? "text-primary" : showSolid ? "text-muted-foreground/50" : "text-primary-foreground/30"
+                      }`}>
+                        {link.num}
+                      </sup>
+                      <ChevronDown className={`h-3.5 w-3.5 ml-0.5 transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""} ${
+                        showSolid ? "text-muted-foreground/50" : "text-primary-foreground/30"
+                      }`} />
+                      {isActive && (
+                        <motion.div
+                          layoutId="nav-underline"
+                          className="absolute bottom-0 left-5 right-5 h-[2px] gradient-primary rounded-full"
+                          transition={{ type: "spring", stiffness: 400, damping: 30 }}
+                        />
+                      )}
+                    </Link>
+
+                    {/* Dropdown */}
+                    <AnimatePresence>
+                      {dropdownOpen && (
+                        <motion.div
+                          initial={{ opacity: 0, y: 8, scale: 0.96 }}
+                          animate={{ opacity: 1, y: 0, scale: 1 }}
+                          exit={{ opacity: 0, y: 8, scale: 0.96 }}
+                          transition={{ duration: 0.15, ease: "easeOut" }}
+                          className="absolute top-full left-0 mt-1 w-56 rounded-xl border border-border bg-card p-1.5 shadow-card-hover"
+                        >
+                          {fuehrerscheinDropdown.map((item) => (
+                            <Link
+                              key={item.path}
+                              to={item.path}
+                              className={`block rounded-lg px-4 py-2.5 text-sm font-medium transition-colors duration-150 ${
+                                location.pathname === item.path
+                                  ? "bg-primary/10 text-primary"
+                                  : "text-foreground hover:bg-accent hover:text-accent-foreground"
+                              }`}
+                            >
+                              {item.label}
+                            </Link>
+                          ))}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                );
+              }
+
               return (
                 <Link
                   key={link.path}
@@ -88,7 +173,7 @@ const Navbar = () => {
             })}
           </nav>
 
-          {/* CTA Button - arrow circle + text like reference */}
+          {/* CTA Button */}
           <div className="hidden lg:flex items-center">
             <Button asChild className="group rounded-full pl-1.5 pr-6 py-2 h-12 gap-3 gradient-primary text-primary-foreground font-bold text-[15px] shadow-cta hover:shadow-glow transition-all duration-300 border-0">
               <Link to="/kontakt">
@@ -123,16 +208,34 @@ const Navbar = () => {
             >
               <nav className="container mx-auto flex flex-col gap-1 px-4 py-5">
                 {navLinks.map((link) => (
-                  <Link
-                    key={link.path}
-                    to={link.path}
-                    className={`flex items-center justify-between rounded-xl px-4 py-3 text-sm font-semibold transition-colors ${
-                      location.pathname === link.path ? "bg-accent text-accent-foreground" : "text-muted-foreground hover:bg-secondary"
-                    }`}
-                  >
-                    <span>{link.label}</span>
-                    <span className="text-[10px] text-muted-foreground/50 font-bold">{link.num}</span>
-                  </Link>
+                  <div key={link.path}>
+                    <Link
+                      to={link.path}
+                      className={`flex items-center justify-between rounded-xl px-4 py-3 text-sm font-semibold transition-colors ${
+                        location.pathname === link.path ? "bg-accent text-accent-foreground" : "text-muted-foreground hover:bg-secondary"
+                      }`}
+                    >
+                      <span>{link.label}</span>
+                      <span className="text-[10px] text-muted-foreground/50 font-bold">{link.num}</span>
+                    </Link>
+                    {link.hasDropdown && (
+                      <div className="ml-4 mt-1 space-y-0.5">
+                        {fuehrerscheinDropdown.filter(d => d.path !== link.path).map((item) => (
+                          <Link
+                            key={item.path}
+                            to={item.path}
+                            className={`block rounded-lg px-4 py-2 text-xs font-medium transition-colors ${
+                              location.pathname === item.path
+                                ? "bg-primary/10 text-primary"
+                                : "text-muted-foreground hover:bg-secondary"
+                            }`}
+                          >
+                            {item.label}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
                 ))}
                 {/* Extra links */}
                 {[
