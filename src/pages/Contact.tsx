@@ -15,10 +15,10 @@ const Contact = () => {
       <section className="gradient-dark py-20 noise relative overflow-hidden">
         <div className="container relative z-10 mx-auto px-4 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">Kontakt</span>
-            <h1 className="text-4xl font-extrabold text-primary-foreground font-display md:text-6xl">Jetzt anmelden</h1>
+            <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">Dein erster Schritt</span>
+            <h1 className="text-4xl font-extrabold text-primary-foreground font-display md:text-6xl">Lass uns loslegen!</h1>
             <p className="mx-auto mt-4 max-w-2xl text-lg text-primary-foreground/50">
-              Fülle das Formular aus oder ruf uns direkt an – wir freuen uns auf dich!
+              Egal ob du gerade erst anfängst oder schon konkret weißt, was du willst – schreib uns einfach. Wir antworten persönlich, nicht per Bot. Versprochen. ✌️
             </p>
           </motion.div>
         </div>
@@ -34,8 +34,8 @@ const Contact = () => {
               className="lg:col-span-3"
             >
               <div className="rounded-3xl border border-border bg-card p-8 shadow-card">
-                <h2 className="mb-2 text-2xl font-bold text-foreground font-display">Anmeldeformular</h2>
-                <p className="mb-6 text-sm text-muted-foreground">Pflichtfelder sind mit * gekennzeichnet. Wir melden uns schnellstmöglich.</p>
+                <h2 className="mb-2 text-2xl font-bold text-foreground font-display">Schreib uns – wir beißen nicht 😄</h2>
+                <p className="mb-6 text-sm text-muted-foreground">Pflichtfelder sind mit * gekennzeichnet. Wir melden uns schnellstmöglich – persönlich, nicht automatisch.</p>
                 <ContactForm />
               </div>
             </motion.div>
