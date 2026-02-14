@@ -45,7 +45,7 @@ const Navbar = () => {
             <img
               src={logoImage}
               alt="Fahrschule Metropol Logo"
-              className={`h-12 w-auto transition-all duration-300 group-hover:scale-105 ${
+              className={`h-16 w-auto transition-all duration-300 group-hover:scale-105 ${
                 showSolid ? "" : "brightness-0 invert"
               }`}
             />
