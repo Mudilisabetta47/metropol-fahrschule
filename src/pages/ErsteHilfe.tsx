@@ -67,7 +67,7 @@ const ErsteHilfe = () => {
       />
 
       {/* Hero */}
-      <section className="relative min-h-[420px] md:min-h-[480px] flex items-end overflow-hidden">
+      <section className="relative min-h-[340px] md:min-h-[480px] flex items-end overflow-hidden">
         <img
           src={heroImage}
           alt="Erste-Hilfe-Kurs bei Fahrschule Metropol"
@@ -75,14 +75,14 @@ const ErsteHilfe = () => {
           loading="eager"
         />
         <div className="hero-overlay absolute inset-0" />
-        <div className="container relative z-10 mx-auto px-4 pb-10 pt-32">
+        <div className="container relative z-10 mx-auto px-4 pb-8 pt-28 md:pb-10 md:pt-32">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}>
-            <p className="mb-1 text-sm font-semibold text-primary-foreground/60">Pflicht für den Führerschein</p>
-            <h1 className="text-4xl font-extrabold text-primary-foreground font-display md:text-6xl">
+            <p className="mb-1 text-xs md:text-sm font-semibold text-primary-foreground/60">Pflicht für den Führerschein</p>
+            <h1 className="text-3xl md:text-4xl lg:text-6xl font-extrabold text-primary-foreground font-display leading-tight">
               Erste-Hilfe-Kurse in<br />Hannover & Bremen
             </h1>
-            <div className="mt-6">
-              <Button variant="cta" size="lg" asChild>
+            <div className="mt-4 md:mt-6">
+              <Button variant="cta" size="lg" asChild className="w-full sm:w-auto">
                 <Link to="/kontakt">
                   Jetzt Termin vereinbaren <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
@@ -93,14 +93,14 @@ const ErsteHilfe = () => {
       </section>
 
       {/* Main Content */}
-      <section className="py-16">
+      <section className="py-10 md:py-16">
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-3xl text-center">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <h2 className="mb-6 text-3xl font-extrabold text-foreground font-display md:text-4xl">
+              <h2 className="mb-4 md:mb-6 text-2xl md:text-3xl lg:text-4xl font-extrabold text-foreground font-display">
                 Dein Erste-Hilfe-Kurs in nur einem Tag!
               </h2>
-              <p className="text-muted-foreground leading-relaxed text-base">
+              <p className="text-muted-foreground leading-relaxed text-sm md:text-base">
                 Für den Führerschein ist ein Erste-Hilfe-Kurs Pflicht: 9 Unterrichtseinheiten à 45 Minuten an nur einem Tag – bei Metropol schnell erledigt. Unsere Kurse sind von allen Behörden anerkannt und werden regelmäßig angeboten. Ideal kombinierbar mit deinem Theorieunterricht!
               </p>
             </motion.div>
@@ -109,18 +109,18 @@ const ErsteHilfe = () => {
       </section>
 
       {/* Info Cards */}
-      <section className="pb-12">
+      <section className="pb-8 md:pb-12">
         <div className="container mx-auto px-4">
-          <div className="grid gap-4 sm:grid-cols-3">
+          <div className="grid gap-3 md:gap-4 grid-cols-1 sm:grid-cols-3">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="rounded-2xl border border-border bg-card p-6 shadow-card"
+              className="rounded-2xl border border-border bg-card p-5 md:p-6 shadow-card"
             >
-              <Clock className="mb-3 h-6 w-6 text-primary" />
-              <h4 className="text-sm font-bold text-foreground mb-2">Dauer & Umfang</h4>
-              <ul className="space-y-1.5 text-sm text-muted-foreground">
+              <Clock className="mb-2 md:mb-3 h-5 w-5 md:h-6 md:w-6 text-primary" />
+              <h4 className="text-sm font-bold text-foreground mb-1.5 md:mb-2">Dauer & Umfang</h4>
+              <ul className="space-y-1 md:space-y-1.5 text-xs md:text-sm text-muted-foreground">
                 <li className="flex items-start gap-2">
                   <span className="mt-1 h-1.5 w-1.5 rounded-full bg-primary shrink-0" />
                   9 Unterrichtseinheiten à 45 Min.
@@ -141,11 +141,11 @@ const ErsteHilfe = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="rounded-2xl border border-border bg-card p-6 shadow-card"
+              className="rounded-2xl border border-border bg-card p-5 md:p-6 shadow-card"
             >
-              <Shield className="mb-3 h-6 w-6 text-primary" />
-              <h4 className="text-sm font-bold text-foreground mb-2">Behördlich anerkannt</h4>
-              <p className="text-sm text-muted-foreground leading-relaxed">
+              <Shield className="mb-2 md:mb-3 h-5 w-5 md:h-6 md:w-6 text-primary" />
+              <h4 className="text-sm font-bold text-foreground mb-1.5 md:mb-2">Behördlich anerkannt</h4>
+              <p className="text-xs md:text-sm text-muted-foreground leading-relaxed">
                 Unser Kurs wird von allen Fahrerlaubnisbehörden anerkannt und ist gültig für alle Führerscheinklassen.
               </p>
             </motion.div>
@@ -155,21 +155,21 @@ const ErsteHilfe = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="rounded-2xl border border-border bg-card p-6 shadow-card"
+              className="rounded-2xl border border-border bg-card p-5 md:p-6 shadow-card"
             >
-              <MapPin className="mb-3 h-6 w-6 text-primary" />
-              <h4 className="text-sm font-bold text-foreground mb-2">Standorte</h4>
-              <ul className="space-y-1.5 text-sm text-muted-foreground">
+              <MapPin className="mb-2 md:mb-3 h-5 w-5 md:h-6 md:w-6 text-primary" />
+              <h4 className="text-sm font-bold text-foreground mb-1.5 md:mb-2">Standorte</h4>
+              <ul className="space-y-1 md:space-y-1.5 text-xs md:text-sm text-muted-foreground">
                 <li className="flex items-center gap-2">
-                  <MapPin className="h-3.5 w-3.5 text-primary" />
+                  <MapPin className="h-3.5 w-3.5 text-primary shrink-0" />
                   <Link to="/standorte/hannover" className="hover:text-primary transition-colors">Hannover</Link>
                 </li>
                 <li className="flex items-center gap-2">
-                  <MapPin className="h-3.5 w-3.5 text-primary" />
+                  <MapPin className="h-3.5 w-3.5 text-primary shrink-0" />
                   <Link to="/standorte/bremen" className="hover:text-primary transition-colors">Bremen</Link>
                 </li>
                 <li className="flex items-center gap-2">
-                  <MapPin className="h-3.5 w-3.5 text-primary" />
+                  <MapPin className="h-3.5 w-3.5 text-primary shrink-0" />
                   <Link to="/standorte/garbsen" className="hover:text-primary transition-colors">Garbsen</Link>
                 </li>
               </ul>
@@ -179,15 +179,15 @@ const ErsteHilfe = () => {
       </section>
 
       {/* Vorteile */}
-      <section className="py-12 gradient-section">
+      <section className="py-10 md:py-12 gradient-section">
         <div className="container mx-auto px-4">
-          <div className="grid gap-8 md:grid-cols-2">
+          <div className="grid gap-6 md:gap-8 md:grid-cols-2">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <div className="flex items-center gap-3 mb-5">
-                <Heart className="h-6 w-6 text-primary" />
-                <h2 className="text-xl font-bold text-foreground font-display">Was du lernst</h2>
+              <div className="flex items-center gap-2.5 md:gap-3 mb-4 md:mb-5">
+                <Heart className="h-5 w-5 md:h-6 md:w-6 text-primary" />
+                <h2 className="text-lg md:text-xl font-bold text-foreground font-display">Was du lernst</h2>
               </div>
-              <ul className="space-y-3">
+              <ul className="space-y-2.5 md:space-y-3">
                 {[
                   "Absichern der Unfallstelle & Notruf absetzen",
                   "Stabile Seitenlage & Herz-Lungen-Wiederbelebung",
@@ -195,7 +195,7 @@ const ErsteHilfe = () => {
                   "Umgang mit Schock und Bewusstlosigkeit",
                   "Verhalten bei Verkehrsunfällen",
                 ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
+                  <li key={i} className="flex items-start gap-2.5 md:gap-3 text-xs md:text-sm text-muted-foreground">
                     <CheckCircle className="mt-0.5 h-4 w-4 text-primary shrink-0" />
                     {item}
                   </li>
@@ -204,11 +204,11 @@ const ErsteHilfe = () => {
             </motion.div>
 
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }}>
-              <div className="flex items-center gap-3 mb-5">
-                <Shield className="h-6 w-6 text-primary" />
-                <h2 className="text-xl font-bold text-foreground font-display">Deine Vorteile bei Metropol</h2>
+              <div className="flex items-center gap-2.5 md:gap-3 mb-4 md:mb-5">
+                <Shield className="h-5 w-5 md:h-6 md:w-6 text-primary" />
+                <h2 className="text-lg md:text-xl font-bold text-foreground font-display">Deine Vorteile bei Metropol</h2>
               </div>
-              <ul className="space-y-3">
+              <ul className="space-y-2.5 md:space-y-3">
                 {[
                   "Regelmäßige Termine – schnell einen Platz finden",
                   "Erfahrene, zertifizierte Ausbilder",
@@ -216,7 +216,7 @@ const ErsteHilfe = () => {
                   "Ideal kombinierbar mit deinem Theorieunterricht",
                   "Moderne Schulungsräume an allen Standorten",
                 ].map((item, i) => (
-                  <li key={i} className="flex items-start gap-3 text-sm text-muted-foreground">
+                  <li key={i} className="flex items-start gap-2.5 md:gap-3 text-xs md:text-sm text-muted-foreground">
                     <CheckCircle className="mt-0.5 h-4 w-4 text-primary shrink-0" />
                     {item}
                   </li>
@@ -228,22 +228,22 @@ const ErsteHilfe = () => {
       </section>
 
       {/* FAQ */}
-      <section className="py-16">
+      <section className="py-10 md:py-16">
         <div className="container mx-auto px-4">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-10 text-center">
-            <span className="mb-2 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">FAQ</span>
-            <h2 className="text-3xl font-extrabold text-foreground font-display md:text-4xl">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-6 md:mb-10 text-center">
+            <span className="mb-1.5 md:mb-2 inline-block text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-primary">FAQ</span>
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-extrabold text-foreground font-display">
               Antworten auf häufige Fragen
             </h2>
           </motion.div>
           <div className="mx-auto max-w-2xl">
-            <Accordion type="single" collapsible className="space-y-3">
+            <Accordion type="single" collapsible className="space-y-2 md:space-y-3">
               {faqs.map((faq, i) => (
-                <AccordionItem key={i} value={`faq-${i}`} className="rounded-2xl border border-border bg-card px-6 shadow-card">
-                  <AccordionTrigger className="text-left font-semibold text-foreground hover:no-underline">
+                <AccordionItem key={i} value={`faq-${i}`} className="rounded-xl md:rounded-2xl border border-border bg-card px-4 md:px-6 shadow-card">
+                  <AccordionTrigger className="text-left text-sm md:text-base font-semibold text-foreground hover:no-underline py-3 md:py-4">
                     {faq.question}
                   </AccordionTrigger>
-                  <AccordionContent className="text-muted-foreground leading-relaxed">
+                  <AccordionContent className="text-xs md:text-sm text-muted-foreground leading-relaxed pb-3 md:pb-4">
                     {faq.answer}
                   </AccordionContent>
                 </AccordionItem>
@@ -254,61 +254,61 @@ const ErsteHilfe = () => {
       </section>
 
       {/* Contact & Form */}
-      <section className="py-16 gradient-section">
+      <section className="py-10 md:py-16 gradient-section">
         <div className="container mx-auto px-4">
-          <div className="grid gap-10 lg:grid-cols-5">
+          <div className="grid gap-8 md:gap-10 lg:grid-cols-5">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="lg:col-span-2">
-              <span className="mb-2 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">Kontakt & Beratung</span>
-              <h2 className="mb-4 text-2xl font-extrabold text-foreground font-display md:text-3xl">
+              <span className="mb-1.5 md:mb-2 inline-block text-[10px] md:text-xs font-bold uppercase tracking-[0.2em] text-primary">Kontakt & Beratung</span>
+              <h2 className="mb-3 md:mb-4 text-xl md:text-2xl lg:text-3xl font-extrabold text-foreground font-display">
                 Erste-Hilfe-Kurs buchen
               </h2>
-              <p className="mb-8 text-muted-foreground leading-relaxed">
+              <p className="mb-6 md:mb-8 text-sm text-muted-foreground leading-relaxed">
                 Füll das Formular aus und wir informieren dich über die nächsten Termine an deinem Standort.
               </p>
 
-              <div className="mb-8 grid grid-cols-2 gap-3">
-                <div className="flex items-center gap-2 rounded-xl border border-border bg-card px-4 py-3 shadow-card">
-                  <MessageCircle className="h-5 w-5 text-primary" />
-                  <div>
-                    <p className="text-xs font-bold text-foreground">Schnelle Antwort</p>
-                    <p className="text-[10px] text-muted-foreground">innerhalb von 24 Stunden</p>
+              <div className="mb-6 md:mb-8 grid grid-cols-2 gap-2 md:gap-3">
+                <div className="flex items-center gap-2 rounded-xl border border-border bg-card px-3 md:px-4 py-2.5 md:py-3 shadow-card">
+                  <MessageCircle className="h-4 w-4 md:h-5 md:w-5 text-primary shrink-0" />
+                  <div className="min-w-0">
+                    <p className="text-[11px] md:text-xs font-bold text-foreground truncate">Schnelle Antwort</p>
+                    <p className="text-[9px] md:text-[10px] text-muted-foreground">innerhalb von 24h</p>
                   </div>
                 </div>
-                <div className="flex items-center gap-2 rounded-xl border border-border bg-card px-4 py-3 shadow-card">
-                  <Shield className="h-5 w-5 text-primary" />
-                  <div>
-                    <p className="text-xs font-bold text-foreground">100% unverbindlich</p>
-                    <p className="text-[10px] text-muted-foreground">Kostenlose Beratung</p>
+                <div className="flex items-center gap-2 rounded-xl border border-border bg-card px-3 md:px-4 py-2.5 md:py-3 shadow-card">
+                  <Shield className="h-4 w-4 md:h-5 md:w-5 text-primary shrink-0" />
+                  <div className="min-w-0">
+                    <p className="text-[11px] md:text-xs font-bold text-foreground truncate">100% unverbindlich</p>
+                    <p className="text-[9px] md:text-[10px] text-muted-foreground">Kostenlose Beratung</p>
                   </div>
                 </div>
               </div>
 
-              <div className="space-y-4">
+              <div className="space-y-3 md:space-y-4">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full gradient-primary text-primary-foreground">
-                    <Phone className="h-4 w-4" />
+                  <div className="flex h-9 w-9 md:h-10 md:w-10 items-center justify-center rounded-full gradient-primary text-primary-foreground shrink-0">
+                    <Phone className="h-3.5 w-3.5 md:h-4 md:w-4" />
                   </div>
                   <div>
-                    <p className="text-xs text-muted-foreground">Telefonisch erreichbar</p>
+                    <p className="text-[10px] md:text-xs text-muted-foreground">Telefonisch erreichbar</p>
                     <a href="tel:+4942112345" className="text-sm font-bold text-foreground hover:text-primary transition-colors">0421 / 123 45</a>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full bg-accent text-accent-foreground">
-                    <Mail className="h-4 w-4" />
+                  <div className="flex h-9 w-9 md:h-10 md:w-10 items-center justify-center rounded-full bg-accent text-accent-foreground shrink-0">
+                    <Mail className="h-3.5 w-3.5 md:h-4 md:w-4" />
                   </div>
-                  <div>
-                    <p className="text-xs text-muted-foreground">E-Mail Kontakt</p>
-                    <a href="mailto:info@fahrschule-metropol.de" className="text-sm font-bold text-foreground hover:text-primary transition-colors">info@fahrschule-metropol.de</a>
+                  <div className="min-w-0">
+                    <p className="text-[10px] md:text-xs text-muted-foreground">E-Mail Kontakt</p>
+                    <a href="mailto:info@fahrschule-metropol.de" className="text-sm font-bold text-foreground hover:text-primary transition-colors truncate block">info@fahrschule-metropol.de</a>
                   </div>
                 </div>
               </div>
             </motion.div>
 
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.1 }} className="lg:col-span-3">
-              <div className="rounded-2xl border border-border bg-card p-8 shadow-card">
-                <h3 className="mb-2 text-lg font-bold text-foreground font-display">Unverbindliche Anfrage</h3>
-                <p className="mb-6 text-sm text-muted-foreground">
+              <div className="rounded-2xl border border-border bg-card p-5 md:p-8 shadow-card">
+                <h3 className="mb-1.5 md:mb-2 text-base md:text-lg font-bold text-foreground font-display">Unverbindliche Anfrage</h3>
+                <p className="mb-4 md:mb-6 text-xs md:text-sm text-muted-foreground">
                   Füll das Formular aus und wir melden uns bei dir – persönlich, nicht automatisch.
                 </p>
                 <ContactForm />
