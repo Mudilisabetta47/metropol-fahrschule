@@ -7,7 +7,7 @@ import { useCountUp } from "@/hooks/useCountUp";
 import SEO from "@/components/SEO";
 import heroImage from "@/assets/hero-driving.jpg";
 
-const locationPills = ["Bremen", "Garbsen", "Hannover"];
+const locationPills = ["Hannover", "Garbsen", "Bremen"];
 
 const features = [
   { icon: Heart, title: "Wir glauben an dich", desc: "Egal ob du nervös bist oder schon voller Vorfreude – wir nehmen uns Zeit für dich. Kein Druck, kein Stress. Nur du, dein Fahrlehrer und dein Tempo." },
@@ -17,15 +17,15 @@ const features = [
 
 const licenseClasses = [
   { icon: Car, label: "Klasse B", desc: "Dein Autoführerschein", path: "/fuehrerschein/klasse-b" },
-  { icon: Car, label: "B197 / B196", desc: "Automatik & 125ccm", path: "/fuehrerschein/klasse-b197" },
   { icon: Bike, label: "Klasse A", desc: "Freiheit auf zwei Rädern", path: "/fuehrerschein/klasse-a" },
-  { icon: Truck, label: "Klasse BE", desc: "PKW + Anhänger", path: "/fuehrerschein/klasse-be" },
+  { icon: Truck, label: "LKW (C/CE)", desc: "Güterverkehr & Logistik", path: "/fuehrerschein/klasse-c" },
+  { icon: Truck, label: "Bus (D)", desc: "Personenverkehr", path: "/fuehrerschein/klasse-d" },
 ];
 
 const locations = [
-  { name: "Bremen", addr: "Musterstraße 1, 28195 Bremen", path: "/standorte/bremen", desc: "Mitten im Herzen der Hansestadt – hier hat alles angefangen." },
-  { name: "Garbsen", addr: "Hauptstraße 10, 30823 Garbsen", path: "/standorte/garbsen", desc: "Familiäre Atmosphäre mit eigenem Übungsplatz." },
   { name: "Hannover", addr: "Georgstraße 5, 30159 Hannover", path: "/standorte/hannover", desc: "Zentral in der Landeshauptstadt – bestens erreichbar." },
+  { name: "Garbsen", addr: "Hauptstraße 10, 30823 Garbsen", path: "/standorte/garbsen", desc: "Familiäre Atmosphäre mit eigenem Übungsplatz." },
+  { name: "Bremen", addr: "Musterstraße 1, 28195 Bremen", path: "/standorte/bremen", desc: "Mitten im Herzen der Hansestadt – hier hat alles angefangen." },
 ];
 
 const trustItems = [
@@ -103,9 +103,9 @@ const Index = () => {
       email: "info@fahrschule-metropol.de",
       description: "Professionelle Fahrausbildung in Bremen, Garbsen und Hannover.",
       address: [
-        { "@type": "PostalAddress", streetAddress: "Musterstraße 1", addressLocality: "Bremen", postalCode: "28195", addressCountry: "DE" },
-        { "@type": "PostalAddress", streetAddress: "Hauptstraße 10", addressLocality: "Garbsen", postalCode: "30823", addressCountry: "DE" },
         { "@type": "PostalAddress", streetAddress: "Georgstraße 5", addressLocality: "Hannover", postalCode: "30159", addressCountry: "DE" },
+        { "@type": "PostalAddress", streetAddress: "Hauptstraße 10", addressLocality: "Garbsen", postalCode: "30823", addressCountry: "DE" },
+        { "@type": "PostalAddress", streetAddress: "Musterstraße 1", addressLocality: "Bremen", postalCode: "28195", addressCountry: "DE" },
       ],
       aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "347" },
     },
@@ -119,7 +119,7 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <SEO
-        title="Fahrschule Metropol – Dein Führerschein in Bremen, Garbsen & Hannover"
+        title="Fahrschule Metropol – Dein Führerschein in Hannover, Garbsen & Bremen"
         description="Endlich Führerschein! Bei Fahrschule Metropol lernst du in deinem Tempo, mit Fahrlehrern die dich verstehen. 98% bestehen beim ersten Mal."
         canonical="https://fahrschule-metropol.de/"
         jsonLd={seoJsonLd}
