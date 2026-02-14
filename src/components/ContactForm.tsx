@@ -113,8 +113,9 @@ const ContactForm = ({ preselectedLocation, compact }: ContactFormProps) => {
         </Label>
       </div>
       <Button type="submit" variant="cta" size="lg" disabled={loading} className="w-full sm:w-auto">
-        {loading ? "Wird gesendet…" : "Anfrage absenden"}
+        {loading ? "Wird gesendet…" : "Kostenlos beraten lassen ✨"}
       </Button>
+      <p className="text-xs text-muted-foreground/60 mt-1">Unverbindlich & kostenlos – wir melden uns innerhalb von 24h.</p>
     </form>
   );
 };
