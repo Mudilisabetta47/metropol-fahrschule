@@ -49,6 +49,36 @@ const classes = [
     gradient: "from-[hsl(134,100%,40%)] to-[hsl(160,85%,35%)]",
   },
   {
+    icon: Truck, name: "Klasse C", subtitle: "LKW über 3,5 t", slug: "klasse-c",
+    desc: "Der Einstieg in den Güterverkehr. Schwere Fahrzeuge ohne Limits.",
+    minAge: "ab 21", popular: false, cta: "C anfragen",
+    gradient: "from-[hsl(200,70%,40%)] to-[hsl(220,60%,35%)]",
+  },
+  {
+    icon: Truck, name: "Klasse CE", subtitle: "LKW + Anhänger / Sattelzug", slug: "klasse-ce",
+    desc: "Die Königsklasse. Sattelzüge und Gliederzüge ohne Beschränkung.",
+    minAge: "ab 21", popular: false, cta: "CE anfragen",
+    gradient: "from-[hsl(220,60%,35%)] to-[hsl(200,70%,40%)]",
+  },
+  {
+    icon: Truck, name: "Klasse C1", subtitle: "Leichte LKW bis 7,5 t", slug: "klasse-c1",
+    desc: "Perfekt für Lieferfahrzeuge und leichte LKW im Alltag.",
+    minAge: "ab 18", popular: false, cta: "C1 anfragen",
+    gradient: "from-[hsl(200,70%,40%)] to-[hsl(180,60%,35%)]",
+  },
+  {
+    icon: Truck, name: "Klasse D", subtitle: "Bus – alle Größen", slug: "klasse-d",
+    desc: "Dein Weg zum Busfahrer. Stadt- und Reisebusse ohne Limits.",
+    minAge: "ab 24", popular: false, cta: "D anfragen",
+    gradient: "from-[hsl(30,80%,50%)] to-[hsl(20,70%,45%)]",
+  },
+  {
+    icon: Truck, name: "Klasse DE", subtitle: "Bus mit Anhänger", slug: "klasse-de",
+    desc: "Bus mit schwerem Anhänger – für spezielle Einsätze.",
+    minAge: "ab 24", popular: false, cta: "DE anfragen",
+    gradient: "from-[hsl(20,70%,45%)] to-[hsl(30,80%,50%)]",
+  },
+  {
     icon: Car, name: "Klasse B196", subtitle: "125er mit Klasse B", slug: "klasse-b196",
     desc: "Erweitere dein B. 125ccm fahren – ganz ohne extra Prüfung.",
     minAge: "ab 25", popular: false, cta: "B196 anfragen",
@@ -90,7 +120,7 @@ const LicenseClasses = () => {
             >
               <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 backdrop-blur-sm">
                 <Sparkles className="h-3.5 w-3.5 text-primary" />
-                <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary">9 Klassen · 3 Standorte</span>
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary">14 Klassen · 3 Standorte</span>
               </div>
             </motion.div>
 
@@ -111,7 +141,7 @@ const LicenseClasses = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mb-10 max-w-xl text-lg text-primary-foreground/50 leading-relaxed"
             >
-              Auto, Motorrad oder Anhänger – jede Reise beginnt mit dem ersten Schritt. 
+              Auto, Motorrad, LKW, Bus oder Anhänger – jede Reise beginnt mit dem ersten Schritt. 
               Finde die Klasse, die zu deinem Leben passt.
             </motion.p>
 

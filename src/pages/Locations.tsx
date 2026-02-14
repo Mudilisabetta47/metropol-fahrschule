@@ -4,9 +4,9 @@ import { MapPin, ArrowRight } from "lucide-react";
 import SEO from "@/components/SEO";
 
 const locations = [
-  { name: "Bremen", addr: "Musterstraße 1, 28195 Bremen", desc: "Unser Hauptstandort im Herzen der Hansestadt – 15+ Jahre Erfahrung.", path: "/standorte/bremen" },
-  { name: "Garbsen", addr: "Hauptstraße 10, 30823 Garbsen", desc: "Familiäre Atmosphäre, eigener Übungsplatz, flexible Termine.", path: "/standorte/garbsen" },
   { name: "Hannover", addr: "Georgstraße 5, 30159 Hannover", desc: "Zentrale Lage in der Landeshauptstadt, auch Abendtermine.", path: "/standorte/hannover" },
+  { name: "Garbsen", addr: "Hauptstraße 10, 30823 Garbsen", desc: "Familiäre Atmosphäre, eigener Übungsplatz, flexible Termine.", path: "/standorte/garbsen" },
+  { name: "Bremen", addr: "Musterstraße 1, 28195 Bremen", desc: "Unser Hauptstandort im Herzen der Hansestadt – 15+ Jahre Erfahrung.", path: "/standorte/bremen" },
 ];
 
 const Locations = () => {

@@ -33,7 +33,7 @@ const Footer = () => {
               </div>
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Deine moderne Fahrschule in Bremen, Garbsen und Hannover. Professionelle Ausbildung seit über 15 Jahren.
+              Deine moderne Fahrschule in Hannover, Garbsen und Bremen. Professionelle Ausbildung seit über 15 Jahren.
             </p>
           </div>
 
@@ -59,9 +59,9 @@ const Footer = () => {
             <h4 className="mb-4 text-xs font-bold uppercase tracking-widest text-muted-foreground">Standorte</h4>
             <ul className="space-y-3 text-sm">
               {[
-                { name: "Bremen", addr: "Musterstraße 1, 28195 Bremen", path: "/standorte/bremen" },
-                { name: "Garbsen", addr: "Hauptstraße 10, 30823 Garbsen", path: "/standorte/garbsen" },
                 { name: "Hannover", addr: "Georgstraße 5, 30159 Hannover", path: "/standorte/hannover" },
+                { name: "Garbsen", addr: "Hauptstraße 10, 30823 Garbsen", path: "/standorte/garbsen" },
+                { name: "Bremen", addr: "Musterstraße 1, 28195 Bremen", path: "/standorte/bremen" },
               ].map((s) => (
                 <li key={s.name}>
                   <Link to={s.path} className="group flex gap-2 text-foreground/70 hover:text-primary transition-colors">
