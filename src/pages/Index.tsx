@@ -242,8 +242,8 @@ const Index = () => {
       </section>
 
       {/* Storytelling intro */}
-      <section className="py-24">
-        <div className="container mx-auto px-4">
+      <section className="relative py-24 bg-warm bg-driving-pattern overflow-hidden">
+        <div className="container relative z-10 mx-auto px-4">
           <div className="mx-auto max-w-3xl text-center">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -322,8 +322,9 @@ const Index = () => {
       </section>
 
       {/* Features / Why us */}
-      <section className="py-28">
-        <div className="container mx-auto px-4">
+      <section className="relative py-28 bg-warm bg-driving-pattern overflow-hidden">
+        <div className="absolute top-0 right-0 h-80 w-80 rounded-full bg-primary/5 blur-[100px]" />
+        <div className="container relative z-10 mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -415,8 +416,9 @@ const Index = () => {
       </section>
 
       {/* Locations */}
-      <section className="py-28">
-        <div className="container mx-auto px-4">
+      <section className="relative py-28 bg-warm bg-driving-pattern overflow-hidden">
+        <div className="absolute bottom-0 left-0 h-80 w-80 rounded-full bg-primary/5 blur-[100px]" />
+        <div className="container relative z-10 mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
