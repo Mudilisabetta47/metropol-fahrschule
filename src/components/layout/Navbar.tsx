@@ -3,7 +3,7 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
-
+import logoImage from "@/assets/logo.avif";
 const navLinks = [
   { label: "Startseite", num: "01", path: "/" },
   { label: "Führerschein", num: "02", path: "/fuehrerscheinklassen" },
@@ -41,31 +41,20 @@ const Navbar = () => {
 
         <div className="container mx-auto flex h-[72px] items-center justify-between px-4 lg:h-[80px]">
           {/* Logo - city skyline style like reference */}
-          <Link to="/" className="flex items-center gap-3 group">
-            <div className="flex items-end gap-[2px]">
-              {/* Stylized city skyline icon */}
-              <svg width="48" height="36" viewBox="0 0 48 36" fill="none" className="transition-transform duration-300 group-hover:scale-105">
-                {/* Buildings */}
-                <rect x="2" y="14" width="6" height="22" rx="1" className={showSolid ? "fill-foreground" : "fill-primary-foreground"} opacity="0.7" />
-                <rect x="10" y="6" width="5" height="30" rx="1" className={showSolid ? "fill-foreground" : "fill-primary-foreground"} opacity="0.85" />
-                <rect x="17" y="10" width="7" height="26" rx="1" className={showSolid ? "fill-foreground" : "fill-primary-foreground"} opacity="0.6" />
-                <rect x="26" y="2" width="5" height="34" rx="1" className={showSolid ? "fill-foreground" : "fill-primary-foreground"} opacity="0.9" />
-                <rect x="33" y="8" width="6" height="28" rx="1" className={showSolid ? "fill-foreground" : "fill-primary-foreground"} opacity="0.75" />
-                <rect x="41" y="16" width="5" height="20" rx="1" className={showSolid ? "fill-foreground" : "fill-primary-foreground"} opacity="0.5" />
-                {/* Antenna / spire */}
-                <rect x="28" y="0" width="1" height="4" className="fill-primary" />
-                <circle cx="28.5" cy="0" r="1" className="fill-primary" />
-                {/* Windows */}
-                <rect x="11.5" y="10" width="2" height="2" rx="0.5" className="fill-primary" opacity="0.8" />
-                <rect x="11.5" y="15" width="2" height="2" rx="0.5" className="fill-primary" opacity="0.6" />
-                <rect x="27" y="6" width="2" height="2" rx="0.5" className="fill-primary" opacity="0.8" />
-                <rect x="27" y="11" width="2" height="2" rx="0.5" className="fill-primary" opacity="0.6" />
-                <rect x="34.5" y="12" width="2" height="2" rx="0.5" className="fill-primary" opacity="0.7" />
-              </svg>
-            </div>
+          <Link to="/" className="flex items-center group">
+            <img
+              src={logoImage}
+              alt="Fahrschule Metropol Logo"
+              className={`h-12 w-auto transition-all duration-300 group-hover:scale-105 ${
+                showSolid ? "" : "brightness-0 invert"
+              }`}
+            />
           </Link>
 
-          {/* Desktop Nav - numbered items like reference */}
+          {/* Spacer */}
+          <div className="flex-1" />
+
+          {/* Desktop Nav - right aligned, numbered items */}
           <nav className="hidden items-center gap-1 lg:flex">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.path;
@@ -87,7 +76,6 @@ const Navbar = () => {
                   }`}>
                     {link.num}
                   </sup>
-                  {/* Active underline */}
                   {isActive && (
                     <motion.div
                       layoutId="nav-underline"
