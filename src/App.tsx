@@ -19,6 +19,8 @@ import Hannover from "./pages/locations/Hannover";
 import Auth from "./pages/Auth";
 import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
+import ErsteHilfe from "./pages/ErsteHilfe";
+import Aufbauseminar from "./pages/Aufbauseminar";
 
 const queryClient = new QueryClient();
 
@@ -42,6 +44,8 @@ const App = () => (
             <Route path="/standorte/bremen" element={<Bremen />} />
             <Route path="/standorte/garbsen" element={<Garbsen />} />
             <Route path="/standorte/hannover" element={<Hannover />} />
+            <Route path="/erste-hilfe" element={<ErsteHilfe />} />
+            <Route path="/aufbauseminar" element={<Aufbauseminar />} />
             <Route path="/login" element={<Auth />} />
             <Route path="/dashboard" element={<Dashboard />} />
             <Route path="*" element={<NotFound />} />
