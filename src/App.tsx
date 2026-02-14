@@ -29,7 +29,7 @@ const App = () => (
       <Sonner />
       <BrowserRouter>
         <Navbar />
-        <main>
+        <main className="bg-driving-pattern">
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/ueber-uns" element={<About />} />
