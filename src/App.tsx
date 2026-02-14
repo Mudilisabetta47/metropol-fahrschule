@@ -34,7 +34,7 @@ const App = () => (
             <Route path="/" element={<Index />} />
             <Route path="/ueber-uns" element={<About />} />
             <Route path="/fuehrerscheinklassen" element={<LicenseClasses />} />
-            <Route path="/fuehrerschein-:slug" element={<LicenseClassDetail />} />
+            <Route path="/fuehrerschein/:slug" element={<LicenseClassDetail />} />
             <Route path="/preise" element={<Prices />} />
             <Route path="/faq" element={<FAQ />} />
             <Route path="/kontakt" element={<Contact />} />

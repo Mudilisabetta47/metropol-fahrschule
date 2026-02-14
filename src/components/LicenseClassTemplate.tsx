@@ -46,7 +46,7 @@ const LicenseClassPage = ({ data }: Props) => {
       <SEO
         title={data.seoTitle}
         description={data.seoDescription}
-        canonical={`https://fahrschule-metropol.de/fuehrerschein-${data.slug}`}
+        canonical={`https://fahrschule-metropol.de/fuehrerschein/${data.slug}`}
         jsonLd={[jsonLd, faqJsonLd]}
       />
 

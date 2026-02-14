@@ -16,10 +16,10 @@ const features = [
 ];
 
 const licenseClasses = [
-  { icon: Car, label: "Klasse B", desc: "Dein Autoführerschein", path: "/fuehrerschein-klasse-b" },
-  { icon: Car, label: "B197 / B196", desc: "Automatik & 125ccm", path: "/fuehrerschein-klasse-b197" },
-  { icon: Bike, label: "Klasse A", desc: "Freiheit auf zwei Rädern", path: "/fuehrerschein-klasse-a" },
-  { icon: Truck, label: "Klasse BE", desc: "PKW + Anhänger", path: "/fuehrerschein-klasse-be" },
+  { icon: Car, label: "Klasse B", desc: "Dein Autoführerschein", path: "/fuehrerschein/klasse-b" },
+  { icon: Car, label: "B197 / B196", desc: "Automatik & 125ccm", path: "/fuehrerschein/klasse-b197" },
+  { icon: Bike, label: "Klasse A", desc: "Freiheit auf zwei Rädern", path: "/fuehrerschein/klasse-a" },
+  { icon: Truck, label: "Klasse BE", desc: "PKW + Anhänger", path: "/fuehrerschein/klasse-be" },
 ];
 
 const locations = [
