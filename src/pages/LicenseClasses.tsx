@@ -2,7 +2,8 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Car, Bike, Truck, ChevronRight, ArrowRight, Sparkles, Zap, Shield, Clock } from "lucide-react";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { Car, Bike, Truck, Bus, ChevronRight, ArrowRight, Sparkles, Zap, Shield, Clock } from "lucide-react";
 import SEO from "@/components/SEO";
 import classPkw from "@/assets/class-pkw.jpg";
 import classMotorrad from "@/assets/class-motorrad.jpg";
@@ -244,7 +245,7 @@ const LicenseClasses = () => {
             ))}
           </div>
 
-          {/* All other classes */}
+          {/* All other classes - grouped by category */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -254,49 +255,61 @@ const LicenseClasses = () => {
             <span className="text-xs font-bold uppercase tracking-[0.2em] text-primary">Alle Klassen</span>
           </motion.div>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {classes.filter(c => !c.popular).map((c, i) => (
-              <motion.div
-                key={c.slug}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.06, duration: 0.5 }}
-              >
-                <Link to={`/fuehrerschein/${c.slug}`} className="block h-full">
-                  <div className="group relative h-full overflow-hidden rounded-2xl border border-border bg-card transition-all duration-500 hover:-translate-y-1.5 hover:border-primary/30 hover:shadow-card-hover">
-                    {/* Small image strip */}
-                    <div className="relative h-32 overflow-hidden">
-                      <img 
-                        src={categoryImages[c.category]} 
-                        alt={c.name}
-                        className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-card via-card/30 to-transparent" />
-                    </div>
-
-                    <div className="relative z-10 p-7 pt-3">
-                      {/* Subtle glow */}
-                      <div className={`absolute -top-16 -right-16 h-32 w-32 rounded-full bg-gradient-to-br ${c.gradient} opacity-0 blur-[60px] transition-opacity duration-700 group-hover:opacity-15`} />
-
-                      <div className="mb-0.5 text-[10px] font-bold uppercase tracking-wider text-muted-foreground/40">
-                        {c.minAge}
+          <Accordion type="multiple" className="space-y-4">
+            {[
+              { key: "bike", label: "Motorrad & Roller", icon: Bike, image: classMotorrad },
+              { key: "car", label: "PKW & Anhänger", icon: Car, image: classPkw },
+              { key: "truck", label: "LKW & Nutzfahrzeuge", icon: Truck, image: classLkw },
+              { key: "bus", label: "Bus", icon: Truck, image: classBus },
+            ].map((cat) => {
+              const catClasses = classes.filter(c => !c.popular && c.category === cat.key);
+              if (catClasses.length === 0) return null;
+              return (
+                <motion.div
+                  key={cat.key}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                >
+                  <AccordionItem value={cat.key} className="overflow-hidden rounded-2xl border border-border bg-card">
+                    <AccordionTrigger className="px-6 py-5 hover:no-underline hover:bg-muted/30 transition-colors">
+                      <div className="flex items-center gap-4">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10">
+                          <cat.icon className="h-6 w-6 text-primary" />
+                        </div>
+                        <div className="text-left">
+                          <h3 className="text-lg font-extrabold text-foreground font-display">{cat.label}</h3>
+                          <p className="text-xs text-muted-foreground">{catClasses.length} Klassen verfügbar</p>
+                        </div>
                       </div>
-                      <h3 className="mb-1 text-lg font-extrabold text-foreground font-display">{c.name}</h3>
-                      <p className="mb-2 text-xs font-semibold text-primary">{c.subtitle}</p>
-                      <p className="mb-5 text-sm text-muted-foreground leading-relaxed">{c.desc}</p>
-
-                      <div className="flex items-center justify-between">
-                        <span className="inline-flex items-center gap-1.5 text-xs font-bold text-primary opacity-60 transition-all duration-300 group-hover:opacity-100 group-hover:gap-2.5">
-                          {c.cta} <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
-                        </span>
+                    </AccordionTrigger>
+                    <AccordionContent>
+                      <div className="grid gap-4 px-6 pb-6 sm:grid-cols-2 lg:grid-cols-3">
+                        {catClasses.map((c) => (
+                          <Link key={c.slug} to={`/fuehrerschein/${c.slug}`} className="block h-full">
+                            <div className="group relative h-full overflow-hidden rounded-xl border border-border bg-background transition-all duration-500 hover:-translate-y-1.5 hover:border-primary/30 hover:shadow-card-hover">
+                              <div className="relative z-10 p-5">
+                                <div className={`absolute -top-16 -right-16 h-32 w-32 rounded-full bg-gradient-to-br ${c.gradient} opacity-0 blur-[60px] transition-opacity duration-700 group-hover:opacity-15`} />
+                                <div className="mb-0.5 text-[10px] font-bold uppercase tracking-wider text-muted-foreground/40">
+                                  {c.minAge}
+                                </div>
+                                <h3 className="mb-1 text-lg font-extrabold text-foreground font-display">{c.name}</h3>
+                                <p className="mb-2 text-xs font-semibold text-primary">{c.subtitle}</p>
+                                <p className="mb-4 text-sm text-muted-foreground leading-relaxed">{c.desc}</p>
+                                <span className="inline-flex items-center gap-1.5 text-xs font-bold text-primary opacity-60 transition-all duration-300 group-hover:opacity-100 group-hover:gap-2.5">
+                                  {c.cta} <ArrowRight className="h-3.5 w-3.5 transition-transform duration-300 group-hover:translate-x-1" />
+                                </span>
+                              </div>
+                            </div>
+                          </Link>
+                        ))}
                       </div>
-                    </div>
-                  </div>
-                </Link>
-              </motion.div>
-            ))}
-          </div>
+                    </AccordionContent>
+                  </AccordionItem>
+                </motion.div>
+              );
+            })}
+          </Accordion>
         </div>
       </section>
 
