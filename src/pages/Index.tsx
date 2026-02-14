@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { GraduationCap, Car, CalendarCheck, MapPin, ArrowRight, Shield, Users, Star, ChevronDown, ChevronRight, Phone, CheckCircle } from "lucide-react";
+import { Car, Bike, Truck, CalendarCheck, MapPin, ArrowRight, Shield, Users, Star, ChevronDown, ChevronRight, Phone, CheckCircle, Gauge, Route, BadgeCheck } from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { useCountUp } from "@/hooks/useCountUp";
@@ -10,9 +10,16 @@ import heroImage from "@/assets/hero-driving.jpg";
 const locationPills = ["Bremen", "Garbsen", "Hannover"];
 
 const features = [
-  { icon: GraduationCap, title: "Professionelle Ausbildung", desc: "Erfahrene Fahrlehrer begleiten dich sicher zum Führerschein – mit modernsten Lehrmethoden und individueller Betreuung." },
-  { icon: Car, title: "Moderne Fahrzeuge", desc: "Unsere Flotte besteht aus aktuellen Modellen mit modernster Sicherheitsausstattung und Doppelbedienung." },
-  { icon: CalendarCheck, title: "Flexible Termine", desc: "Fahrstunden, die sich deinem Alltag anpassen – auch abends und am Wochenende verfügbar." },
+  { icon: Gauge, title: "Theorie & Praxis", desc: "Modernster Theorieunterricht mit App-Unterstützung und praxisnahe Fahrstunden auf echten Prüfungsstrecken." },
+  { icon: Car, title: "Moderne Fahrschulwagen", desc: "Doppelbediente Fahrzeuge der neuesten Generation – VW, BMW & Mercedes mit modernster Sicherheitsausstattung." },
+  { icon: CalendarCheck, title: "Flexible Fahrstunden", desc: "Fahrstunden, die sich deinem Alltag anpassen – auch abends und am Wochenende. Online-Buchung möglich." },
+];
+
+const licenseClasses = [
+  { icon: Car, label: "Klasse B", desc: "PKW-Führerschein", path: "/fuehrerscheinklassen" },
+  { icon: Car, label: "B197 / B196", desc: "Automatik & 125ccm", path: "/fuehrerscheinklassen" },
+  { icon: Bike, label: "Klasse A", desc: "Motorrad", path: "/fuehrerscheinklassen" },
+  { icon: Truck, label: "Klasse BE", desc: "Anhänger", path: "/fuehrerscheinklassen" },
 ];
 
 const locations = [
@@ -23,9 +30,9 @@ const locations = [
 
 const trustItems = [
   { icon: CheckCircle, text: "TÜV-geprüfte Ausbildung" },
-  { icon: CheckCircle, text: "Hohe Erstbestehensquote" },
-  { icon: CheckCircle, text: "Keine versteckten Kosten" },
-  { icon: CheckCircle, text: "Individuelle Betreuung" },
+  { icon: BadgeCheck, text: "Hohe Erstbestehensquote" },
+  { icon: Route, text: "Prüfungsstrecken-Training" },
+  { icon: Shield, text: "Keine versteckten Kosten" },
 ];
 
 const AnimatedPills = () => {
@@ -48,7 +55,7 @@ const AnimatedPills = () => {
             i === active ? "gradient-primary text-primary-foreground shadow-cta" : "bg-primary-foreground/10 text-primary-foreground/70 backdrop-blur-sm"
           }`}
         >
-          {l}
+          <MapPin className="inline h-3.5 w-3.5 mr-1 -mt-0.5" />{l}
         </motion.span>
       ))}
     </div>
@@ -129,9 +136,9 @@ const Index = () => {
               transition={{ duration: 0.7, delay: 0.3 }}
               className="mb-6 text-5xl font-extrabold leading-[1.08] text-primary-foreground font-display md:text-7xl lg:text-8xl"
             >
-              Dein Weg
+              Führerschein
               <br />
-              <span className="gradient-text">zur Freiheit.</span>
+              <span className="gradient-text">machen.</span>
             </motion.h1>
 
             <motion.p
@@ -140,7 +147,7 @@ const Index = () => {
               transition={{ duration: 0.6, delay: 0.5 }}
               className="mb-10 max-w-xl text-lg text-primary-foreground/60 leading-relaxed md:text-xl"
             >
-              Professionelle Fahrausbildung mit modernsten Methoden, persönlicher Betreuung und flexiblen Terminen – an 3 Standorten.
+              Deine Fahrschule in Bremen, Garbsen & Hannover. PKW, Motorrad oder Anhänger – wir bringen dich sicher durch Theorie & Praxis.
             </motion.p>
 
             <motion.div
@@ -213,8 +220,61 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Features */}
-      <section className="py-28">
+      {/* License Classes Quick Access */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-12 text-center"
+          >
+            <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">Führerscheinklassen</span>
+            <h2 className="text-3xl font-extrabold text-foreground font-display md:text-5xl">
+              Welchen Führerschein brauchst du?
+            </h2>
+          </motion.div>
+
+          <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
+            {licenseClasses.map((lc, i) => (
+              <motion.div
+                key={lc.label}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.08 }}
+              >
+                <Link
+                  to={lc.path}
+                  className="group flex flex-col items-center gap-3 rounded-3xl border border-border bg-card p-6 text-center shadow-card transition-all duration-500 hover:shadow-card-hover hover:-translate-y-1"
+                >
+                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-accent text-accent-foreground transition-all duration-500 group-hover:gradient-primary group-hover:text-primary-foreground group-hover:shadow-glow group-hover:scale-110">
+                    <lc.icon className="h-7 w-7" />
+                  </div>
+                  <div>
+                    <div className="text-lg font-bold text-foreground font-display">{lc.label}</div>
+                    <div className="text-xs text-muted-foreground">{lc.desc}</div>
+                  </div>
+                </Link>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="mt-8 text-center"
+          >
+            <Link to="/fuehrerscheinklassen" className="inline-flex items-center gap-1.5 text-sm font-bold text-primary hover:gap-2.5 transition-all">
+              Alle Klassen ansehen <ArrowRight className="h-4 w-4" />
+            </Link>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Features / Why us */}
+      <section className="gradient-section py-28">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -222,9 +282,9 @@ const Index = () => {
             viewport={{ once: true }}
             className="mb-16 max-w-2xl"
           >
-            <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">Warum Metropol</span>
+            <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">Deine Fahrschule</span>
             <h2 className="text-3xl font-extrabold text-foreground font-display md:text-5xl">
-              Deine Vorteile bei uns
+              So läuft's bei Metropol
             </h2>
           </motion.div>
 
@@ -250,7 +310,7 @@ const Index = () => {
       </section>
 
       {/* Locations */}
-      <section className="gradient-section py-28">
+      <section className="py-28">
         <div className="container mx-auto px-4">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -293,6 +353,53 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Ablauf / How it works */}
+      <section className="gradient-section py-28">
+        <div className="container mx-auto px-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mb-16 text-center"
+          >
+            <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">In 4 Schritten</span>
+            <h2 className="text-3xl font-extrabold text-foreground font-display md:text-5xl">
+              Dein Weg zum Führerschein
+            </h2>
+          </motion.div>
+
+          <div className="relative grid gap-6 md:grid-cols-4">
+            {/* Connecting road line */}
+            <div className="absolute top-12 left-[12.5%] right-[12.5%] hidden h-0.5 bg-border md:block">
+              <div className="absolute inset-0 gradient-primary opacity-30" />
+              <div className="absolute top-1/2 left-0 h-3 w-3 -translate-y-1/2 rounded-full bg-primary shadow-glow" />
+              <div className="absolute top-1/2 right-0 h-3 w-3 -translate-y-1/2 rounded-full bg-primary shadow-glow" />
+            </div>
+            {[
+              { step: "01", title: "Anmelden", desc: "Online oder vor Ort – schnell & unkompliziert." },
+              { step: "02", title: "Theorie lernen", desc: "Theorieunterricht + Lern-App für die Theorieprüfung." },
+              { step: "03", title: "Fahrstunden", desc: "Übungs- und Sonderfahrten mit deinem Fahrlehrer." },
+              { step: "04", title: "Prüfung bestehen", desc: "Theorie- & Praxisprüfung – und der Lappen ist deiner!" },
+            ].map((s, i) => (
+              <motion.div
+                key={s.step}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.12 }}
+                className="relative text-center"
+              >
+                <div className="relative z-10 mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-card border border-border shadow-card">
+                  <span className="text-lg font-extrabold text-primary font-display">{s.step}</span>
+                </div>
+                <h3 className="mb-1 text-lg font-bold text-foreground font-display">{s.title}</h3>
+                <p className="text-sm text-muted-foreground">{s.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="relative overflow-hidden gradient-dark py-28 noise">
         <div className="container relative z-10 mx-auto px-4 text-center">
@@ -308,7 +415,7 @@ const Index = () => {
               <span className="gradient-text">Führerschein?</span>
             </h2>
             <p className="mx-auto mb-10 max-w-xl text-lg text-primary-foreground/50">
-              Starte jetzt deine Ausbildung. Unser Team freut sich auf dich – an allen Standorten.
+              Starte jetzt deine Ausbildung bei Fahrschule Metropol – an allen 3 Standorten. Theorie, Praxis & Prüfung aus einer Hand.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button variant="hero" asChild>
@@ -317,12 +424,11 @@ const Index = () => {
                 </Link>
               </Button>
               <Button variant="hero-outline" asChild>
-                <Link to="/standorte">Standorte ansehen</Link>
+                <Link to="/fuehrerscheinklassen">Führerscheinklassen</Link>
               </Button>
             </div>
           </motion.div>
         </div>
-        {/* Decorative glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-96 w-96 rounded-full bg-primary/10 blur-[120px]" />
       </section>
     </div>

@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Phone, ChevronRight } from "lucide-react";
+import { Menu, X, Phone, ChevronRight, Car } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
@@ -44,7 +44,7 @@ const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 group">
             <div className="relative flex h-11 w-11 items-center justify-center rounded-2xl gradient-primary shadow-cta transition-all duration-300 group-hover:shadow-glow group-hover:scale-105">
-              <span className="text-xl font-black text-primary-foreground font-display">M</span>
+              <Car className="h-5 w-5 text-primary-foreground" />
             </div>
             <div className="flex flex-col leading-tight">
               <span className={`text-[17px] font-extrabold tracking-tight transition-colors font-display ${
