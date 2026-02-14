@@ -1,16 +1,24 @@
 import { motion } from "framer-motion";
-import { MapPin, Phone, Mail, Clock } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, ChevronRight } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
+import SEO from "@/components/SEO";
 
 const Contact = () => {
   return (
-    <div className="min-h-screen">
-      <section className="gradient-dark py-20">
-        <div className="container mx-auto px-4 text-center">
+    <div className="min-h-screen pt-20">
+      <SEO
+        title="Kontakt & Anmeldung – Fahrschule Metropol | Jetzt anmelden"
+        description="Melde dich jetzt bei Fahrschule Metropol an. Kontaktformular, Telefon & E-Mail. Standorte in Bremen, Garbsen und Hannover."
+        canonical="https://fahrschule-metropol.de/kontakt"
+      />
+
+      <section className="gradient-dark py-20 noise relative overflow-hidden">
+        <div className="container relative z-10 mx-auto px-4 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-            <h1 className="text-4xl font-extrabold text-primary-foreground md:text-5xl">Kontakt & Anmeldung</h1>
-            <p className="mx-auto mt-4 max-w-2xl text-lg text-primary-foreground/70">
-              Melde dich an oder stelle uns deine Fragen – wir freuen uns auf dich!
+            <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">Kontakt</span>
+            <h1 className="text-4xl font-extrabold text-primary-foreground font-display md:text-6xl">Jetzt anmelden</h1>
+            <p className="mx-auto mt-4 max-w-2xl text-lg text-primary-foreground/50">
+              Fülle das Formular aus oder ruf uns direkt an – wir freuen uns auf dich!
             </p>
           </motion.div>
         </div>
@@ -18,32 +26,66 @@ const Contact = () => {
 
       <section className="py-24">
         <div className="container mx-auto px-4">
-          <div className="grid gap-12 lg:grid-cols-5">
-            <div className="lg:col-span-3">
-              <div className="rounded-2xl border border-border bg-card p-8 shadow-card">
-                <h2 className="mb-2 text-2xl font-bold text-foreground">Anmeldeformular</h2>
-                <p className="mb-6 text-sm text-muted-foreground">Fülle das Formular aus – wir melden uns schnellstmöglich bei dir.</p>
+          <div className="grid gap-10 lg:grid-cols-5">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="lg:col-span-3"
+            >
+              <div className="rounded-3xl border border-border bg-card p-8 shadow-card">
+                <h2 className="mb-2 text-2xl font-bold text-foreground font-display">Anmeldeformular</h2>
+                <p className="mb-6 text-sm text-muted-foreground">Pflichtfelder sind mit * gekennzeichnet. Wir melden uns schnellstmöglich.</p>
                 <ContactForm />
               </div>
-            </div>
+            </motion.div>
 
-            <div className="space-y-6 lg:col-span-2">
-              <div className="rounded-2xl border border-border bg-card p-8 shadow-card">
-                <h3 className="mb-4 text-lg font-bold text-foreground">Kontaktdaten</h3>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="space-y-5 lg:col-span-2"
+            >
+              <div className="rounded-3xl border border-border bg-card p-8 shadow-card">
+                <h3 className="mb-5 text-lg font-bold text-foreground font-display">Direkter Kontakt</h3>
                 <ul className="space-y-4 text-sm">
-                  <li className="flex items-center gap-3"><Phone className="h-5 w-5 text-primary" /><span className="text-foreground">0421 / 123 45</span></li>
-                  <li className="flex items-center gap-3"><Mail className="h-5 w-5 text-primary" /><span className="text-foreground">info@fahrschule-metropol.de</span></li>
-                  <li className="flex items-start gap-3"><Clock className="mt-0.5 h-5 w-5 text-primary" /><div className="text-foreground">Mo–Fr: 9:00–18:00<br />Sa: 10:00–14:00</div></li>
+                  <li className="flex items-center gap-3">
+                    <Phone className="h-5 w-5 text-primary" />
+                    <a href="tel:+4942112345" className="text-foreground font-medium hover:text-primary transition-colors">0421 / 123 45</a>
+                  </li>
+                  <li className="flex items-center gap-3">
+                    <Mail className="h-5 w-5 text-primary" />
+                    <a href="mailto:info@fahrschule-metropol.de" className="text-foreground font-medium hover:text-primary transition-colors">info@fahrschule-metropol.de</a>
+                  </li>
+                  <li className="flex items-start gap-3">
+                    <Clock className="mt-0.5 h-5 w-5 text-primary" />
+                    <div className="text-foreground">Mo–Fr: 9:00–18:00<br />Sa: 10:00–14:00</div>
+                  </li>
                 </ul>
               </div>
 
-              {["Bremen – Musterstraße 1", "Garbsen – Hauptstraße 10", "Hannover – Georgstraße 5"].map((loc) => (
-                <div key={loc} className="flex items-start gap-3 rounded-xl border border-border bg-card p-4 shadow-card">
+              <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground pt-2">Unsere Standorte</h3>
+              {[
+                { name: "Bremen", addr: "Musterstraße 1, 28195", path: "/standorte/bremen" },
+                { name: "Garbsen", addr: "Hauptstraße 10, 30823", path: "/standorte/garbsen" },
+                { name: "Hannover", addr: "Georgstraße 5, 30159", path: "/standorte/hannover" },
+              ].map((loc) => (
+                <a
+                  key={loc.name}
+                  href={loc.path}
+                  className="group flex items-start gap-3 rounded-2xl border border-border bg-card p-4 shadow-card transition-all hover:shadow-card-hover hover:-translate-y-0.5"
+                >
                   <MapPin className="mt-0.5 h-5 w-5 text-primary" />
-                  <span className="text-sm font-medium text-foreground">{loc}</span>
-                </div>
+                  <div className="flex-1">
+                    <span className="font-bold text-foreground font-display text-sm">{loc.name}</span>
+                    <br />
+                    <span className="text-xs text-muted-foreground">{loc.addr}</span>
+                  </div>
+                  <ChevronRight className="h-4 w-4 text-muted-foreground/50 mt-1 transition-transform group-hover:translate-x-0.5" />
+                </a>
               ))}
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
