@@ -29,7 +29,7 @@ const locations = [
 ];
 
 const trustItems = [
-  { icon: CheckCircle, text: "TÜV-geprüfte Ausbildung" },
+  { icon: CheckCircle, text: "Zertifizierte Ausbildung" },
   { icon: BadgeCheck, text: "Hohe Erstbestehensquote" },
   { icon: Route, text: "Prüfungsstrecken-Training" },
   { icon: Shield, text: "Keine versteckten Kosten" },
