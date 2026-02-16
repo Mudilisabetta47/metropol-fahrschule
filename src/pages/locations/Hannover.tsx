@@ -1,4 +1,5 @@
 import LocationTemplate from "@/components/LocationTemplate";
+import locationImage from "@/assets/location-hannover.jpg";
 
 const Hannover = () => (
   <LocationTemplate
@@ -15,6 +16,7 @@ const Hannover = () => (
       mapsLink: "https://www.google.com/maps/dir//Georgstraße+5,+30159+Hannover",
       seoTitle: "Fahrschule Hannover – Fahrschule Metropol | Zentral & Flexibel",
       seoDescription: "Fahrschule Metropol Hannover: Zentrale Lage an der Georgstraße. Flexible Zeiten bis 19 Uhr, alle Klassen. 98% Bestehensquote. Jetzt anmelden!",
+      image: locationImage,
     }}
   />
 );

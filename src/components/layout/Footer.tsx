@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
-import { MapPin, Phone, Mail, Clock, ArrowUpRight, Car } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, ArrowUpRight } from "lucide-react";
+import logoImage from "@/assets/logo.avif";
 
 const Footer = () => {
   return (
@@ -23,17 +24,15 @@ const Footer = () => {
       <div className="container mx-auto px-4 py-16">
         <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
           <div>
-            <div className="mb-5 flex items-center gap-2.5">
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl gradient-primary">
-                <Car className="h-4 w-4 text-primary-foreground" />
-              </div>
-              <div className="flex flex-col leading-none">
-                <span className="text-base font-bold text-foreground">Fahrschule</span>
-                <span className="text-xs font-bold text-primary tracking-wide">METROPOL</span>
-              </div>
+            <div className="mb-5">
+              <img
+                src={logoImage}
+                alt="Fahrschule Metropol Logo"
+                className="h-16 w-auto brightness-0"
+              />
             </div>
             <p className="text-sm text-muted-foreground leading-relaxed">
-              Deine moderne Fahrschule in Hannover, Garbsen und Bremen. Professionelle Ausbildung seit über 15 Jahren.
+              Deine moderne Fahrschule in Hannover, Garbsen und Bremen. Professionelle Ausbildung seit über 20 Jahren.
             </p>
           </div>
 

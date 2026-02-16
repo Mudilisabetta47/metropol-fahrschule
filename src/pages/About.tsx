@@ -7,9 +7,9 @@ import SEO from "@/components/SEO";
 
 const values = [
   { icon: Heart, title: "Leidenschaft", desc: "Wir lieben, was wir tun – und das spürt jeder Fahrschüler bei jeder Fahrstunde." },
-  { icon: Target, title: "Qualität", desc: "Höchste Ausbildungsstandards, TÜV-geprüft, mit individuellem Lernplan." },
+  { icon: Target, title: "Qualität", desc: "Höchste Ausbildungsstandards mit individuellem Lernplan." },
   { icon: Users, title: "Teamgeist", desc: "Ein motiviertes Team aus erfahrenen Fahrlehrerinnen und Fahrlehrern." },
-  { icon: Award, title: "Erfahrung", desc: "Über 15 Jahre Erfahrung und mehr als 5.000 erfolgreiche Fahrschüler." },
+  { icon: Award, title: "Erfahrung", desc: "Über 20 Jahre Erfahrung und mehr als 5.000 erfolgreiche Fahrschüler." },
 ];
 
 const About = () => {
@@ -17,7 +17,7 @@ const About = () => {
     <div className="min-h-screen pt-20">
       <SEO
         title="Über uns – Fahrschule Metropol | Dein Team in Bremen, Garbsen & Hannover"
-        description="Lerne das Team hinter Fahrschule Metropol kennen. Über 15 Jahre Erfahrung, 5.000+ erfolgreiche Schüler, 3 Standorte."
+        description="Lerne das Team hinter Fahrschule Metropol kennen. Über 20 Jahre Erfahrung, 5.000+ erfolgreiche Schüler, 3 Standorte."
         canonical="https://fahrschule-metropol.de/ueber-uns"
       />
 
@@ -27,7 +27,7 @@ const About = () => {
             <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">Über uns</span>
             <h1 className="text-4xl font-extrabold text-primary-foreground font-display md:text-6xl">Wer wir sind</h1>
             <p className="mx-auto mt-4 max-w-2xl text-lg text-primary-foreground/50">
-              Seit über 15 Jahren bilden wir Fahrschüler erfolgreich aus – mit Herz, Erfahrung und modernster Technik.
+              Seit über 20 Jahren bilden wir Fahrschüler erfolgreich aus – mit Herz, Erfahrung und modernster Technik.
             </p>
           </motion.div>
         </div>
@@ -37,7 +37,7 @@ const About = () => {
         <div className="container mx-auto px-4">
           <div className="mx-auto max-w-3xl space-y-6 text-muted-foreground leading-relaxed">
             <motion.p initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <strong className="text-foreground font-display">Fahrschule Metropol</strong> steht seit über 15 Jahren für erstklassige Fahrausbildung in Norddeutschland.
+              <strong className="text-foreground font-display">Fahrschule Metropol</strong> steht seit über 20 Jahren für erstklassige Fahrausbildung in Norddeutschland.
               An unseren drei Standorten in <Link to="/standorte/bremen" className="text-primary font-medium hover:underline">Bremen</Link>,{" "}
               <Link to="/standorte/garbsen" className="text-primary font-medium hover:underline">Garbsen</Link> und{" "}
               <Link to="/standorte/hannover" className="text-primary font-medium hover:underline">Hannover</Link> bilden wir jährlich hunderte Fahrschüler erfolgreich aus.

@@ -91,7 +91,7 @@ const Index = () => {
 
   const stat1 = useCountUp(5000, 2000);
   const stat2 = useCountUp(98, 1800);
-  const stat3 = useCountUp(15, 1500);
+  const stat3 = useCountUp(20, 1500);
 
   const seoJsonLd = [
     {

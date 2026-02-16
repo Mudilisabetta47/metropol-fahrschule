@@ -16,6 +16,7 @@ interface LocationData {
   mapsLink: string;
   seoTitle: string;
   seoDescription: string;
+  image?: string;
 }
 
 const LocationTemplate = ({ data }: { data: LocationData }) => {
@@ -53,7 +54,19 @@ const LocationTemplate = ({ data }: { data: LocationData }) => {
     <div className="min-h-screen pt-20">
       <SEO title={data.seoTitle} description={data.seoDescription} canonical={`https://fahrschule-metropol.de/standorte/${data.name.toLowerCase()}`} jsonLd={jsonLd} />
 
-      <section className="gradient-dark py-20 noise relative overflow-hidden">
+      <section className="relative py-20 overflow-hidden">
+        {data.image && (
+          <>
+            <img
+              src={data.image}
+              alt={`Fahrschule Metropol Standort ${data.name}`}
+              className="absolute inset-0 h-full w-full object-cover"
+              loading="eager"
+            />
+            <div className="hero-overlay absolute inset-0 noise" />
+          </>
+        )}
+        {!data.image && <div className="absolute inset-0 gradient-dark noise" />}
         <div className="container relative z-10 mx-auto px-4 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">Standort</span>
