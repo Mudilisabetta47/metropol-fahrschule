@@ -58,9 +58,9 @@ const Footer = () => {
             <h4 className="mb-4 text-xs font-bold uppercase tracking-widest text-muted-foreground">Standorte</h4>
             <ul className="space-y-3 text-sm">
               {[
-                { name: "Hannover", addr: "Georgstraße 5, 30159 Hannover", path: "/standorte/hannover" },
-                { name: "Garbsen", addr: "Hauptstraße 10, 30823 Garbsen", path: "/standorte/garbsen" },
-                { name: "Bremen", addr: "Musterstraße 1, 28195 Bremen", path: "/standorte/bremen" },
+                { name: "Hannover", addr: "Vahrenwalder Str. 213, 30165 Hannover", path: "/standorte/hannover" },
+                { name: "Garbsen", addr: "Planetenring 25–27, 30823 Garbsen", path: "/standorte/garbsen" },
+                { name: "Bremen", addr: "Bahnhofsplatz 41, 28195 Bremen", path: "/standorte/bremen" },
               ].map((s) => (
                 <li key={s.name}>
                   <Link to={s.path} className="group flex gap-2 text-foreground/70 hover:text-primary transition-colors">
@@ -80,14 +80,14 @@ const Footer = () => {
             <h4 className="mb-4 text-xs font-bold uppercase tracking-widest text-muted-foreground">Kontakt</h4>
             <ul className="space-y-3 text-sm">
               <li className="flex items-center gap-2.5 text-foreground/70">
-                <Phone className="h-4 w-4 text-primary/60" /> 0421 / 123 45
+                <Phone className="h-4 w-4 text-primary/60" /> 0511 6425068
               </li>
               <li className="flex items-center gap-2.5 text-foreground/70">
-                <Mail className="h-4 w-4 text-primary/60" /> info@fahrschule-metropol.de
+                <Mail className="h-4 w-4 text-primary/60" /> info@metropol-bz.de
               </li>
               <li className="flex items-start gap-2.5 text-foreground/70">
                 <Clock className="mt-0.5 h-4 w-4 text-primary/60" />
-                <div>Mo–Fr: 9:00–18:00<br />Sa: 10:00–14:00</div>
+                <div>Mo–Fr: 08:00–12:00, 12:30–16:30<br />Sa–So: Geschlossen</div>
               </li>
             </ul>
           </div>
