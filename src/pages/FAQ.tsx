@@ -13,7 +13,7 @@ const faqs = [
   { q: "Was passiert, wenn ich die Prüfung nicht bestehe?", a: "Kein Problem! Wir bereiten dich mit zusätzlichen Übungsstunden vor und stellen dich erneut zur Prüfung. Etwa 98% unserer Schüler bestehen beim ersten oder zweiten Versuch." },
   { q: "Bietet ihr auch Intensiv- oder Ferienkurse an?", a: "Ja, an allen drei Standorten bieten wir Intensivkurse an. Damit kannst du deinen Führerschein in nur 2–3 Wochen machen – ideal für Schüler und Studenten." },
   { q: "Ab welchem Alter kann ich den Führerschein machen?", a: "Für Klasse B kannst du mit der Theorie 6 Monate vor deinem 17. Geburtstag beginnen (BF17). Die genauen Mindestalter findest du auf unserer Führerscheinklassen-Seite." },
-  { q: "An welchen Standorten ist die Fahrschule Metropol vertreten?", a: "Wir sind in Bremen (Musterstraße 1), Garbsen (Hauptstraße 10) und Hannover (Georgstraße 5) für dich da." },
+  { q: "An welchen Standorten ist die Fahrschule Metropol vertreten?", a: "Wir sind in Hannover (Vahrenwalder Str. 213), Garbsen (Planetenring 25–27) und Bremen (Bahnhofsplatz 41) für dich da." },
 ];
 
 const faqSchema = {
