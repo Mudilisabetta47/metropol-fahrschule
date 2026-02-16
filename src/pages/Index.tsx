@@ -23,9 +23,9 @@ const licenseClasses = [
 ];
 
 const locations = [
-  { name: "Hannover", addr: "Georgstraße 5, 30159 Hannover", path: "/standorte/hannover", desc: "Zentral in der Landeshauptstadt – bestens erreichbar." },
-  { name: "Garbsen", addr: "Hauptstraße 10, 30823 Garbsen", path: "/standorte/garbsen", desc: "Familiäre Atmosphäre mit eigenem Übungsplatz." },
-  { name: "Bremen", addr: "Musterstraße 1, 28195 Bremen", path: "/standorte/bremen", desc: "Mitten im Herzen der Hansestadt – hier hat alles angefangen." },
+  { name: "Hannover", addr: "Vahrenwalder Str. 213, 30165 Hannover", path: "/standorte/hannover", desc: "Unser erster Standort – zentral und bestens erreichbar." },
+  { name: "Garbsen", addr: "Planetenring 25–27, 30823 Garbsen", path: "/standorte/garbsen", desc: "Familiäre Atmosphäre, gut erreichbar mit ÖPNV." },
+  { name: "Bremen", addr: "Bahnhofsplatz 41, 28195 Bremen", path: "/standorte/bremen", desc: "Mitten im Herzen der Hansestadt – direkt am Bahnhof." },
 ];
 
 const trustItems = [
@@ -99,13 +99,13 @@ const Index = () => {
       "@type": "DrivingSchool",
       name: "Fahrschule Metropol",
       url: "https://fahrschule-metropol.de",
-      telephone: "+4942112345",
-      email: "info@fahrschule-metropol.de",
-      description: "Professionelle Fahrausbildung in Bremen, Garbsen und Hannover.",
+      telephone: "+495116425068",
+      email: "info@metropol-bz.de",
+      description: "Professionelle Fahrausbildung in Hannover, Garbsen und Bremen.",
       address: [
-        { "@type": "PostalAddress", streetAddress: "Georgstraße 5", addressLocality: "Hannover", postalCode: "30159", addressCountry: "DE" },
-        { "@type": "PostalAddress", streetAddress: "Hauptstraße 10", addressLocality: "Garbsen", postalCode: "30823", addressCountry: "DE" },
-        { "@type": "PostalAddress", streetAddress: "Musterstraße 1", addressLocality: "Bremen", postalCode: "28195", addressCountry: "DE" },
+        { "@type": "PostalAddress", streetAddress: "Vahrenwalder Str. 213", addressLocality: "Hannover", postalCode: "30165", addressCountry: "DE" },
+        { "@type": "PostalAddress", streetAddress: "Planetenring 25–27", addressLocality: "Garbsen", postalCode: "30823", addressCountry: "DE" },
+        { "@type": "PostalAddress", streetAddress: "Bahnhofsplatz 41", addressLocality: "Bremen", postalCode: "28195", addressCountry: "DE" },
       ],
       aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "347" },
     },
@@ -195,7 +195,7 @@ const Index = () => {
                 </Link>
               </Button>
               <Button variant="hero-outline" asChild>
-                <a href="tel:+4942112345">
+                <a href="tel:+495116425068">
                   <Phone className="h-5 w-5" /> Direkt anrufen
                 </a>
               </Button>

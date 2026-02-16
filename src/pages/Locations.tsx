@@ -4,9 +4,9 @@ import { MapPin, ArrowRight } from "lucide-react";
 import SEO from "@/components/SEO";
 
 const locations = [
-  { name: "Bremen", addr: "Bahnhofsplatz 41, 28195 Bremen", desc: "Unser Hauptstandort im Herzen der Hansestadt – gut erreichbar mit ÖPNV.", path: "/standorte/bremen" },
+  { name: "Hannover", addr: "Vahrenwalder Str. 213, 30165 Hannover", desc: "Unser erster Standort – zentral und bestens erreichbar mit ÖPNV.", path: "/standorte/hannover" },
   { name: "Garbsen", addr: "Planetenring 25–27, 30823 Garbsen", desc: "Familiäre Atmosphäre, flexible Termine, gut erreichbar mit ÖPNV.", path: "/standorte/garbsen" },
-  { name: "Hannover", addr: "Vahrenwalder Str. 213, 30165 Hannover", desc: "Zentrale Lage in der Landeshauptstadt, gut erreichbar mit ÖPNV.", path: "/standorte/hannover" },
+  { name: "Bremen", addr: "Bahnhofsplatz 41, 28195 Bremen", desc: "Unser Standort im Herzen der Hansestadt – direkt am Bahnhof.", path: "/standorte/bremen" },
 ];
 
 const Locations = () => {
