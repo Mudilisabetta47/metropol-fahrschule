@@ -5,9 +5,10 @@ interface SEOProps {
   description: string;
   canonical?: string;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+  ogImage?: string;
 }
 
-const SEO = ({ title, description, canonical, jsonLd }: SEOProps) => {
+const SEO = ({ title, description, canonical, jsonLd, ogImage }: SEOProps) => {
   useEffect(() => {
     document.title = title;
 
@@ -24,6 +25,15 @@ const SEO = ({ title, description, canonical, jsonLd }: SEOProps) => {
     setMeta("description", description);
     setMeta("og:title", title, "property");
     setMeta("og:description", description, "property");
+    setMeta("og:type", "website", "property");
+    setMeta("og:site_name", "Fahrschule Metropol", "property");
+    if (ogImage) setMeta("og:image", ogImage, "property");
+    if (canonical) setMeta("og:url", canonical, "property");
+
+    // Twitter
+    setMeta("twitter:card", "summary_large_image");
+    setMeta("twitter:title", title);
+    setMeta("twitter:description", description);
 
     // Canonical
     let link = document.querySelector('link[rel="canonical"]') as HTMLLinkElement;
@@ -55,7 +65,7 @@ const SEO = ({ title, description, canonical, jsonLd }: SEOProps) => {
       const scripts = document.querySelectorAll('script[data-seo-jsonld]');
       scripts.forEach((s) => s.remove());
     };
-  }, [title, description, canonical, jsonLd]);
+  }, [title, description, canonical, jsonLd, ogImage]);
 
   return null;
 };

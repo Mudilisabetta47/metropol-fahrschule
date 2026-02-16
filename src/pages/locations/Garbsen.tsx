@@ -1,4 +1,5 @@
 import LocationTemplate from "@/components/LocationTemplate";
+import locationImage from "@/assets/location-garbsen.jpg";
 
 const Garbsen = () => (
   <LocationTemplate
@@ -15,6 +16,7 @@ const Garbsen = () => (
       mapsLink: "https://www.google.com/maps/dir//Hauptstraße+10,+30823+Garbsen",
       seoTitle: "Fahrschule Garbsen – Fahrschule Metropol | Entspannt zum Führerschein",
       seoDescription: "Fahrschule Metropol Garbsen: Fahrausbildung in familiärer Atmosphäre. Eigener Parkplatz, flexible Termine. Klasse B, Motorrad & mehr. Jetzt anmelden!",
+      image: locationImage,
     }}
   />
 );
