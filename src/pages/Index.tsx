@@ -89,7 +89,7 @@ const Index = () => {
   const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
 
-  const stat1 = useCountUp(5000, 2000);
+  const stat1 = useCountUp(15000, 2000);
   const stat2 = useCountUp(98, 1800);
   const stat3 = useCountUp(20, 1500);
 

@@ -9,7 +9,7 @@ const values = [
   { icon: Heart, title: "Leidenschaft", desc: "Wir lieben, was wir tun – und das spürt jeder Fahrschüler bei jeder Fahrstunde." },
   { icon: Target, title: "Qualität", desc: "Höchste Ausbildungsstandards mit individuellem Lernplan." },
   { icon: Users, title: "Teamgeist", desc: "Ein motiviertes Team aus erfahrenen Fahrlehrerinnen und Fahrlehrern." },
-  { icon: Award, title: "Erfahrung", desc: "Über 20 Jahre Erfahrung und mehr als 5.000 erfolgreiche Fahrschüler." },
+  { icon: Award, title: "Erfahrung", desc: "Über 20 Jahre Erfahrung und mehr als 15.000 erfolgreiche Fahrschüler." },
 ];
 
 const About = () => {
@@ -17,7 +17,7 @@ const About = () => {
     <div className="min-h-screen pt-20">
       <SEO
         title="Über uns – Fahrschule Metropol | Dein Team in Bremen, Garbsen & Hannover"
-        description="Lerne das Team hinter Fahrschule Metropol kennen. Über 20 Jahre Erfahrung, 5.000+ erfolgreiche Schüler, 3 Standorte."
+        description="Lerne das Team hinter Fahrschule Metropol kennen. Über 20 Jahre Erfahrung, 15.000+ erfolgreiche Schüler, 3 Standorte."
         canonical="https://fahrschule-metropol.de/ueber-uns"
       />
 
