@@ -71,7 +71,7 @@ const Navbar = () => {
           <div className="flex-1" />
 
           {/* Desktop Nav */}
-          <nav className="hidden items-center gap-1 lg:flex">
+          <nav className="hidden items-center gap-1 lg:flex" aria-label="Hauptnavigation">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.path ||
                 (link.hasDropdown && (location.pathname.startsWith("/fuehrerschein") || location.pathname === "/erste-hilfe" || location.pathname === "/aufbauseminar"));
@@ -188,6 +188,8 @@ const Navbar = () => {
           {/* Mobile toggle */}
           <button
             onClick={() => setOpen(!open)}
+            aria-expanded={open}
+            aria-label={open ? "Menü schließen" : "Menü öffnen"}
             className={`flex h-10 w-10 items-center justify-center rounded-xl transition-colors lg:hidden ${
               showSolid ? "text-foreground hover:bg-secondary" : "text-primary-foreground hover:bg-primary-foreground/10"
             }`}
