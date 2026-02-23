@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { useCountUp } from "@/hooks/useCountUp";
 import SEO from "@/components/SEO";
-import heroImage from "@/assets/hero-driving.jpg";
+
 
 const locationPills = ["Hannover", "Garbsen", "Bremen"];
 
@@ -127,24 +127,14 @@ const Index = () => {
 
       {/* Hero */}
       <section ref={heroRef} className="relative flex min-h-screen items-center overflow-hidden">
-        <motion.div style={{ y: heroY }} className="absolute inset-0">
-          {/* Video for mobile */}
-          <video
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="h-full w-full object-cover md:hidden"
-            poster={heroImage}
-          >
-            <source src="/hero-mobile.mp4" type="video/mp4" />
-          </video>
-          {/* Image for desktop */}
-          <img
-            src={heroImage}
-            alt="Fahrschule Metropol – Modernes Fahrschulauto in der Stadt"
-            className="hidden md:block h-full w-full object-cover"
-            loading="eager"
+        <motion.div style={{ y: heroY }} className="absolute inset-0 overflow-hidden">
+          <iframe
+            src="https://www.youtube-nocookie.com/embed/JcR-HopL2Ag?autoplay=1&mute=1&loop=1&playlist=JcR-HopL2Ag&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&disablekb=1&iv_load_policy=3"
+            title="Fahrschule Metropol"
+            allow="autoplay; encrypted-media"
+            allowFullScreen
+            className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[180%] h-[180%] min-w-full min-h-full md:w-[120%] md:h-[120%]"
+            style={{ border: 0 }}
           />
         </motion.div>
         <div className="hero-overlay absolute inset-0 noise" />
