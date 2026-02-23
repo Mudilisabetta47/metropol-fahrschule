@@ -133,7 +133,7 @@ const Index = () => {
             title="Fahrschule Metropol"
             allow="autoplay; encrypted-media"
             allowFullScreen
-            className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[180%] h-[180%] min-w-full min-h-full md:w-[120%] md:h-[120%]"
+            className="pointer-events-none absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[300vw] h-[300vh] min-w-[300vw] min-h-[300vh] md:w-[177.78vh] md:h-[56.25vw] md:min-w-full md:min-h-full"
             style={{ border: 0 }}
           />
         </motion.div>
