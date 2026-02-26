@@ -1,5 +1,5 @@
 import LocationTemplate from "@/components/LocationTemplate";
-import locationImage from "@/assets/location-bremen.jpg";
+import locationImage from "@/assets/hero-klassen.jpg";
 
 const Bremen = () => (
   <LocationTemplate
