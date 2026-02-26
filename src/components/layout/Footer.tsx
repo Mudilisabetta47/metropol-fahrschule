@@ -80,14 +80,14 @@ const Footer = () => {
             <h4 className="mb-4 text-xs font-bold uppercase tracking-widest text-muted-foreground">Kontakt</h4>
             <ul className="space-y-3 text-sm">
               <li className="flex items-center gap-2.5 text-foreground/70">
-                <Phone className="h-4 w-4 text-primary/60" /> 0511 6425068
+                <Phone className="h-4 w-4 text-primary/60" /> 0511 6425066
               </li>
               <li className="flex items-center gap-2.5 text-foreground/70">
                 <Mail className="h-4 w-4 text-primary/60" /> info@metropol-bz.de
               </li>
               <li className="flex items-start gap-2.5 text-foreground/70">
                 <Clock className="mt-0.5 h-4 w-4 text-primary/60" />
-                <div>Mo–Fr: 08:00–12:00, 12:30–16:30<br />Sa–So: Geschlossen</div>
+                <div>Mo–Fr: 10:00–13:30, 14:30–19:00<br />Sa–So: Geschlossen</div>
               </li>
             </ul>
           </div>

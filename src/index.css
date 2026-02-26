@@ -201,10 +201,22 @@
   /* Marquee */
   .marquee-track {
     display: flex;
-    animation: marquee 20s linear infinite;
+    animation: marquee 25s linear infinite;
+  }
+  .marquee-track:hover {
+    animation-play-state: paused;
   }
   @keyframes marquee {
     0% { transform: translateX(0); }
     100% { transform: translateX(-50%); }
+  }
+
+  /* Floating animation */
+  .float {
+    animation: float 6s ease-in-out infinite;
+  }
+  @keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
   }
 }

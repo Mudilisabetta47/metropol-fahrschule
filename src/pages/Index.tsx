@@ -99,7 +99,7 @@ const Index = () => {
       "@type": "DrivingSchool",
       name: "Fahrschule Metropol",
       url: "https://fahrschule-metropol.de",
-      telephone: "+495116425068",
+      telephone: "+495116425066",
       email: "info@metropol-bz.de",
       description: "Professionelle Fahrausbildung in Hannover, Garbsen und Bremen.",
       address: [
@@ -185,7 +185,7 @@ const Index = () => {
                 </Link>
               </Button>
               <Button variant="hero-outline" asChild>
-                <a href="tel:+495116425068">
+                <a href="tel:+495116425066">
                   <Phone className="h-5 w-5" /> Direkt anrufen
                 </a>
               </Button>
@@ -213,28 +213,59 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Marquee trust banner */}
+      <section className="relative z-10 -mt-16 mb-8">
+        <div className="container mx-auto px-4">
+          <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-card">
+            <div className="relative overflow-hidden py-4">
+              <div className="marquee-track">
+                {[...Array(2)].map((_, setIdx) => (
+                  <div key={setIdx} className="flex shrink-0 items-center gap-8 px-4">
+                    {[
+                      "✅ Hohe Erstbestehensquote",
+                      "🚗 Moderne BMW-Flotte",
+                      "📍 3 Standorte",
+                      "⭐ 4.9/5 Bewertung",
+                      "🎯 Prüfungsstrecken-Training",
+                      "💚 Flexible Zeiten",
+                      "🏆 20+ Jahre Erfahrung",
+                      "📱 Online-Buchung",
+                    ].map((item) => (
+                      <span key={item} className="whitespace-nowrap text-sm font-semibold text-muted-foreground">
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Stats */}
-      <section className="relative z-10 -mt-16">
+      <section className="relative z-10">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
             {[
               { ref: stat1.ref, value: `${stat1.count.toLocaleString("de-DE")}+`, label: "Fahrschüler, die es geschafft haben", icon: Users },
               { ref: stat2.ref, value: `${stat2.count}%`, label: "bestehen beim ersten Anlauf", icon: Shield },
               { ref: stat3.ref, value: `${stat3.count}+`, label: "Jahre Leidenschaft fürs Fahren", icon: Star },
-            ].map((s) => (
+            ].map((s, i) => (
               <motion.div
                 key={s.label}
                 ref={s.ref}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                className="group flex items-center gap-4 rounded-2xl border border-border bg-card p-6 shadow-card transition-all duration-300 hover:shadow-card-hover"
+                transition={{ delay: i * 0.1 }}
+                className="group flex items-center gap-4 rounded-2xl border border-border bg-card p-6 shadow-card transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1"
               >
-                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-accent text-accent-foreground transition-all duration-300 group-hover:gradient-primary group-hover:text-primary-foreground group-hover:shadow-glow">
-                  <s.icon className="h-5 w-5" />
+                <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-accent text-accent-foreground transition-all duration-500 group-hover:gradient-primary group-hover:text-primary-foreground group-hover:shadow-glow group-hover:scale-110">
+                  <s.icon className="h-6 w-6" />
                 </div>
                 <div>
-                  <div className="text-2xl font-extrabold text-foreground font-display">{s.value}</div>
+                  <div className="text-3xl font-extrabold text-foreground font-display">{s.value}</div>
                   <div className="text-xs text-muted-foreground font-medium">{s.label}</div>
                 </div>
               </motion.div>

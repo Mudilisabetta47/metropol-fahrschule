@@ -57,24 +57,24 @@ const Contact = () => {
                 <ul className="space-y-4 text-sm">
                   <li className="flex items-center gap-3">
                     <Phone className="h-5 w-5 text-primary" />
-                    <a href="tel:+4942112345" className="text-foreground font-medium hover:text-primary transition-colors">0421 / 123 45</a>
+                    <a href="tel:+495116425066" className="text-foreground font-medium hover:text-primary transition-colors">0511 6425066</a>
                   </li>
                   <li className="flex items-center gap-3">
                     <Mail className="h-5 w-5 text-primary" />
-                    <a href="mailto:info@fahrschule-metropol.de" className="text-foreground font-medium hover:text-primary transition-colors">info@fahrschule-metropol.de</a>
+                    <a href="mailto:info@metropol-bz.de" className="text-foreground font-medium hover:text-primary transition-colors">info@metropol-bz.de</a>
                   </li>
                   <li className="flex items-start gap-3">
                     <Clock className="mt-0.5 h-5 w-5 text-primary" />
-                    <div className="text-foreground">Mo–Fr: 9:00–18:00<br />Sa: 10:00–14:00</div>
+                    <div className="text-foreground">Mo–Fr: 10:00–13:30, 14:30–19:00<br />Sa–So: Geschlossen</div>
                   </li>
                 </ul>
               </div>
 
               <h3 className="text-xs font-bold uppercase tracking-widest text-muted-foreground pt-2">Unsere Standorte</h3>
               {[
-                { name: "Bremen", addr: "Musterstraße 1, 28195", path: "/standorte/bremen" },
-                { name: "Garbsen", addr: "Hauptstraße 10, 30823", path: "/standorte/garbsen" },
-                { name: "Hannover", addr: "Georgstraße 5, 30159", path: "/standorte/hannover" },
+                { name: "Bremen", addr: "Bahnhofsplatz 41, 28195 Bremen", path: "/standorte/bremen" },
+                { name: "Garbsen", addr: "Planetenring 25–27, 30823 Garbsen", path: "/standorte/garbsen" },
+                { name: "Hannover", addr: "Vahrenwalder Str. 213, 30165 Hannover", path: "/standorte/hannover" },
               ].map((loc) => (
                 <a
                   key={loc.name}
