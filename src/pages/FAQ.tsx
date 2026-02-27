@@ -8,7 +8,7 @@ import SEO from "@/components/SEO";
 const faqs = [
   { q: "Wie melde ich mich bei der Fahrschule Metropol an?", a: "Du kannst dich direkt über unser Online-Formular anmelden oder uns in einer unserer Filialen in Bremen, Garbsen oder Hannover besuchen. Wir benötigen einen gültigen Ausweis und ein Passfoto." },
   { q: "Wie lange dauert die Führerscheinausbildung?", a: "Die Dauer hängt von der Führerscheinklasse und deiner Verfügbarkeit ab. Im Schnitt dauert der Klasse-B-Führerschein 2–4 Monate. Mit unserem Intensivkurs auch in 2–3 Wochen." },
-  { q: "Welche Zahlungsmöglichkeiten bietet die Fahrschule Metropol?", a: "Wir bieten Ratenzahlung, Barzahlung und Überweisung an. Sprich uns gerne auf individuelle Zahlungspläne an." },
+  { q: "Welche Zahlungsmöglichkeiten bietet die Fahrschule Metropol?", a: "Wir bieten Barzahlung und Überweisung an. Sprich uns gerne auf individuelle Zahlungsmöglichkeiten an." },
   { q: "Kann ich den Theorieunterricht online machen?", a: "Ja, wir bieten hybride Theoriekurse an – sowohl vor Ort als auch online. So kannst du flexibel lernen, wann und wo es dir passt." },
   { q: "Was passiert, wenn ich die Prüfung nicht bestehe?", a: "Kein Problem! Wir bereiten dich mit zusätzlichen Übungsstunden vor und stellen dich erneut zur Prüfung. Etwa 98% unserer Schüler bestehen beim ersten oder zweiten Versuch." },
   { q: "Bietet ihr auch Intensiv- oder Ferienkurse an?", a: "Ja, an allen drei Standorten bieten wir Intensivkurse an. Damit kannst du deinen Führerschein in nur 2–3 Wochen machen – ideal für Schüler und Studenten." },

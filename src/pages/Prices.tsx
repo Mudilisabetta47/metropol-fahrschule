@@ -55,7 +55,7 @@ const Prices = () => {
             <span className="mb-1 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary-foreground/50">Preise</span>
             <h1 className="text-3xl font-extrabold text-primary-foreground font-display md:text-5xl">Unsere Preise</h1>
             <p className="mt-2 max-w-xl text-sm text-primary-foreground/50">
-              Transparente Preise ohne versteckte Kosten. Ratenzahlung möglich.
+              Transparente Preise ohne versteckte Kosten.
             </p>
           </motion.div>
         </div>
@@ -162,7 +162,7 @@ const Prices = () => {
             <p className="text-xs text-muted-foreground">
               Alle Preise sind Richtwerte. Die genauen Kosten hängen vom individuellen Ausbildungsverlauf ab.{" "}
               <Link to="/kontakt" className="text-primary font-medium hover:underline">Kontaktiere uns</Link> für ein persönliches Angebot.
-              Ratenzahlung möglich – sprich uns einfach an!
+              <Link to="/kontakt" className="text-primary font-medium hover:underline">Kontaktiere uns</Link> für ein persönliches Angebot.
             </p>
           </motion.div>
 
