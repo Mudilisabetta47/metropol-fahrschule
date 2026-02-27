@@ -81,9 +81,41 @@ const Datenschutz = () => {
               Wenn Sie uns per Kontaktformular Anfragen zukommen lassen, werden Ihre Angaben aus dem Anfrageformular inklusive der von Ihnen dort angegebenen Kontaktdaten zwecks Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert. Diese Daten geben wir nicht ohne Ihre Einwilligung weiter. Die Verarbeitung dieser Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO.
             </p>
 
-            <h2 className="text-xl font-bold text-foreground mt-8">6. Ihre Rechte</h2>
+            <h2 className="text-xl font-bold text-foreground mt-8">6. Cookies im Detail</h2>
+            <h3 className="text-lg font-semibold text-foreground">Technisch notwendige Cookies</h3>
+            <p>
+              Diese Cookies sind für den Betrieb der Website zwingend erforderlich. Dazu gehören z.&nbsp;B. Cookies, die Ihre Cookie-Einstellungen speichern (LocalStorage-Eintrag „cookie-consent") sowie Session-Cookies für die Authentifizierung. Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse).
+            </p>
+            <h3 className="text-lg font-semibold text-foreground">Cookie-Einwilligung</h3>
+            <p>
+              Beim ersten Besuch unserer Website werden Sie über ein Cookie-Banner über die Verwendung von Cookies informiert und um Ihre Einwilligung gebeten. Sie können Ihre Einwilligung jederzeit widerrufen, indem Sie die gespeicherten Cookies in Ihrem Browser löschen. Beim nächsten Besuch wird das Cookie-Banner erneut angezeigt.
+            </p>
+
+            <h2 className="text-xl font-bold text-foreground mt-8">7. Google Maps</h2>
+            <p>
+              Diese Seite nutzt den Kartendienst Google Maps über eine Einbettung (iFrame). Anbieter ist die Google Ireland Limited („Google"), Gordon House, Barrow Street, Dublin 4, Irland.
+            </p>
+            <p>
+              Zur Nutzung der Funktionen von Google Maps ist es notwendig, Ihre IP-Adresse zu speichern. Diese Informationen werden in der Regel an einen Server von Google in den USA übertragen und dort gespeichert. Der Anbieter dieser Seite hat keinen Einfluss auf diese Datenübertragung. Die Nutzung von Google Maps erfolgt im Interesse einer ansprechenden Darstellung unserer Online-Angebote und an einer leichten Auffindbarkeit der von uns auf der Website angegebenen Orte. Dies stellt ein berechtigtes Interesse im Sinne von Art. 6 Abs. 1 lit. f DSGVO dar.
+            </p>
+            <p>
+              Mehr Informationen zum Umgang mit Nutzerdaten finden Sie in der Datenschutzerklärung von Google:{" "}
+              <a
+                href="https://policies.google.com/privacy"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-primary hover:underline"
+              >
+                https://policies.google.com/privacy
+              </a>
+            </p>
+
+            <h2 className="text-xl font-bold text-foreground mt-8">8. Ihre Rechte</h2>
             <p>
               Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit und Widerspruch. Wenn Sie glauben, dass die Verarbeitung Ihrer Daten gegen das Datenschutzrecht verstößt, können Sie sich bei der zuständigen Aufsichtsbehörde beschweren.
+            </p>
+            <p>
+              Zuständige Aufsichtsbehörde ist die Landesbeauftragte für den Datenschutz Niedersachsen, Prinzenstraße 5, 30159 Hannover.
             </p>
 
             <p className="text-xs text-muted-foreground mt-12">Stand: Februar 2026</p>
