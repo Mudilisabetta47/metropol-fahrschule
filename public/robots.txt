@@ -13,4 +13,4 @@ Allow: /
 User-agent: *
 Allow: /
 
-Sitemap: https://fahrschule-metropol.de/sitemap.xml
+Sitemap: https://metropol-drive-hub.lovable.app/sitemap.xml
