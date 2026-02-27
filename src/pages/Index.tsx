@@ -1,18 +1,49 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Car, Bike, Truck, CalendarCheck, MapPin, ArrowRight, Shield, Users, Star, ChevronDown, ChevronRight, Phone, CheckCircle, Gauge, Route, BadgeCheck, Heart, Quote, Sparkles } from "lucide-react";
+import {
+  Car,
+  Bike,
+  Truck,
+  CalendarCheck,
+  MapPin,
+  ArrowRight,
+  Shield,
+  Users,
+  Star,
+  ChevronDown,
+  ChevronRight,
+  Phone,
+  CheckCircle,
+  Gauge,
+  Route,
+  BadgeCheck,
+  Heart,
+  Quote,
+  Sparkles,
+} from "lucide-react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { useCountUp } from "@/hooks/useCountUp";
 import SEO from "@/components/SEO";
 
-
 const locationPills = ["Hannover", "Garbsen", "Bremen"];
 
 const features = [
-  { icon: Heart, title: "Wir glauben an dich", desc: "Egal ob du nervös bist oder schon voller Vorfreude – wir nehmen uns Zeit für dich. Kein Druck, kein Stress. Nur du, dein Fahrlehrer und dein Tempo." },
-  { icon: Car, title: "Fahrzeuge, die Spaß machen", desc: "Unsere Flotte? Nagelneu. BMW, VW, Mercedes – mit Doppelbedienung und allem, was dich sicher fühlen lässt. Du wirst dich auf jede Fahrstunde freuen." },
-  { icon: CalendarCheck, title: "Dein Leben, dein Zeitplan", desc: "Schule, Job, Freizeit – wir passen uns an. Fahrstunden auch abends und samstags. Online buchen, umbuchen, fertig." },
+  {
+    icon: Heart,
+    title: "Wir glauben an dich",
+    desc: "Egal ob du nervös bist oder schon voller Vorfreude – wir nehmen uns Zeit für dich. Kein Druck, kein Stress. Nur du, dein Fahrlehrer und dein Tempo.",
+  },
+  {
+    icon: Car,
+    title: "Fahrzeuge, die Spaß machen",
+    desc: "Unsere Flotte? Nagelneu. BMW, VW, Mercedes – mit Doppelbedienung und allem, was dich sicher fühlen lässt. Du wirst dich auf jede Fahrstunde freuen.",
+  },
+  {
+    icon: CalendarCheck,
+    title: "Dein Leben, dein Zeitplan",
+    desc: "Schule, Job, Freizeit – wir passen uns an. Fahrstunden auch abends und samstags. Online buchen, umbuchen, fertig.",
+  },
 ];
 
 const licenseClasses = [
@@ -23,9 +54,24 @@ const licenseClasses = [
 ];
 
 const locations = [
-  { name: "Hannover", addr: "Vahrenwalder Str. 213, 30165 Hannover", path: "/standorte/hannover", desc: "Unser erster Standort – zentral und bestens erreichbar." },
-  { name: "Garbsen", addr: "Planetenring 25–27, 30823 Garbsen", path: "/standorte/garbsen", desc: "Familiäre Atmosphäre, gut erreichbar mit ÖPNV." },
-  { name: "Bremen", addr: "Bahnhofsplatz 41, 28195 Bremen", path: "/standorte/bremen", desc: "Mitten im Herzen der Hansestadt – direkt am Bahnhof." },
+  {
+    name: "Hannover",
+    addr: "Vahrenwalder Str. 213, 30165 Hannover",
+    path: "/standorte/hannover",
+    desc: "Unser erster Standort – zentral und bestens erreichbar.",
+  },
+  {
+    name: "Garbsen",
+    addr: "Planetenring 25–27, 30823 Garbsen",
+    path: "/standorte/garbsen",
+    desc: "Familiäre Atmosphäre, gut erreichbar mit ÖPNV.",
+  },
+  {
+    name: "Bremen",
+    addr: "Bahnhofsplatz 41, 28195 Bremen",
+    path: "/standorte/bremen",
+    desc: "Mitten im Herzen der Hansestadt – direkt am Bahnhof.",
+  },
 ];
 
 const trustItems = [
@@ -73,10 +119,13 @@ const AnimatedPills = () => {
           }}
           transition={{ type: "spring", stiffness: 300, damping: 20 }}
           className={`rounded-full px-4 py-1.5 text-sm font-semibold transition-colors duration-300 ${
-            i === active ? "gradient-primary text-primary-foreground shadow-cta" : "bg-primary-foreground/10 text-primary-foreground/70 backdrop-blur-sm"
+            i === active
+              ? "gradient-primary text-primary-foreground shadow-cta"
+              : "bg-primary-foreground/10 text-primary-foreground/70 backdrop-blur-sm"
           }`}
         >
-          <MapPin className="inline h-3.5 w-3.5 mr-1 -mt-0.5" />{l}
+          <MapPin className="inline h-3.5 w-3.5 mr-1 -mt-0.5" />
+          {l}
         </motion.span>
       ))}
     </div>
@@ -103,16 +152,36 @@ const Index = () => {
       email: "info@metropol-bz.de",
       description: "Professionelle Fahrausbildung in Hannover, Garbsen und Bremen.",
       address: [
-        { "@type": "PostalAddress", streetAddress: "Vahrenwalder Str. 213", addressLocality: "Hannover", postalCode: "30165", addressCountry: "DE" },
-        { "@type": "PostalAddress", streetAddress: "Planetenring 25–27", addressLocality: "Garbsen", postalCode: "30823", addressCountry: "DE" },
-        { "@type": "PostalAddress", streetAddress: "Bahnhofsplatz 41", addressLocality: "Bremen", postalCode: "28195", addressCountry: "DE" },
+        {
+          "@type": "PostalAddress",
+          streetAddress: "Vahrenwalder Str. 213",
+          addressLocality: "Hannover",
+          postalCode: "30165",
+          addressCountry: "DE",
+        },
+        {
+          "@type": "PostalAddress",
+          streetAddress: "Planetenring 25–27",
+          addressLocality: "Garbsen",
+          postalCode: "30823",
+          addressCountry: "DE",
+        },
+        {
+          "@type": "PostalAddress",
+          streetAddress: "Bahnhofsplatz 41",
+          addressLocality: "Bremen",
+          postalCode: "28195",
+          addressCountry: "DE",
+        },
       ],
       aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "347" },
     },
     {
       "@context": "https://schema.org",
       "@type": "BreadcrumbList",
-      itemListElement: [{ "@type": "ListItem", position: 1, name: "Startseite", item: "https://fahrschule-metropol.de/" }],
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Startseite", item: "https://fahrschule-metropol.de/" },
+      ],
     },
   ];
 
@@ -129,7 +198,7 @@ const Index = () => {
       <section ref={heroRef} className="relative flex min-h-screen items-center overflow-hidden">
         <motion.div style={{ y: heroY }} className="absolute inset-0 overflow-hidden">
           <iframe
-            src="https://www.youtube-nocookie.com/embed/JcR-HopL2Ag?autoplay=1&mute=1&loop=1&playlist=JcR-HopL2Ag&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1&disablekb=1&iv_load_policy=3"
+            src="https://www.youtube.com/watch?v=lLDmN1AnqgE"
             title="Fahrschule Metropol"
             allow="autoplay; encrypted-media"
             allowFullScreen
@@ -139,10 +208,7 @@ const Index = () => {
         </motion.div>
         <div className="hero-overlay absolute inset-0 noise" />
 
-        <motion.div
-          style={{ opacity: heroOpacity }}
-          className="container relative z-10 mx-auto px-4 pt-20"
-        >
+        <motion.div style={{ opacity: heroOpacity }} className="container relative z-10 mx-auto px-4 pt-20">
           <div className="max-w-3xl">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -170,7 +236,8 @@ const Index = () => {
               transition={{ duration: 0.6, delay: 0.5 }}
               className="mb-10 max-w-xl text-lg text-primary-foreground/60 leading-relaxed md:text-xl"
             >
-              Das Kribbeln, wenn du zum ersten Mal alleine fährst. Dieses Gefühl schaffen wir zusammen – mit Geduld, Erfahrung und Fahrlehrern, die dich wirklich verstehen.
+              Das Kribbeln, wenn du zum ersten Mal alleine fährst. Dieses Gefühl schaffen wir zusammen – mit Geduld,
+              Erfahrung und Fahrlehrern, die dich wirklich verstehen.
             </motion.p>
 
             <motion.div
@@ -248,7 +315,12 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
             {[
-              { ref: stat1.ref, value: `${stat1.count.toLocaleString("de-DE")}+`, label: "Fahrschüler, die es geschafft haben", icon: Users },
+              {
+                ref: stat1.ref,
+                value: `${stat1.count.toLocaleString("de-DE")}+`,
+                label: "Fahrschüler, die es geschafft haben",
+                icon: Users,
+              },
               { ref: stat2.ref, value: `${stat2.count}%`, label: "bestehen beim ersten Anlauf", icon: Shield },
               { ref: stat3.ref, value: `${stat3.count}+`, label: "Jahre Leidenschaft fürs Fahren", icon: Star },
             ].map((s, i) => (
@@ -278,19 +350,16 @@ const Index = () => {
       <section className="relative py-24 bg-warm bg-driving-pattern overflow-hidden">
         <div className="container relative z-10 mx-auto px-4">
           <div className="mx-auto max-w-3xl text-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
               <Sparkles className="mx-auto mb-4 h-8 w-8 text-primary" />
               <h2 className="mb-6 text-3xl font-extrabold text-foreground font-display md:text-5xl">
                 Mehr als nur eine Fahrschule
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Wir wissen, wie aufregend der erste Führerschein ist. Und wie viel Überwindung es manchmal kostet.
-                Genau deshalb sind wir anders: Bei Metropol bist du keine Nummer. Du bist <strong className="text-foreground">Teil unserer Geschichte</strong> – 
-                und wir begleiten dich von der allerersten Theoriestunde bis zu dem Moment, wo du den Schlüssel in der Hand hältst und weißt: 
+                Wir wissen, wie aufregend der erste Führerschein ist. Und wie viel Überwindung es manchmal kostet. Genau
+                deshalb sind wir anders: Bei Metropol bist du keine Nummer. Du bist{" "}
+                <strong className="text-foreground">Teil unserer Geschichte</strong> – und wir begleiten dich von der
+                allerersten Theoriestunde bis zu dem Moment, wo du den Schlüssel in der Hand hältst und weißt:
                 <em className="text-primary"> Ich hab's geschafft.</em>
               </p>
             </motion.div>
@@ -307,7 +376,9 @@ const Index = () => {
             viewport={{ once: true }}
             className="mb-12 text-center"
           >
-            <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">Dein Weg</span>
+            <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">
+              Dein Weg
+            </span>
             <h2 className="text-3xl font-extrabold text-foreground font-display md:text-5xl">
               Welches Abenteuer wartet auf dich?
             </h2>
@@ -347,7 +418,10 @@ const Index = () => {
             viewport={{ once: true }}
             className="mt-8 text-center"
           >
-            <Link to="/fuehrerscheinklassen" className="inline-flex items-center gap-1.5 text-sm font-bold text-primary hover:gap-2.5 transition-all">
+            <Link
+              to="/fuehrerscheinklassen"
+              className="inline-flex items-center gap-1.5 text-sm font-bold text-primary hover:gap-2.5 transition-all"
+            >
               Alle Klassen entdecken <ArrowRight className="h-4 w-4" />
             </Link>
           </motion.div>
@@ -364,7 +438,9 @@ const Index = () => {
             viewport={{ once: true }}
             className="mb-16 max-w-2xl"
           >
-            <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">Warum Metropol?</span>
+            <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">
+              Warum Metropol?
+            </span>
             <h2 className="text-3xl font-extrabold text-foreground font-display md:text-5xl">
               Weil wir wissen, wie sich der erste Gang anfühlt
             </h2>
@@ -403,7 +479,9 @@ const Index = () => {
             viewport={{ once: true }}
             className="mb-16 text-center"
           >
-            <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">Echte Stimmen</span>
+            <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">
+              Echte Stimmen
+            </span>
             <h2 className="text-3xl font-extrabold text-foreground font-display md:text-5xl">
               Was unsere Fahrschüler sagen
             </h2>
@@ -428,9 +506,7 @@ const Index = () => {
                     <Star key={j} className="h-4 w-4 fill-primary text-primary" />
                   ))}
                 </div>
-                <p className="mb-6 text-sm leading-relaxed text-muted-foreground italic">
-                  „{t.text}"
-                </p>
+                <p className="mb-6 text-sm leading-relaxed text-muted-foreground italic">„{t.text}"</p>
                 <div className="flex items-center gap-3">
                   <div className="flex h-10 w-10 items-center justify-center rounded-full gradient-primary text-primary-foreground text-sm font-bold">
                     {t.name.charAt(0)}
@@ -458,10 +534,10 @@ const Index = () => {
             viewport={{ once: true }}
             className="mb-16 text-center"
           >
-            <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">Immer in deiner Nähe</span>
-            <h2 className="text-3xl font-extrabold text-foreground font-display md:text-5xl">
-              3 Standorte, 1 Familie
-            </h2>
+            <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">
+              Immer in deiner Nähe
+            </span>
+            <h2 className="text-3xl font-extrabold text-foreground font-display md:text-5xl">3 Standorte, 1 Familie</h2>
             <p className="mx-auto mt-4 max-w-lg text-muted-foreground">
               Egal wo du wohnst – bei uns bist du immer willkommen. Komm vorbei und lern uns kennen!
             </p>
@@ -487,7 +563,8 @@ const Index = () => {
                   <p className="mb-1 text-sm text-muted-foreground">{loc.addr}</p>
                   <p className="mb-6 text-sm text-muted-foreground/70">{loc.desc}</p>
                   <span className="mt-auto flex items-center gap-1.5 text-sm font-bold text-primary transition-all group-hover:gap-2.5">
-                    Standort entdecken <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    Standort entdecken{" "}
+                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </span>
                 </Link>
               </motion.div>
@@ -505,7 +582,9 @@ const Index = () => {
             viewport={{ once: true }}
             className="mb-16 text-center"
           >
-            <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">Schritt für Schritt</span>
+            <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">
+              Schritt für Schritt
+            </span>
             <h2 className="text-3xl font-extrabold text-foreground font-display md:text-5xl">
               Vom Traum zum Führerschein
             </h2>
@@ -522,10 +601,26 @@ const Index = () => {
               <div className="absolute top-1/2 right-0 h-3 w-3 -translate-y-1/2 rounded-full bg-primary shadow-glow" />
             </div>
             {[
-              { step: "01", title: "Sag Hallo", desc: "Meld dich online oder komm vorbei. Wir nehmen uns Zeit für deine Fragen – ganz ohne Druck." },
-              { step: "02", title: "Theorie rocken", desc: "Spannender Unterricht + smarte Lern-App. So macht Theorie tatsächlich Spaß." },
-              { step: "03", title: "Ans Steuer", desc: "Dein Fahrlehrer zeigt dir alles. In deinem Tempo, auf echten Prüfungsstrecken." },
-              { step: "04", title: "Führerschein! 🎉", desc: "Du hast es geschafft! Jetzt steht dir die Welt offen – und wir feiern mit dir." },
+              {
+                step: "01",
+                title: "Sag Hallo",
+                desc: "Meld dich online oder komm vorbei. Wir nehmen uns Zeit für deine Fragen – ganz ohne Druck.",
+              },
+              {
+                step: "02",
+                title: "Theorie rocken",
+                desc: "Spannender Unterricht + smarte Lern-App. So macht Theorie tatsächlich Spaß.",
+              },
+              {
+                step: "03",
+                title: "Ans Steuer",
+                desc: "Dein Fahrlehrer zeigt dir alles. In deinem Tempo, auf echten Prüfungsstrecken.",
+              },
+              {
+                step: "04",
+                title: "Führerschein! 🎉",
+                desc: "Du hast es geschafft! Jetzt steht dir die Welt offen – und wir feiern mit dir.",
+              },
             ].map((s, i) => (
               <motion.div
                 key={s.step}
@@ -561,7 +656,8 @@ const Index = () => {
               <span className="gradient-text">größtes Abenteuer?</span>
             </h2>
             <p className="mx-auto mb-10 max-w-xl text-lg text-primary-foreground/50">
-              Der Führerschein ist mehr als ein Dokument – er ist Freiheit, Unabhängigkeit und dein erster großer Schritt. Lass uns ihn zusammen gehen.
+              Der Führerschein ist mehr als ein Dokument – er ist Freiheit, Unabhängigkeit und dein erster großer
+              Schritt. Lass uns ihn zusammen gehen.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button variant="hero" asChild>
