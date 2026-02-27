@@ -27,6 +27,8 @@ const Dashboard = lazy(() => import("./pages/Dashboard"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const ErsteHilfe = lazy(() => import("./pages/ErsteHilfe"));
 const Aufbauseminar = lazy(() => import("./pages/Aufbauseminar"));
+const Datenschutz = lazy(() => import("./pages/Datenschutz"));
+const Impressum = lazy(() => import("./pages/Impressum"));
 
 const queryClient = new QueryClient();
 
@@ -59,6 +61,8 @@ const App = () => (
               <Route path="/standorte/hannover" element={<Hannover />} />
               <Route path="/erste-hilfe" element={<ErsteHilfe />} />
               <Route path="/aufbauseminar" element={<Aufbauseminar />} />
+              <Route path="/datenschutz" element={<Datenschutz />} />
+              <Route path="/impressum" element={<Impressum />} />
               <Route path="/login" element={<Auth />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="*" element={<NotFound />} />
