@@ -737,7 +737,7 @@ const Index = () => {
       </section>
 
       {/* CTA */}
-      <section className="relative overflow-hidden gradient-dark py-20 noise">
+      <section className="relative overflow-hidden gradient-primary py-20 noise">
         <div className="container relative z-10 mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -749,18 +749,18 @@ const Index = () => {
               Noch Fragen? Wir haben die Antworten.
             </h2>
             <div className="flex flex-wrap justify-center gap-4">
-              <Button variant="hero" asChild>
+              <Button variant="hero" asChild className="bg-white text-primary hover:bg-white/90">
                 <Link to="/kontakt">
                   Kontakt <ChevronRight className="h-5 w-5" />
                 </Link>
               </Button>
-              <Button variant="hero-outline" asChild>
+              <Button variant="hero-outline" asChild className="border-white text-white hover:bg-white/10">
                 <Link to="/fuehrerscheinklassen">Alle Klassen entdecken</Link>
               </Button>
             </div>
           </motion.div>
         </div>
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-96 w-96 rounded-full bg-primary/10 blur-[120px]" />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-96 w-96 rounded-full bg-white/10 blur-[120px]" />
       </section>
     </div>
   );
