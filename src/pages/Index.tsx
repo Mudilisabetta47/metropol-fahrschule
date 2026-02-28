@@ -198,7 +198,7 @@ const Index = () => {
       <section ref={heroRef} className="relative flex min-h-screen items-center overflow-hidden">
         <motion.div style={{ y: heroY }} className="absolute inset-0 overflow-hidden">
           <iframe
-            src="https://www.youtube.com/watch?v=lLDmN1AnqgE"
+            src="https://www.youtube.com/embed/lLDmN1AnqgE?autoplay=1&mute=1&loop=1&playlist=lLDmN1AnqgE&controls=0&showinfo=0&modestbranding=1&rel=0&disablekb=1&iv_load_policy=3&playsinline=1"
             title="Fahrschule Metropol"
             allow="autoplay; encrypted-media"
             allowFullScreen
