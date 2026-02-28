@@ -191,7 +191,7 @@ const ContactForm = ({ preselectedLocation, compact }: ContactFormProps) => {
             </div>
             <div className="space-y-2">
               <Label htmlFor="phone">Telefon</Label>
-              <Input id="phone" type="tel" value={form.phone} onChange={(e) => handleChange("phone", e.target.value)} placeholder="0421 / 123 45" maxLength={30} />
+              <Input id="phone" type="tel" value={form.phone} onChange={(e) => handleChange("phone", e.target.value)} placeholder="0511 6425066" maxLength={30} />
             </div>
             <div className="space-y-2">
               <Label>Standort *</Label>
