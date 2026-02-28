@@ -290,7 +290,7 @@ const ErsteHilfe = () => {
                   </div>
                   <div>
                     <p className="text-[10px] md:text-xs text-muted-foreground">Telefonisch erreichbar</p>
-                    <a href="tel:+4942112345" className="text-sm font-bold text-foreground hover:text-primary transition-colors">0421 / 123 45</a>
+                    <a href="tel:+495116425066" className="text-sm font-bold text-foreground hover:text-primary transition-colors">0511 6425066</a>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
