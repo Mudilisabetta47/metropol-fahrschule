@@ -11,7 +11,7 @@ import { Lock, Mail } from "lucide-react";
 const Auth = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [isSignUp, setIsSignUp] = useState(false);
+  const isSignUp = false;
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
   const navigate = useNavigate();
@@ -28,22 +28,11 @@ const Auth = () => {
     }
     setLoading(true);
     try {
-      if (isSignUp) {
-        const { error } = await supabase.auth.signUp({
-          email: email.trim(),
-          password,
-          options: { emailRedirectTo: window.location.origin },
-        });
-        if (error) throw error;
-        toast({ title: "Registrierung erfolgreich!", description: "Bitte bestätige deine E-Mail-Adresse, um dich anzumelden." });
-        setIsSignUp(false);
-      } else {
-        const { error } = await supabase.auth.signInWithPassword({ email: email.trim(), password });
-        if (error) throw error;
-        navigate("/dashboard");
-      }
+      const { error } = await supabase.auth.signInWithPassword({ email: email.trim(), password });
+      if (error) throw error;
+      navigate("/dashboard");
     } catch (err: any) {
-      toast({ title: isSignUp ? "Registrierung fehlgeschlagen" : "Login fehlgeschlagen", description: err.message || "Bitte überprüfe deine Eingaben.", variant: "destructive" });
+      toast({ title: "Login fehlgeschlagen", description: err.message || "Bitte überprüfe deine Eingaben.", variant: "destructive" });
     } finally {
       setLoading(false);
     }
@@ -63,10 +52,10 @@ const Auth = () => {
             </div>
           </div>
           <h1 className="mb-1 text-center text-xl font-bold text-foreground font-display">
-            {isSignUp ? "Mitarbeiter-Registrierung" : "Mitarbeiter-Login"}
+            Mitarbeiter-Login
           </h1>
           <p className="mb-6 text-center text-sm text-muted-foreground">
-            {isSignUp ? "Erstelle deinen Account." : "Melde dich an, um das Dashboard zu nutzen."}
+            Melde dich an, um das Dashboard zu nutzen.
           </p>
 
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -85,16 +74,10 @@ const Auth = () => {
               </div>
             </div>
             <Button type="submit" variant="cta" className="w-full" disabled={loading}>
-              {loading ? (isSignUp ? "Wird registriert…" : "Wird angemeldet…") : (isSignUp ? "Registrieren" : "Anmelden")}
+              {loading ? "Wird angemeldet…" : "Anmelden"}
             </Button>
           </form>
 
-          <p className="mt-4 text-center text-sm text-muted-foreground">
-            {isSignUp ? "Bereits registriert?" : "Noch kein Account?"}{" "}
-            <button onClick={() => setIsSignUp(!isSignUp)} className="font-semibold text-primary hover:underline">
-              {isSignUp ? "Zum Login" : "Jetzt registrieren"}
-            </button>
-          </p>
         </div>
       </motion.div>
     </div>
