@@ -21,6 +21,14 @@ import {
   Quote,
   Sparkles,
 } from "lucide-react";
+import classPkw from "@/assets/class-pkw.jpg";
+import classMotorrad from "@/assets/class-motorrad.jpg";
+import classLkw from "@/assets/class-lkw.jpg";
+import classBus from "@/assets/class-bus.jpg";
+import locationHannover from "@/assets/location-hannover.jpg";
+import locationGarbsen from "@/assets/location-garbsen.jpg";
+import locationBremen from "@/assets/location-bremen.jpg";
+import heroDriving from "@/assets/hero-driving.jpg";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { useCountUp } from "@/hooks/useCountUp";
@@ -47,10 +55,10 @@ const features = [
 ];
 
 const licenseClasses = [
-  { icon: Car, label: "Klasse B", desc: "Dein Autoführerschein", path: "/fuehrerschein/klasse-b" },
-  { icon: Bike, label: "Klasse A", desc: "Freiheit auf zwei Rädern", path: "/fuehrerschein/klasse-a" },
-  { icon: Truck, label: "LKW (C/CE)", desc: "Güterverkehr & Logistik", path: "/fuehrerschein/klasse-c" },
-  { icon: Truck, label: "Bus (D)", desc: "Personenverkehr", path: "/fuehrerschein/klasse-d" },
+  { icon: Car, label: "Klasse B", desc: "Dein Autoführerschein", path: "/fuehrerschein/klasse-b", image: classPkw },
+  { icon: Bike, label: "Klasse A", desc: "Freiheit auf zwei Rädern", path: "/fuehrerschein/klasse-a", image: classMotorrad },
+  { icon: Truck, label: "LKW (C/CE)", desc: "Güterverkehr & Logistik", path: "/fuehrerschein/klasse-c", image: classLkw },
+  { icon: Truck, label: "Bus (D)", desc: "Personenverkehr", path: "/fuehrerschein/klasse-d", image: classBus },
 ];
 
 const locations = [
@@ -59,18 +67,21 @@ const locations = [
     addr: "Vahrenwalder Str. 213, 30165 Hannover",
     path: "/standorte/hannover",
     desc: "Unser erster Standort – zentral und bestens erreichbar.",
+    image: locationHannover,
   },
   {
     name: "Garbsen",
     addr: "Planetenring 25–27, 30823 Garbsen",
     path: "/standorte/garbsen",
     desc: "Familiäre Atmosphäre, gut erreichbar mit ÖPNV.",
+    image: locationGarbsen,
   },
   {
     name: "Bremen",
     addr: "Bahnhofsplatz 41, 28195 Bremen",
     path: "/standorte/bremen",
     desc: "Mitten im Herzen der Hansestadt – direkt am Bahnhof.",
+    image: locationBremen,
   },
 ];
 
@@ -349,9 +360,9 @@ const Index = () => {
       {/* Storytelling intro */}
       <section className="relative py-24 bg-warm bg-driving-pattern overflow-hidden">
         <div className="container relative z-10 mx-auto px-4">
-          <div className="mx-auto max-w-3xl text-center">
+          <div className="grid gap-10 items-center md:grid-cols-2">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <Sparkles className="mx-auto mb-4 h-8 w-8 text-primary" />
+              <Sparkles className="mb-4 h-8 w-8 text-primary" />
               <h2 className="mb-6 text-3xl font-extrabold text-foreground font-display md:text-5xl">
                 Mehr als nur eine Fahrschule
               </h2>
@@ -362,6 +373,12 @@ const Index = () => {
                 allerersten Theoriestunde bis zu dem Moment, wo du den Schlüssel in der Hand hältst und weißt:
                 <em className="text-primary"> Ich hab's geschafft.</em>
               </p>
+            </motion.div>
+            <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: 0.15 }}>
+              <div className="relative rounded-3xl overflow-hidden shadow-card-hover">
+                <img src={heroDriving} alt="Fahrschüler bei der Fahrausbildung" className="w-full h-80 object-cover" loading="lazy" />
+                <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent" />
+              </div>
             </motion.div>
           </div>
         </div>
@@ -398,12 +415,16 @@ const Index = () => {
               >
                 <Link
                   to={lc.path}
-                  className="group flex flex-col items-center gap-3 rounded-3xl border border-border bg-card p-6 text-center shadow-card transition-all duration-500 hover:shadow-card-hover hover:-translate-y-1"
+                  className="group flex flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-card transition-all duration-500 hover:shadow-card-hover hover:-translate-y-1"
                 >
-                  <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-accent text-accent-foreground transition-all duration-500 group-hover:gradient-primary group-hover:text-primary-foreground group-hover:shadow-glow group-hover:scale-110">
-                    <lc.icon className="h-7 w-7" />
+                  <div className="relative h-36 overflow-hidden">
+                    <img src={lc.image} alt={lc.label} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent" />
+                    <div className="absolute bottom-3 left-3 flex h-10 w-10 items-center justify-center rounded-xl gradient-primary text-primary-foreground shadow-glow">
+                      <lc.icon className="h-5 w-5" />
+                    </div>
                   </div>
-                  <div>
+                  <div className="p-4 text-center">
                     <div className="text-lg font-bold text-foreground font-display">{lc.label}</div>
                     <div className="text-xs text-muted-foreground">{lc.desc}</div>
                   </div>
@@ -554,18 +575,21 @@ const Index = () => {
               >
                 <Link
                   to={loc.path}
-                  className="group flex h-full flex-col rounded-3xl border border-border bg-card p-8 shadow-card transition-all duration-500 hover:shadow-card-hover hover:-translate-y-2"
+                  className="group flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-card transition-all duration-500 hover:shadow-card-hover hover:-translate-y-2"
                 >
-                  <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-accent text-accent-foreground transition-all duration-500 group-hover:gradient-primary group-hover:text-primary-foreground">
-                    <MapPin className="h-5 w-5" />
+                  <div className="relative h-44 overflow-hidden">
+                    <img src={loc.image} alt={`Standort ${loc.name}`} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-card/60 to-transparent" />
                   </div>
-                  <h3 className="mb-1 text-2xl font-bold text-foreground font-display">{loc.name}</h3>
-                  <p className="mb-1 text-sm text-muted-foreground">{loc.addr}</p>
-                  <p className="mb-6 text-sm text-muted-foreground/70">{loc.desc}</p>
-                  <span className="mt-auto flex items-center gap-1.5 text-sm font-bold text-primary transition-all group-hover:gap-2.5">
-                    Standort entdecken{" "}
-                    <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                  </span>
+                  <div className="flex flex-1 flex-col p-6">
+                    <h3 className="mb-1 text-2xl font-bold text-foreground font-display">{loc.name}</h3>
+                    <p className="mb-1 text-sm text-muted-foreground">{loc.addr}</p>
+                    <p className="mb-6 text-sm text-muted-foreground/70">{loc.desc}</p>
+                    <span className="mt-auto flex items-center gap-1.5 text-sm font-bold text-primary transition-all group-hover:gap-2.5">
+                      Standort entdecken{" "}
+                      <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                    </span>
+                  </div>
                 </Link>
               </motion.div>
             ))}
