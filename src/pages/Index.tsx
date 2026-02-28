@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
+import ContactForm from "@/components/ContactForm";
 import {
   Car,
   Bike,
@@ -326,6 +327,19 @@ const Index = () => {
                 ))}
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Animated text ticker */}
+      <section className="py-6 overflow-hidden">
+        <div className="relative">
+          <div className="flex animate-marquee-slow whitespace-nowrap">
+            {[...Array(3)].map((_, i) => (
+              <span key={i} className="mx-4 text-7xl md:text-9xl font-extrabold font-display text-transparent" style={{ WebkitTextStroke: "1.5px hsl(var(--border))" }}>
+                FÜHRERSCHEIN · FREIHEIT · METROPOL · DEIN WEG ·{" "}
+              </span>
+            ))}
           </div>
         </div>
       </section>
@@ -674,8 +688,56 @@ const Index = () => {
         </div>
       </section>
 
+      {/* Inline Contact Form */}
+      <section className="relative py-28 bg-warm bg-driving-pattern overflow-hidden">
+        <div className="container relative z-10 mx-auto px-4">
+          <div className="grid gap-10 items-start lg:grid-cols-2">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">
+                Dein erster Schritt
+              </span>
+              <h2 className="text-3xl font-extrabold text-foreground font-display md:text-5xl lg:text-6xl mb-4">
+                Bereit für dein
+                <br />
+                <span className="gradient-text">größtes Abenteuer?</span>
+              </h2>
+              <p className="text-muted-foreground leading-relaxed mb-8 max-w-md">
+                Der Führerschein ist mehr als ein Dokument – er ist Freiheit, Unabhängigkeit und dein erster großer Schritt. Schreib uns und wir melden uns persönlich bei dir.
+              </p>
+              <div className="space-y-4">
+                <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full gradient-primary text-primary-foreground pulse-glow">
+                    <Phone className="h-4 w-4" />
+                  </div>
+                  <a href="tel:+495116425066" className="font-semibold text-foreground hover:text-primary transition-colors">0511 6425066</a>
+                </div>
+                <div className="flex items-center gap-3 text-sm text-muted-foreground">
+                  <div className="flex h-8 w-8 items-center justify-center rounded-full gradient-primary text-primary-foreground">
+                    <MapPin className="h-4 w-4" />
+                  </div>
+                  <span className="text-foreground font-semibold">Hannover · Garbsen · Bremen</span>
+                </div>
+              </div>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.15 }}
+              className="rounded-3xl border border-border bg-card p-8 shadow-card"
+            >
+              <ContactForm compact />
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
       {/* CTA */}
-      <section className="relative overflow-hidden gradient-dark py-28 noise">
+      <section className="relative overflow-hidden gradient-dark py-20 noise">
         <div className="container relative z-10 mx-auto px-4 text-center">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -683,19 +745,13 @@ const Index = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="mb-5 text-3xl font-extrabold text-primary-foreground font-display md:text-5xl lg:text-6xl">
-              Bereit für dein
-              <br />
-              <span className="gradient-text">größtes Abenteuer?</span>
+            <h2 className="mb-5 text-2xl font-extrabold text-primary-foreground font-display md:text-4xl">
+              Noch Fragen? Wir haben die Antworten.
             </h2>
-            <p className="mx-auto mb-10 max-w-xl text-lg text-primary-foreground/50">
-              Der Führerschein ist mehr als ein Dokument – er ist Freiheit, Unabhängigkeit und dein erster großer
-              Schritt. Lass uns ihn zusammen gehen.
-            </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button variant="hero" asChild>
                 <Link to="/kontakt">
-                  Jetzt kostenlos beraten lassen <ChevronRight className="h-5 w-5" />
+                  Kontakt <ChevronRight className="h-5 w-5" />
                 </Link>
               </Button>
               <Button variant="hero-outline" asChild>

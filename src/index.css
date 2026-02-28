@@ -219,4 +219,22 @@
     0%, 100% { transform: translateY(0); }
     50% { transform: translateY(-10px); }
   }
+
+  /* Slow text marquee */
+  .animate-marquee-slow {
+    animation: marquee-slow 30s linear infinite;
+  }
+  @keyframes marquee-slow {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-33.33%); }
+  }
+
+  /* Pulse glow */
+  .pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: 0 0 20px hsla(134, 100%, 40%, 0.15); }
+    50% { box-shadow: 0 0 40px hsla(134, 100%, 40%, 0.35), 0 0 80px hsla(134, 100%, 40%, 0.1); }
+  }
 }
