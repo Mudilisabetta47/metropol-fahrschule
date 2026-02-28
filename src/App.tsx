@@ -25,6 +25,7 @@ const Hannover = lazy(() => import("./pages/locations/Hannover"));
 const Auth = lazy(() => import("./pages/Auth"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const ImageManager = lazy(() => import("./pages/ImageManager"));
 const ErsteHilfe = lazy(() => import("./pages/ErsteHilfe"));
 const Aufbauseminar = lazy(() => import("./pages/Aufbauseminar"));
 const Datenschutz = lazy(() => import("./pages/Datenschutz"));
@@ -65,6 +66,7 @@ const App = () => (
               <Route path="/impressum" element={<Impressum />} />
               <Route path="/login" element={<Auth />} />
               <Route path="/dashboard" element={<Dashboard />} />
+              <Route path="/dashboard/bilder" element={<ImageManager />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>

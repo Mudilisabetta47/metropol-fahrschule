@@ -32,6 +32,7 @@ import heroDriving from "@/assets/hero-driving.jpg";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { useCountUp } from "@/hooks/useCountUp";
+import { useSiteImages } from "@/hooks/useSiteImage";
 import SEO from "@/components/SEO";
 
 const locationPills = ["Hannover", "Garbsen", "Bremen"];
@@ -55,33 +56,33 @@ const features = [
 ];
 
 const licenseClasses = [
-  { icon: Car, label: "Klasse B", desc: "Dein Autoführerschein", path: "/fuehrerschein/klasse-b", image: classPkw },
-  { icon: Bike, label: "Klasse A", desc: "Freiheit auf zwei Rädern", path: "/fuehrerschein/klasse-a", image: classMotorrad },
-  { icon: Truck, label: "LKW (C/CE)", desc: "Güterverkehr & Logistik", path: "/fuehrerschein/klasse-c", image: classLkw },
-  { icon: Truck, label: "Bus (D)", desc: "Personenverkehr", path: "/fuehrerschein/klasse-d", image: classBus },
+  { icon: Car, label: "Klasse B", desc: "Dein Autoführerschein", path: "/fuehrerschein/klasse-b", imageKey: "class-pkw" as const },
+  { icon: Bike, label: "Klasse A", desc: "Freiheit auf zwei Rädern", path: "/fuehrerschein/klasse-a", imageKey: "class-motorrad" as const },
+  { icon: Truck, label: "LKW (C/CE)", desc: "Güterverkehr & Logistik", path: "/fuehrerschein/klasse-c", imageKey: "class-lkw" as const },
+  { icon: Truck, label: "Bus (D)", desc: "Personenverkehr", path: "/fuehrerschein/klasse-d", imageKey: "class-bus" as const },
 ];
 
-const locations = [
+const locationsData = [
   {
     name: "Hannover",
     addr: "Vahrenwalder Str. 213, 30165 Hannover",
     path: "/standorte/hannover",
     desc: "Unser erster Standort – zentral und bestens erreichbar.",
-    image: locationHannover,
+    imageKey: "location-hannover" as const,
   },
   {
     name: "Garbsen",
     addr: "Planetenring 25–27, 30823 Garbsen",
     path: "/standorte/garbsen",
     desc: "Familiäre Atmosphäre, gut erreichbar mit ÖPNV.",
-    image: locationGarbsen,
+    imageKey: "location-garbsen" as const,
   },
   {
     name: "Bremen",
     addr: "Bahnhofsplatz 41, 28195 Bremen",
     path: "/standorte/bremen",
     desc: "Mitten im Herzen der Hansestadt – direkt am Bahnhof.",
-    image: locationBremen,
+    imageKey: "location-bremen" as const,
   },
 ];
 
@@ -152,6 +153,14 @@ const Index = () => {
   const stat1 = useCountUp(15000, 2000);
   const stat2 = useCountUp(98, 1800);
   const stat3 = useCountUp(20, 1500);
+
+  // Dynamic image lookup from admin
+  const img = useSiteImages({
+    "class-pkw": classPkw, "class-motorrad": classMotorrad,
+    "class-lkw": classLkw, "class-bus": classBus,
+    "location-hannover": locationHannover, "location-garbsen": locationGarbsen,
+    "location-bremen": locationBremen, "hero-index": heroDriving,
+  });
 
   const seoJsonLd = [
     {
@@ -376,7 +385,7 @@ const Index = () => {
             </motion.div>
             <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: 0.15 }}>
               <div className="relative rounded-3xl overflow-hidden shadow-card-hover">
-                <img src={heroDriving} alt="Fahrschüler bei der Fahrausbildung" className="w-full h-80 object-cover" loading="lazy" />
+                <img src={img("hero-index")} alt="Fahrschüler bei der Fahrausbildung" className="w-full h-80 object-cover" loading="lazy" />
                 <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent" />
               </div>
             </motion.div>
@@ -418,7 +427,7 @@ const Index = () => {
                   className="group flex flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-card transition-all duration-500 hover:shadow-card-hover hover:-translate-y-1"
                 >
                   <div className="relative h-36 overflow-hidden">
-                    <img src={lc.image} alt={lc.label} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+                    <img src={img(lc.imageKey)} alt={lc.label} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
                     <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent" />
                     <div className="absolute bottom-3 left-3 flex h-10 w-10 items-center justify-center rounded-xl gradient-primary text-primary-foreground shadow-glow">
                       <lc.icon className="h-5 w-5" />
@@ -565,7 +574,7 @@ const Index = () => {
           </motion.div>
 
           <div className="grid gap-6 md:grid-cols-3">
-            {locations.map((loc, i) => (
+            {locationsData.map((loc, i) => (
               <motion.div
                 key={loc.name}
                 initial={{ opacity: 0, y: 30 }}
@@ -578,7 +587,7 @@ const Index = () => {
                   className="group flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-card transition-all duration-500 hover:shadow-card-hover hover:-translate-y-2"
                 >
                   <div className="relative h-44 overflow-hidden">
-                    <img src={loc.image} alt={`Standort ${loc.name}`} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
+                    <img src={img(loc.imageKey)} alt={`Standort ${loc.name}`} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
                     <div className="absolute inset-0 bg-gradient-to-t from-card/60 to-transparent" />
                   </div>
                   <div className="flex flex-1 flex-col p-6">

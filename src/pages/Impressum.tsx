@@ -6,7 +6,7 @@ const Impressum = () => {
       <SEO
         title="Impressum | Fahrschule Metropol"
         description="Impressum der Fahrschule Metropol – Angaben gemäß § 5 TMG."
-        canonical="https://metropol-drive-hub.lovable.app/impressum"
+        canonical="https://fahrschule-metropol.de/impressum"
       />
 
       <section className="pt-32 pb-20 bg-background">
