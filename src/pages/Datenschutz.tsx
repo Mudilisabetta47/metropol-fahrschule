@@ -6,7 +6,7 @@ const Datenschutz = () => {
       <SEO
         title="Datenschutzerklärung | Fahrschule Metropol"
         description="Datenschutzerklärung der Fahrschule Metropol – Informationen zur Verarbeitung personenbezogener Daten gemäß DSGVO."
-        canonical="https://metropol-drive-hub.lovable.app/datenschutz"
+        canonical="https://fahrschule-metropol.de/datenschutz"
       />
 
       <section className="pt-32 pb-20 bg-background">

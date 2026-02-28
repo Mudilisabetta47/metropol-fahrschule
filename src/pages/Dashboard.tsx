@@ -11,8 +11,9 @@ import {
   Search, LogOut, MessageSquare, Send, ChevronRight,
   Phone, Mail, MapPin, Clock, CheckCircle, AlertCircle,
   PhoneCall, MailOpen, ExternalLink, Inbox, PhoneForwarded,
-  Trash2, Users, Sparkles,
+  Trash2, Users, Sparkles, Image as ImageIcon,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import type { User } from "@supabase/supabase-js";
 
@@ -181,9 +182,16 @@ const Dashboard = () => {
               <p className="text-[10px] text-muted-foreground">{user.email}</p>
             </div>
           </div>
-          <Button variant="ghost" size="sm" onClick={handleLogout} className="text-muted-foreground hover:text-foreground">
-            <LogOut className="h-4 w-4 mr-1" /> Abmelden
-          </Button>
+          <div className="flex items-center gap-2">
+            <Button variant="outline" size="sm" asChild>
+              <Link to="/dashboard/bilder">
+                <ImageIcon className="h-4 w-4 mr-1" /> Bilder
+              </Link>
+            </Button>
+            <Button variant="ghost" size="sm" onClick={handleLogout} className="text-muted-foreground hover:text-foreground">
+              <LogOut className="h-4 w-4 mr-1" /> Abmelden
+            </Button>
+          </div>
         </div>
       </div>
 
