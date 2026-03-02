@@ -3,3 +3,9 @@ project_id = "zsothhtfripxdiphedsu"
 [functions]
   [functions.auth-email-hook]
     verify_jwt = false
+  [functions.notify-inquiry]
+    verify_jwt = false
+  [functions.check-escalation]
+    verify_jwt = false
+  [functions.invite-user]
+    verify_jwt = false
