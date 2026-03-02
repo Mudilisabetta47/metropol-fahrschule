@@ -50,7 +50,7 @@ const ContactForm = ({ preselectedLocation, compact }: ContactFormProps) => {
 
     setLoading(true);
     try {
-      const { error } = await supabase.from("inquiries").insert({
+      const inquiryData = {
         name: form.name.trim(),
         phone: form.phone.trim() || null,
         email: form.email.trim(),
@@ -58,9 +58,15 @@ const ContactForm = ({ preselectedLocation, compact }: ContactFormProps) => {
         license_class: form.license_class || null,
         message: form.message.trim() || null,
         status: "neu",
-      });
+      };
 
+      const { error } = await supabase.from("inquiries").insert(inquiryData);
       if (error) throw error;
+
+      // Send email notification to location (fire & forget)
+      supabase.functions.invoke("notify-inquiry", {
+        body: inquiryData,
+      }).catch((err) => console.error("Email notification failed:", err));
 
       setSubmittedName(form.name.trim().split(" ")[0]);
       setSubmitted(true);
