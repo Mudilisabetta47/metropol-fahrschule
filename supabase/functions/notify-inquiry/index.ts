@@ -25,7 +25,7 @@ const locationEmails: Record<string, { email: string; phone: string; address: st
 
 const LOGO_URL = "https://zsothhtfripxdiphedsu.supabase.co/storage/v1/object/public/site-images/email-logo.avif";
 
-function buildEmailHtml(data: {
+function buildStaffEmailHtml(data: {
   name: string;
   email: string;
   phone?: string;
@@ -46,7 +46,6 @@ function buildEmailHtml(data: {
 <tr><td align="center">
 <table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;">
 
-  <!-- Header -->
   <tr><td style="background:linear-gradient(135deg,#0a0a1a 0%,#1a1a2e 100%);padding:32px 40px;border-radius:16px 16px 0 0;">
     <table width="100%"><tr>
       <td><img src="${LOGO_URL}" alt="Fahrschule Metropol" height="40" style="height:40px;width:auto;"/></td>
@@ -54,83 +53,156 @@ function buildEmailHtml(data: {
     </tr></table>
   </td></tr>
 
-  <!-- Title bar -->
   <tr><td style="background:#00cc28;padding:20px 40px;">
     <p style="margin:0;color:#fff;font-size:18px;font-weight:700;">🚗 Anfrage von ${name}</p>
     <p style="margin:4px 0 0;color:rgba(255,255,255,0.85);font-size:13px;">Standort ${location} · ${now}</p>
   </td></tr>
 
-  <!-- Body -->
   <tr><td style="background:#ffffff;padding:32px 40px;">
-
-    <!-- Contact Card -->
     <table width="100%" cellpadding="0" cellspacing="0" style="background:#f9fafb;border-radius:12px;border:1px solid #e5e7eb;margin-bottom:24px;">
       <tr><td style="padding:20px 24px;">
         <p style="margin:0 0 12px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#9ca3af;">Kontaktdaten</p>
         <table width="100%" cellpadding="0" cellspacing="0">
+          <tr><td style="padding:6px 0;color:#6b7280;font-size:14px;width:130px;">👤 Name</td><td style="padding:6px 0;color:#111827;font-size:14px;font-weight:600;">${name}</td></tr>
+          <tr><td style="padding:6px 0;color:#6b7280;font-size:14px;">✉️ E-Mail</td><td style="padding:6px 0;"><a href="mailto:${email}" style="color:#2563eb;font-size:14px;font-weight:600;text-decoration:none;">${email}</a></td></tr>
+          ${phone ? `<tr><td style="padding:6px 0;color:#6b7280;font-size:14px;">📞 Telefon</td><td style="padding:6px 0;"><a href="tel:${phone}" style="color:#2563eb;font-size:14px;font-weight:600;text-decoration:none;">${phone}</a></td></tr>` : ""}
+          <tr><td style="padding:6px 0;color:#6b7280;font-size:14px;">📍 Standort</td><td style="padding:6px 0;color:#111827;font-size:14px;font-weight:600;">${location}</td></tr>
+          ${license_class ? `<tr><td style="padding:6px 0;color:#6b7280;font-size:14px;">🪪 Klasse</td><td style="padding:6px 0;"><span style="background:#00cc28;color:#fff;font-size:12px;font-weight:700;padding:3px 10px;border-radius:6px;">${license_class}</span></td></tr>` : ""}
+        </table>
+      </td></tr>
+    </table>
+    ${message ? `
+    <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:24px;"><tr><td>
+      <p style="margin:0 0 8px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#9ca3af;">Nachricht</p>
+      <div style="background:#f0fdf4;border-left:4px solid #00cc28;padding:16px 20px;border-radius:0 12px 12px 0;">
+        <p style="margin:0;color:#111827;font-size:14px;line-height:1.6;white-space:pre-wrap;">${message}</p>
+      </div>
+    </td></tr></table>` : ""}
+    <table width="100%" cellpadding="0" cellspacing="0">
+      <tr><td align="center" style="padding:8px 4px;">
+        <a href="mailto:${email}?subject=Re: Deine Anfrage bei Fahrschule Metropol ${location}&body=Hallo ${name},%0A%0Avielen Dank für deine Anfrage bei Fahrschule Metropol.%0A%0A" style="display:inline-block;background:#00cc28;color:#fff;font-size:14px;font-weight:700;padding:14px 32px;border-radius:10px;text-decoration:none;min-width:180px;text-align:center;">✉️ Per E-Mail antworten</a>
+      </td></tr>
+      ${phone ? `<tr><td align="center" style="padding:8px 4px;">
+        <table cellpadding="0" cellspacing="0"><tr>
+          <td style="padding:0 6px;"><a href="tel:${phone}" style="display:inline-block;background:#111827;color:#fff;font-size:13px;font-weight:600;padding:12px 24px;border-radius:10px;text-decoration:none;">📞 Anrufen</a></td>
+          <td style="padding:0 6px;"><a href="https://wa.me/${phone.replace(/[^0-9]/g, "").replace(/^0/, "49")}" style="display:inline-block;background:#25D366;color:#fff;font-size:13px;font-weight:600;padding:12px 24px;border-radius:10px;text-decoration:none;">💬 WhatsApp</a></td>
+        </tr></table>
+      </td></tr>` : ""}
+    </table>
+  </td></tr>
+
+  <tr><td style="background:#f9fafb;padding:24px 40px;border-top:1px solid #e5e7eb;border-radius:0 0 16px 16px;">
+    <p style="margin:0 0 4px;color:#6b7280;font-size:12px;">Fahrschule Metropol · Standort ${location}</p>
+    <p style="margin:0 0 4px;color:#9ca3af;font-size:12px;">${locationInfo.address} · Tel: ${locationInfo.phone}</p>
+    <p style="margin:12px 0 0;color:#d1d5db;font-size:11px;">Automatisch gesendet über fahrschule-metropol.de</p>
+  </td></tr>
+
+</table>
+</td></tr>
+</table>
+</body>
+</html>`;
+}
+
+function buildConfirmationHtml(data: {
+  name: string;
+  location: string;
+  license_class?: string;
+  message?: string;
+  locationInfo: { phone: string; address: string; email: string };
+}) {
+  const { name, location, license_class, message, locationInfo } = data;
+  const firstName = name.split(" ")[0];
+
+  return `
+<!DOCTYPE html>
+<html lang="de">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"></head>
+<body style="margin:0;padding:0;background:#f4f4f5;font-family:'Segoe UI',Roboto,Arial,sans-serif;">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#f4f4f5;padding:32px 16px;">
+<tr><td align="center">
+<table width="600" cellpadding="0" cellspacing="0" style="max-width:600px;width:100%;">
+
+  <!-- Header -->
+  <tr><td style="background:linear-gradient(135deg,#0a0a1a 0%,#1a1a2e 100%);padding:32px 40px;border-radius:16px 16px 0 0;" align="center">
+    <img src="${LOGO_URL}" alt="Fahrschule Metropol" height="44" style="height:44px;width:auto;"/>
+  </td></tr>
+
+  <!-- Green hero -->
+  <tr><td style="background:#00cc28;padding:32px 40px;text-align:center;">
+    <p style="margin:0;font-size:40px;">✅</p>
+    <h1 style="margin:12px 0 0;color:#fff;font-size:24px;font-weight:800;">Anfrage erhalten!</h1>
+    <p style="margin:8px 0 0;color:rgba(255,255,255,0.9);font-size:15px;">Danke, ${firstName} – wir haben deine Nachricht bekommen.</p>
+  </td></tr>
+
+  <!-- Body -->
+  <tr><td style="background:#ffffff;padding:36px 40px;">
+
+    <!-- Personal greeting -->
+    <p style="margin:0 0 20px;color:#111827;font-size:15px;line-height:1.7;">
+      Hallo ${firstName},<br/><br/>
+      schön, dass du dich für die <strong>Fahrschule Metropol</strong> in <strong>${location}</strong> entschieden hast! 
+      Deine Anfrage${license_class ? ` für den <strong>${license_class}</strong>-Führerschein` : ""} ist bei uns eingegangen.
+    </p>
+
+    ${message ? `
+    <!-- Their message back -->
+    <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:24px;"><tr><td>
+      <p style="margin:0 0 8px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#9ca3af;">Deine Nachricht</p>
+      <div style="background:#f9fafb;border-left:4px solid #e5e7eb;padding:14px 18px;border-radius:0 10px 10px 0;">
+        <p style="margin:0;color:#6b7280;font-size:14px;line-height:1.5;font-style:italic;white-space:pre-wrap;">${message}</p>
+      </div>
+    </td></tr></table>` : ""}
+
+    <!-- Next steps -->
+    <table width="100%" cellpadding="0" cellspacing="0" style="background:#f0fdf4;border-radius:12px;border:1px solid #dcfce7;margin-bottom:24px;">
+      <tr><td style="padding:24px;">
+        <p style="margin:0 0 16px;font-size:14px;font-weight:700;color:#111827;">🗓️ So geht's weiter:</p>
+        <table width="100%" cellpadding="0" cellspacing="0">
           <tr>
-            <td style="padding:6px 0;color:#6b7280;font-size:14px;width:130px;">👤 Name</td>
-            <td style="padding:6px 0;color:#111827;font-size:14px;font-weight:600;">${name}</td>
+            <td style="padding:8px 0;vertical-align:top;width:36px;">
+              <div style="width:28px;height:28px;border-radius:50%;background:#00cc28;color:#fff;font-size:13px;font-weight:700;text-align:center;line-height:28px;">1</div>
+            </td>
+            <td style="padding:8px 0 8px 8px;color:#374151;font-size:14px;">Wir prüfen deine Anfrage und bereiten alles vor.</td>
           </tr>
           <tr>
-            <td style="padding:6px 0;color:#6b7280;font-size:14px;">✉️ E-Mail</td>
-            <td style="padding:6px 0;"><a href="mailto:${email}" style="color:#2563eb;font-size:14px;font-weight:600;text-decoration:none;">${email}</a></td>
+            <td style="padding:8px 0;vertical-align:top;">
+              <div style="width:28px;height:28px;border-radius:50%;background:#00cc28;color:#fff;font-size:13px;font-weight:700;text-align:center;line-height:28px;">2</div>
+            </td>
+            <td style="padding:8px 0 8px 8px;color:#374151;font-size:14px;">Innerhalb von <strong>24 Stunden</strong> melden wir uns persönlich bei dir.</td>
           </tr>
-          ${phone ? `<tr>
-            <td style="padding:6px 0;color:#6b7280;font-size:14px;">📞 Telefon</td>
-            <td style="padding:6px 0;"><a href="tel:${phone}" style="color:#2563eb;font-size:14px;font-weight:600;text-decoration:none;">${phone}</a></td>
-          </tr>` : ""}
           <tr>
-            <td style="padding:6px 0;color:#6b7280;font-size:14px;">📍 Standort</td>
-            <td style="padding:6px 0;color:#111827;font-size:14px;font-weight:600;">${location}</td>
+            <td style="padding:8px 0;vertical-align:top;">
+              <div style="width:28px;height:28px;border-radius:50%;background:#00cc28;color:#fff;font-size:13px;font-weight:700;text-align:center;line-height:28px;">3</div>
+            </td>
+            <td style="padding:8px 0 8px 8px;color:#374151;font-size:14px;">Gemeinsam planen wir deinen Weg zum Führerschein! 🚗</td>
           </tr>
-          ${license_class ? `<tr>
-            <td style="padding:6px 0;color:#6b7280;font-size:14px;">🪪 Klasse</td>
-            <td style="padding:6px 0;"><span style="background:#00cc28;color:#fff;font-size:12px;font-weight:700;padding:3px 10px;border-radius:6px;">${license_class}</span></td>
-          </tr>` : ""}
         </table>
       </td></tr>
     </table>
 
-    ${message ? `
-    <!-- Message -->
-    <table width="100%" cellpadding="0" cellspacing="0" style="margin-bottom:24px;">
-      <tr><td>
-        <p style="margin:0 0 8px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#9ca3af;">Nachricht</p>
-        <div style="background:#f0fdf4;border-left:4px solid #00cc28;padding:16px 20px;border-radius:0 12px 12px 0;">
-          <p style="margin:0;color:#111827;font-size:14px;line-height:1.6;white-space:pre-wrap;">${message}</p>
-        </div>
-      </td></tr>
-    </table>` : ""}
-
-    <!-- Action Buttons -->
+    <!-- Contact options -->
+    <p style="margin:0 0 16px;font-size:14px;color:#6b7280;text-align:center;">Du hast Fragen? Erreich uns jederzeit:</p>
     <table width="100%" cellpadding="0" cellspacing="0">
       <tr>
-        <td align="center" style="padding:8px 4px;">
-          <a href="mailto:${email}?subject=Re: Deine Anfrage bei Fahrschule Metropol ${location}&body=Hallo ${name},%0A%0Avielen Dank für deine Anfrage bei Fahrschule Metropol.%0A%0A" style="display:inline-block;background:#00cc28;color:#fff;font-size:14px;font-weight:700;padding:14px 32px;border-radius:10px;text-decoration:none;min-width:180px;text-align:center;">✉️ Per E-Mail antworten</a>
+        <td align="center" style="padding:6px;">
+          <a href="tel:${locationInfo.phone}" style="display:inline-block;background:#111827;color:#fff;font-size:14px;font-weight:700;padding:14px 28px;border-radius:10px;text-decoration:none;">📞 ${locationInfo.phone}</a>
         </td>
       </tr>
-      ${phone ? `<tr>
-        <td align="center" style="padding:8px 4px;">
-          <table cellpadding="0" cellspacing="0"><tr>
-            <td style="padding:0 6px;">
-              <a href="tel:${phone}" style="display:inline-block;background:#111827;color:#fff;font-size:13px;font-weight:600;padding:12px 24px;border-radius:10px;text-decoration:none;">📞 Anrufen</a>
-            </td>
-            <td style="padding:0 6px;">
-              <a href="https://wa.me/${phone.replace(/[^0-9]/g, "").replace(/^0/, "49")}" style="display:inline-block;background:#25D366;color:#fff;font-size:13px;font-weight:600;padding:12px 24px;border-radius:10px;text-decoration:none;">💬 WhatsApp</a>
-            </td>
-          </tr></table>
+      <tr>
+        <td align="center" style="padding:6px;">
+          <a href="mailto:${locationInfo.email}" style="display:inline-block;background:#f9fafb;color:#111827;font-size:13px;font-weight:600;padding:12px 28px;border-radius:10px;text-decoration:none;border:1px solid #e5e7eb;">✉️ ${locationInfo.email}</a>
         </td>
-      </tr>` : ""}
+      </tr>
     </table>
 
   </td></tr>
 
   <!-- Footer -->
-  <tr><td style="background:#f9fafb;padding:24px 40px;border-top:1px solid #e5e7eb;border-radius:0 0 16px 16px;">
-    <p style="margin:0 0 4px;color:#6b7280;font-size:12px;">Fahrschule Metropol · Standort ${location}</p>
-    <p style="margin:0 0 4px;color:#9ca3af;font-size:12px;">${locationInfo.address} · Tel: ${locationInfo.phone}</p>
-    <p style="margin:12px 0 0;color:#d1d5db;font-size:11px;">Automatisch gesendet über fahrschule-metropol.de</p>
+  <tr><td style="background:#f9fafb;padding:24px 40px;border-top:1px solid #e5e7eb;border-radius:0 0 16px 16px;text-align:center;">
+    <p style="margin:0 0 4px;color:#6b7280;font-size:12px;font-weight:600;">Fahrschule Metropol · Standort ${location}</p>
+    <p style="margin:0 0 4px;color:#9ca3af;font-size:12px;">${locationInfo.address}</p>
+    <p style="margin:12px 0 0;color:#d1d5db;font-size:11px;">Du erhältst diese E-Mail, weil du eine Anfrage über fahrschule-metropol.de gestellt hast.</p>
   </td></tr>
 
 </table>
@@ -155,28 +227,46 @@ Deno.serve(async (req) => {
     const loc = locationEmails[location];
     if (!loc) throw new Error(`Unknown location: ${location}`);
 
-    const htmlBody = buildEmailHtml({
+    const staffHtml = buildStaffEmailHtml({
       name, email, phone, location, license_class, message,
       locationInfo: { phone: loc.phone, address: loc.address },
     });
 
-    const res = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${RESEND_API_KEY}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from: "Fahrschule Metropol <noreply@fahrschule-metropol.de>",
-        to: [loc.email],
-        subject: `🚗 Neue Anfrage von ${name} – ${license_class || "Allgemein"} (${location})`,
-        html: htmlBody,
-        reply_to: email,
-      }),
+    const confirmHtml = buildConfirmationHtml({
+      name, location, license_class, message,
+      locationInfo: { phone: loc.phone, address: loc.address, email: loc.email },
     });
 
-    const data = await res.json();
-    if (!res.ok) throw new Error(`Resend API error [${res.status}]: ${JSON.stringify(data)}`);
+    // Send both emails in parallel
+    const [staffRes, confirmRes] = await Promise.all([
+      fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${RESEND_API_KEY}`, "Content-Type": "application/json" },
+        body: JSON.stringify({
+          from: "Fahrschule Metropol <noreply@fahrschule-metropol.de>",
+          to: [loc.email],
+          subject: `🚗 Neue Anfrage von ${name} – ${license_class || "Allgemein"} (${location})`,
+          html: staffHtml,
+          reply_to: email,
+        }),
+      }),
+      fetch("https://api.resend.com/emails", {
+        method: "POST",
+        headers: { Authorization: `Bearer ${RESEND_API_KEY}`, "Content-Type": "application/json" },
+        body: JSON.stringify({
+          from: "Fahrschule Metropol <noreply@fahrschule-metropol.de>",
+          to: [email],
+          subject: `✅ Deine Anfrage bei Fahrschule Metropol – wir melden uns!`,
+          html: confirmHtml,
+        }),
+      }),
+    ]);
+
+    const staffData = await staffRes.json();
+    if (!staffRes.ok) throw new Error(`Staff email error [${staffRes.status}]: ${JSON.stringify(staffData)}`);
+
+    const confirmData = await confirmRes.json();
+    if (!confirmRes.ok) console.error("Confirmation email failed:", confirmData);
 
     return new Response(JSON.stringify({ success: true }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
