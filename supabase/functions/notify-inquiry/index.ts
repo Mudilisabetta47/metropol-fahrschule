@@ -81,7 +81,7 @@ Deno.serve(async (req) => {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        from: "Fahrschule Metropol <noreply@fahrschule-metropol.de>",
+        from: "Fahrschule Metropol <onboarding@resend.dev>",
         to: [recipientEmail],
         subject: `Neue Anfrage von ${name} – ${license_class || "Allgemein"} (${location})`,
         html: htmlBody,
