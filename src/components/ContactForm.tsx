@@ -9,7 +9,7 @@ import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle, PartyPopper, Phone, Mail, ArrowLeft } from "lucide-react";
-import CloudflareTurnstile from "@/components/CloudflareTurnstile";
+import MathCaptcha from "@/components/MathCaptcha";
 
 interface ContactFormProps {
   preselectedLocation?: string;
@@ -237,7 +237,7 @@ const ContactForm = ({ preselectedLocation, compact }: ContactFormProps) => {
               Ich stimme der Verarbeitung meiner Daten gemäß der <a href="/datenschutz" className="text-primary underline">Datenschutzerklärung</a> zu. *
             </Label>
           </div>
-          <CloudflareTurnstile
+          <MathCaptcha
             onVerify={(token) => setTurnstileToken(token)}
             onExpire={() => setTurnstileToken(null)}
           />
