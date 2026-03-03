@@ -9,6 +9,7 @@ import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle, PartyPopper, Phone, Mail, ArrowLeft } from "lucide-react";
+import CloudflareTurnstile from "@/components/CloudflareTurnstile";
 
 interface ContactFormProps {
   preselectedLocation?: string;
@@ -24,6 +25,7 @@ const ContactForm = ({ preselectedLocation, compact }: ContactFormProps) => {
   const [submitted, setSubmitted] = useState(false);
   const [submittedName, setSubmittedName] = useState("");
   const [consent, setConsent] = useState(false);
+  const [turnstileToken, setTurnstileToken] = useState<string | null>(null);
   const [form, setForm] = useState({
     name: "",
     phone: "",
@@ -47,10 +49,14 @@ const ContactForm = ({ preselectedLocation, compact }: ContactFormProps) => {
       toast({ title: "Bitte fülle alle Pflichtfelder aus.", variant: "destructive" });
       return;
     }
+    if (!turnstileToken) {
+      toast({ title: "Bitte bestätige, dass du kein Bot bist.", variant: "destructive" });
+      return;
+    }
 
     setLoading(true);
     try {
-      const inquiryData = {
+      const inquiryPayload = {
         name: form.name.trim(),
         phone: form.phone.trim() || null,
         email: form.email.trim(),
@@ -60,18 +66,21 @@ const ContactForm = ({ preselectedLocation, compact }: ContactFormProps) => {
         status: "neu",
       };
 
-      const { error } = await supabase.from("inquiries").insert(inquiryData);
-      if (error) throw error;
+      // Verify turnstile + send emails via edge function first
+      const { error: fnError } = await supabase.functions.invoke("notify-inquiry", {
+        body: { ...inquiryPayload, turnstile_token: turnstileToken },
+      });
+      if (fnError) throw fnError;
 
-      // Send email notification to location (fire & forget)
-      supabase.functions.invoke("notify-inquiry", {
-        body: inquiryData,
-      }).catch((err) => console.error("Email notification failed:", err));
+      // Insert into database (without turnstile token)
+      const { error } = await supabase.from("inquiries").insert(inquiryPayload);
+      if (error) throw error;
 
       setSubmittedName(form.name.trim().split(" ")[0]);
       setSubmitted(true);
       setForm({ name: "", phone: "", email: "", location: preselectedLocation || "", license_class: "", message: "" });
       setConsent(false);
+      setTurnstileToken(null);
     } catch {
       toast({ title: "Fehler beim Senden. Bitte versuche es erneut.", variant: "destructive" });
     } finally {
@@ -228,7 +237,11 @@ const ContactForm = ({ preselectedLocation, compact }: ContactFormProps) => {
               Ich stimme der Verarbeitung meiner Daten gemäß der <a href="/datenschutz" className="text-primary underline">Datenschutzerklärung</a> zu. *
             </Label>
           </div>
-          <Button type="submit" variant="cta" size="lg" disabled={loading} className="w-full sm:w-auto">
+          <CloudflareTurnstile
+            onVerify={(token) => setTurnstileToken(token)}
+            onExpire={() => setTurnstileToken(null)}
+          />
+          <Button type="submit" variant="cta" size="lg" disabled={loading || !turnstileToken} className="w-full sm:w-auto">
             {loading ? "Wird gesendet…" : "Kostenlos beraten lassen ✨"}
           </Button>
           <p className="text-xs text-muted-foreground/60 mt-1">Unverbindlich & kostenlos – wir melden uns innerhalb von 24h.</p>

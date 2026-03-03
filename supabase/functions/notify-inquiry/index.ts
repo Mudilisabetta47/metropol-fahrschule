@@ -221,8 +221,30 @@ Deno.serve(async (req) => {
     const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
     if (!RESEND_API_KEY) throw new Error("RESEND_API_KEY is not configured");
 
-    const { name, email, phone, location, license_class, message } = await req.json();
+    const { name, email, phone, location, license_class, message, turnstile_token } = await req.json();
     if (!name || !email || !location) throw new Error("Missing required fields");
+
+    // Verify Cloudflare Turnstile token
+    const TURNSTILE_SECRET = Deno.env.get("CLOUDFLARE_TURNSTILE_SECRET_KEY");
+    if (TURNSTILE_SECRET && turnstile_token) {
+      const verifyRes = await fetch("https://challenges.cloudflare.com/turnstile/v0/siteverify", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams({ secret: TURNSTILE_SECRET, response: turnstile_token }),
+      });
+      const verifyData = await verifyRes.json();
+      if (!verifyData.success) {
+        return new Response(JSON.stringify({ error: "Turnstile verification failed" }), {
+          status: 403,
+          headers: { ...corsHeaders, "Content-Type": "application/json" },
+        });
+      }
+    } else if (TURNSTILE_SECRET && !turnstile_token) {
+      return new Response(JSON.stringify({ error: "Missing Turnstile token" }), {
+        status: 403,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
 
     const loc = locationEmails[location];
     if (!loc) throw new Error(`Unknown location: ${location}`);
