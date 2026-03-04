@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Phone, Mail, Clock, ArrowUpRight } from "lucide-react";
+import { Phone, Mail, Clock, ArrowUpRight, Facebook, Instagram, Linkedin } from "lucide-react";
 import logoImage from "@/assets/logo.avif";
 
 const seoLinks = [
@@ -50,7 +50,7 @@ const Footer = () => {
                 <img
                   src={logoImage}
                   alt="Fahrschule Metropol Logo"
-                  className="h-16 w-auto brightness-0 invert"
+                  className="h-24 w-auto brightness-0 invert"
                 />
               </div>
               <p className="text-sm text-primary-foreground/70 leading-relaxed">
@@ -61,6 +61,25 @@ const Footer = () => {
                 <span className="text-yellow-300">★★★★★</span>
                 <span>4.8</span>
                 <span className="text-primary-foreground/50">(127)</span>
+              </div>
+              {/* Social Media */}
+              <div className="mt-5 flex gap-3">
+                {[
+                  { icon: Facebook, href: "https://www.facebook.com/fahrschulemetropol", label: "Facebook" },
+                  { icon: Instagram, href: "https://www.instagram.com/fahrschulemetropol", label: "Instagram" },
+                  { icon: Linkedin, href: "https://www.linkedin.com/company/metropol-bildungszentrum", label: "LinkedIn" },
+                ].map((social) => (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={social.label}
+                    className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-foreground/10 text-primary-foreground/70 transition-colors hover:bg-primary-foreground/20 hover:text-primary-foreground"
+                  >
+                    <social.icon className="h-5 w-5" />
+                  </a>
+                ))}
               </div>
             </div>
 
