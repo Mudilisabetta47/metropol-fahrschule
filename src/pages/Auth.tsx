@@ -7,14 +7,14 @@ import { useToast } from "@/hooks/use-toast";
 import { supabase } from "@/integrations/supabase/client";
 import { motion } from "framer-motion";
 import { Lock, Mail } from "lucide-react";
-import MathCaptcha from "@/components/MathCaptcha";
+
 
 const Auth = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const isSignUp = false;
   const [loading, setLoading] = useState(false);
-  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+  
   const { toast } = useToast();
   const navigate = useNavigate();
 
@@ -24,8 +24,9 @@ const Auth = () => {
       toast({ title: "Bitte E-Mail und Passwort eingeben.", variant: "destructive" });
       return;
     }
-    if (!captchaToken) {
-      toast({ title: "Bitte löse die Rechenaufgabe.", variant: "destructive" });
+    const domain = email.trim().split("@")[1]?.toLowerCase();
+    if (domain !== "fahrschule-metropol.de" && domain !== "metropol-bz.de") {
+      toast({ title: "Zugriff verweigert", description: "Nur E-Mail-Adressen mit @fahrschule-metropol.de oder @metropol-bz.de sind erlaubt.", variant: "destructive" });
       return;
     }
     if (isSignUp && password.length < 6) {
@@ -79,11 +80,7 @@ const Auth = () => {
                 <Input id="password" type="password" value={password} onChange={(e) => setPassword(e.target.value)} className="pl-10" placeholder="••••••••" required />
               </div>
             </div>
-            <MathCaptcha
-              onVerify={(token) => setCaptchaToken(token)}
-              onExpire={() => setCaptchaToken(null)}
-            />
-            <Button type="submit" variant="cta" className="w-full" disabled={loading || !captchaToken}>
+            <Button type="submit" variant="cta" className="w-full" disabled={loading}>
               {loading ? "Wird angemeldet…" : "Anmelden"}
             </Button>
           </form>
