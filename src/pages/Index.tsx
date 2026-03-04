@@ -66,7 +66,7 @@ const licenseClasses = [
 const locationsData = [
   {
     name: "Hannover",
-    addr: "Vahrenwalder Str. 213, 30165 Hannover",
+    addr: "Engelbosteler Damm 1, 30167 Hannover",
     path: "/standorte/hannover",
     desc: "Unser erster Standort – zentral und bestens erreichbar.",
     imageKey: "location-hannover" as const,
@@ -175,9 +175,9 @@ const Index = () => {
       address: [
         {
           "@type": "PostalAddress",
-          streetAddress: "Vahrenwalder Str. 213",
+          streetAddress: "Engelbosteler Damm 1",
           addressLocality: "Hannover",
-          postalCode: "30165",
+          postalCode: "30167",
           addressCountry: "DE",
         },
         {

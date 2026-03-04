@@ -19,7 +19,7 @@ const locationEmails: Record<string, { email: string; phone: string; address: st
   Hannover: {
     email: "hannover@fahrschule-metropol.de",
     phone: "0511 6425066",
-    address: "Vahrenwalder Str. 213, 30165 Hannover",
+    address: "Engelbosteler Damm 1, 30167 Hannover",
   },
 };
 

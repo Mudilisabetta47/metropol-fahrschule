@@ -19,8 +19,8 @@ const Impressum = () => {
             <h2 className="text-xl font-bold text-foreground mt-8">Angaben gemäß § 5 TMG</h2>
             <p>
               Fahrschule Metropol<br />
-              Vahrenwalder Str. 213<br />
-              30165 Hannover
+              Engelbosteler Damm 1<br />
+              30167 Hannover
             </p>
 
             <h2 className="text-xl font-bold text-foreground mt-8">Kontakt</h2>

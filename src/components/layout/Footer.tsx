@@ -121,7 +121,7 @@ const Footer = () => {
               <h4 className="mb-5 text-base font-bold font-display">Standorte</h4>
               <ul className="space-y-4 text-sm">
                 {[
-                  { name: "Hannover", addr: "Vahrenwalder Str. 213, 30165 Hannover", path: "/standorte/hannover" },
+                  { name: "Hannover", addr: "Engelbosteler Damm 1, 30167 Hannover", path: "/standorte/hannover" },
                   { name: "Garbsen", addr: "Planetenring 25–27, 30823 Garbsen", path: "/standorte/garbsen" },
                   { name: "Bremen", addr: "Bahnhofsplatz 41, 28195 Bremen", path: "/standorte/bremen" },
                 ].map((s) => (
