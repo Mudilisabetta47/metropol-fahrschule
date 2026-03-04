@@ -74,7 +74,7 @@ const Contact = () => {
               {[
                 { name: "Bremen", addr: "Bahnhofsplatz 41, 28195 Bremen", path: "/standorte/bremen" },
                 { name: "Garbsen", addr: "Planetenring 25–27, 30823 Garbsen", path: "/standorte/garbsen" },
-                { name: "Hannover", addr: "Vahrenwalder Str. 213, 30165 Hannover", path: "/standorte/hannover" },
+                { name: "Hannover", addr: "Engelbosteler Damm 1, 30167 Hannover", path: "/standorte/hannover" },
               ].map((loc) => (
                 <a
                   key={loc.name}
