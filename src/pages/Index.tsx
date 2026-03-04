@@ -166,7 +166,8 @@ const Index = () => {
   const seoJsonLd = [
     {
       "@context": "https://schema.org",
-      "@type": "DrivingSchool",
+      "@type": "LocalBusiness",
+      "additionalType": "https://schema.org/DrivingSchool",
       name: "Fahrschule Metropol",
       url: "https://fahrschule-metropol.de",
       telephone: "+495116425066",

@@ -25,7 +25,8 @@ const LicenseClassPage = ({ data }: Props) => {
     name: `${data.name} – ${data.subtitle}`,
     description: data.seoDescription,
     provider: {
-      "@type": "DrivingSchool",
+      "@type": "LocalBusiness",
+      "additionalType": "https://schema.org/DrivingSchool",
       name: "Fahrschule Metropol",
       url: "https://fahrschule-metropol.de",
     },
