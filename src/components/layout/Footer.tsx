@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Phone, Mail, Clock, ArrowUpRight, Facebook, Instagram, Linkedin } from "lucide-react";
+import { Phone, Mail, Clock, ArrowUpRight, Facebook, Instagram } from "lucide-react";
 import logoImage from "@/assets/logo.avif";
 
 const seoLinks = [
@@ -65,9 +65,8 @@ const Footer = () => {
               {/* Social Media */}
               <div className="mt-5 flex gap-3">
                 {[
-                  { icon: Facebook, href: "https://www.facebook.com/fahrschulemetropol", label: "Facebook" },
-                  { icon: Instagram, href: "https://www.instagram.com/fahrschulemetropol", label: "Instagram" },
-                  { icon: Linkedin, href: "https://www.linkedin.com/company/metropol-bildungszentrum", label: "LinkedIn" },
+                  { icon: Instagram, href: "https://www.instagram.com/fahrschulemetropol/?hl=de", label: "Instagram" },
+                  { icon: Facebook, href: "https://www.facebook.com/p/Fahrschule-Metropol-100037905975615/?locale=de_DE", label: "Facebook" },
                 ].map((social) => (
                   <a
                     key={social.label}
@@ -80,6 +79,18 @@ const Footer = () => {
                     <social.icon className="h-5 w-5" />
                   </a>
                 ))}
+                {/* TikTok – no lucide icon */}
+                <a
+                  href="https://www.tiktok.com/@fahrschulemetropol"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label="TikTok"
+                  className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-foreground/10 text-primary-foreground/70 transition-colors hover:bg-primary-foreground/20 hover:text-primary-foreground"
+                >
+                  <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V9.39a8.16 8.16 0 004.76 1.51v-3.4a4.85 4.85 0 01-1-.81z" />
+                  </svg>
+                </a>
               </div>
             </div>
 
