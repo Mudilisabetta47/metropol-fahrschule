@@ -105,6 +105,15 @@ const classes = [
   },
 ];
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Startseite", item: "https://fahrschule-metropol.de/" },
+    { "@type": "ListItem", position: 2, name: "Führerscheinklassen", item: "https://fahrschule-metropol.de/fuehrerscheinklassen" },
+  ],
+};
+
 const LicenseClasses = () => {
   const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
@@ -114,6 +123,7 @@ const LicenseClasses = () => {
         title="Führerscheinklassen – Fahrschule Metropol | Dein Weg zur Freiheit"
         description="Alle Führerscheinklassen bei Fahrschule Metropol: PKW, Motorrad, Anhänger & mehr. Finde deinen Weg zur Freiheit – in Hannover, Bremen & Garbsen."
         canonical="https://fahrschule-metropol.de/fuehrerscheinklassen"
+        jsonLd={[breadcrumbSchema]}
       />
 
       {/* Premium Hero with image */}

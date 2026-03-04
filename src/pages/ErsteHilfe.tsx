@@ -57,13 +57,22 @@ const ErsteHilfe = () => {
     })),
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Startseite", item: "https://fahrschule-metropol.de/" },
+      { "@type": "ListItem", position: 2, name: "Erste Hilfe", item: "https://fahrschule-metropol.de/erste-hilfe" },
+    ],
+  };
+
   return (
     <div className="min-h-screen">
       <SEO
         title="Erste-Hilfe-Kurs in Hannover, Bremen & Garbsen | Fahrschule Metropol"
         description="Erste-Hilfe-Kurs für den Führerschein – 9 Unterrichtseinheiten an nur einem Tag. Behördlich anerkannt, regelmäßige Termine. Jetzt anmelden!"
         canonical="https://fahrschule-metropol.de/erste-hilfe"
-        jsonLd={[jsonLd, faqJsonLd]}
+        jsonLd={[jsonLd, faqJsonLd, breadcrumbSchema]}
       />
 
       {/* Hero */}
