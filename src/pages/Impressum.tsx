@@ -1,5 +1,14 @@
 import SEO from "@/components/SEO";
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Startseite", item: "https://fahrschule-metropol.de/" },
+    { "@type": "ListItem", position: 2, name: "Impressum", item: "https://fahrschule-metropol.de/impressum" },
+  ],
+};
+
 const Impressum = () => {
   return (
     <>
@@ -7,6 +16,7 @@ const Impressum = () => {
         title="Impressum | Fahrschule Metropol"
         description="Impressum der Fahrschule Metropol – Angaben gemäß § 5 TMG."
         canonical="https://fahrschule-metropol.de/impressum"
+        jsonLd={[breadcrumbSchema]}
       />
 
       <section className="pt-32 pb-20 bg-background">

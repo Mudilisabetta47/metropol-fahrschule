@@ -33,13 +33,22 @@ const Aufbauseminar = () => {
     },
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Startseite", item: "https://fahrschule-metropol.de/" },
+      { "@type": "ListItem", position: 2, name: "Aufbauseminar", item: "https://fahrschule-metropol.de/aufbauseminar" },
+    ],
+  };
+
   return (
     <div className="min-h-screen">
       <SEO
         title="Aufbauseminar (ASF) für Fahranfänger | Fahrschule Metropol"
         description="Aufbauseminar für Fahranfänger in der Probezeit – Pflicht bei Verstößen. Kleine Gruppen, erfahrene Seminarleiter. Termine in Hannover, Bremen & Garbsen."
         canonical="https://fahrschule-metropol.de/aufbauseminar"
-        jsonLd={[jsonLd]}
+        jsonLd={[jsonLd, breadcrumbSchema]}
       />
 
       {/* Hero */}

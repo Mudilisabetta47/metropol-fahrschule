@@ -4,6 +4,15 @@ import ContactForm from "@/components/ContactForm";
 import SEO from "@/components/SEO";
 import heroKontakt from "@/assets/hero-kontakt.jpg";
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Startseite", item: "https://fahrschule-metropol.de/" },
+    { "@type": "ListItem", position: 2, name: "Kontakt", item: "https://fahrschule-metropol.de/kontakt" },
+  ],
+};
+
 const Contact = () => {
   return (
     <div className="min-h-screen pt-20">
@@ -11,6 +20,7 @@ const Contact = () => {
         title="Kontakt & Anmeldung – Fahrschule Metropol | Jetzt anmelden"
         description="Melde dich jetzt bei Fahrschule Metropol an. Kontaktformular, Telefon & E-Mail. Standorte in Bremen, Garbsen und Hannover."
         canonical="https://fahrschule-metropol.de/kontakt"
+        jsonLd={[breadcrumbSchema]}
       />
 
       <section className="relative overflow-hidden py-20 noise">

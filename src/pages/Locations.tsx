@@ -9,6 +9,15 @@ const locations = [
   { name: "Bremen", addr: "Bahnhofsplatz 41, 28195 Bremen", desc: "Unser Standort im Herzen der Hansestadt – direkt am Bahnhof.", path: "/standorte/bremen" },
 ];
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Startseite", item: "https://fahrschule-metropol.de/" },
+    { "@type": "ListItem", position: 2, name: "Standorte", item: "https://fahrschule-metropol.de/standorte" },
+  ],
+};
+
 const Locations = () => {
   return (
     <div className="min-h-screen pt-20">
@@ -16,6 +25,7 @@ const Locations = () => {
         title="Standorte – Fahrschule Metropol | Bremen, Garbsen & Hannover"
         description="Fahrschule Metropol an 3 Standorten: Bremen, Garbsen und Hannover. Adressen, Öffnungszeiten und Kontakt. Finde deine nächste Filiale."
         canonical="https://fahrschule-metropol.de/standorte"
+        jsonLd={[breadcrumbSchema]}
       />
 
       <section className="gradient-dark py-20 noise relative overflow-hidden">

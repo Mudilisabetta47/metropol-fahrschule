@@ -41,13 +41,23 @@ const LicenseClassPage = ({ data }: Props) => {
     })),
   };
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      { "@type": "ListItem", position: 1, name: "Startseite", item: "https://fahrschule-metropol.de/" },
+      { "@type": "ListItem", position: 2, name: "Führerscheinklassen", item: "https://fahrschule-metropol.de/fuehrerscheinklassen" },
+      { "@type": "ListItem", position: 3, name: `${data.name}`, item: `https://fahrschule-metropol.de/fuehrerschein/${data.slug}` },
+    ],
+  };
+
   return (
     <div className="min-h-screen">
       <SEO
         title={data.seoTitle}
         description={data.seoDescription}
         canonical={`https://fahrschule-metropol.de/fuehrerschein/${data.slug}`}
-        jsonLd={[jsonLd, faqJsonLd]}
+        jsonLd={[jsonLd, faqJsonLd, breadcrumbSchema]}
       />
 
       {/* Hero with image */}

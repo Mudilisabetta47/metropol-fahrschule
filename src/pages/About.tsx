@@ -12,6 +12,15 @@ const values = [
   { icon: Award, title: "Erfahrung", desc: "Über 20 Jahre Erfahrung und mehr als 15.000 erfolgreiche Fahrschüler." },
 ];
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Startseite", item: "https://fahrschule-metropol.de/" },
+    { "@type": "ListItem", position: 2, name: "Über uns", item: "https://fahrschule-metropol.de/ueber-uns" },
+  ],
+};
+
 const About = () => {
   return (
     <div className="min-h-screen pt-20">
@@ -19,6 +28,7 @@ const About = () => {
         title="Über uns – Fahrschule Metropol | Dein Team in Bremen, Garbsen & Hannover"
         description="Lerne das Team hinter Fahrschule Metropol kennen. Über 20 Jahre Erfahrung, 15.000+ erfolgreiche Schüler, 3 Standorte."
         canonical="https://fahrschule-metropol.de/ueber-uns"
+        jsonLd={[breadcrumbSchema]}
       />
 
       <section className="gradient-dark py-20 noise relative overflow-hidden">

@@ -147,6 +147,15 @@ const PriceCard = ({ klasse, items, index }: PriceCardProps) => {
   );
 };
 
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Startseite", item: "https://fahrschule-metropol.de/" },
+    { "@type": "ListItem", position: 2, name: "Preise", item: "https://fahrschule-metropol.de/preise" },
+  ],
+};
+
 const Prices = () => {
   return (
     <div className="min-h-screen">
@@ -154,6 +163,7 @@ const Prices = () => {
         title="Preise – Fahrschule Metropol | Alle Führerscheinklassen"
         description="Aktuelle Preise für alle Führerscheinklassen an unseren Standorten Hannover, Garbsen & Bremen. Transparente Kosten, keine versteckten Gebühren."
         canonical="https://fahrschule-metropol.de/preise"
+        jsonLd={[breadcrumbSchema]}
       />
 
       {/* Hero */}
