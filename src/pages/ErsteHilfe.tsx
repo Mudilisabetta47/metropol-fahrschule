@@ -41,7 +41,8 @@ const ErsteHilfe = () => {
     name: "Erste-Hilfe-Kurs bei Fahrschule Metropol",
     description: "Erste-Hilfe-Kurs für den Führerschein in Hannover, Bremen & Garbsen. 9 Unterrichtseinheiten an nur einem Tag – behördlich anerkannt.",
     provider: {
-      "@type": "DrivingSchool",
+      "@type": "LocalBusiness",
+      "additionalType": "https://schema.org/DrivingSchool",
       name: "Fahrschule Metropol",
       url: "https://fahrschule-metropol.de",
     },

@@ -23,7 +23,8 @@ const LocationTemplate = ({ data }: { data: LocationData }) => {
   const jsonLd = [
     {
       "@context": "https://schema.org",
-      "@type": "DrivingSchool",
+      "@type": "LocalBusiness",
+      "additionalType": "https://schema.org/DrivingSchool",
       name: `Fahrschule Metropol ${data.name}`,
       telephone: data.phone,
       email: data.email,

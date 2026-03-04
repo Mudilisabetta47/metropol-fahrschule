@@ -27,7 +27,8 @@ const Aufbauseminar = () => {
     name: "Aufbauseminar für Fahranfänger (ASF) – Fahrschule Metropol",
     description: "Aufbauseminar (ASF) für Fahranfänger in der Probezeit. Pflicht bei A-Verstößen oder zwei B-Verstößen. Termine in Hannover, Bremen & Garbsen.",
     provider: {
-      "@type": "DrivingSchool",
+      "@type": "LocalBusiness",
+      "additionalType": "https://schema.org/DrivingSchool",
       name: "Fahrschule Metropol",
       url: "https://fahrschule-metropol.de",
     },
