@@ -323,7 +323,20 @@
     "experiencedLeadersDesc": "Our certified seminar leaders ensure a constructive and respectful atmosphere.",
     "contactTitle": "Request Advanced Seminar",
     "contactDesc": "Received mail from the driver licensing authority? Contact us – we'll help you quickly and discreetly.",
-    "discreet": "Discreet & Confidential"
+    "discreet": "Discreet & Confidential",
+    "aV1": "Speeding (21+ km/h over limit)",
+    "aV2": "Running a red light",
+    "aV3": "Driving under the influence of alcohol or drugs",
+    "aV4": "Coercion in road traffic",
+    "aV5": "Hit and run",
+    "bV1": "Driving without winter tires on icy roads",
+    "bV2": "Expired inspection sticker (more than 8 months)",
+    "bV3": "Using a phone while driving",
+    "dur1": "4 sessions of 135 minutes each",
+    "dur2": "1 observation drive (30 min.)",
+    "dur3": "Duration: approx. 2–4 weeks",
+    "dur4": "Cost: from approx. €350",
+    "dur5": "Recognized by all licensing authorities"
   },
   "licenseClass": {
     "onRequest": "Price on request",

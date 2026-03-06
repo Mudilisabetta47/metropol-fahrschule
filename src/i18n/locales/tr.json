@@ -323,7 +323,20 @@
     "experiencedLeadersDesc": "Sertifikalı seminer liderlerimiz yapıcı ve saygılı bir atmosfer sağlar.",
     "contactTitle": "Takviye Semineri Talep Et",
     "contactDesc": "Ehliyet makamından mektup mu aldınız? Bize ulaşın – hızlı ve gizli bir şekilde yardımcı olacağız.",
-    "discreet": "Gizli ve Güvenilir"
+    "discreet": "Gizli ve Güvenilir",
+    "aV1": "Hız aşımı (21+ km/s üzerinde)",
+    "aV2": "Kırmızı ışık ihlali",
+    "aV3": "Alkol veya uyuşturucu etkisi altında araç kullanma",
+    "aV4": "Trafikte zorlama",
+    "aV5": "Kaza sonrası kaçma",
+    "bV1": "Buzlu yolda kış lastiği olmadan araç kullanma",
+    "bV2": "Süresi geçmiş muayene (8 aydan fazla)",
+    "bV3": "Araç kullanırken telefon kullanma",
+    "dur1": "Her biri 135 dakikalık 4 oturum",
+    "dur2": "1 gözlem sürüşü (30 dk.)",
+    "dur3": "Süre: yaklaşık 2–4 hafta",
+    "dur4": "Ücret: yaklaşık 350 €'den itibaren",
+    "dur5": "Tüm ehliyet makamlarınca tanınır"
   },
   "licenseClass": {
     "onRequest": "Fiyat talep üzerine",
