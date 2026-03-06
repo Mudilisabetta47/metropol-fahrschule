@@ -286,7 +286,19 @@
     "phoneReachable": "Telefonla ulaşılabilir",
     "emailContact": "E-posta iletişimi",
     "formTitle": "Bağlayıcı Olmayan Başvuru",
-    "formDesc": "Formu doldurun, size kişisel olarak geri döneceğiz – otomatik değil."
+    "formDesc": "Formu doldurun, size kişisel olarak geri döneceğiz – otomatik değil.",
+    "faq1q": "İlk yardım sertifikası ne kadar geçerli?",
+    "faq1a": "İlk yardım sertifikası süresiz geçerlidir. Son kullanma tarihi yoktur.",
+    "faq2q": "Kursa ne getirmem gerekiyor?",
+    "faq2a": "Geçerli bir kimlik (nüfus cüzdanı veya pasaport) ve rahat kıyafetler.",
+    "faq3q": "İlk yardım kursu ne kadar?",
+    "faq3a": "Güncel fiyatlar ve tarihler için bizimle iletişime geçin.",
+    "faq4q": "Sertifika alacak mıyım?",
+    "faq4a": "Evet, kurs sonunda resmi olarak tanınan bir sertifika alacaksınız.",
+    "faq5q": "Kursu online alabilir miyim?",
+    "faq5a": "Hayır, pratik kısım yüz yüze katılım gerektirir. 9 ders birimi yerinde yapılır.",
+    "faq6q": "Nasıl kayıt olabilirim?",
+    "faq6a": "İletişim formumuz veya telefonla kolayca. Yaklaşan tarihler hakkında sizi bilgilendireceğiz."
   },
   "aufbauseminar": {
     "seoTitle": "Yeni Sürücüler için Takviye Semineri (ASF) | Fahrschule Metropol",
