@@ -2,8 +2,10 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Cookie, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useTranslation } from "react-i18next";
 
 const CookieBanner = () => {
+  const { t } = useTranslation();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
@@ -29,11 +31,7 @@ const CookieBanner = () => {
           transition={{ type: "spring", bounce: 0.15, duration: 0.5 }}
           className="fixed bottom-4 left-4 right-4 z-[60] mx-auto max-w-lg rounded-2xl border border-border bg-card p-5 shadow-card-hover sm:bottom-6 sm:left-6 sm:right-auto"
         >
-          <button
-            onClick={() => accept("essential")}
-            className="absolute top-3 right-3 text-muted-foreground hover:text-foreground transition-colors"
-            aria-label="Schließen"
-          >
+          <button onClick={() => accept("essential")} className="absolute top-3 right-3 text-muted-foreground hover:text-foreground transition-colors" aria-label="Close">
             <X className="h-4 w-4" />
           </button>
           <div className="flex items-start gap-3">
@@ -41,26 +39,17 @@ const CookieBanner = () => {
               <Cookie className="h-5 w-5" />
             </div>
             <div>
-              <h3 className="text-sm font-bold text-foreground mb-1">Cookie-Einstellungen</h3>
+              <h3 className="text-sm font-bold text-foreground mb-1">{t("cookie.title")}</h3>
               <p className="text-xs text-muted-foreground leading-relaxed mb-4">
-                Wir verwenden Cookies, um dir die bestmögliche Erfahrung auf unserer Website zu bieten.{" "}
-                <a href="/datenschutz" className="text-primary hover:underline">Mehr erfahren</a>
+                {t("cookie.text")}{" "}
+                <a href="/datenschutz" className="text-primary hover:underline">{t("cookie.learnMore")}</a>
               </p>
               <div className="flex gap-2">
-                <Button
-                  size="sm"
-                  onClick={() => accept("all")}
-                  className="gradient-primary text-primary-foreground border-0 text-xs font-bold rounded-lg"
-                >
-                  Alle akzeptieren
+                <Button size="sm" onClick={() => accept("all")} className="gradient-primary text-primary-foreground border-0 text-xs font-bold rounded-lg">
+                  {t("cookie.acceptAll")}
                 </Button>
-                <Button
-                  size="sm"
-                  variant="outline"
-                  onClick={() => accept("essential")}
-                  className="text-xs font-bold rounded-lg"
-                >
-                  Nur notwendige
+                <Button size="sm" variant="outline" onClick={() => accept("essential")} className="text-xs font-bold rounded-lg">
+                  {t("cookie.essentialOnly")}
                 </Button>
               </div>
             </div>
