@@ -7,6 +7,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CookieBanner from "@/components/CookieBanner";
+import LanguageSwitcher from "@/components/LanguageSwitcher";
 
 /* Eagerly load landing page for fast FCP */
 import Index from "./pages/Index";
@@ -73,6 +74,7 @@ const App = () => (
         </main>
         <Footer />
         <CookieBanner />
+        <LanguageSwitcher />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
