@@ -286,7 +286,19 @@
     "phoneReachable": "Telefonisch erreichbar",
     "emailContact": "E-Mail Kontakt",
     "formTitle": "Unverbindliche Anfrage",
-    "formDesc": "Füll das Formular aus und wir melden uns bei dir – persönlich, nicht automatisch."
+    "formDesc": "Füll das Formular aus und wir melden uns bei dir – persönlich, nicht automatisch.",
+    "faq1q": "Wie lange ist der Erste-Hilfe-Kurs gültig?",
+    "faq1a": "Der Erste-Hilfe-Kurs ist unbegrenzt gültig. Es gibt kein Ablaufdatum.",
+    "faq2q": "Was muss ich zum Kurs mitbringen?",
+    "faq2a": "Einen gültigen Ausweis (Personalausweis oder Reisepass) und bequeme Kleidung.",
+    "faq3q": "Wie viel kostet der Erste-Hilfe-Kurs?",
+    "faq3a": "Die aktuellen Preise erfährst du bei der Anmeldung. Kontaktiere uns für Details.",
+    "faq4q": "Bekomme ich ein Zertifikat?",
+    "faq4a": "Ja, du erhältst direkt nach dem Kurs eine behördlich anerkannte Bescheinigung.",
+    "faq5q": "Kann ich den Kurs auch online machen?",
+    "faq5a": "Nein, der praktische Teil erfordert Präsenz. Die 9 Unterrichtseinheiten finden vor Ort statt.",
+    "faq6q": "Wie melde ich mich an?",
+    "faq6a": "Einfach über unser Kontaktformular oder telefonisch. Wir informieren dich über die nächsten Termine."
   },
   "aufbauseminar": {
     "seoTitle": "Aufbauseminar (ASF) für Fahranfänger | Fahrschule Metropol",
