@@ -25,7 +25,7 @@ const Auth = () => {
       return;
     }
     const domain = email.trim().split("@")[1]?.toLowerCase();
-    if (domain !== "fahrschule-metropol.de" && domain !== "metropol-bz.de") {
+    if (domain !== "fahrschule-metropol.de" && domain !== "metropol-bz.de" && domain !== "mep-agentur.de") {
       toast({ title: "Zugriff verweigert", description: "Nur E-Mail-Adressen mit @fahrschule-metropol.de oder @metropol-bz.de sind erlaubt.", variant: "destructive" });
       return;
     }
