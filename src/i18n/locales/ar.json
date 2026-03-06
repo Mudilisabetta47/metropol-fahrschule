@@ -311,6 +311,20 @@
     "contactDesc": "تلقيت رسالة من هيئة رخص القيادة؟ اتصل بنا – سنساعدك بسرعة وسرية.",
     "discreet": "سري وموثوق"
   },
+  "licenseClass": {
+    "onRequest": "السعر عند الطلب",
+    "signUpNow": "سجّل الآن",
+    "freeNote": "غير ملزم ومجاني – سنتواصل معك خلال 24 ساعة.",
+    "trainingDetails": "تفاصيل التدريب",
+    "duration": "المدة",
+    "priceFunding": "السعر والتمويل",
+    "priceFundingDesc": "أسعار شفافة بدون تكاليف مخفية. اسألنا عن خيارات الدفع الفردية والدعم المحتمل.",
+    "prerequisites": "المتطلبات",
+    "advantages": "مميزاتك",
+    "processLabel": "طريقك",
+    "processTitle": "كيف يعمل التدريب",
+    "faqTitle": "أسئلة شائعة حول {{name}}"
+  },
   "licenseClasses": {
     "seoTitle": "فئات الرخص – Fahrschule Metropol | طريقك إلى الحرية",
     "seoDesc": "جميع فئات رخص القيادة في Fahrschule Metropol: سيارة، دراجة نارية، مقطورة والمزيد.",
