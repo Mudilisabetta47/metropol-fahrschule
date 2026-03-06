@@ -34,86 +34,10 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { useCountUp } from "@/hooks/useCountUp";
 import { useSiteImages } from "@/hooks/useSiteImage";
+import { useTranslation } from "react-i18next";
 import SEO from "@/components/SEO";
 
 const locationPills = ["Hannover", "Garbsen", "Bremen"];
-
-const features = [
-  {
-    icon: Heart,
-    title: "Wir glauben an dich",
-    desc: "Egal ob du nervös bist oder schon voller Vorfreude – wir nehmen uns Zeit für dich. Kein Druck, kein Stress. Nur du, dein Fahrlehrer und dein Tempo.",
-  },
-  {
-    icon: Car,
-    title: "Fahrzeuge, die Spaß machen",
-    desc: "Unsere Flotte? Nagelneu. BMW, VW, Mercedes – mit Doppelbedienung und allem, was dich sicher fühlen lässt. Du wirst dich auf jede Fahrstunde freuen.",
-  },
-  {
-    icon: CalendarCheck,
-    title: "Dein Leben, dein Zeitplan",
-    desc: "Schule, Job, Freizeit – wir passen uns an. Fahrstunden auch abends und samstags. Online buchen, umbuchen, fertig.",
-  },
-];
-
-const licenseClasses = [
-  { icon: Car, label: "Klasse B", desc: "Dein Autoführerschein", path: "/fuehrerschein/klasse-b", imageKey: "class-pkw" as const },
-  { icon: Bike, label: "Klasse A", desc: "Freiheit auf zwei Rädern", path: "/fuehrerschein/klasse-a", imageKey: "class-motorrad" as const },
-  { icon: Truck, label: "LKW (C/CE)", desc: "Güterverkehr & Logistik", path: "/fuehrerschein/klasse-c", imageKey: "class-lkw" as const },
-  { icon: Truck, label: "Bus (D)", desc: "Personenverkehr", path: "/fuehrerschein/klasse-d", imageKey: "class-bus" as const },
-];
-
-const locationsData = [
-  {
-    name: "Hannover",
-    addr: "Engelbosteler Damm 1, 30167 Hannover",
-    path: "/standorte/hannover",
-    desc: "Unser erster Standort – zentral und bestens erreichbar.",
-    imageKey: "location-hannover" as const,
-  },
-  {
-    name: "Garbsen",
-    addr: "Planetenring 25–27, 30823 Garbsen",
-    path: "/standorte/garbsen",
-    desc: "Familiäre Atmosphäre, gut erreichbar mit ÖPNV.",
-    imageKey: "location-garbsen" as const,
-  },
-  {
-    name: "Bremen",
-    addr: "Bahnhofsplatz 41, 28195 Bremen",
-    path: "/standorte/bremen",
-    desc: "Mitten im Herzen der Hansestadt – direkt am Bahnhof.",
-    imageKey: "location-bremen" as const,
-  },
-];
-
-const trustItems = [
-  { icon: CheckCircle, text: "Zertifizierte Ausbildung" },
-  { icon: BadgeCheck, text: "Hohe Erstbestehensquote" },
-  { icon: Route, text: "Prüfungsstrecken-Training" },
-  { icon: Shield, text: "Keine versteckten Kosten" },
-];
-
-const testimonials = [
-  {
-    name: "Lena M.",
-    location: "Bremen",
-    text: "Ich hatte richtig Angst vor dem Fahren. Mein Fahrlehrer Kai hat das sofort gemerkt und mir die Nervosität komplett genommen. Nach 3 Wochen hab ich mich aufs Fahren gefreut!",
-    rating: 5,
-  },
-  {
-    name: "Timo K.",
-    location: "Hannover",
-    text: "Bestanden beim ersten Mal – Theorie UND Praxis! Die App zum Lernen war mega, und mein Fahrlehrer hat mich perfekt auf die Prüfungsstrecken vorbereitet.",
-    rating: 5,
-  },
-  {
-    name: "Sarah & Jonas",
-    location: "Garbsen",
-    text: "Wir haben beide gleichzeitig unseren Führerschein bei Metropol gemacht. Super Team, flexible Termine, und die Stimmung ist einfach top. Absolute Empfehlung!",
-    rating: 5,
-  },
-];
 
 const AnimatedPills = () => {
   const [active, setActive] = useState(0);
@@ -146,6 +70,7 @@ const AnimatedPills = () => {
 };
 
 const Index = () => {
+  const { t } = useTranslation();
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
   const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
@@ -155,13 +80,56 @@ const Index = () => {
   const stat2 = useCountUp(98, 1800);
   const stat3 = useCountUp(20, 1500);
 
-  // Dynamic image lookup from admin
   const img = useSiteImages({
     "class-pkw": classPkw, "class-motorrad": classMotorrad,
     "class-lkw": classLkw, "class-bus": classBus,
     "location-hannover": locationHannover, "location-garbsen": locationGarbsen,
     "location-bremen": locationBremen, "hero-index": heroDriving,
   });
+
+  const features = [
+    { icon: Heart, title: t("index.feature1Title"), desc: t("index.feature1Desc") },
+    { icon: Car, title: t("index.feature2Title"), desc: t("index.feature2Desc") },
+    { icon: CalendarCheck, title: t("index.feature3Title"), desc: t("index.feature3Desc") },
+  ];
+
+  const licenseClasses = [
+    { icon: Car, label: t("index.classB"), desc: t("index.classBDesc"), path: "/fuehrerschein/klasse-b", imageKey: "class-pkw" as const },
+    { icon: Bike, label: t("index.classA"), desc: t("index.classADesc"), path: "/fuehrerschein/klasse-a", imageKey: "class-motorrad" as const },
+    { icon: Truck, label: t("index.classC"), desc: t("index.classCDesc"), path: "/fuehrerschein/klasse-c", imageKey: "class-lkw" as const },
+    { icon: Truck, label: t("index.classD"), desc: t("index.classDDesc"), path: "/fuehrerschein/klasse-d", imageKey: "class-bus" as const },
+  ];
+
+  const locationsData = [
+    { name: "Hannover", addr: "Engelbosteler Damm 1, 30167 Hannover", path: "/standorte/hannover", desc: t("index.locationHannover"), imageKey: "location-hannover" as const },
+    { name: "Garbsen", addr: "Planetenring 25–27, 30823 Garbsen", path: "/standorte/garbsen", desc: t("index.locationGarbsen"), imageKey: "location-garbsen" as const },
+    { name: "Bremen", addr: "Bahnhofsplatz 41, 28195 Bremen", path: "/standorte/bremen", desc: t("index.locationBremen"), imageKey: "location-bremen" as const },
+  ];
+
+  const trustItems = [
+    { icon: CheckCircle, text: t("index.trustCertified") },
+    { icon: BadgeCheck, text: t("index.trustFirstTime") },
+    { icon: Route, text: t("index.trustRoutes") },
+    { icon: Shield, text: t("index.trustNoCosts") },
+  ];
+
+  const testimonials = [
+    { name: "Lena M.", location: "Bremen", text: t("index.testimonial1"), rating: 5 },
+    { name: "Timo K.", location: "Hannover", text: t("index.testimonial2"), rating: 5 },
+    { name: "Sarah & Jonas", location: "Garbsen", text: t("index.testimonial3"), rating: 5 },
+  ];
+
+  const marqueeItems = [
+    t("index.marquee1"), t("index.marquee2"), t("index.marquee3"), t("index.marquee4"),
+    t("index.marquee5"), t("index.marquee6"), t("index.marquee7"), t("index.marquee8"),
+  ];
+
+  const steps = [
+    { step: "01", title: t("index.step1Title"), desc: t("index.step1Desc") },
+    { step: "02", title: t("index.step2Title"), desc: t("index.step2Desc") },
+    { step: "03", title: t("index.step3Title"), desc: t("index.step3Desc") },
+    { step: "04", title: t("index.step4Title"), desc: t("index.step4Desc") },
+  ];
 
   const seoJsonLd = [
     {
@@ -174,27 +142,9 @@ const Index = () => {
       email: "info@metropol-bz.de",
       description: "Professionelle Fahrausbildung in Hannover, Garbsen und Bremen.",
       address: [
-        {
-          "@type": "PostalAddress",
-          streetAddress: "Engelbosteler Damm 1",
-          addressLocality: "Hannover",
-          postalCode: "30167",
-          addressCountry: "DE",
-        },
-        {
-          "@type": "PostalAddress",
-          streetAddress: "Planetenring 25–27",
-          addressLocality: "Garbsen",
-          postalCode: "30823",
-          addressCountry: "DE",
-        },
-        {
-          "@type": "PostalAddress",
-          streetAddress: "Bahnhofsplatz 41",
-          addressLocality: "Bremen",
-          postalCode: "28195",
-          addressCountry: "DE",
-        },
+        { "@type": "PostalAddress", streetAddress: "Engelbosteler Damm 1", addressLocality: "Hannover", postalCode: "30167", addressCountry: "DE" },
+        { "@type": "PostalAddress", streetAddress: "Planetenring 25–27", addressLocality: "Garbsen", postalCode: "30823", addressCountry: "DE" },
+        { "@type": "PostalAddress", streetAddress: "Bahnhofsplatz 41", addressLocality: "Bremen", postalCode: "28195", addressCountry: "DE" },
       ],
       aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "347" },
     },
@@ -210,8 +160,8 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <SEO
-        title="Fahrschule Metropol – Dein Führerschein in Hannover, Garbsen & Bremen"
-        description="Endlich Führerschein! Bei Fahrschule Metropol lernst du in deinem Tempo, mit Fahrlehrern die dich verstehen. 98% bestehen beim ersten Mal."
+        title={t("index.seoTitle")}
+        description={t("index.seoDesc")}
         canonical="https://fahrschule-metropol.de/"
         jsonLd={seoJsonLd}
       />
@@ -232,71 +182,43 @@ const Index = () => {
 
         <motion.div style={{ opacity: heroOpacity }} className="container relative z-10 mx-auto px-4 pt-20">
           <div className="max-w-3xl">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="mb-6"
-            >
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="mb-6">
               <AnimatedPills />
             </motion.div>
 
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, delay: 0.3 }}
-              className="mb-6 text-5xl font-extrabold leading-[1.08] text-primary-foreground font-display md:text-7xl lg:text-8xl"
-            >
-              Dein erstes Mal
+            <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.3 }} className="mb-6 text-5xl font-extrabold leading-[1.08] text-primary-foreground font-display md:text-7xl lg:text-8xl">
+              {t("index.heroTitle1")}
               <br />
-              <span className="gradient-text">hinterm Steuer.</span>
+              <span className="gradient-text">{t("index.heroTitle2")}</span>
             </motion.h1>
 
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-              className="mb-10 max-w-xl text-lg text-primary-foreground/60 leading-relaxed md:text-xl"
-            >
-              Das Kribbeln, wenn du zum ersten Mal alleine fährst. Dieses Gefühl schaffen wir zusammen – mit Geduld,
-              Erfahrung und Fahrlehrern, die dich wirklich verstehen.
+            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.5 }} className="mb-10 max-w-xl text-lg text-primary-foreground/60 leading-relaxed md:text-xl">
+              {t("index.heroSubtitle")}
             </motion.p>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
-              className="flex flex-wrap gap-4"
-            >
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.7 }} className="flex flex-wrap gap-4">
               <Button variant="hero" asChild>
                 <Link to="/kontakt">
-                  Kostenlos beraten lassen <ChevronRight className="h-5 w-5" />
+                  {t("index.heroCta")} <ChevronRight className="h-5 w-5" />
                 </Link>
               </Button>
               <Button variant="hero-outline" asChild>
                 <a href="tel:+495116425066">
-                  <Phone className="h-5 w-5" /> Direkt anrufen
+                  <Phone className="h-5 w-5" /> {t("index.heroCall")}
                 </a>
               </Button>
             </motion.div>
 
-            {/* Trust badges inline */}
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.6, delay: 1 }}
-              className="mt-12 flex flex-wrap gap-x-6 gap-y-2"
-            >
-              {trustItems.map((t) => (
-                <span key={t.text} className="flex items-center gap-1.5 text-xs text-primary-foreground/40">
-                  <t.icon className="h-3.5 w-3.5 text-primary/70" /> {t.text}
+            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 1 }} className="mt-12 flex flex-wrap gap-x-6 gap-y-2">
+              {trustItems.map((ti) => (
+                <span key={ti.text} className="flex items-center gap-1.5 text-xs text-primary-foreground/40">
+                  <ti.icon className="h-3.5 w-3.5 text-primary/70" /> {ti.text}
                 </span>
               ))}
             </motion.div>
           </div>
         </motion.div>
 
-        {/* Scroll indicator */}
         <div className="absolute bottom-8 left-1/2 -translate-x-1/2 scroll-indicator">
           <ChevronDown className="h-6 w-6 text-primary-foreground/30" />
         </div>
@@ -310,19 +232,8 @@ const Index = () => {
               <div className="marquee-track">
                 {[...Array(2)].map((_, setIdx) => (
                   <div key={setIdx} className="flex shrink-0 items-center gap-8 px-4">
-                    {[
-                      "✅ Hohe Erstbestehensquote",
-                      "🚗 Moderne BMW-Flotte",
-                      "📍 3 Standorte",
-                      "⭐ 4.9/5 Bewertung",
-                      "🎯 Prüfungsstrecken-Training",
-                      "💚 Flexible Zeiten",
-                      "🏆 20+ Jahre Erfahrung",
-                      "📱 Online-Buchung",
-                    ].map((item) => (
-                      <span key={item} className="whitespace-nowrap text-sm font-semibold text-muted-foreground">
-                        {item}
-                      </span>
+                    {marqueeItems.map((item) => (
+                      <span key={item} className="whitespace-nowrap text-sm font-semibold text-muted-foreground">{item}</span>
                     ))}
                   </div>
                 ))}
@@ -338,7 +249,7 @@ const Index = () => {
           <div className="flex animate-marquee-slow whitespace-nowrap">
             {[...Array(3)].map((_, i) => (
               <span key={i} className="mx-4 text-7xl md:text-9xl font-extrabold font-display text-transparent" style={{ WebkitTextStroke: "1.5px hsl(var(--border))" }}>
-                FÜHRERSCHEIN · FREIHEIT · METROPOL · DEIN WEG ·{" "}
+                {t("index.tickerText")}
               </span>
             ))}
           </div>
@@ -350,24 +261,11 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 gap-4 sm:grid-cols-3">
             {[
-              {
-                ref: stat1.ref,
-                value: `${stat1.count.toLocaleString("de-DE")}+`,
-                label: "Fahrschüler, die es geschafft haben",
-                icon: Users,
-              },
-              { ref: stat2.ref, value: `${stat2.count}%`, label: "bestehen beim ersten Anlauf", icon: Shield },
-              { ref: stat3.ref, value: `${stat3.count}+`, label: "Jahre Leidenschaft fürs Fahren", icon: Star },
+              { ref: stat1.ref, value: `${stat1.count.toLocaleString("de-DE")}+`, label: t("index.stat1Label"), icon: Users },
+              { ref: stat2.ref, value: `${stat2.count}%`, label: t("index.stat2Label"), icon: Shield },
+              { ref: stat3.ref, value: `${stat3.count}+`, label: t("index.stat3Label"), icon: Star },
             ].map((s, i) => (
-              <motion.div
-                key={s.label}
-                ref={s.ref}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="group flex items-center gap-4 rounded-2xl border border-border bg-card p-6 shadow-card transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1"
-              >
+              <motion.div key={s.label} ref={s.ref} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1 }} className="group flex items-center gap-4 rounded-2xl border border-border bg-card p-6 shadow-card transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1">
                 <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-accent text-accent-foreground transition-all duration-500 group-hover:gradient-primary group-hover:text-primary-foreground group-hover:shadow-glow group-hover:scale-110">
                   <s.icon className="h-6 w-6" />
                 </div>
@@ -388,14 +286,13 @@ const Index = () => {
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
               <Sparkles className="mb-4 h-8 w-8 text-primary" />
               <h2 className="mb-6 text-3xl font-extrabold text-foreground font-display md:text-5xl">
-                Mehr als nur eine Fahrschule
+                {t("index.storyTitle")}
               </h2>
               <p className="text-lg text-muted-foreground leading-relaxed">
-                Wir wissen, wie aufregend der erste Führerschein ist. Und wie viel Überwindung es manchmal kostet. Genau
-                deshalb sind wir anders: Bei Metropol bist du keine Nummer. Du bist{" "}
-                <strong className="text-foreground">Teil unserer Geschichte</strong> – und wir begleiten dich von der
-                allerersten Theoriestunde bis zu dem Moment, wo du den Schlüssel in der Hand hältst und weißt:
-                <em className="text-primary"> Ich hab's geschafft.</em>
+                {t("index.storyText")}{" "}
+                <strong className="text-foreground">{t("index.storyHighlight")}</strong>{" "}
+                {t("index.storyEnd")}
+                <em className="text-primary"> {t("index.storyDone")}</em>
               </p>
             </motion.div>
             <motion.div initial={{ opacity: 0, scale: 0.95 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: 0.15 }}>
@@ -411,36 +308,16 @@ const Index = () => {
       {/* License Classes Quick Access */}
       <section className="gradient-section py-20">
         <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-12 text-center"
-          >
-            <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">
-              Dein Weg
-            </span>
-            <h2 className="text-3xl font-extrabold text-foreground font-display md:text-5xl">
-              Welches Abenteuer wartet auf dich?
-            </h2>
-            <p className="mx-auto mt-4 max-w-lg text-muted-foreground">
-              Auto, Motorrad oder beides? Finde die Klasse, die zu deinem Leben passt.
-            </p>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12 text-center">
+            <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">{t("index.classesSubtitle")}</span>
+            <h2 className="text-3xl font-extrabold text-foreground font-display md:text-5xl">{t("index.classesTitle")}</h2>
+            <p className="mx-auto mt-4 max-w-lg text-muted-foreground">{t("index.classesDesc")}</p>
           </motion.div>
 
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
             {licenseClasses.map((lc, i) => (
-              <motion.div
-                key={lc.label}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-              >
-                <Link
-                  to={lc.path}
-                  className="group flex flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-card transition-all duration-500 hover:shadow-card-hover hover:-translate-y-1"
-                >
+              <motion.div key={lc.label} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}>
+                <Link to={lc.path} className="group flex flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-card transition-all duration-500 hover:shadow-card-hover hover:-translate-y-1">
                   <div className="relative h-36 overflow-hidden">
                     <img src={img(lc.imageKey)} alt={lc.label} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
                     <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent" />
@@ -457,17 +334,9 @@ const Index = () => {
             ))}
           </div>
 
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="mt-8 text-center"
-          >
-            <Link
-              to="/fuehrerscheinklassen"
-              className="inline-flex items-center gap-1.5 text-sm font-bold text-primary hover:gap-2.5 transition-all"
-            >
-              Alle Klassen entdecken <ArrowRight className="h-4 w-4" />
+          <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="mt-8 text-center">
+            <Link to="/fuehrerscheinklassen" className="inline-flex items-center gap-1.5 text-sm font-bold text-primary hover:gap-2.5 transition-all">
+              {t("index.allClasses")} <ArrowRight className="h-4 w-4" />
             </Link>
           </motion.div>
         </div>
@@ -477,33 +346,15 @@ const Index = () => {
       <section className="relative py-28 bg-warm bg-driving-pattern overflow-hidden">
         <div className="absolute top-0 right-0 h-80 w-80 rounded-full bg-primary/5 blur-[100px]" />
         <div className="container relative z-10 mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-16 max-w-2xl"
-          >
-            <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">
-              Warum Metropol?
-            </span>
-            <h2 className="text-3xl font-extrabold text-foreground font-display md:text-5xl">
-              Weil wir wissen, wie sich der erste Gang anfühlt
-            </h2>
-            <p className="mt-4 text-muted-foreground leading-relaxed">
-              Jeder von uns war mal Fahranfänger. Deshalb wissen wir genau, was du brauchst – und was nicht.
-            </p>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16 max-w-2xl">
+            <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">{t("index.whySubtitle")}</span>
+            <h2 className="text-3xl font-extrabold text-foreground font-display md:text-5xl">{t("index.whyTitle")}</h2>
+            <p className="mt-4 text-muted-foreground leading-relaxed">{t("index.whyDesc")}</p>
           </motion.div>
 
           <div className="grid gap-6 md:grid-cols-3">
             {features.map((f, i) => (
-              <motion.div
-                key={f.title}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.1, duration: 0.5 }}
-                className="group relative rounded-3xl border border-border bg-card p-8 shadow-card transition-all duration-500 hover:shadow-card-hover hover:-translate-y-1"
-              >
+              <motion.div key={f.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1, duration: 0.5 }} className="group relative rounded-3xl border border-border bg-card p-8 shadow-card transition-all duration-500 hover:shadow-card-hover hover:-translate-y-1">
                 <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-accent text-accent-foreground transition-all duration-500 group-hover:gradient-primary group-hover:text-primary-foreground group-hover:shadow-glow group-hover:scale-110">
                   <f.icon className="h-6 w-6" />
                 </div>
@@ -518,49 +369,26 @@ const Index = () => {
       {/* Testimonials */}
       <section className="gradient-section py-28">
         <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-16 text-center"
-          >
-            <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">
-              Echte Stimmen
-            </span>
-            <h2 className="text-3xl font-extrabold text-foreground font-display md:text-5xl">
-              Was unsere Fahrschüler sagen
-            </h2>
-            <p className="mx-auto mt-4 max-w-lg text-muted-foreground">
-              Keine Marketing-Floskeln – echte Erfahrungen von echten Menschen.
-            </p>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16 text-center">
+            <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">{t("index.testimonialsSubtitle")}</span>
+            <h2 className="text-3xl font-extrabold text-foreground font-display md:text-5xl">{t("index.testimonialsTitle")}</h2>
           </motion.div>
 
           <div className="grid gap-6 md:grid-cols-3">
-            {testimonials.map((t, i) => (
-              <motion.div
-                key={t.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.12 }}
-                className="relative rounded-3xl border border-border bg-card p-8 shadow-card"
-              >
+            {testimonials.map((tm, i) => (
+              <motion.div key={tm.name} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.12 }} className="relative rounded-3xl border border-border bg-card p-8 shadow-card">
                 <Quote className="absolute top-6 right-6 h-8 w-8 text-primary/10" />
                 <div className="mb-4 flex gap-0.5">
-                  {Array.from({ length: t.rating }).map((_, j) => (
+                  {Array.from({ length: tm.rating }).map((_, j) => (
                     <Star key={j} className="h-4 w-4 fill-primary text-primary" />
                   ))}
                 </div>
-                <p className="mb-6 text-sm leading-relaxed text-muted-foreground italic">„{t.text}"</p>
+                <p className="mb-6 text-sm leading-relaxed text-muted-foreground italic">„{tm.text}"</p>
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full gradient-primary text-primary-foreground text-sm font-bold">
-                    {t.name.charAt(0)}
-                  </div>
+                  <div className="flex h-10 w-10 items-center justify-center rounded-full gradient-primary text-primary-foreground text-sm font-bold">{tm.name.charAt(0)}</div>
                   <div>
-                    <div className="text-sm font-bold text-foreground">{t.name}</div>
-                    <div className="flex items-center gap-1 text-xs text-muted-foreground">
-                      <MapPin className="h-3 w-3" /> {t.location}
-                    </div>
+                    <div className="text-sm font-bold text-foreground">{tm.name}</div>
+                    <div className="flex items-center gap-1 text-xs text-muted-foreground"><MapPin className="h-3 w-3" /> {tm.location}</div>
                   </div>
                 </div>
               </motion.div>
@@ -573,34 +401,15 @@ const Index = () => {
       <section className="relative py-28 bg-warm bg-driving-pattern overflow-hidden">
         <div className="absolute bottom-0 left-0 h-80 w-80 rounded-full bg-primary/5 blur-[100px]" />
         <div className="container relative z-10 mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-16 text-center"
-          >
-            <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">
-              Immer in deiner Nähe
-            </span>
-            <h2 className="text-3xl font-extrabold text-foreground font-display md:text-5xl">3 Standorte, 1 Familie</h2>
-            <p className="mx-auto mt-4 max-w-lg text-muted-foreground">
-              Egal wo du wohnst – bei uns bist du immer willkommen. Komm vorbei und lern uns kennen!
-            </p>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16 text-center">
+            <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">{t("index.locationsSubtitle")}</span>
+            <h2 className="text-3xl font-extrabold text-foreground font-display md:text-5xl">{t("index.locationsTitle")}</h2>
           </motion.div>
 
           <div className="grid gap-6 md:grid-cols-3">
             {locationsData.map((loc, i) => (
-              <motion.div
-                key={loc.name}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.12, duration: 0.5 }}
-              >
-                <Link
-                  to={loc.path}
-                  className="group flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-card transition-all duration-500 hover:shadow-card-hover hover:-translate-y-2"
-                >
+              <motion.div key={loc.name} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.12, duration: 0.5 }}>
+                <Link to={loc.path} className="group flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-card transition-all duration-500 hover:shadow-card-hover hover:-translate-y-2">
                   <div className="relative h-44 overflow-hidden">
                     <img src={img(loc.imageKey)} alt={`Standort ${loc.name}`} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
                     <div className="absolute inset-0 bg-gradient-to-t from-card/60 to-transparent" />
@@ -610,8 +419,7 @@ const Index = () => {
                     <p className="mb-1 text-sm text-muted-foreground">{loc.addr}</p>
                     <p className="mb-6 text-sm text-muted-foreground/70">{loc.desc}</p>
                     <span className="mt-auto flex items-center gap-1.5 text-sm font-bold text-primary transition-all group-hover:gap-2.5">
-                      Standort entdecken{" "}
-                      <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                      {t("locations.viewLocation")} <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
                     </span>
                   </div>
                 </Link>
@@ -621,63 +429,23 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Ablauf / How it works */}
+      {/* Steps */}
       <section className="gradient-section py-28">
         <div className="container mx-auto px-4">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-16 text-center"
-          >
-            <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">
-              Schritt für Schritt
-            </span>
-            <h2 className="text-3xl font-extrabold text-foreground font-display md:text-5xl">
-              Vom Traum zum Führerschein
-            </h2>
-            <p className="mx-auto mt-4 max-w-lg text-muted-foreground">
-              Vier Schritte. Ein Ziel. Und wir an deiner Seite – bei jedem einzelnen.
-            </p>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16 text-center">
+            <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">{t("index.stepsSubtitle")}</span>
+            <h2 className="text-3xl font-extrabold text-foreground font-display md:text-5xl">{t("index.stepsTitle")}</h2>
+            <p className="mx-auto mt-4 max-w-lg text-muted-foreground">{t("index.stepsDesc")}</p>
           </motion.div>
 
           <div className="relative grid gap-6 md:grid-cols-4">
-            {/* Connecting road line */}
             <div className="absolute top-12 left-[12.5%] right-[12.5%] hidden h-0.5 bg-border md:block">
               <div className="absolute inset-0 gradient-primary opacity-30" />
               <div className="absolute top-1/2 left-0 h-3 w-3 -translate-y-1/2 rounded-full bg-primary shadow-glow" />
               <div className="absolute top-1/2 right-0 h-3 w-3 -translate-y-1/2 rounded-full bg-primary shadow-glow" />
             </div>
-            {[
-              {
-                step: "01",
-                title: "Sag Hallo",
-                desc: "Meld dich online oder komm vorbei. Wir nehmen uns Zeit für deine Fragen – ganz ohne Druck.",
-              },
-              {
-                step: "02",
-                title: "Theorie rocken",
-                desc: "Spannender Unterricht + smarte Lern-App. So macht Theorie tatsächlich Spaß.",
-              },
-              {
-                step: "03",
-                title: "Ans Steuer",
-                desc: "Dein Fahrlehrer zeigt dir alles. In deinem Tempo, auf echten Prüfungsstrecken.",
-              },
-              {
-                step: "04",
-                title: "Führerschein! 🎉",
-                desc: "Du hast es geschafft! Jetzt steht dir die Welt offen – und wir feiern mit dir.",
-              },
-            ].map((s, i) => (
-              <motion.div
-                key={s.step}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: i * 0.12 }}
-                className="relative text-center"
-              >
+            {steps.map((s, i) => (
+              <motion.div key={s.step} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.12 }} className="relative text-center">
                 <div className="relative z-10 mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-2xl bg-card border border-border shadow-card">
                   <span className="text-lg font-extrabold text-primary font-display">{s.step}</span>
                 </div>
@@ -693,22 +461,13 @@ const Index = () => {
       <section className="relative py-28 bg-warm bg-driving-pattern overflow-hidden">
         <div className="container relative z-10 mx-auto px-4">
           <div className="grid gap-10 items-start lg:grid-cols-2">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">
-                Dein erster Schritt
-              </span>
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+              <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">{t("contact.subtitle")}</span>
               <h2 className="text-3xl font-extrabold text-foreground font-display md:text-5xl lg:text-6xl mb-4">
-                Bereit für dein
+                {t("index.ctaTitle")}
                 <br />
-                <span className="gradient-text">größtes Abenteuer?</span>
+                <span className="gradient-text">{t("index.ctaText")}</span>
               </h2>
-              <p className="text-muted-foreground leading-relaxed mb-8 max-w-md">
-                Der Führerschein ist mehr als ein Dokument – er ist Freiheit, Unabhängigkeit und dein erster großer Schritt. Schreib uns und wir melden uns persönlich bei dir.
-              </p>
               <div className="space-y-4">
                 <div className="flex items-center gap-3 text-sm text-muted-foreground">
                   <div className="flex h-8 w-8 items-center justify-center rounded-full gradient-primary text-primary-foreground pulse-glow">
@@ -724,13 +483,7 @@ const Index = () => {
                 </div>
               </div>
             </motion.div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.15 }}
-              className="rounded-3xl border border-border bg-card p-8 shadow-card"
-            >
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: 0.15 }} className="rounded-3xl border border-border bg-card p-8 shadow-card">
               <ContactForm compact />
             </motion.div>
           </div>
@@ -740,23 +493,18 @@ const Index = () => {
       {/* CTA */}
       <section className="relative overflow-hidden gradient-primary py-20 noise">
         <div className="container relative z-10 mx-auto px-4 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
+          <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }}>
             <h2 className="mb-5 text-2xl font-extrabold text-primary-foreground font-display md:text-4xl">
-              Noch Fragen? Wir haben die Antworten.
+              {t("index.bottomCtaTitle")}
             </h2>
             <div className="flex flex-wrap justify-center gap-4">
               <Button variant="hero" asChild className="bg-white text-primary hover:bg-white/90">
                 <Link to="/kontakt">
-                  Kontakt <ChevronRight className="h-5 w-5" />
+                  {t("common.contactUs")} <ChevronRight className="h-5 w-5" />
                 </Link>
               </Button>
               <Button variant="hero-outline" asChild className="border-white text-white hover:bg-white/10">
-                <Link to="/fuehrerscheinklassen">Alle Klassen entdecken</Link>
+                <Link to="/fuehrerscheinklassen">{t("index.allClasses")}</Link>
               </Button>
             </div>
           </motion.div>
