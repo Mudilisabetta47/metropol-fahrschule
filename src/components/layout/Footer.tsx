@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { Phone, Mail, Clock, ArrowUpRight, Facebook, Instagram } from "lucide-react";
+import { useTranslation } from "react-i18next";
 import logoImage from "@/assets/logo.avif";
 
 const seoLinks = [
@@ -22,71 +23,49 @@ const seoLinks = [
 ];
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <footer className="relative border-t border-primary/20">
       {/* CTA Bar */}
       <div className="gradient-dark">
         <div className="container mx-auto flex flex-col items-center justify-between gap-4 px-4 py-8 sm:flex-row">
           <p className="text-lg font-bold text-primary-foreground font-display">
-            Bereit für deinen Führerschein?
+            {t("footer.ready")}
           </p>
           <Link
             to="/kontakt"
             className="group flex items-center gap-2 gradient-primary rounded-xl px-6 py-3 text-sm font-bold text-primary-foreground shadow-cta transition-all hover:shadow-glow"
           >
-            Jetzt anmelden
+            {t("footer.signUp")}
             <ArrowUpRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
           </Link>
         </div>
       </div>
 
-      {/* Main Footer – green background like reference */}
       <div className="bg-primary text-primary-foreground">
         <div className="container mx-auto px-4 py-16">
           <div className="grid gap-12 md:grid-cols-2 lg:grid-cols-4">
-            {/* Column 1: Logo & Description */}
             <div>
               <div className="mb-5">
-                <img
-                  src={logoImage}
-                  alt="Fahrschule Metropol Logo"
-                  className="h-24 w-auto brightness-0 invert"
-                />
+                <img src={logoImage} alt="Fahrschule Metropol Logo" className="h-24 w-auto brightness-0 invert" />
               </div>
-              <p className="text-sm text-primary-foreground/70 leading-relaxed">
-                Deine moderne Fahrschule in Hannover, Garbsen und Bremen. Professionelle Ausbildung für alle Führerscheinklassen seit über 20 Jahren.
-              </p>
-              {/* Google Rating Badge */}
+              <p className="text-sm text-primary-foreground/70 leading-relaxed">{t("footer.description")}</p>
               <div className="mt-5 inline-flex items-center gap-2 rounded-full bg-primary-foreground/10 px-4 py-2 text-sm font-semibold backdrop-blur-sm">
                 <span className="text-yellow-300">★★★★★</span>
                 <span>4.8</span>
                 <span className="text-primary-foreground/50">(127)</span>
               </div>
-              {/* Social Media */}
               <div className="mt-5 flex gap-3">
                 {[
                   { icon: Instagram, href: "https://www.instagram.com/fahrschulemetropol/?hl=de", label: "Instagram" },
                   { icon: Facebook, href: "https://www.facebook.com/p/Fahrschule-Metropol-100037905975615/?locale=de_DE", label: "Facebook" },
                 ].map((social) => (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={social.label}
-                    className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-foreground/10 text-primary-foreground/70 transition-colors hover:bg-primary-foreground/20 hover:text-primary-foreground"
-                  >
+                  <a key={social.label} href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.label} className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-foreground/10 text-primary-foreground/70 transition-colors hover:bg-primary-foreground/20 hover:text-primary-foreground">
                     <social.icon className="h-5 w-5" />
                   </a>
                 ))}
-                {/* TikTok – no lucide icon */}
-                <a
-                  href="https://www.tiktok.com/@fahrschulemetropol"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label="TikTok"
-                  className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-foreground/10 text-primary-foreground/70 transition-colors hover:bg-primary-foreground/20 hover:text-primary-foreground"
-                >
+                <a href="https://www.tiktok.com/@fahrschulemetropol" target="_blank" rel="noopener noreferrer" aria-label="TikTok" className="flex h-10 w-10 items-center justify-center rounded-full bg-primary-foreground/10 text-primary-foreground/70 transition-colors hover:bg-primary-foreground/20 hover:text-primary-foreground">
                   <svg className="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.2a6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.34-6.34V9.39a8.16 8.16 0 004.76 1.51v-3.4a4.85 4.85 0 01-1-.81z" />
                   </svg>
@@ -94,31 +73,27 @@ const Footer = () => {
               </div>
             </div>
 
-            {/* Column 2: Navigation / Kurse */}
             <div>
-              <h4 className="mb-5 text-base font-bold font-display">Unsere Klassen</h4>
+              <h4 className="mb-5 text-base font-bold font-display">{t("footer.ourClasses")}</h4>
               <ul className="space-y-2.5 text-sm">
                 {[
                   { label: "PKW – Klasse B / B197", path: "/fuehrerschein/b" },
                   { label: "Motorrad – Klasse A", path: "/fuehrerschein/a" },
                   { label: "LKW – Klasse C/CE", path: "/fuehrerschein/c" },
                   { label: "Bus – Klasse D/DE", path: "/fuehrerschein/d" },
-                  { label: "Erste Hilfe Kurs", path: "/erste-hilfe" },
-                  { label: "Aufbauseminar", path: "/aufbauseminar" },
-                  { label: "Alle Klassen →", path: "/fuehrerscheinklassen" },
+                  { label: t("nav.firstAid"), path: "/erste-hilfe" },
+                  { label: t("nav.seminar"), path: "/aufbauseminar" },
+                  { label: t("footer.allClasses"), path: "/fuehrerscheinklassen" },
                 ].map((l) => (
                   <li key={l.path}>
-                    <Link to={l.path} className="text-primary-foreground/70 hover:text-primary-foreground transition-colors duration-200">
-                      {l.label}
-                    </Link>
+                    <Link to={l.path} className="text-primary-foreground/70 hover:text-primary-foreground transition-colors duration-200">{l.label}</Link>
                   </li>
                 ))}
               </ul>
             </div>
 
-            {/* Column 3: Standorte */}
             <div>
-              <h4 className="mb-5 text-base font-bold font-display">Standorte</h4>
+              <h4 className="mb-5 text-base font-bold font-display">{t("footer.locations")}</h4>
               <ul className="space-y-4 text-sm">
                 {[
                   { name: "Hannover", addr: "Engelbosteler Damm 1, 30167 Hannover", path: "/standorte/hannover" },
@@ -127,8 +102,7 @@ const Footer = () => {
                 ].map((s) => (
                   <li key={s.name}>
                     <Link to={s.path} className="group block text-primary-foreground/70 hover:text-primary-foreground transition-colors">
-                      <span className="font-semibold text-primary-foreground">{s.name}</span>
-                      <br />
+                      <span className="font-semibold text-primary-foreground">{s.name}</span><br />
                       <span className="text-xs text-primary-foreground/50">{s.addr}</span>
                     </Link>
                   </li>
@@ -136,31 +110,29 @@ const Footer = () => {
               </ul>
             </div>
 
-            {/* Column 4: Kontakt */}
             <div>
-              <h4 className="mb-5 text-base font-bold font-display">Kontakt</h4>
+              <h4 className="mb-5 text-base font-bold font-display">{t("footer.contactTitle")}</h4>
               <ul className="space-y-4 text-sm">
                 <li className="flex items-center gap-3">
                   <Phone className="h-4 w-4 text-primary-foreground/50" />
                   <div>
-                    <span className="block text-xs text-primary-foreground/50">Telefon</span>
+                    <span className="block text-xs text-primary-foreground/50">{t("footer.phone")}</span>
                     <a href="tel:+495116425066" className="font-medium hover:underline">0511 – 642 50 66</a>
                   </div>
                 </li>
                 <li className="flex items-center gap-3">
                   <Mail className="h-4 w-4 text-primary-foreground/50" />
                   <div>
-                    <span className="block text-xs text-primary-foreground/50">E-Mail</span>
+                    <span className="block text-xs text-primary-foreground/50">{t("footer.email")}</span>
                     <a href="mailto:info@metropol-bz.de" className="font-medium hover:underline">info@metropol-bz.de</a>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
                   <Clock className="mt-0.5 h-4 w-4 text-primary-foreground/50" />
                   <div>
-                    <span className="block text-xs text-primary-foreground/50">Öffnungszeiten</span>
-                    <span className="font-medium">Mo–Fr: 10:00–13:30</span>
-                    <br />
-                    <span className="font-medium">14:30–19:00 Uhr</span>
+                    <span className="block text-xs text-primary-foreground/50">{t("footer.hours")}</span>
+                    <span className="font-medium">{t("footer.hoursMoFr")}</span><br />
+                    <span className="font-medium">{t("footer.hoursAfternoon")}</span>
                   </div>
                 </li>
               </ul>
@@ -168,37 +140,25 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* SEO Links Section */}
         <div className="border-t border-primary-foreground/10">
           <div className="container mx-auto px-4 py-8">
-            <h4 className="mb-4 text-xs font-bold uppercase tracking-widest text-primary-foreground/50">
-              Ausbildungen & Standorte
-            </h4>
+            <h4 className="mb-4 text-xs font-bold uppercase tracking-widest text-primary-foreground/50">{t("footer.trainingsLocations")}</h4>
             <div className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
               {seoLinks.map((link) => (
-                <Link
-                  key={link.label}
-                  to={link.path}
-                  className="text-primary-foreground/60 hover:text-primary-foreground transition-colors"
-                >
-                  {link.label}
-                </Link>
+                <Link key={link.label} to={link.path} className="text-primary-foreground/60 hover:text-primary-foreground transition-colors">{link.label}</Link>
               ))}
             </div>
-            <p className="mt-6 max-w-4xl text-xs text-primary-foreground/40 leading-relaxed">
-              Fahrschule Metropol – Deine Fahrschule in Niedersachsen und Bremen. Wir bieten Führerschein Klasse B, B197, BF17, Motorrad (A, A1, A2, AM), LKW (C, CE), Bus (D, DE) sowie Erste-Hilfe-Kurse und Aufbauseminare an unseren Standorten Hannover, Garbsen und Bremen.
-            </p>
+            <p className="mt-6 max-w-4xl text-xs text-primary-foreground/40 leading-relaxed">{t("footer.seoText")}</p>
           </div>
         </div>
 
-        {/* Bottom Bar */}
         <div className="border-t border-primary-foreground/10">
           <div className="container mx-auto flex flex-col items-center justify-between gap-4 px-4 py-6 text-xs text-primary-foreground/40 sm:flex-row">
-            <p>© {new Date().getFullYear()} Fahrschule Metropol. Alle Rechte vorbehalten.</p>
+            <p>© {new Date().getFullYear()} Fahrschule Metropol. {t("footer.allRights")}</p>
             <div className="flex flex-wrap gap-6">
-              <Link to="/impressum" className="hover:text-primary-foreground transition-colors">Impressum</Link>
-              <Link to="/datenschutz" className="hover:text-primary-foreground transition-colors">Datenschutz</Link>
-              <Link to="/login" className="hover:text-primary-foreground transition-colors">Mitarbeiter-Login</Link>
+              <Link to="/impressum" className="hover:text-primary-foreground transition-colors">{t("footer.imprint")}</Link>
+              <Link to="/datenschutz" className="hover:text-primary-foreground transition-colors">{t("footer.privacy")}</Link>
+              <Link to="/login" className="hover:text-primary-foreground transition-colors">{t("footer.staffLogin")}</Link>
             </div>
           </div>
         </div>

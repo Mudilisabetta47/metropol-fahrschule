@@ -3,28 +3,30 @@ import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Menu, X, ArrowRight, ChevronDown } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { useTranslation } from "react-i18next";
 import logoImage from "@/assets/logo.avif";
 
-const fuehrerscheinDropdown = [
-  { label: "Führerscheinklassen", path: "/fuehrerscheinklassen" },
-  { label: "Erste-Hilfe-Kurs", path: "/erste-hilfe" },
-  { label: "Aufbauseminar (ASF)", path: "/aufbauseminar" },
-];
-
-const navLinks = [
-  { label: "Startseite", num: "01", path: "/" },
-  { label: "Führerschein", num: "02", path: "/fuehrerscheinklassen", hasDropdown: true },
-  { label: "Ausbildungsklassen", num: "03", path: "/preise" },
-  { label: "Kontakt", num: "04", path: "/kontakt" },
-];
-
 const Navbar = () => {
+  const { t } = useTranslation();
   const [open, setOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
   const location = useLocation();
+
+  const fuehrerscheinDropdown = [
+    { label: t("nav.licenseClasses"), path: "/fuehrerscheinklassen" },
+    { label: t("nav.firstAid"), path: "/erste-hilfe" },
+    { label: t("nav.seminar"), path: "/aufbauseminar" },
+  ];
+
+  const navLinks = [
+    { label: t("nav.home"), num: "01", path: "/" },
+    { label: t("nav.license"), num: "02", path: "/fuehrerscheinklassen", hasDropdown: true },
+    { label: t("nav.classes"), num: "03", path: "/preise" },
+    { label: t("nav.contact"), num: "04", path: "/kontakt" },
+  ];
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -180,7 +182,7 @@ const Navbar = () => {
                 <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-foreground/20 transition-all duration-300 group-hover:bg-primary-foreground/30">
                   <ArrowRight className="h-4 w-4" />
                 </span>
-                Freie Fahrt!
+                {t("nav.cta")}
               </Link>
             </Button>
           </div>
@@ -241,9 +243,9 @@ const Navbar = () => {
                 ))}
                 {/* Extra links */}
                 {[
-                  { label: "Über uns", path: "/ueber-uns" },
-                  { label: "Standorte", path: "/standorte" },
-                  { label: "FAQ", path: "/faq" },
+                  { label: t("nav.about"), path: "/ueber-uns" },
+                  { label: t("nav.locations"), path: "/standorte" },
+                  { label: t("nav.faq"), path: "/faq" },
                 ].map((link) => (
                   <Link
                     key={link.path}
@@ -258,7 +260,7 @@ const Navbar = () => {
                 <div className="mt-4">
                   <Button className="w-full rounded-xl gradient-primary text-primary-foreground font-bold border-0 shadow-cta" asChild>
                     <Link to="/kontakt">
-                      <ArrowRight className="h-4 w-4 mr-2" /> Freie Fahrt!
+                      <ArrowRight className="h-4 w-4 mr-2" /> {t("nav.cta")}
                     </Link>
                   </Button>
                 </div>
@@ -279,7 +281,7 @@ const Navbar = () => {
             className="fixed bottom-0 left-0 right-0 z-40 bg-card/95 backdrop-blur-xl border-t border-border p-3 shadow-card lg:hidden"
           >
             <Button className="w-full rounded-xl gradient-primary text-primary-foreground font-bold border-0 shadow-cta" asChild>
-              <Link to="/kontakt">Freie Fahrt! <ArrowRight className="h-4 w-4 ml-2" /></Link>
+              <Link to="/kontakt">{t("nav.cta")} <ArrowRight className="h-4 w-4 ml-2" /></Link>
             </Button>
           </motion.div>
         )}

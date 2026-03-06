@@ -2,6 +2,7 @@ import { MapPin, Phone, Mail, Clock, Navigation } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 import SEO from "@/components/SEO";
 import { motion } from "framer-motion";
+import { useTranslation } from "react-i18next";
 
 interface LocationData {
   name: string;
@@ -20,6 +21,8 @@ interface LocationData {
 }
 
 const LocationTemplate = ({ data }: { data: LocationData }) => {
+  const { t } = useTranslation();
+
   const jsonLd = [
     {
       "@context": "https://schema.org",
@@ -45,7 +48,7 @@ const LocationTemplate = ({ data }: { data: LocationData }) => {
       "@type": "BreadcrumbList",
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Startseite", item: "https://fahrschule-metropol.de/" },
-        { "@type": "ListItem", position: 2, name: "Standorte", item: "https://fahrschule-metropol.de/standorte" },
+        { "@type": "ListItem", position: 2, name: t("locations.subtitle"), item: "https://fahrschule-metropol.de/standorte" },
         { "@type": "ListItem", position: 3, name: data.name, item: `https://fahrschule-metropol.de/standorte/${data.name.toLowerCase()}` },
       ],
     },
@@ -58,47 +61,29 @@ const LocationTemplate = ({ data }: { data: LocationData }) => {
       <section className="relative py-20 overflow-hidden">
         {data.image && (
           <>
-            <img
-              src={data.image}
-              alt={`Fahrschule Metropol Standort ${data.name}`}
-              className="absolute inset-0 h-full w-full object-cover"
-              loading="eager"
-            />
+            <img src={data.image} alt={`Fahrschule Metropol Standort ${data.name}`} className="absolute inset-0 h-full w-full object-cover" loading="eager" />
             <div className="hero-overlay absolute inset-0 noise" />
           </>
         )}
         {!data.image && <div className="absolute inset-0 gradient-dark noise" />}
         <div className="container relative z-10 mx-auto px-4 text-center">
           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-            <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">Standort</span>
-            <h1 className="text-4xl font-extrabold text-primary-foreground font-display md:text-6xl">
-              {data.name}
-            </h1>
+            <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">{t("locations.location")}</span>
+            <h1 className="text-4xl font-extrabold text-primary-foreground font-display md:text-6xl">{data.name}</h1>
             <p className="mx-auto mt-4 max-w-2xl text-lg text-primary-foreground/50">{data.description}</p>
           </motion.div>
         </div>
       </section>
 
       <div className="container mx-auto px-4 py-16">
-        {/* Long description for SEO */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mx-auto mb-12 max-w-3xl"
-        >
+        <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mx-auto mb-12 max-w-3xl">
           <p className="text-muted-foreground leading-relaxed">{data.longDescription}</p>
         </motion.div>
 
         <div className="grid gap-8 lg:grid-cols-2">
           <div className="space-y-6">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="rounded-3xl border border-border bg-card p-8 shadow-card"
-            >
-              <h2 className="mb-6 text-xl font-bold text-foreground font-display">Kontaktdaten & Öffnungszeiten</h2>
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="rounded-3xl border border-border bg-card p-8 shadow-card">
+              <h2 className="mb-6 text-xl font-bold text-foreground font-display">{t("locations.contactAndHours")}</h2>
               <ul className="space-y-4 text-sm">
                 <li className="flex items-start gap-3">
                   <MapPin className="mt-0.5 h-5 w-5 text-primary" />
@@ -117,43 +102,19 @@ const LocationTemplate = ({ data }: { data: LocationData }) => {
                   <div>{data.hours.map((h, i) => <div key={i} className="text-foreground">{h}</div>)}</div>
                 </li>
               </ul>
-              <a
-                href={data.mapsLink}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mt-6 inline-flex items-center gap-2 rounded-xl bg-accent px-4 py-2.5 text-sm font-semibold text-accent-foreground transition-colors hover:bg-primary hover:text-primary-foreground"
-              >
-                <Navigation className="h-4 w-4" /> Route planen
+              <a href={data.mapsLink} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center gap-2 rounded-xl bg-accent px-4 py-2.5 text-sm font-semibold text-accent-foreground transition-colors hover:bg-primary hover:text-primary-foreground">
+                <Navigation className="h-4 w-4" /> {t("common.planRoute")}
               </a>
             </motion.div>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="overflow-hidden rounded-3xl border border-border shadow-card"
-            >
-              <iframe
-                src={data.mapEmbed}
-                width="100%"
-                height="300"
-                style={{ border: 0 }}
-                allowFullScreen
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                title={`Google Maps – Fahrschule Metropol ${data.name}`}
-              />
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="overflow-hidden rounded-3xl border border-border shadow-card">
+              <iframe src={data.mapEmbed} width="100%" height="300" style={{ border: 0 }} allowFullScreen loading="lazy" referrerPolicy="no-referrer-when-downgrade" title={`Google Maps – Fahrschule Metropol ${data.name}`} />
             </motion.div>
           </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="rounded-3xl border border-border bg-card p-8 shadow-card"
-          >
-            <h2 className="mb-2 text-xl font-bold text-foreground font-display">Jetzt in {data.name} anmelden</h2>
-            <p className="mb-6 text-sm text-muted-foreground">Fülle das Formular aus – wir melden uns schnellstmöglich.</p>
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="rounded-3xl border border-border bg-card p-8 shadow-card">
+            <h2 className="mb-2 text-xl font-bold text-foreground font-display">{t("locations.signUpAt", { name: data.name })}</h2>
+            <p className="mb-6 text-sm text-muted-foreground">{t("locations.fillForm")}</p>
             <ContactForm preselectedLocation={data.name} />
           </motion.div>
         </div>
