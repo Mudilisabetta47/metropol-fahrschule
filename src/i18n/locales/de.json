@@ -355,9 +355,13 @@
     "cta": "Zur Startseite →"
   },
   "cookie": {
+    "title": "Cookies",
     "text": "Wir verwenden Cookies, um die Website optimal zu gestalten.",
     "accept": "Akzeptieren",
-    "decline": "Ablehnen"
+    "decline": "Ablehnen",
+    "acceptAll": "Alle akzeptieren",
+    "essentialOnly": "Nur notwendige",
+    "learnMore": "Mehr erfahren"
   },
   "languageSwitcher": {
     "title": "Sprache"

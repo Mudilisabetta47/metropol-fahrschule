@@ -355,9 +355,13 @@
     "cta": "Go to Homepage →"
   },
   "cookie": {
+    "title": "Cookies",
     "text": "We use cookies to optimize the website.",
     "accept": "Accept",
-    "decline": "Decline"
+    "decline": "Decline",
+    "acceptAll": "Accept All",
+    "essentialOnly": "Essential Only",
+    "learnMore": "Learn More"
   },
   "languageSwitcher": {
     "title": "Language"

@@ -355,9 +355,13 @@
     "cta": "Ana Sayfaya Git →"
   },
   "cookie": {
+    "title": "Çerezler",
     "text": "Web sitesini optimize etmek için çerezler kullanıyoruz.",
     "accept": "Kabul Et",
-    "decline": "Reddet"
+    "decline": "Reddet",
+    "acceptAll": "Tümünü Kabul Et",
+    "essentialOnly": "Sadece Gerekli",
+    "learnMore": "Daha Fazla"
   },
   "languageSwitcher": {
     "title": "Dil"
