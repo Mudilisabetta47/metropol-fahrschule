@@ -105,6 +105,8 @@
     "testimonialsSubtitle": "Deneyimler",
     "testimonial1": "Araç kullanmaktan çok korkuyordum. Eğitmenim Kai bunu hemen fark etti ve gerginliğimi tamamen aldı. 3 hafta sonra araç kullanmayı dört gözle bekliyordum!",
     "testimonial2": "İlk seferde geçtim – hem teori hem pratik! Öğrenme uygulaması harikaydı ve eğitmenim beni sınav güzergahlarına mükemmel hazırladı.",
+    "whyDesc": "Biz sadece bir sürücü kursu değiliz – ehliyetine giden yolda senin takımınız.",
+    "bottomCtaTitle": "Maceraya hazır mısın?",
     "testimonial3": "İkimiz de aynı anda Metropol'de ehliyetimizi aldık. Harika ekip, esnek programlar ve atmosfer gerçekten süper. Kesinlikle tavsiye ederiz!",
     "ctaTitle": "Hazır mısın?",
     "ctaText": "Ehliyetin seni bekliyor. Şimdi kaydol ve maceraya başla.",
@@ -284,7 +286,19 @@
     "phoneReachable": "Telefonla ulaşılabilir",
     "emailContact": "E-posta iletişimi",
     "formTitle": "Bağlayıcı Olmayan Başvuru",
-    "formDesc": "Formu doldurun, size kişisel olarak geri döneceğiz – otomatik değil."
+    "formDesc": "Formu doldurun, size kişisel olarak geri döneceğiz – otomatik değil.",
+    "faq1q": "İlk yardım sertifikası ne kadar geçerli?",
+    "faq1a": "İlk yardım sertifikası süresiz geçerlidir. Son kullanma tarihi yoktur.",
+    "faq2q": "Kursa ne getirmem gerekiyor?",
+    "faq2a": "Geçerli bir kimlik (nüfus cüzdanı veya pasaport) ve rahat kıyafetler.",
+    "faq3q": "İlk yardım kursu ne kadar?",
+    "faq3a": "Güncel fiyatlar ve tarihler için bizimle iletişime geçin.",
+    "faq4q": "Sertifika alacak mıyım?",
+    "faq4a": "Evet, kurs sonunda resmi olarak tanınan bir sertifika alacaksınız.",
+    "faq5q": "Kursu online alabilir miyim?",
+    "faq5a": "Hayır, pratik kısım yüz yüze katılım gerektirir. 9 ders birimi yerinde yapılır.",
+    "faq6q": "Nasıl kayıt olabilirim?",
+    "faq6a": "İletişim formumuz veya telefonla kolayca. Yaklaşan tarihler hakkında sizi bilgilendireceğiz."
   },
   "aufbauseminar": {
     "seoTitle": "Yeni Sürücüler için Takviye Semineri (ASF) | Fahrschule Metropol",
@@ -309,7 +323,20 @@
     "experiencedLeadersDesc": "Sertifikalı seminer liderlerimiz yapıcı ve saygılı bir atmosfer sağlar.",
     "contactTitle": "Takviye Semineri Talep Et",
     "contactDesc": "Ehliyet makamından mektup mu aldınız? Bize ulaşın – hızlı ve gizli bir şekilde yardımcı olacağız.",
-    "discreet": "Gizli ve Güvenilir"
+    "discreet": "Gizli ve Güvenilir",
+    "aV1": "Hız aşımı (21+ km/s üzerinde)",
+    "aV2": "Kırmızı ışık ihlali",
+    "aV3": "Alkol veya uyuşturucu etkisi altında araç kullanma",
+    "aV4": "Trafikte zorlama",
+    "aV5": "Kaza sonrası kaçma",
+    "bV1": "Buzlu yolda kış lastiği olmadan araç kullanma",
+    "bV2": "Süresi geçmiş muayene (8 aydan fazla)",
+    "bV3": "Araç kullanırken telefon kullanma",
+    "dur1": "Her biri 135 dakikalık 4 oturum",
+    "dur2": "1 gözlem sürüşü (30 dk.)",
+    "dur3": "Süre: yaklaşık 2–4 hafta",
+    "dur4": "Ücret: yaklaşık 350 €'den itibaren",
+    "dur5": "Tüm ehliyet makamlarınca tanınır"
   },
   "licenseClass": {
     "onRequest": "Fiyat talep üzerine",
@@ -355,9 +382,13 @@
     "cta": "Ana Sayfaya Git →"
   },
   "cookie": {
+    "title": "Çerezler",
     "text": "Web sitesini optimize etmek için çerezler kullanıyoruz.",
     "accept": "Kabul Et",
-    "decline": "Reddet"
+    "decline": "Reddet",
+    "acceptAll": "Tümünü Kabul Et",
+    "essentialOnly": "Sadece Gerekli",
+    "learnMore": "Daha Fazla"
   },
   "languageSwitcher": {
     "title": "Dil"

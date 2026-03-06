@@ -105,6 +105,8 @@
     "testimonialsSubtitle": "Erfahrungen",
     "testimonial1": "Ich hatte richtig Angst vor dem Fahren. Mein Fahrlehrer Kai hat das sofort gemerkt und mir die Nervosität komplett genommen. Nach 3 Wochen hab ich mich aufs Fahren gefreut!",
     "testimonial2": "Bestanden beim ersten Mal – Theorie UND Praxis! Die App zum Lernen war mega, und mein Fahrlehrer hat mich perfekt auf die Prüfungsstrecken vorbereitet.",
+    "whyDesc": "Wir sind nicht einfach eine Fahrschule – wir sind dein Team auf dem Weg zum Führerschein.",
+    "bottomCtaTitle": "Bereit für dein Abenteuer?",
     "testimonial3": "Wir haben beide gleichzeitig unseren Führerschein bei Metropol gemacht. Super Team, flexible Termine, und die Stimmung ist einfach top. Absolute Empfehlung!",
     "ctaTitle": "Bereit?",
     "ctaText": "Dein Führerschein wartet auf dich. Melde dich jetzt an und starte dein Abenteuer.",
@@ -284,7 +286,19 @@
     "phoneReachable": "Telefonisch erreichbar",
     "emailContact": "E-Mail Kontakt",
     "formTitle": "Unverbindliche Anfrage",
-    "formDesc": "Füll das Formular aus und wir melden uns bei dir – persönlich, nicht automatisch."
+    "formDesc": "Füll das Formular aus und wir melden uns bei dir – persönlich, nicht automatisch.",
+    "faq1q": "Wie lange ist der Erste-Hilfe-Kurs gültig?",
+    "faq1a": "Der Erste-Hilfe-Kurs ist unbegrenzt gültig. Es gibt kein Ablaufdatum.",
+    "faq2q": "Was muss ich zum Kurs mitbringen?",
+    "faq2a": "Einen gültigen Ausweis (Personalausweis oder Reisepass) und bequeme Kleidung.",
+    "faq3q": "Wie viel kostet der Erste-Hilfe-Kurs?",
+    "faq3a": "Die aktuellen Preise erfährst du bei der Anmeldung. Kontaktiere uns für Details.",
+    "faq4q": "Bekomme ich ein Zertifikat?",
+    "faq4a": "Ja, du erhältst direkt nach dem Kurs eine behördlich anerkannte Bescheinigung.",
+    "faq5q": "Kann ich den Kurs auch online machen?",
+    "faq5a": "Nein, der praktische Teil erfordert Präsenz. Die 9 Unterrichtseinheiten finden vor Ort statt.",
+    "faq6q": "Wie melde ich mich an?",
+    "faq6a": "Einfach über unser Kontaktformular oder telefonisch. Wir informieren dich über die nächsten Termine."
   },
   "aufbauseminar": {
     "seoTitle": "Aufbauseminar (ASF) für Fahranfänger | Fahrschule Metropol",
@@ -309,7 +323,20 @@
     "experiencedLeadersDesc": "Unsere zertifizierten Seminarleiter sorgen für eine konstruktive und respektvolle Atmosphäre.",
     "contactTitle": "Aufbauseminar anfragen",
     "contactDesc": "Du hast Post von der Fahrerlaubnisbehörde bekommen? Melde dich bei uns – wir helfen dir schnell und diskret weiter.",
-    "discreet": "Diskret & vertraulich"
+    "discreet": "Diskret & vertraulich",
+    "aV1": "Geschwindigkeitsüberschreitung (ab 21 km/h)",
+    "aV2": "Rotlichtverstoß",
+    "aV3": "Alkohol oder Drogen am Steuer",
+    "aV4": "Nötigung im Straßenverkehr",
+    "aV5": "Unfallflucht",
+    "bV1": "Fahren ohne Winterreifen bei Glatteis",
+    "bV2": "Abgelaufene HU-Plakette (mehr als 8 Monate)",
+    "bV3": "Handy am Steuer",
+    "dur1": "4 Sitzungen à 135 Minuten",
+    "dur2": "1 Beobachtungsfahrt (30 Min.)",
+    "dur3": "Dauer: ca. 2–4 Wochen",
+    "dur4": "Kosten: ab ca. 350 €",
+    "dur5": "Anerkannt bei allen Führerscheinstellen"
   },
   "licenseClass": {
     "onRequest": "Preis auf Anfrage",
@@ -355,9 +382,13 @@
     "cta": "Zur Startseite →"
   },
   "cookie": {
+    "title": "Cookies",
     "text": "Wir verwenden Cookies, um die Website optimal zu gestalten.",
     "accept": "Akzeptieren",
-    "decline": "Ablehnen"
+    "decline": "Ablehnen",
+    "acceptAll": "Alle akzeptieren",
+    "essentialOnly": "Nur notwendige",
+    "learnMore": "Mehr erfahren"
   },
   "languageSwitcher": {
     "title": "Sprache"

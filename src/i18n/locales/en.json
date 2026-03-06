@@ -105,6 +105,8 @@
     "testimonialsSubtitle": "Experiences",
     "testimonial1": "I was really scared of driving. My instructor Kai noticed right away and completely took away my nervousness. After 3 weeks, I was looking forward to driving!",
     "testimonial2": "Passed the first time – theory AND practice! The learning app was great, and my instructor prepared me perfectly for the exam routes.",
+    "whyDesc": "We're not just a driving school – we're your team on the road to your license.",
+    "bottomCtaTitle": "Ready for your adventure?",
     "testimonial3": "We both got our licenses at Metropol at the same time. Great team, flexible schedules, and the vibe is just amazing. Absolute recommendation!",
     "ctaTitle": "Ready?",
     "ctaText": "Your driving license is waiting. Sign up now and start your adventure.",
@@ -284,7 +286,19 @@
     "phoneReachable": "Available by phone",
     "emailContact": "Email contact",
     "formTitle": "Non-Binding Inquiry",
-    "formDesc": "Fill out the form and we'll get back to you – personally, not automatically."
+    "formDesc": "Fill out the form and we'll get back to you – personally, not automatically.",
+    "faq1q": "How long is the first aid certificate valid?",
+    "faq1a": "The first aid certificate is valid indefinitely. There is no expiration date.",
+    "faq2q": "What do I need to bring?",
+    "faq2a": "A valid ID (identity card or passport) and comfortable clothing.",
+    "faq3q": "How much does the first aid course cost?",
+    "faq3a": "Contact us for current prices and available dates.",
+    "faq4q": "Will I receive a certificate?",
+    "faq4a": "Yes, you'll receive an officially recognized certificate right after the course.",
+    "faq5q": "Can I take the course online?",
+    "faq5a": "No, the practical part requires attendance. The 9 teaching units take place on-site.",
+    "faq6q": "How do I register?",
+    "faq6a": "Simply via our contact form or by phone. We'll inform you about upcoming dates."
   },
   "aufbauseminar": {
     "seoTitle": "Advanced Seminar (ASF) for Novice Drivers | Fahrschule Metropol",
@@ -309,7 +323,20 @@
     "experiencedLeadersDesc": "Our certified seminar leaders ensure a constructive and respectful atmosphere.",
     "contactTitle": "Request Advanced Seminar",
     "contactDesc": "Received mail from the driver licensing authority? Contact us – we'll help you quickly and discreetly.",
-    "discreet": "Discreet & Confidential"
+    "discreet": "Discreet & Confidential",
+    "aV1": "Speeding (21+ km/h over limit)",
+    "aV2": "Running a red light",
+    "aV3": "Driving under the influence of alcohol or drugs",
+    "aV4": "Coercion in road traffic",
+    "aV5": "Hit and run",
+    "bV1": "Driving without winter tires on icy roads",
+    "bV2": "Expired inspection sticker (more than 8 months)",
+    "bV3": "Using a phone while driving",
+    "dur1": "4 sessions of 135 minutes each",
+    "dur2": "1 observation drive (30 min.)",
+    "dur3": "Duration: approx. 2–4 weeks",
+    "dur4": "Cost: from approx. €350",
+    "dur5": "Recognized by all licensing authorities"
   },
   "licenseClass": {
     "onRequest": "Price on request",
@@ -355,9 +382,13 @@
     "cta": "Go to Homepage →"
   },
   "cookie": {
+    "title": "Cookies",
     "text": "We use cookies to optimize the website.",
     "accept": "Accept",
-    "decline": "Decline"
+    "decline": "Decline",
+    "acceptAll": "Accept All",
+    "essentialOnly": "Essential Only",
+    "learnMore": "Learn More"
   },
   "languageSwitcher": {
     "title": "Language"
