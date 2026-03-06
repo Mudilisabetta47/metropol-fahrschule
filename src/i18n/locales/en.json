@@ -286,7 +286,19 @@
     "phoneReachable": "Available by phone",
     "emailContact": "Email contact",
     "formTitle": "Non-Binding Inquiry",
-    "formDesc": "Fill out the form and we'll get back to you – personally, not automatically."
+    "formDesc": "Fill out the form and we'll get back to you – personally, not automatically.",
+    "faq1q": "How long is the first aid certificate valid?",
+    "faq1a": "The first aid certificate is valid indefinitely. There is no expiration date.",
+    "faq2q": "What do I need to bring?",
+    "faq2a": "A valid ID (identity card or passport) and comfortable clothing.",
+    "faq3q": "How much does the first aid course cost?",
+    "faq3a": "Contact us for current prices and available dates.",
+    "faq4q": "Will I receive a certificate?",
+    "faq4a": "Yes, you'll receive an officially recognized certificate right after the course.",
+    "faq5q": "Can I take the course online?",
+    "faq5a": "No, the practical part requires attendance. The 9 teaching units take place on-site.",
+    "faq6q": "How do I register?",
+    "faq6a": "Simply via our contact form or by phone. We'll inform you about upcoming dates."
   },
   "aufbauseminar": {
     "seoTitle": "Advanced Seminar (ASF) for Novice Drivers | Fahrschule Metropol",
