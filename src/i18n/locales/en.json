@@ -311,6 +311,20 @@
     "contactDesc": "Received mail from the driver licensing authority? Contact us – we'll help you quickly and discreetly.",
     "discreet": "Discreet & Confidential"
   },
+  "licenseClass": {
+    "onRequest": "Price on request",
+    "signUpNow": "Sign up now",
+    "freeNote": "Non-binding & free – we'll get back to you within 24h.",
+    "trainingDetails": "Training Details",
+    "duration": "Duration",
+    "priceFunding": "Price & Funding",
+    "priceFundingDesc": "Transparent prices with no hidden costs. Ask us about individual payment options and possible funding.",
+    "prerequisites": "Prerequisites",
+    "advantages": "Your Advantages",
+    "processLabel": "Your Path",
+    "processTitle": "How the Training Works",
+    "faqTitle": "FAQ about {{name}}"
+  },
   "licenseClasses": {
     "seoTitle": "License Classes – Fahrschule Metropol | Your Path to Freedom",
     "seoDesc": "All license classes at Fahrschule Metropol: Car, motorcycle, trailer & more.",

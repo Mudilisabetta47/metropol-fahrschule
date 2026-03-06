@@ -311,6 +311,20 @@
     "contactDesc": "Ehliyet makamından mektup mu aldınız? Bize ulaşın – hızlı ve gizli bir şekilde yardımcı olacağız.",
     "discreet": "Gizli ve Güvenilir"
   },
+  "licenseClass": {
+    "onRequest": "Fiyat talep üzerine",
+    "signUpNow": "Şimdi kaydol",
+    "freeNote": "Bağlayıcı değil ve ücretsiz – 24 saat içinde size geri döneriz.",
+    "trainingDetails": "Eğitim Detayları",
+    "duration": "Süre",
+    "priceFunding": "Fiyat & Destek",
+    "priceFundingDesc": "Gizli maliyetler olmadan şeffaf fiyatlar. Bireysel ödeme seçenekleri ve olası destekler hakkında bize sorun.",
+    "prerequisites": "Ön Koşullar",
+    "advantages": "Avantajlarınız",
+    "processLabel": "Yolunuz",
+    "processTitle": "Eğitim Nasıl İşler",
+    "faqTitle": "{{name}} hakkında SSS"
+  },
   "licenseClasses": {
     "seoTitle": "Ehliyet Sınıfları – Fahrschule Metropol | Özgürlüğe Giden Yolunuz",
     "seoDesc": "Fahrschule Metropol'de tüm ehliyet sınıfları: Otomobil, motosiklet, römork ve daha fazlası.",

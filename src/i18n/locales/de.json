@@ -311,6 +311,20 @@
     "contactDesc": "Du hast Post von der Fahrerlaubnisbehörde bekommen? Melde dich bei uns – wir helfen dir schnell und diskret weiter.",
     "discreet": "Diskret & vertraulich"
   },
+  "licenseClass": {
+    "onRequest": "Preis auf Anfrage",
+    "signUpNow": "Jetzt anmelden",
+    "freeNote": "Unverbindlich & kostenlos – wir melden uns innerhalb von 24h.",
+    "trainingDetails": "Ausbildungsdetails",
+    "duration": "Dauer",
+    "priceFunding": "Preis & Förderung",
+    "priceFundingDesc": "Transparente Preise ohne versteckte Kosten. Frag uns nach individuellen Zahlungsoptionen und möglichen Förderungen.",
+    "prerequisites": "Voraussetzungen",
+    "advantages": "Deine Vorteile",
+    "processLabel": "Dein Weg",
+    "processTitle": "So läuft die Ausbildung ab",
+    "faqTitle": "Häufige Fragen zu {{name}}"
+  },
   "licenseClasses": {
     "seoTitle": "Führerscheinklassen – Fahrschule Metropol | Dein Weg zur Freiheit",
     "seoDesc": "Alle Führerscheinklassen bei Fahrschule Metropol: PKW, Motorrad, Anhänger & mehr.",
