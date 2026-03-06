@@ -311,7 +311,20 @@
     "experiencedLeadersDesc": "Unsere zertifizierten Seminarleiter sorgen für eine konstruktive und respektvolle Atmosphäre.",
     "contactTitle": "Aufbauseminar anfragen",
     "contactDesc": "Du hast Post von der Fahrerlaubnisbehörde bekommen? Melde dich bei uns – wir helfen dir schnell und diskret weiter.",
-    "discreet": "Diskret & vertraulich"
+    "discreet": "Diskret & vertraulich",
+    "aV1": "Geschwindigkeitsüberschreitung (ab 21 km/h)",
+    "aV2": "Rotlichtverstoß",
+    "aV3": "Alkohol oder Drogen am Steuer",
+    "aV4": "Nötigung im Straßenverkehr",
+    "aV5": "Unfallflucht",
+    "bV1": "Fahren ohne Winterreifen bei Glatteis",
+    "bV2": "Abgelaufene HU-Plakette (mehr als 8 Monate)",
+    "bV3": "Handy am Steuer",
+    "dur1": "4 Sitzungen à 135 Minuten",
+    "dur2": "1 Beobachtungsfahrt (30 Min.)",
+    "dur3": "Dauer: ca. 2–4 Wochen",
+    "dur4": "Kosten: ab ca. 350 €",
+    "dur5": "Anerkannt bei allen Führerscheinstellen"
   },
   "licenseClass": {
     "onRequest": "Preis auf Anfrage",
