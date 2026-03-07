@@ -124,7 +124,7 @@ const Footer = () => {
                   <Mail className="h-4 w-4 text-primary-foreground/50" />
                   <div>
                     <span className="block text-xs text-primary-foreground/50">{t("footer.email")}</span>
-                    <a href="mailto:info@metropol-bz.de" className="font-medium hover:underline">info@metropol-bz.de</a>
+                    <a href="mailto:info@fahrschule-metropol.de" className="font-medium hover:underline">info@fahrschule-metropol.de</a>
                   </div>
                 </li>
                 <li className="flex items-start gap-3">
