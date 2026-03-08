@@ -139,7 +139,7 @@ const ContactForm = ({ preselectedLocation, compact }: ContactFormProps) => {
               <a href="tel:+495116425066"><Phone className="mr-1.5 h-4 w-4" /> {t("contactForm.callDirect")}</a>
             </Button>
             <Button variant="outline" size="sm" asChild>
-              <a href="mailto:info@metropol-bz.de"><Mail className="mr-1.5 h-4 w-4" /> {t("contactForm.writeEmail")}</a>
+              <a href="mailto:info@fahrschule-metropol.de"><Mail className="mr-1.5 h-4 w-4" /> {t("contactForm.writeEmail")}</a>
             </Button>
           </motion.div>
         </motion.div>

@@ -56,7 +56,7 @@ const Contact = () => {
                   </li>
                   <li className="flex items-center gap-3">
                     <Mail className="h-5 w-5 text-primary" />
-                    <a href="mailto:info@metropol-bz.de" className="text-foreground font-medium hover:text-primary transition-colors">info@metropol-bz.de</a>
+                    <a href="mailto:info@fahrschule-metropol.de" className="text-foreground font-medium hover:text-primary transition-colors">info@fahrschule-metropol.de</a>
                   </li>
                   <li className="flex items-start gap-3">
                     <Clock className="mt-0.5 h-5 w-5 text-primary" />

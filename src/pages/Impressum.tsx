@@ -36,7 +36,7 @@ const Impressum = () => {
             <h2 className="text-xl font-bold text-foreground mt-8">Kontakt</h2>
             <p>
               Telefon: 0511 6425066<br />
-              E-Mail: info@metropol-bz.de
+              E-Mail: info@fahrschule-metropol.de
             </p>
 
             <h2 className="text-xl font-bold text-foreground mt-8">Aufsichtsbehörde</h2>

@@ -8,7 +8,7 @@ const Hannover = () => (
       address: "Engelbosteler Damm 1",
       zip: "30167 Hannover",
       phone: "0511 6425066",
-      email: "info@metropol-bz.de",
+      email: "info@fahrschule-metropol.de",
       hours: ["Mo–Fr: 10:00–13:30, 14:30–19:00 Uhr", "Sa–So: Geschlossen"],
       description: "Mitten in Hannover – perfekt erreichbar per ÖPNV und mit modernster Ausstattung.",
       longDescription: "Der Standort Hannover der Fahrschule Metropol befindet sich am Engelbosteler Damm 1 – gut erreichbar mit Bus und Bahn. Wir bieten hier eine umfassende Fahrausbildung für alle gängigen Führerscheinklassen. Unsere erfahrenen Fahrlehrer kennen den Hannoveraner Stadtverkehr aus dem Effeff und bereiten dich praxisnah auf die Prüfung vor. Gut erreichbar mit ÖPNV.",
