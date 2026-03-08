@@ -56,7 +56,7 @@ const Datenschutz = () => {
                Engelbosteler Damm 1<br />
                30167 Hannover<br /><br />
               Telefon: 0511 6425066<br />
-              E-Mail: info@metropol-bz.de
+              E-Mail: info@fahrschule-metropol.de
             </p>
 
             <h2 className="text-xl font-bold text-foreground mt-8">3. Hosting</h2>
