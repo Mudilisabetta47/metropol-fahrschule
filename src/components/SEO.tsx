@@ -14,6 +14,14 @@ const SEO = ({ title, description, canonical, jsonLd, ogImage }: SEOProps) => {
   useEffect(() => {
     document.title = title;
 
+    const currentLanguage = i18n.language || 'de';
+    const localeMap: Record<string, string> = {
+      'de': 'de_DE',
+      'en': 'en_US',
+      'tr': 'tr_TR',
+      'ar': 'ar_SA'
+    };
+
     const setMeta = (name: string, content: string, attr = "name") => {
       let el = document.querySelector(`meta[${attr}="${name}"]`);
       if (!el) {
@@ -29,6 +37,7 @@ const SEO = ({ title, description, canonical, jsonLd, ogImage }: SEOProps) => {
     setMeta("og:description", description, "property");
     setMeta("og:type", "website", "property");
     setMeta("og:site_name", "Fahrschule Metropol", "property");
+    setMeta("og:locale", localeMap[currentLanguage], "property");
     if (ogImage) setMeta("og:image", ogImage, "property");
     if (canonical) setMeta("og:url", canonical, "property");
 
