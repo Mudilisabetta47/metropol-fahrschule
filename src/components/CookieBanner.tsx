@@ -39,26 +39,36 @@ const CookieBanner = () => {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 20, scale: 0.95 }}
             transition={{ type: "spring", bounce: 0.15, duration: 0.4 }}
-            className="fixed bottom-36 lg:bottom-20 left-4 z-50 w-72 rounded-2xl border border-border bg-card p-5 shadow-card-hover"
+            className="fixed bottom-36 lg:bottom-20 left-4 z-50 w-80 rounded-2xl border border-border bg-card p-6 shadow-card-hover"
           >
-            <button onClick={() => setExpanded(false)} className="absolute top-3 right-3 text-muted-foreground hover:text-foreground transition-colors" aria-label="Close">
+            <button onClick={() => setExpanded(false)} className="absolute top-4 right-4 text-muted-foreground hover:text-foreground transition-colors" aria-label="Close">
               <X className="h-4 w-4" />
             </button>
-            <div className="flex items-start gap-3">
-              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent text-accent-foreground">
-                <Cookie className="h-5 w-5" />
+            <div className="flex items-start gap-4">
+              <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl" style={{ background: '#00cc28' }}>
+                <Cookie className="h-6 w-6 text-white" />
               </div>
-              <div>
-                <h3 className="text-sm font-bold text-foreground mb-1">{t("cookie.title")}</h3>
-                <p className="text-xs text-muted-foreground leading-relaxed mb-4">
+              <div className="pr-6">
+                <h3 className="text-base font-bold text-foreground mb-2">{t("cookie.title")}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed mb-5">
                   {t("cookie.text")}{" "}
-                  <a href="/datenschutz" className="text-primary hover:underline">{t("cookie.learnMore")}</a>
+                  <a href="/datenschutz" className="text-[#00cc28] hover:underline font-medium">{t("cookie.learnMore")}</a>
                 </p>
-                <div className="flex gap-2">
-                  <Button size="sm" onClick={() => accept("all")} className="gradient-primary text-primary-foreground border-0 text-xs font-bold rounded-lg">
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Button 
+                    size="sm" 
+                    onClick={() => accept("all")} 
+                    className="text-sm font-semibold rounded-xl px-6 py-2.5 text-white border-0 hover:opacity-90 transition-opacity"
+                    style={{ background: '#00cc28' }}
+                  >
                     {t("cookie.acceptAll")}
                   </Button>
-                  <Button size="sm" variant="outline" onClick={() => accept("essential")} className="text-xs font-bold rounded-lg">
+                  <Button 
+                    size="sm" 
+                    variant="outline" 
+                    onClick={() => accept("essential")} 
+                    className="text-sm font-semibold rounded-xl px-6 py-2.5 border-border hover:bg-accent transition-colors"
+                  >
                     {t("cookie.essentialOnly")}
                   </Button>
                 </div>
@@ -76,7 +86,8 @@ const CookieBanner = () => {
             whileTap={{ scale: 0.95 }}
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="flex h-12 w-12 items-center justify-center rounded-full border border-border bg-card text-foreground shadow-card transition-all hover:shadow-card-hover"
+            className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-white text-white shadow-lg transition-all hover:shadow-xl"
+            style={{ background: '#00cc28' }}
             aria-label="Cookie settings"
           >
             <Cookie className="h-5 w-5" />
