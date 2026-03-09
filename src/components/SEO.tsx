@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 interface SEOProps {
   title: string;
@@ -9,6 +10,7 @@ interface SEOProps {
 }
 
 const SEO = ({ title, description, canonical, jsonLd, ogImage }: SEOProps) => {
+  const { i18n } = useTranslation();
   useEffect(() => {
     document.title = title;
 
