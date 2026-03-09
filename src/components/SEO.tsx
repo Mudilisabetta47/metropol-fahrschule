@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 interface SEOProps {
   title: string;
@@ -9,8 +10,17 @@ interface SEOProps {
 }
 
 const SEO = ({ title, description, canonical, jsonLd, ogImage }: SEOProps) => {
+  const { i18n } = useTranslation();
   useEffect(() => {
     document.title = title;
+
+    const currentLanguage = i18n.language || 'de';
+    const localeMap: Record<string, string> = {
+      'de': 'de_DE',
+      'en': 'en_US',
+      'tr': 'tr_TR',
+      'ar': 'ar_SA'
+    };
 
     const setMeta = (name: string, content: string, attr = "name") => {
       let el = document.querySelector(`meta[${attr}="${name}"]`);
@@ -27,6 +37,7 @@ const SEO = ({ title, description, canonical, jsonLd, ogImage }: SEOProps) => {
     setMeta("og:description", description, "property");
     setMeta("og:type", "website", "property");
     setMeta("og:site_name", "Fahrschule Metropol", "property");
+    setMeta("og:locale", localeMap[currentLanguage], "property");
     if (ogImage) setMeta("og:image", ogImage, "property");
     if (canonical) setMeta("og:url", canonical, "property");
 
@@ -44,6 +55,29 @@ const SEO = ({ title, description, canonical, jsonLd, ogImage }: SEOProps) => {
         document.head.appendChild(link);
       }
       link.setAttribute("href", canonical);
+    }
+
+    // hreflang tags
+    const existingHreflangs = document.querySelectorAll('link[hreflang]');
+    existingHreflangs.forEach(el => el.remove());
+
+    if (canonical) {
+      const baseUrl = canonical.split('?')[0]; // Remove existing params
+      const hreflangs = [
+        { lang: 'de', url: baseUrl },
+        { lang: 'en', url: `${baseUrl}?lang=en` },
+        { lang: 'tr', url: `${baseUrl}?lang=tr` },
+        { lang: 'ar', url: `${baseUrl}?lang=ar` },
+        { lang: 'x-default', url: baseUrl }
+      ];
+
+      hreflangs.forEach(({ lang, url }) => {
+        const hreflangLink = document.createElement('link');
+        hreflangLink.setAttribute('rel', 'alternate');
+        hreflangLink.setAttribute('hreflang', lang);
+        hreflangLink.setAttribute('href', url);
+        document.head.appendChild(hreflangLink);
+      });
     }
 
     // JSON-LD
@@ -64,8 +98,10 @@ const SEO = ({ title, description, canonical, jsonLd, ogImage }: SEOProps) => {
     return () => {
       const scripts = document.querySelectorAll('script[data-seo-jsonld]');
       scripts.forEach((s) => s.remove());
+      const hreflangs = document.querySelectorAll('link[hreflang]');
+      hreflangs.forEach((s) => s.remove());
     };
-  }, [title, description, canonical, jsonLd, ogImage]);
+  }, [title, description, canonical, jsonLd, ogImage, i18n.language]);
 
   return null;
 };

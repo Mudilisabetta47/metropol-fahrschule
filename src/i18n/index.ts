@@ -20,10 +20,30 @@ i18n
     },
   });
 
-// Set dir attribute for RTL languages
+// Set dir attribute for RTL languages and update URL
 i18n.on("languageChanged", (lng) => {
   document.documentElement.dir = lng === "ar" ? "rtl" : "ltr";
   document.documentElement.lang = lng;
+  
+  // Update URL with language parameter (but avoid infinite loops)
+  if (typeof window !== 'undefined') {
+    const url = new URL(window.location.href);
+    const currentLangParam = url.searchParams.get('lang');
+    
+    if (lng === 'de') {
+      // Remove lang parameter for German (default)
+      url.searchParams.delete('lang');
+    } else {
+      // Set lang parameter for other languages
+      url.searchParams.set('lang', lng);
+    }
+    
+    // Only update if the URL actually changed
+    const newUrl = url.toString();
+    if (newUrl !== window.location.href && !url.searchParams.has('__lovable_token')) {
+      window.history.replaceState({}, '', newUrl);
+    }
+  }
 });
 
 export default i18n;
