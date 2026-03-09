@@ -31,15 +31,15 @@ const CookieBanner = () => {
   const hasConsent = localStorage.getItem("cookie-consent");
 
   return (
-    <div className="fixed bottom-20 lg:bottom-6 left-4 z-50">
+    <>
       <AnimatePresence>
         {visible && expanded && (
           <motion.div
-            initial={{ opacity: 0, y: 10, scale: 0.95 }}
+            initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: 10, scale: 0.95 }}
-            transition={{ duration: 0.15 }}
-            className="absolute bottom-full left-0 mb-2 w-72 overflow-hidden rounded-2xl border border-border bg-card p-5 shadow-card-hover"
+            exit={{ opacity: 0, y: 20, scale: 0.95 }}
+            transition={{ type: "spring", bounce: 0.15, duration: 0.4 }}
+            className="fixed bottom-36 lg:bottom-20 left-4 z-50 w-72 rounded-2xl border border-border bg-card p-5 shadow-card-hover"
           >
             <button onClick={() => setExpanded(false)} className="absolute top-3 right-3 text-muted-foreground hover:text-foreground transition-colors" aria-label="Close">
               <X className="h-4 w-4" />
@@ -69,19 +69,21 @@ const CookieBanner = () => {
       </AnimatePresence>
 
       {visible && (
-        <motion.button
-          onClick={() => setExpanded(!expanded)}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className="flex h-12 w-12 items-center justify-center rounded-full border border-border bg-card text-foreground shadow-card transition-all hover:shadow-card-hover"
-          aria-label="Cookie settings"
-        >
-          <Cookie className="h-5 w-5" />
-        </motion.button>
+        <div className="fixed bottom-20 lg:bottom-6 left-4 z-50">
+          <motion.button
+            onClick={() => setExpanded(!expanded)}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="flex h-12 w-12 items-center justify-center rounded-full border border-border bg-card text-foreground shadow-card transition-all hover:shadow-card-hover"
+            aria-label="Cookie settings"
+          >
+            <Cookie className="h-5 w-5" />
+          </motion.button>
+        </div>
       )}
-    </div>
+    </>
   );
 };
 
