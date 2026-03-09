@@ -7,56 +7,81 @@ import { useTranslation } from "react-i18next";
 const CookieBanner = () => {
   const { t } = useTranslation();
   const [visible, setVisible] = useState(false);
+  const [expanded, setExpanded] = useState(false);
 
   useEffect(() => {
     const consent = localStorage.getItem("cookie-consent");
     if (!consent) {
-      const timer = setTimeout(() => setVisible(true), 1500);
+      const timer = setTimeout(() => {
+        setVisible(true);
+        setExpanded(true);
+      }, 1500);
       return () => clearTimeout(timer);
+    } else {
+      // Show collapsed button for users who already consented (to change settings)
+      setVisible(true);
     }
   }, []);
 
   const accept = (type: "all" | "essential") => {
     localStorage.setItem("cookie-consent", type);
-    setVisible(false);
+    setExpanded(false);
   };
 
+  const hasConsent = localStorage.getItem("cookie-consent");
+
   return (
-    <AnimatePresence>
-      {visible && (
-        <motion.div
-          initial={{ y: 100, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          exit={{ y: 100, opacity: 0 }}
-          transition={{ type: "spring", bounce: 0.15, duration: 0.5 }}
-          className="fixed bottom-4 left-4 right-4 z-[60] mx-auto max-w-lg rounded-2xl border border-border bg-card p-5 shadow-card-hover sm:bottom-6 sm:left-6 sm:right-auto"
-        >
-          <button onClick={() => accept("essential")} className="absolute top-3 right-3 text-muted-foreground hover:text-foreground transition-colors" aria-label="Close">
-            <X className="h-4 w-4" />
-          </button>
-          <div className="flex items-start gap-3">
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent text-accent-foreground">
-              <Cookie className="h-5 w-5" />
-            </div>
-            <div>
-              <h3 className="text-sm font-bold text-foreground mb-1">{t("cookie.title")}</h3>
-              <p className="text-xs text-muted-foreground leading-relaxed mb-4">
-                {t("cookie.text")}{" "}
-                <a href="/datenschutz" className="text-primary hover:underline">{t("cookie.learnMore")}</a>
-              </p>
-              <div className="flex gap-2">
-                <Button size="sm" onClick={() => accept("all")} className="gradient-primary text-primary-foreground border-0 text-xs font-bold rounded-lg">
-                  {t("cookie.acceptAll")}
-                </Button>
-                <Button size="sm" variant="outline" onClick={() => accept("essential")} className="text-xs font-bold rounded-lg">
-                  {t("cookie.essentialOnly")}
-                </Button>
+    <div className="fixed bottom-20 lg:bottom-6 left-4 z-50">
+      <AnimatePresence>
+        {visible && expanded && (
+          <motion.div
+            initial={{ opacity: 0, y: 10, scale: 0.95 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: 10, scale: 0.95 }}
+            transition={{ duration: 0.15 }}
+            className="absolute bottom-full left-0 mb-2 w-72 overflow-hidden rounded-2xl border border-border bg-card p-5 shadow-card-hover"
+          >
+            <button onClick={() => setExpanded(false)} className="absolute top-3 right-3 text-muted-foreground hover:text-foreground transition-colors" aria-label="Close">
+              <X className="h-4 w-4" />
+            </button>
+            <div className="flex items-start gap-3">
+              <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-accent text-accent-foreground">
+                <Cookie className="h-5 w-5" />
+              </div>
+              <div>
+                <h3 className="text-sm font-bold text-foreground mb-1">{t("cookie.title")}</h3>
+                <p className="text-xs text-muted-foreground leading-relaxed mb-4">
+                  {t("cookie.text")}{" "}
+                  <a href="/datenschutz" className="text-primary hover:underline">{t("cookie.learnMore")}</a>
+                </p>
+                <div className="flex gap-2">
+                  <Button size="sm" onClick={() => accept("all")} className="gradient-primary text-primary-foreground border-0 text-xs font-bold rounded-lg">
+                    {t("cookie.acceptAll")}
+                  </Button>
+                  <Button size="sm" variant="outline" onClick={() => accept("essential")} className="text-xs font-bold rounded-lg">
+                    {t("cookie.essentialOnly")}
+                  </Button>
+                </div>
               </div>
             </div>
-          </div>
-        </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {visible && (
+        <motion.button
+          onClick={() => setExpanded(!expanded)}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="flex h-12 w-12 items-center justify-center rounded-full border border-border bg-card text-foreground shadow-card transition-all hover:shadow-card-hover"
+          aria-label="Cookie settings"
+        >
+          <Cookie className="h-5 w-5" />
+        </motion.button>
       )}
-    </AnimatePresence>
+    </div>
   );
 };
 
