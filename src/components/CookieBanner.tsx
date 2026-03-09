@@ -86,7 +86,8 @@ const CookieBanner = () => {
             whileTap={{ scale: 0.95 }}
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="flex h-12 w-12 items-center justify-center rounded-full border border-border bg-card text-foreground shadow-card transition-all hover:shadow-card-hover"
+            className="flex h-12 w-12 items-center justify-center rounded-full border-2 border-white text-white shadow-lg transition-all hover:shadow-xl"
+            style={{ background: '#00cc28' }}
             aria-label="Cookie settings"
           >
             <Cookie className="h-5 w-5" />
