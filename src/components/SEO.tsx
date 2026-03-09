@@ -98,8 +98,10 @@ const SEO = ({ title, description, canonical, jsonLd, ogImage }: SEOProps) => {
     return () => {
       const scripts = document.querySelectorAll('script[data-seo-jsonld]');
       scripts.forEach((s) => s.remove());
+      const hreflangs = document.querySelectorAll('link[hreflang]');
+      hreflangs.forEach((s) => s.remove());
     };
-  }, [title, description, canonical, jsonLd, ogImage]);
+  }, [title, description, canonical, jsonLd, ogImage, i18n.language]);
 
   return null;
 };
