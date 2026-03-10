@@ -53,7 +53,8 @@ const Datenschutz = () => {
             <h2 className="text-xl font-bold text-foreground mt-8">2. Verantwortliche Stelle</h2>
             <p>
               Fahrschule Metropol<br />
-               Engelbosteler Damm 1<br />
+              Inh. Vedat Özel<br />
+              Engelbosteler Damm 1<br />
                30167 Hannover<br /><br />
               Telefon: 0511 6425066<br />
               E-Mail: info@fahrschule-metropol.de
