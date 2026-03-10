@@ -50,6 +50,7 @@ const Footer = () => {
               <div className="mb-5">
                 <img src={logoImage} alt="Fahrschule Metropol Logo" className="h-24 w-auto brightness-0 invert" />
               </div>
+              <p className="text-xs text-primary-foreground/50 mb-1">Inh. Vedat Özel</p>
               <p className="text-sm text-primary-foreground/70 leading-relaxed">{t("footer.description")}</p>
               <div className="mt-5 inline-flex items-center gap-2 rounded-full bg-primary-foreground/10 px-4 py-2 text-sm font-semibold backdrop-blur-sm">
                 <span className="text-yellow-300">★★★★★</span>

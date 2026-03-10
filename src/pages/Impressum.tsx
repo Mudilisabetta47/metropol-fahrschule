@@ -29,6 +29,7 @@ const Impressum = () => {
             <h2 className="text-xl font-bold text-foreground mt-8">Angaben gemäß § 5 TMG</h2>
             <p>
               Fahrschule Metropol<br />
+              Inh. Vedat Özel<br />
               Engelbosteler Damm 1<br />
               30167 Hannover
             </p>
