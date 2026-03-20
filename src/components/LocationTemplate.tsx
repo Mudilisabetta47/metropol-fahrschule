@@ -31,19 +31,45 @@ const LocationTemplate = ({ data }: { data: LocationData }) => {
       "@type": "LocalBusiness",
       "additionalType": "https://schema.org/DrivingSchool",
       name: `Fahrschule Metropol ${data.name}`,
+      description: data.longDescription,
+      url: `https://fahrschule-metropol.de/standorte/${data.name.toLowerCase()}`,
       telephone: data.phone,
       email: data.email,
+      image: data.image,
+      priceRange: "€€",
       address: {
         "@type": "PostalAddress",
         streetAddress: data.address,
         addressLocality: data.name,
         postalCode: data.zip.split(" ")[0],
+        addressRegion: data.name === "Bremen" ? "HB" : "NI",
         addressCountry: "DE",
       },
-      openingHoursSpecification: data.hours.map((h) => ({
-        "@type": "OpeningHoursSpecification",
-        description: h,
-      })),
+      geo: data.name === "Hannover"
+        ? { "@type": "GeoCoordinates", latitude: 52.3879, longitude: 9.7243 }
+        : data.name === "Garbsen"
+        ? { "@type": "GeoCoordinates", latitude: 52.4163, longitude: 9.5980 }
+        : { "@type": "GeoCoordinates", latitude: 53.0833, longitude: 8.8137 },
+      openingHoursSpecification: [
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          opens: "10:00",
+          closes: "13:30",
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          opens: "14:30",
+          closes: "19:00",
+        },
+      ],
+      aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "127" },
+      sameAs: [
+        "https://www.instagram.com/fahrschulemetropol/",
+        "https://www.facebook.com/p/Fahrschule-Metropol-100037905975615/",
+        "https://www.tiktok.com/@fahrschulemetropol",
+      ],
     },
     {
       "@context": "https://schema.org",
