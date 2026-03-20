@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { MapPin, ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import InternalLinks from "@/components/InternalLinks";
 import SEO from "@/components/SEO";
 
 const breadcrumbSchema = {
