@@ -1,4 +1,6 @@
 import { MapPin, Phone, Mail, Clock, Navigation } from "lucide-react";
+import { Link } from "react-router-dom";
+import InternalLinks from "@/components/InternalLinks";
 import ContactForm from "@/components/ContactForm";
 import SEO from "@/components/SEO";
 import { motion } from "framer-motion";
