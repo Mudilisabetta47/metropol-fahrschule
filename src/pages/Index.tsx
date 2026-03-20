@@ -137,16 +137,48 @@ const Index = () => {
       "@type": "LocalBusiness",
       "additionalType": "https://schema.org/DrivingSchool",
       name: "Fahrschule Metropol",
+      "legalName": "Fahrschule Metropol - Inh. Vedat Özel",
       url: "https://fahrschule-metropol.de",
       telephone: "+495116425066",
       email: "info@metropol-bz.de",
-      description: "Professionelle Fahrausbildung in Hannover, Garbsen und Bremen.",
-      address: [
-        { "@type": "PostalAddress", streetAddress: "Engelbosteler Damm 1", addressLocality: "Hannover", postalCode: "30167", addressCountry: "DE" },
-        { "@type": "PostalAddress", streetAddress: "Planetenring 25–27", addressLocality: "Garbsen", postalCode: "30823", addressCountry: "DE" },
-        { "@type": "PostalAddress", streetAddress: "Bahnhofsplatz 41", addressLocality: "Bremen", postalCode: "28195", addressCountry: "DE" },
+      description: "Professionelle Fahrausbildung in Hannover, Garbsen und Bremen. Alle Führerscheinklassen, Erste-Hilfe-Kurse und Aufbauseminare.",
+      foundingDate: "2003",
+      priceRange: "€€",
+      currenciesAccepted: "EUR",
+      paymentAccepted: "Cash, EC Card, Bank Transfer",
+      areaServed: [
+        { "@type": "City", name: "Hannover" },
+        { "@type": "City", name: "Garbsen" },
+        { "@type": "City", name: "Bremen" },
       ],
-      aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "347" },
+      address: [
+        { "@type": "PostalAddress", streetAddress: "Engelbosteler Damm 1", addressLocality: "Hannover", postalCode: "30167", addressRegion: "NI", addressCountry: "DE" },
+        { "@type": "PostalAddress", streetAddress: "Planetenring 25–27", addressLocality: "Garbsen", postalCode: "30823", addressRegion: "NI", addressCountry: "DE" },
+        { "@type": "PostalAddress", streetAddress: "Bahnhofsplatz 41", addressLocality: "Bremen", postalCode: "28195", addressRegion: "HB", addressCountry: "DE" },
+      ],
+      openingHoursSpecification: [
+        { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "10:00", closes: "13:30" },
+        { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "14:30", closes: "19:00" },
+      ],
+      aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "347", bestRating: "5" },
+      sameAs: [
+        "https://www.instagram.com/fahrschulemetropol/",
+        "https://www.facebook.com/p/Fahrschule-Metropol-100037905975615/",
+        "https://www.tiktok.com/@fahrschulemetropol",
+      ],
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Führerscheinklassen",
+        itemListElement: [
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Führerschein Klasse B", url: "https://fahrschule-metropol.de/fuehrerschein/klasse-b" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Führerschein Klasse B197", url: "https://fahrschule-metropol.de/fuehrerschein/klasse-b197" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Motorrad Klasse A", url: "https://fahrschule-metropol.de/fuehrerschein/klasse-a" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "LKW Klasse C/CE", url: "https://fahrschule-metropol.de/fuehrerschein/klasse-c" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Bus Klasse D", url: "https://fahrschule-metropol.de/fuehrerschein/klasse-d" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Erste-Hilfe-Kurs", url: "https://fahrschule-metropol.de/erste-hilfe" } },
+          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Aufbauseminar", url: "https://fahrschule-metropol.de/aufbauseminar" } },
+        ],
+      },
     },
     {
       "@context": "https://schema.org",
@@ -154,6 +186,17 @@ const Index = () => {
       itemListElement: [
         { "@type": "ListItem", position: 1, name: "Startseite", item: "https://fahrschule-metropol.de/" },
       ],
+    },
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      name: "Fahrschule Metropol",
+      url: "https://fahrschule-metropol.de",
+      potentialAction: {
+        "@type": "SearchAction",
+        target: "https://fahrschule-metropol.de/fuehrerscheinklassen",
+        "query-input": "required name=search_term_string",
+      },
     },
   ];
 
