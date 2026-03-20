@@ -187,6 +187,8 @@ const Aufbauseminar = () => {
           </div>
         </div>
       </section>
+
+      <InternalLinks title="Weitere Angebote" />
     </div>
   );
 };

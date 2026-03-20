@@ -220,6 +220,8 @@ const ErsteHilfe = () => {
           </div>
         </div>
       </section>
+
+      <InternalLinks title="Das könnte dich auch interessieren" />
     </div>
   );
 };
