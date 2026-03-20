@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import InternalLinks from "@/components/InternalLinks";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, Mail, MapPin, CheckCircle, Shield, MessageCircle, AlertTriangle, Users, Calendar, Scale } from "lucide-react";
 import { useTranslation } from "react-i18next";
