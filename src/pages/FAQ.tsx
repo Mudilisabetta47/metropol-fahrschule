@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { Link } from "react-router-dom";
+import InternalLinks from "@/components/InternalLinks";
 import { Button } from "@/components/ui/button";
 import { ChevronRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
