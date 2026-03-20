@@ -31,6 +31,9 @@ const ErsteHilfe = lazy(() => import("./pages/ErsteHilfe"));
 const Aufbauseminar = lazy(() => import("./pages/Aufbauseminar"));
 const Datenschutz = lazy(() => import("./pages/Datenschutz"));
 const Impressum = lazy(() => import("./pages/Impressum"));
+const FahrschuleHannover = lazy(() => import("./pages/FahrschuleHannover"));
+const FahrschuleBremen = lazy(() => import("./pages/FahrschuleBremen"));
+const FahrschuleGarbsen = lazy(() => import("./pages/FahrschuleGarbsen"));
 
 const queryClient = new QueryClient();
 
