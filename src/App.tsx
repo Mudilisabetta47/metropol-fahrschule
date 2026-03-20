@@ -68,6 +68,9 @@ const App = () => (
               <Route path="/aufbauseminar" element={<Aufbauseminar />} />
               <Route path="/datenschutz" element={<Datenschutz />} />
               <Route path="/impressum" element={<Impressum />} />
+              <Route path="/fahrschule-hannover" element={<FahrschuleHannover />} />
+              <Route path="/fahrschule-bremen" element={<FahrschuleBremen />} />
+              <Route path="/fahrschule-garbsen" element={<FahrschuleGarbsen />} />
               <Route path="/login" element={<Auth />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/dashboard/bilder" element={<ImageManager />} />
