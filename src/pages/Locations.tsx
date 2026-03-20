@@ -58,6 +58,8 @@ const Locations = () => {
           </div>
         </div>
       </section>
+
+      <InternalLinks exclude={["locations"]} title="Beliebte Führerscheinklassen" />
     </div>
   );
 };

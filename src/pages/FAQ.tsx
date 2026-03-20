@@ -74,6 +74,8 @@ const FAQ = () => {
           </motion.div>
         </div>
       </section>
+
+      <InternalLinks exclude={["services"]} title="Weitere Informationen" />
     </div>
   );
 };

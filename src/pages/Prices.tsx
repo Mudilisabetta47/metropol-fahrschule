@@ -204,6 +204,8 @@ const Prices = () => {
           </motion.div>
         </div>
       </section>
+
+      <InternalLinks exclude={["services"]} title="Mehr über unsere Fahrschule" />
     </div>
   );
 };

@@ -147,6 +147,31 @@ const LocationTemplate = ({ data }: { data: LocationData }) => {
           </motion.div>
         </div>
       </div>
+
+      {/* Related links for SEO */}
+      <section className="py-12">
+        <div className="container mx-auto px-4">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+            <h3 className="mb-4 text-lg font-bold text-foreground font-display">Beliebte Führerscheinklassen in {data.name}</h3>
+            <div className="flex flex-wrap gap-2">
+              {[
+                { label: `Führerschein Klasse B in ${data.name}`, path: "/fuehrerschein/klasse-b" },
+                { label: `B197 Automatik in ${data.name}`, path: "/fuehrerschein/klasse-b197" },
+                { label: `Motorrad Führerschein ${data.name}`, path: "/fuehrerschein/klasse-a" },
+                { label: `BF17 in ${data.name}`, path: "/fuehrerschein/klasse-b" },
+                { label: `LKW Führerschein ${data.name}`, path: "/fuehrerschein/klasse-c" },
+                { label: `Erste-Hilfe-Kurs ${data.name}`, path: "/erste-hilfe" },
+              ].map((link) => (
+                <Link key={link.label} to={link.path} className="rounded-full border border-border bg-card px-4 py-2 text-xs font-medium text-muted-foreground transition-colors hover:border-primary/30 hover:text-primary">
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <InternalLinks exclude={["locations"]} title={`Mehr entdecken – Fahrschule Metropol ${data.name}`} />
     </div>
   );
 };
