@@ -233,5 +233,6 @@ const LicenseClassPage = ({ data }: Props) => {
       <InternalLinks title={`Mehr bei Fahrschule Metropol`} />
     </div>
   );
+};
 
 export default LicenseClassPage;
