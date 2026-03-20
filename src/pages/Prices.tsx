@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import InternalLinks from "@/components/InternalLinks";
 import { Link } from "react-router-dom";
 import { MapPin, ChevronRight, ChevronDown, Car, Bike, Truck, Bus } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -203,6 +204,8 @@ const Prices = () => {
           </motion.div>
         </div>
       </section>
+
+      <InternalLinks exclude={["services"]} title="Mehr über unsere Fahrschule" />
     </div>
   );
 };

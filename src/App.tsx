@@ -31,6 +31,9 @@ const ErsteHilfe = lazy(() => import("./pages/ErsteHilfe"));
 const Aufbauseminar = lazy(() => import("./pages/Aufbauseminar"));
 const Datenschutz = lazy(() => import("./pages/Datenschutz"));
 const Impressum = lazy(() => import("./pages/Impressum"));
+const FahrschuleHannover = lazy(() => import("./pages/FahrschuleHannover"));
+const FahrschuleBremen = lazy(() => import("./pages/FahrschuleBremen"));
+const FahrschuleGarbsen = lazy(() => import("./pages/FahrschuleGarbsen"));
 
 const queryClient = new QueryClient();
 
@@ -65,6 +68,9 @@ const App = () => (
               <Route path="/aufbauseminar" element={<Aufbauseminar />} />
               <Route path="/datenschutz" element={<Datenschutz />} />
               <Route path="/impressum" element={<Impressum />} />
+              <Route path="/fahrschule-hannover" element={<FahrschuleHannover />} />
+              <Route path="/fahrschule-bremen" element={<FahrschuleBremen />} />
+              <Route path="/fahrschule-garbsen" element={<FahrschuleGarbsen />} />
               <Route path="/login" element={<Auth />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/dashboard/bilder" element={<ImageManager />} />

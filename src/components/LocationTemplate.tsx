@@ -1,4 +1,6 @@
 import { MapPin, Phone, Mail, Clock, Navigation } from "lucide-react";
+import { Link } from "react-router-dom";
+import InternalLinks from "@/components/InternalLinks";
 import ContactForm from "@/components/ContactForm";
 import SEO from "@/components/SEO";
 import { motion } from "framer-motion";
@@ -29,19 +31,45 @@ const LocationTemplate = ({ data }: { data: LocationData }) => {
       "@type": "LocalBusiness",
       "additionalType": "https://schema.org/DrivingSchool",
       name: `Fahrschule Metropol ${data.name}`,
+      description: data.longDescription,
+      url: `https://fahrschule-metropol.de/standorte/${data.name.toLowerCase()}`,
       telephone: data.phone,
       email: data.email,
+      image: data.image,
+      priceRange: "€€",
       address: {
         "@type": "PostalAddress",
         streetAddress: data.address,
         addressLocality: data.name,
         postalCode: data.zip.split(" ")[0],
+        addressRegion: data.name === "Bremen" ? "HB" : "NI",
         addressCountry: "DE",
       },
-      openingHoursSpecification: data.hours.map((h) => ({
-        "@type": "OpeningHoursSpecification",
-        description: h,
-      })),
+      geo: data.name === "Hannover"
+        ? { "@type": "GeoCoordinates", latitude: 52.3879, longitude: 9.7243 }
+        : data.name === "Garbsen"
+        ? { "@type": "GeoCoordinates", latitude: 52.4163, longitude: 9.5980 }
+        : { "@type": "GeoCoordinates", latitude: 53.0833, longitude: 8.8137 },
+      openingHoursSpecification: [
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          opens: "10:00",
+          closes: "13:30",
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          opens: "14:30",
+          closes: "19:00",
+        },
+      ],
+      aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "127" },
+      sameAs: [
+        "https://www.instagram.com/fahrschulemetropol/",
+        "https://www.facebook.com/p/Fahrschule-Metropol-100037905975615/",
+        "https://www.tiktok.com/@fahrschulemetropol",
+      ],
     },
     {
       "@context": "https://schema.org",
@@ -119,6 +147,31 @@ const LocationTemplate = ({ data }: { data: LocationData }) => {
           </motion.div>
         </div>
       </div>
+
+      {/* Related links for SEO */}
+      <section className="py-12">
+        <div className="container mx-auto px-4">
+          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+            <h3 className="mb-4 text-lg font-bold text-foreground font-display">Beliebte Führerscheinklassen in {data.name}</h3>
+            <div className="flex flex-wrap gap-2">
+              {[
+                { label: `Führerschein Klasse B in ${data.name}`, path: "/fuehrerschein/klasse-b" },
+                { label: `B197 Automatik in ${data.name}`, path: "/fuehrerschein/klasse-b197" },
+                { label: `Motorrad Führerschein ${data.name}`, path: "/fuehrerschein/klasse-a" },
+                { label: `BF17 in ${data.name}`, path: "/fuehrerschein/klasse-b" },
+                { label: `LKW Führerschein ${data.name}`, path: "/fuehrerschein/klasse-c" },
+                { label: `Erste-Hilfe-Kurs ${data.name}`, path: "/erste-hilfe" },
+              ].map((link) => (
+                <Link key={link.label} to={link.path} className="rounded-full border border-border bg-card px-4 py-2 text-xs font-medium text-muted-foreground transition-colors hover:border-primary/30 hover:text-primary">
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      <InternalLinks exclude={["locations"]} title={`Mehr entdecken – Fahrschule Metropol ${data.name}`} />
     </div>
   );
 };

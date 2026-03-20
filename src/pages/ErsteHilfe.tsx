@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
+import InternalLinks from "@/components/InternalLinks";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Phone, Mail, Clock, MapPin, CheckCircle, Shield, MessageCircle, Heart } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -219,6 +220,8 @@ const ErsteHilfe = () => {
           </div>
         </div>
       </section>
+
+      <InternalLinks title="Das könnte dich auch interessieren" />
     </div>
   );
 };

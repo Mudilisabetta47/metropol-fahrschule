@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import InternalLinks from "@/components/InternalLinks";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ChevronRight, MapPin, Clock, Users, FileCheck, ArrowRight, Phone, Mail, CheckCircle, Calendar, Shield, MessageCircle, ChevronLeft } from "lucide-react";
@@ -228,6 +229,8 @@ const LicenseClassPage = ({ data }: Props) => {
           </div>
         </div>
       </section>
+
+      <InternalLinks title={`Mehr bei Fahrschule Metropol`} />
     </div>
   );
 };
