@@ -73,6 +73,7 @@ const cityData: Record<string, CityLandingData> = {
     locationPath: "/standorte/garbsen",
     seoTitle: "Fahrschule Garbsen – Entspannt zum Führerschein | Fahrschule Metropol",
     seoDescription: "Fahrschule in Garbsen: Führerschein B, Motorrad & mehr. Familiäre Atmosphäre, eigener Parkplatz, flexible Termine. Jetzt anmelden!",
+    seoKeywords: "Fahrschule Garbsen, Führerschein Garbsen, Fahrschule Metropol Garbsen, Klasse B Garbsen, Motorradführerschein Garbsen, Intensivkurs Garbsen, Fahrschule Planetenring Garbsen, Führerschein machen Garbsen, BF17 Garbsen, Fahrschule Region Hannover, Fahrschule Garbsen günstig",
     heroText: "Fahrschule Metropol Garbsen – familiäre Atmosphäre und individuelle Betreuung.",
     introText: "In Garbsen lernst du das Fahren in einer entspannten Umgebung. Unser Standort am Planetenring bietet ideale Voraussetzungen für den Einstieg: ruhigere Straßen, individuelle Betreuung und ein engagiertes Team. Perfekt, um sicher und stressfrei deinen Führerschein zu machen – bevor es in den Stadtverkehr nach Hannover geht.",
     advantages: [
