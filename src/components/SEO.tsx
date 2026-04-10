@@ -7,6 +7,7 @@ interface SEOProps {
   canonical?: string;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   ogImage?: string;
+  keywords?: string;
 }
 
 const SEO = ({ title, description, canonical, jsonLd, ogImage }: SEOProps) => {
