@@ -31,7 +31,7 @@ export const licenseClasses: LicenseClassData[] = [
     subtitle: "PKW-Führerschein",
     seoTitle: "Führerschein Klasse B – PKW | Fahrschule Metropol",
     seoDescription: "Führerschein Klasse B bei Fahrschule Metropol: PKW bis 3,5t. Infos zu Ablauf, Voraussetzungen & Anmeldung in Hannover, Bremen & Garbsen.",
-    seoKeywords: "Klasse B, Führerschein Klasse B, PKW Führerschein, Autoführerschein, BF17, Führerschein ab 17, Führerschein Hannover, Führerschein Bremen, Führerschein Garbsen, Fahrschule Metropol Klasse B",
+    seoKeywords: "Klasse B, Führerschein Klasse B, PKW Führerschein, Autoführerschein, BF17, Führerschein ab 17, Führerschein Hannover, Führerschein Bremen, Führerschein Garbsen, Fahrschule Metropol Klasse B, Klasse B Kosten, Klasse B Dauer, Führerschein B Preis, Begleitetes Fahren",
     heroDescription: "Der klassische Autoführerschein – dein Schlüssel zur Mobilität. Fahrzeuge bis 3,5 t zulässiges Gesamtgewicht ab 17 Jahren (BF17) oder 18 Jahren.",
     details: {
       minAge: "17 Jahre (BF17) / 18 Jahre",
