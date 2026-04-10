@@ -88,6 +88,33 @@ const cityData: Record<string, CityLandingData> = {
   },
 };
 
+const cityFaqs: Record<string, { q: string; a: string }[]> = {
+  hannover: [
+    { q: "Was kostet der Führerschein Klasse B in Hannover?", a: "Die Kosten für den Führerschein Klasse B in Hannover variieren je nach Anzahl der benötigten Fahrstunden. Kontaktiere uns für ein individuelles Angebot – wir beraten dich transparent und ohne versteckte Kosten." },
+    { q: "Wie lange dauert die Führerscheinausbildung in Hannover?", a: "Bei regelmäßiger Teilnahme am Theorieunterricht und 2–3 Fahrstunden pro Woche kannst du deinen Führerschein in Hannover in ca. 3–4 Monaten machen. Mit einem Intensivkurs geht es noch schneller." },
+    { q: "Bietet Fahrschule Metropol Hannover Intensivkurse an?", a: "Ja, wir bieten Intensivkurse und Ferienkurse in Hannover an. So kannst du deinen Führerschein in nur 2–4 Wochen machen. Ideal für Schüler und Studenten." },
+    { q: "Kann ich in Hannover den Führerschein auf Automatik machen?", a: "Ja, mit dem Führerschein Klasse B197 machst du die Prüfung auf Automatik und darfst trotzdem Schaltwagen fahren. Das bieten wir in Hannover an." },
+    { q: "Wo ist die Fahrschule Metropol in Hannover?", a: "Unsere Fahrschule in Hannover befindet sich am Engelbosteler Damm 1, 30167 Hannover – zentral gelegen und bestens mit Bus und Bahn erreichbar." },
+    { q: "Gibt es bei Fahrschule Metropol Hannover Unterricht in anderen Sprachen?", a: "Ja, unser Theorieunterricht in Hannover ist auf Deutsch, Englisch, Türkisch und Arabisch verfügbar." },
+  ],
+  bremen: [
+    { q: "Was kostet der Führerschein in Bremen?", a: "Die Führerscheinkosten in Bremen hängen von der gewählten Klasse und den individuellen Fahrstunden ab. Ruf uns an oder schreib uns – wir machen dir ein faires Angebot." },
+    { q: "Wie finde ich die Fahrschule Metropol in Bremen?", a: "Unsere Fahrschule liegt direkt am Bahnhofsplatz 41, 28195 Bremen – nur wenige Schritte vom Bremer Hauptbahnhof entfernt." },
+    { q: "Bietet die Fahrschule Metropol Bremen Erste-Hilfe-Kurse an?", a: "Ja, wir bieten anerkannte Erste-Hilfe-Kurse direkt in Bremen an. Der Kurs ist Pflicht für jeden Führerscheinantrag und kann bei uns vor Ort absolviert werden." },
+    { q: "Kann ich in Bremen den Motorradführerschein machen?", a: "Ja, wir bilden in Bremen alle Motorradklassen aus – von AM und A1 über A2 bis zum unbeschränkten Klasse-A-Führerschein." },
+    { q: "Wie hoch ist die Bestehensquote bei Fahrschule Metropol Bremen?", a: "Unsere Bestehensquote in Bremen liegt bei 98% – dank erfahrener Fahrlehrer, die die Bremer Prüfstrecken bestens kennen." },
+    { q: "Gibt es in Bremen auch LKW- und Bus-Führerscheine?", a: "Ja, wir bieten in Bremen alle Führerscheinklassen an, einschließlich Klasse C/CE (LKW) und Klasse D (Bus)." },
+  ],
+  garbsen: [
+    { q: "Warum sollte ich meinen Führerschein in Garbsen machen?", a: "Garbsen bietet ruhigere Straßen und eine entspannte Lernumgebung – ideal für Fahranfänger. Unsere Fahrschule am Planetenring bietet familiäre Atmosphäre und individuelle Betreuung." },
+    { q: "Wie komme ich zur Fahrschule Metropol in Garbsen?", a: "Unsere Fahrschule befindet sich am Planetenring 25–27, 30823 Garbsen. Wir haben einen eigenen Parkplatz direkt vor der Tür und sind auch mit dem Bus gut erreichbar." },
+    { q: "Gibt es in Garbsen Intensivkurse für den Führerschein?", a: "Ja, wir bieten in Garbsen regelmäßig Intensiv- und Ferienkurse an. So kannst du deinen Führerschein schnell und effizient machen." },
+    { q: "Kann ich in Garbsen BF17 (Begleitetes Fahren ab 17) machen?", a: "Ja, BF17 ist in Garbsen verfügbar. Du kannst bereits mit 17 Jahren deinen Führerschein machen und mit einer Begleitperson fahren." },
+    { q: "Welche Führerscheinklassen bietet Fahrschule Metropol in Garbsen an?", a: "In Garbsen bieten wir alle gängigen Klassen an: PKW (B, B197, BE), Motorrad (AM, A1, A2, A) und weitere." },
+    { q: "Ist Fahrschule Metropol Garbsen günstiger als in Hannover?", a: "Die Grundgebühren sind an allen Standorten gleich. Da du in Garbsen auf ruhigeren Straßen startest, brauchst du oft weniger Fahrstunden – das kann die Gesamtkosten senken." },
+  ],
+};
+
 const popularClasses = [
   { icon: Car, name: "Klasse B", subtitle: "PKW-Führerschein", path: "/fuehrerschein/klasse-b", desc: "Der beliebteste Führerschein – für Fahrzeuge bis 3,5 t." },
   { icon: Car, name: "Klasse B197", subtitle: "Automatik + Schaltwagen", path: "/fuehrerschein/klasse-b197", desc: "Prüfung auf Automatik, trotzdem Schaltwagen fahren." },
