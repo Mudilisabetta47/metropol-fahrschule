@@ -103,7 +103,7 @@ const SEO = ({ title, description, canonical, jsonLd, ogImage, keywords }: SEOPr
       const hreflangs = document.querySelectorAll('link[hreflang]');
       hreflangs.forEach((s) => s.remove());
     };
-  }, [title, description, canonical, jsonLd, ogImage, i18n.language]);
+  }, [title, description, canonical, jsonLd, ogImage, keywords, i18n.language]);
 
   return null;
 };
