@@ -34,6 +34,7 @@ const SEO = ({ title, description, canonical, jsonLd, ogImage, keywords }: SEOPr
     };
 
     setMeta("description", description);
+    if (keywords) setMeta("keywords", keywords);
     setMeta("og:title", title, "property");
     setMeta("og:description", description, "property");
     setMeta("og:type", "website", "property");
