@@ -453,6 +453,7 @@ export const licenseClasses: LicenseClassData[] = [
     subtitle: "Bus – alle Größen",
     seoTitle: "Führerschein Klasse D – Busführerschein | Fahrschule Metropol",
     seoDescription: "Busführerschein Klasse D bei Fahrschule Metropol: Alle Busse ohne Beschränkung. In Hannover, Garbsen & Bremen.",
+    seoKeywords: "Klasse D, Busführerschein, Bus Führerschein, D Führerschein, Busfahrer werden, Personenbeförderung, Klasse D Hannover, Klasse D Bremen, Reisebus Führerschein",
     heroDescription: "Der Busführerschein – für alle Busse ohne Beschränkung. Dein Einstieg in den Personenverkehr.",
     details: {
       minAge: "24 Jahre (21 mit Grundqualifikation)",
@@ -495,6 +496,7 @@ export const licenseClasses: LicenseClassData[] = [
     subtitle: "Bus mit Anhänger",
     seoTitle: "Führerschein Klasse DE – Bus mit Anhänger | Fahrschule Metropol",
     seoDescription: "Klasse DE: Bus mit schwerem Anhänger. Fahrschule Metropol in Hannover, Garbsen & Bremen.",
+    seoKeywords: "Klasse DE, Bus Anhänger Führerschein, DE Führerschein, Bus mit Anhänger, Personenbeförderung Anhänger, DE Hannover, DE Bremen, Gelenkbus Führerschein",
     heroDescription: "Bus mit Anhänger über 750 kg – für spezielle Einsätze im Personenverkehr und Reisebusbereich.",
     details: {
       minAge: "24 Jahre (21 mit Grundqualifikation)",
@@ -535,6 +537,7 @@ export const licenseClasses: LicenseClassData[] = [
     subtitle: "125er mit B-Führerschein",
     seoTitle: "B196 Erweiterung – 125er fahren mit Klasse B | Fahrschule Metropol",
     seoDescription: "B196: Erweiterung des Klasse-B-Führerscheins auf 125er-Motorräder. Keine Prüfung nötig. Fahrschule Metropol informiert.",
+    seoKeywords: "B196, 125ccm mit Autoführerschein, B196 Erweiterung, 125er fahren mit B, B196 Hannover, B196 Bremen, Motorrad ohne Prüfung, B196 Kosten, 125er Schlüsselzahl",
     heroDescription: "Erweitere deinen Klasse-B-Führerschein auf 125er-Motorräder – ohne extra Prüfung! Ab 25 Jahren mit 5 Jahren B-Besitz.",
     details: {
       minAge: "25 Jahre + 5 Jahre Klasse B",
@@ -575,6 +578,7 @@ export const licenseClasses: LicenseClassData[] = [
     subtitle: "Land- & Forstwirtschaft",
     seoTitle: "Führerschein Klasse L – Traktor & Zugmaschinen | Fahrschule Metropol",
     seoDescription: "Klasse L Führerschein für Zugmaschinen bis 40 km/h in der Land- und Forstwirtschaft. Fahrschule Metropol informiert.",
+    seoKeywords: "Klasse L, Traktor Führerschein, Zugmaschinen Führerschein, Landwirtschaft Führerschein, L Führerschein, Traktor fahren, Klasse L ab 16, Forstwirtschaft Führerschein",
     heroDescription: "Zugmaschinen bis 40 km/h für land- oder forstwirtschaftliche Zwecke. Ab 16 Jahren – nur Theorieprüfung.",
     details: {
       minAge: "16 Jahre",
