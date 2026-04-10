@@ -27,7 +27,7 @@ const About = () => {
 
   return (
     <div className="min-h-screen pt-20">
-      <SEO title={t("about.seoTitle")} description={t("about.seoDesc")} canonical="https://fahrschule-metropol.de/ueber-uns" jsonLd={[breadcrumbSchema]} keywords="Fahrschule Metropol, Über uns, Fahrschule Hannover Team, Fahrschule Bremen Team, Fahrlehrer, Erfahrung Fahrschule, Bestehensquote Fahrschule, Fahrschule mit Erfahrung, Fahrschule Bewertung, Fahrschule Qualität" />
+      <SEO title={t("about.seoTitle")} description={t("about.seoDesc")} canonical="https://fahrschule-metropol.de/ueber-uns" jsonLd={[breadcrumbSchema]} keywords="Fahrschule Metropol, Über uns, Fahrschule Hannover Team, Fahrschule Bremen Team, Fahrlehrer, Erfahrung Fahrschule, Bestehensquote Fahrschule, Fahrschule mit Erfahrung, Fahrschule Bewertung, Fahrschule Qualität, Fahrschule mehrsprachig, Fahrschule Arabisch, Fahrschule Türkisch, Fahrschule Englisch, Fahrlehrer Hannover, Fahrlehrer Bremen, Fahrschule Empfehlung" />
 
       <section className="gradient-dark py-20 noise relative overflow-hidden">
         <div className="container relative z-10 mx-auto px-4 text-center">
