@@ -132,7 +132,7 @@ const CityLanding = ({ citySlug }: { citySlug: string }) => {
 
   return (
     <div className="min-h-screen pt-20">
-      <SEO title={data.seoTitle} description={data.seoDescription} canonical={`https://fahrschule-metropol.de/fahrschule-${citySlug}`} jsonLd={jsonLd} />
+      <SEO title={data.seoTitle} description={data.seoDescription} canonical={`https://fahrschule-metropol.de/fahrschule-${citySlug}`} jsonLd={jsonLd} keywords={data.seoKeywords} />
 
       {/* Hero */}
       <section className="gradient-dark py-20 noise relative overflow-hidden">
