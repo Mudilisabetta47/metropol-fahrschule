@@ -283,6 +283,36 @@ const CityLanding = ({ citySlug }: { citySlug: string }) => {
         </div>
       </section>
 
+      {/* FAQ */}
+      {faqs.length > 0 && (
+        <section className="py-16 gradient-section">
+          <div className="container mx-auto px-4">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mx-auto max-w-3xl">
+              <div className="flex items-center gap-3 mb-8">
+                <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent text-accent-foreground">
+                  <HelpCircle className="h-5 w-5" />
+                </div>
+                <h2 className="text-2xl font-extrabold text-foreground font-display md:text-3xl">
+                  Häufige Fragen zur Fahrschule in {data.city}
+                </h2>
+              </div>
+              <Accordion type="single" collapsible className="space-y-3">
+                {faqs.map((faq, i) => (
+                  <AccordionItem key={i} value={`faq-${i}`} className="rounded-xl border border-border bg-card px-6 shadow-card">
+                    <AccordionTrigger className="text-left text-sm font-bold text-foreground hover:text-primary py-4">
+                      {faq.q}
+                    </AccordionTrigger>
+                    <AccordionContent className="text-sm text-muted-foreground leading-relaxed pb-4">
+                      {faq.a}
+                    </AccordionContent>
+                  </AccordionItem>
+                ))}
+              </Accordion>
+            </motion.div>
+          </div>
+        </section>
+      )}
+
       {/* Contact */}
       <section className="py-16">
         <div className="container mx-auto px-4">
