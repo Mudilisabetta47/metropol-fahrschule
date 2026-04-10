@@ -31,6 +31,7 @@ const cityData: Record<string, CityLandingData> = {
     locationPath: "/standorte/hannover",
     seoTitle: "Fahrschule Hannover – Alle Führerscheinklassen | Fahrschule Metropol",
     seoDescription: "Fahrschule in Hannover: PKW, Motorrad, LKW & Bus. 98% Bestehensquote, flexible Zeiten, zentrale Lage. Jetzt bei Fahrschule Metropol anmelden!",
+    seoKeywords: "Fahrschule Hannover, Führerschein Hannover, Fahrschule Metropol Hannover, Klasse B Hannover, Motorradführerschein Hannover, LKW Führerschein Hannover, Intensivkurs Hannover, BF17 Hannover, Automatik Führerschein Hannover, B197 Hannover, Fahrschule Engelbosteler Damm, Fahrschule Nordstadt Hannover, Führerschein machen Hannover",
     heroText: "Deine Fahrschule in Hannover – zentral gelegen am Engelbosteler Damm mit bester Verkehrsanbindung.",
     introText: "Die Fahrschule Metropol in Hannover bietet dir eine professionelle Fahrausbildung für alle Führerscheinklassen. Ob PKW, Motorrad, LKW oder Bus – unser erfahrenes Team begleitet dich sicher zum Führerschein. Mit über 15.000 erfolgreichen Absolventen und einer Bestehensquote von 98% gehören wir zu den erfolgreichsten Fahrschulen in Hannover und Umgebung.",
     advantages: [
