@@ -16,6 +16,7 @@ const Garbsen = () => (
       mapsLink: "https://www.google.com/maps/dir//Planetenring+25,+30823+Garbsen",
       seoTitle: "Fahrschule Garbsen – Fahrschule Metropol | Entspannt zum Führerschein",
       seoDescription: "Fahrschule Metropol Garbsen: Fahrausbildung in familiärer Atmosphäre. Eigener Parkplatz, flexible Termine. Klasse B, Motorrad & mehr. Jetzt anmelden!",
+      seoKeywords: "Fahrschule Garbsen Standort, Fahrschule Planetenring, Öffnungszeiten Fahrschule Garbsen, Fahrschule Garbsen Kontakt, Beste Fahrschule Garbsen, Fahrschule Garbsen Bewertung, Fahrschule Region Hannover Standort, Führerschein Garbsen günstig",
       image: locationImage,
     }}
   />

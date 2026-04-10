@@ -16,6 +16,7 @@ const Bremen = () => (
       mapsLink: "https://www.google.com/maps/dir//Bahnhofsplatz+41,+28195+Bremen",
       seoTitle: "Fahrschule Bremen – Fahrschule Metropol | Alle Klassen, Top Bestehensquote",
       seoDescription: "Fahrschule Metropol Bremen: Professionelle Fahrausbildung in der Innenstadt. Klasse B, Motorrad & mehr. 98% Bestehensquote. Jetzt anmelden!",
+      seoKeywords: "Fahrschule Bremen Standort, Fahrschule Bahnhofsplatz, Fahrschule Innenstadt Bremen, Fahrschule Bremen Hauptbahnhof, Öffnungszeiten Fahrschule Bremen, Fahrschule Bremen Kontakt, Beste Fahrschule Bremen, Fahrschule Bremen Bewertung, Führerschein Bremen Innenstadt",
       image: locationImage,
     }}
   />

@@ -207,7 +207,7 @@ const Index = () => {
         description={t("index.seoDesc")}
         canonical="https://fahrschule-metropol.de/"
         jsonLd={seoJsonLd}
-        keywords="Fahrschule Hannover, Fahrschule Bremen, Fahrschule Garbsen, Führerschein Hannover, Führerschein Bremen, Fahrschule Metropol, Führerschein machen, Fahrschule in der Nähe, Klasse B Hannover, Motorradführerschein Hannover, LKW Führerschein Bremen, Fahrschule Niedersachsen, Intensivkurs Fahrschule, BF17 Hannover, Automatik Führerschein, B197 Hannover"
+        keywords="Fahrschule Hannover, Fahrschule Bremen, Fahrschule Garbsen, Führerschein Hannover, Führerschein Bremen, Fahrschule Metropol, Führerschein machen, Fahrschule in der Nähe, Klasse B Hannover, Motorradführerschein Hannover, LKW Führerschein Bremen, Fahrschule Niedersachsen, Intensivkurs Fahrschule, BF17 Hannover, Automatik Führerschein, B197 Hannover, Führerschein anmelden, Fahrschule anmelden online, Was kostet der Führerschein, Führerschein Kosten 2025, Beste Fahrschule Hannover, Fahrschule Arabisch, Fahrschule Türkisch, Führerschein Schnellkurs, Ferienkurs Fahrschule, Begleitetes Fahren, Führerschein umschreiben, Theorie lernen, Fahrschule Bewertung, Fahrschule Empfehlung"
       />
 
       {/* Hero */}
