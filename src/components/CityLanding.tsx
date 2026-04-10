@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, MapPin, Car, Bike, Truck, Phone, CheckCircle, Heart, BookOpen } from "lucide-react";
+import { ArrowRight, MapPin, Car, Bike, Truck, Phone, CheckCircle, Heart, BookOpen, HelpCircle } from "lucide-react";
 import SEO from "@/components/SEO";
 import InternalLinks from "@/components/InternalLinks";
 import ContactForm from "@/components/ContactForm";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 interface CityLandingData {
   city: string;
