@@ -144,7 +144,7 @@ const Prices = () => {
 
   return (
     <div className="min-h-screen">
-      <SEO title={t("prices.seoTitle")} description={t("prices.seoDesc")} canonical="https://fahrschule-metropol.de/preise" jsonLd={[breadcrumbSchema]} />
+      <SEO title={t("prices.seoTitle")} description={t("prices.seoDesc")} canonical="https://fahrschule-metropol.de/preise" jsonLd={[breadcrumbSchema]} keywords="Fahrschule Preise, Führerschein Kosten, Fahrschule Metropol Preise, Klasse B Kosten, Motorradführerschein Kosten, LKW Führerschein Preise, Führerschein Preise Hannover, Führerschein Preise Bremen, Führerschein Preise Garbsen, Fahrschule günstig, Ratenzahlung Führerschein, Intensivkurs Kosten" />
 
       <section className="relative min-h-[280px] md:min-h-[340px] flex items-end overflow-hidden">
         <img src={heroImage} alt="Fahrschule Metropol Preise" className="absolute inset-0 h-full w-full object-cover" loading="eager" />

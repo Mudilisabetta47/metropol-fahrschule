@@ -9,6 +9,7 @@ export interface LicenseClassData {
   subtitle: string;
   seoTitle: string;
   seoDescription: string;
+  seoKeywords: string;
   heroDescription: string;
   details: {
     minAge: string;

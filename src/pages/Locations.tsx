@@ -25,7 +25,7 @@ const Locations = () => {
 
   return (
     <div className="min-h-screen pt-20">
-      <SEO title={t("locations.seoTitle")} description={t("locations.seoDesc")} canonical="https://fahrschule-metropol.de/standorte" jsonLd={[breadcrumbSchema]} />
+      <SEO title={t("locations.seoTitle")} description={t("locations.seoDesc")} canonical="https://fahrschule-metropol.de/standorte" jsonLd={[breadcrumbSchema]} keywords="Fahrschule Standorte, Fahrschule Hannover, Fahrschule Bremen, Fahrschule Garbsen, Fahrschule in der Nähe, Fahrschule Niedersachsen, Fahrschule Metropol Standorte, Fahrschule Engelbosteler Damm, Fahrschule Bahnhofsplatz, Fahrschule Planetenring" />
 
       <section className="gradient-dark py-20 noise relative overflow-hidden">
         <div className="container relative z-10 mx-auto px-4 text-center">

@@ -42,7 +42,7 @@ const Aufbauseminar = () => {
 
   return (
     <div className="min-h-screen">
-      <SEO title={t("aufbauseminar.seoTitle")} description={t("aufbauseminar.seoDesc")} canonical="https://fahrschule-metropol.de/aufbauseminar" jsonLd={[jsonLd, breadcrumbSchema]} />
+      <SEO title={t("aufbauseminar.seoTitle")} description={t("aufbauseminar.seoDesc")} canonical="https://fahrschule-metropol.de/aufbauseminar" jsonLd={[jsonLd, breadcrumbSchema]} keywords="Aufbauseminar, ASF Kurs, Aufbauseminar Fahranfänger, ASF Hannover, ASF Bremen, ASF Garbsen, Punkteabbau, Fahrerlaubnis auf Probe, Nachschulung Führerschein, Aufbauseminar Fahrschule Metropol, ASF Kosten, Führerschein Probezeit" />
 
       <section className="relative min-h-[420px] md:min-h-[480px] flex items-end overflow-hidden">
         <img src={heroImage} alt={t("aufbauseminar.heroTitle")} className="absolute inset-0 h-full w-full object-cover" loading="eager" />
