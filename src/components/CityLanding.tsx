@@ -126,6 +126,8 @@ const CityLanding = ({ citySlug }: { citySlug: string }) => {
   const data = cityData[citySlug];
   if (!data) return null;
 
+  const faqs = cityFaqs[citySlug] || [];
+
   const jsonLd = [
     {
       "@context": "https://schema.org",
@@ -156,6 +158,15 @@ const CityLanding = ({ citySlug }: { citySlug: string }) => {
         { "@type": "ListItem", position: 2, name: `Fahrschule ${data.city}`, item: `https://fahrschule-metropol.de/fahrschule-${citySlug}` },
       ],
     },
+    ...(faqs.length > 0 ? [{
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqs.map(faq => ({
+        "@type": "Question",
+        name: faq.q,
+        acceptedAnswer: { "@type": "Answer", text: faq.a },
+      })),
+    }] : []),
   ];
 
   return (
