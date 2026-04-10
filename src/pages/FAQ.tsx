@@ -41,6 +41,7 @@ const FAQ = () => {
         description={t("faq.seoDesc")}
         canonical="https://fahrschule-metropol.de/faq"
         jsonLd={[faqSchema, breadcrumbSchema]}
+        keywords="Fahrschule FAQ, Führerschein Fragen, Fahrschule Anmeldung, Führerschein Dauer, Führerschein Kosten, Theorie Prüfung Tipps, Praktische Prüfung, BF17 Voraussetzungen, Sehtest Führerschein, Erste Hilfe Kurs Führerschein, Fahrschule Metropol FAQ"
       />
 
       <section className="gradient-dark py-20 noise relative overflow-hidden">

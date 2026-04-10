@@ -49,7 +49,7 @@ const LicenseClassPage = ({ data }: Props) => {
 
   return (
     <div className="min-h-screen">
-      <SEO title={data.seoTitle} description={data.seoDescription} canonical={`https://fahrschule-metropol.de/fuehrerschein/${data.slug}`} jsonLd={[jsonLd, faqJsonLd, breadcrumbSchema]} />
+      <SEO title={data.seoTitle} description={data.seoDescription} canonical={`https://fahrschule-metropol.de/fuehrerschein/${data.slug}`} jsonLd={[jsonLd, faqJsonLd, breadcrumbSchema]} keywords={data.seoKeywords} />
 
       <section className="relative min-h-[420px] md:min-h-[480px] flex items-end overflow-hidden">
         <img src={heroImage} alt={`${data.name} – ${data.subtitle} bei Fahrschule Metropol`} className="absolute inset-0 h-full w-full object-cover" loading="eager" />

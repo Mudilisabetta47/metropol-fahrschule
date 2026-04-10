@@ -47,7 +47,7 @@ const LicenseClasses = () => {
 
   return (
     <div className="min-h-screen">
-      <SEO title={t("licenseClasses.seoTitle")} description={t("licenseClasses.seoDesc")} canonical="https://fahrschule-metropol.de/fuehrerscheinklassen" jsonLd={[breadcrumbSchema]} />
+      <SEO title={t("licenseClasses.seoTitle")} description={t("licenseClasses.seoDesc")} canonical="https://fahrschule-metropol.de/fuehrerscheinklassen" jsonLd={[breadcrumbSchema]} keywords="Führerscheinklassen, Klasse B, Klasse A, Klasse C, Klasse D, Motorradführerschein, LKW Führerschein, Bus Führerschein, PKW Führerschein, Anhänger Führerschein, B197, B196, Klasse AM, Klasse A1, Klasse A2, Führerscheinklassen Übersicht, Fahrschule Metropol" />
 
       <section className="relative overflow-hidden pt-20">
         <div className="absolute inset-0"><img src={heroKlassen} alt="Metropol Fahrzeugflotte" className="h-full w-full object-cover" /></div>
