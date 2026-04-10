@@ -31,6 +31,7 @@ export const licenseClasses: LicenseClassData[] = [
     subtitle: "PKW-Führerschein",
     seoTitle: "Führerschein Klasse B – PKW | Fahrschule Metropol",
     seoDescription: "Führerschein Klasse B bei Fahrschule Metropol: PKW bis 3,5t. Infos zu Ablauf, Voraussetzungen & Anmeldung in Hannover, Bremen & Garbsen.",
+    seoKeywords: "Klasse B, Führerschein Klasse B, PKW Führerschein, Autoführerschein, BF17, Führerschein ab 17, Führerschein Hannover, Führerschein Bremen, Führerschein Garbsen, Fahrschule Metropol Klasse B",
     heroDescription: "Der klassische Autoführerschein – dein Schlüssel zur Mobilität. Fahrzeuge bis 3,5 t zulässiges Gesamtgewicht ab 17 Jahren (BF17) oder 18 Jahren.",
     details: {
       minAge: "17 Jahre (BF17) / 18 Jahre",
@@ -74,6 +75,7 @@ export const licenseClasses: LicenseClassData[] = [
     subtitle: "PKW Automatik + Schaltung",
     seoTitle: "Führerschein Klasse B197 – Automatik & Schaltwagen | Fahrschule Metropol",
     seoDescription: "Klasse B197: Ausbildung auf Automatik mit Schaltprüfung. Volle Flexibilität bei Fahrschule Metropol in Hannover, Bremen & Garbsen.",
+    seoKeywords: "Klasse B197, B197 Führerschein, Automatik Führerschein, Schaltwagen Führerschein, B197 Hannover, B197 Bremen, Automatik und Schaltwagen, Führerschein Automatik",
     heroDescription: "Die smarte Kombination: Ausbildung auf Automatik mit zusätzlicher Schaltprüfung. So darfst du beide Varianten fahren – ohne Einschränkung.",
     details: {
       minAge: "17 Jahre (BF17) / 18 Jahre",
@@ -115,6 +117,7 @@ export const licenseClasses: LicenseClassData[] = [
     subtitle: "Motorrad unbeschränkt",
     seoTitle: "Führerschein Klasse A – Motorrad unbeschränkt | Fahrschule Metropol",
     seoDescription: "Motorradführerschein Klasse A ohne Leistungsbeschränkung. Alle Infos bei Fahrschule Metropol in Hannover, Bremen & Garbsen.",
+    seoKeywords: "Klasse A, Motorradführerschein, Motorrad Führerschein, Motorrad unbeschränkt, Klasse A Hannover, Klasse A Bremen, großes Motorrad Führerschein, Motorrad fahren",
     heroDescription: "Die ultimative Freiheit auf zwei Rädern – alle Motorräder ohne Leistungsbeschränkung. Für erfahrene Biker und Aufsteiger.",
     details: {
       minAge: "24 Jahre (Direkteinstieg) / 20 Jahre (Aufstieg von A2)",
@@ -156,6 +159,7 @@ export const licenseClasses: LicenseClassData[] = [
     subtitle: "Motorrad bis 35 kW",
     seoTitle: "Führerschein Klasse A2 – Motorrad bis 35 kW | Fahrschule Metropol",
     seoDescription: "Motorradführerschein Klasse A2 für Motorräder bis 35 kW. Jetzt bei Fahrschule Metropol in Hannover, Bremen & Garbsen anmelden.",
+    seoKeywords: "Klasse A2, Motorrad A2, Motorrad 35 kW, A2 Führerschein, Motorrad ab 18, A2 Hannover, A2 Bremen, Motorrad Einstieg, Leistungsbeschränkung Motorrad",
     heroDescription: "Der perfekte Einstieg in die Motorradwelt – Motorräder mit max. 35 kW Leistung ab 18 Jahren.",
     details: {
       minAge: "18 Jahre",
@@ -197,6 +201,7 @@ export const licenseClasses: LicenseClassData[] = [
     subtitle: "Leichtkrafträder bis 125 ccm",
     seoTitle: "Führerschein Klasse A1 – 125ccm Motorrad | Fahrschule Metropol",
     seoDescription: "Klasse A1 Führerschein für Leichtkrafträder bis 125 ccm ab 16 Jahren. Fahrschule Metropol in Hannover, Bremen & Garbsen.",
+    seoKeywords: "Klasse A1, 125ccm Führerschein, Leichtkraftrad, A1 ab 16, Motorrad ab 16, 125er Führerschein, A1 Hannover, A1 Bremen, Leichtkraftrad Führerschein",
     heroDescription: "Dein erster Motorradführerschein ab 16 Jahren – für Leichtkrafträder bis 125 ccm und 11 kW Leistung.",
     details: {
       minAge: "16 Jahre",
@@ -238,6 +243,7 @@ export const licenseClasses: LicenseClassData[] = [
     subtitle: "Moped & Roller",
     seoTitle: "Führerschein Klasse AM – Moped & Roller ab 15 | Fahrschule Metropol",
     seoDescription: "Moped-Führerschein Klasse AM ab 15 Jahren. Roller bis 45 km/h bei Fahrschule Metropol in Hannover, Bremen & Garbsen.",
+    seoKeywords: "Klasse AM, Moped Führerschein, Roller Führerschein, AM ab 15, Mofa Führerschein, Roller 45 kmh, AM Hannover, AM Bremen, Moped fahren ab 15",
     heroDescription: "Mobil ab 15 Jahren – Kleinkrafträder und Roller bis 45 km/h. Ideal für den Schulweg und die erste Freiheit.",
     details: {
       minAge: "15 Jahre",
@@ -279,6 +285,7 @@ export const licenseClasses: LicenseClassData[] = [
     subtitle: "PKW + Anhänger",
     seoTitle: "Führerschein Klasse BE – PKW mit Anhänger | Fahrschule Metropol",
     seoDescription: "Klasse BE: PKW mit schwerem Anhänger. Für Wohnwagen, Pferdeanhänger & mehr. Jetzt bei Fahrschule Metropol anmelden.",
+    seoKeywords: "Klasse BE, Anhänger Führerschein, PKW Anhänger, Wohnwagen Führerschein, Pferdeanhänger, BE Führerschein, Anhänger Hannover, Anhänger Bremen, schwerer Anhänger",
     heroDescription: "PKW mit schwerem Anhänger über 750 kg – für Wohnwagen, Pferdeanhänger, Bootstrailer und mehr.",
     details: {
       minAge: "17 Jahre (BF17) / 18 Jahre",
@@ -319,6 +326,7 @@ export const licenseClasses: LicenseClassData[] = [
     subtitle: "LKW über 3,5 t",
     seoTitle: "Führerschein Klasse C – LKW | Fahrschule Metropol",
     seoDescription: "LKW-Führerschein Klasse C bei Fahrschule Metropol: Fahrzeuge über 3,5 t. Infos zu Ablauf, Voraussetzungen & Anmeldung in Hannover, Garbsen & Bremen.",
+    seoKeywords: "Klasse C, LKW Führerschein, LKW Führerschein Hannover, LKW Führerschein Bremen, Berufskraftfahrer, C Führerschein, LKW fahren, Klasse C Kosten",
     heroDescription: "Der Weg zum Berufskraftfahrer – Fahrzeuge über 3,5 t zulässiges Gesamtgewicht. Für alle, die groß denken.",
     details: {
       minAge: "21 Jahre (18 mit Grundqualifikation)",
@@ -362,6 +370,7 @@ export const licenseClasses: LicenseClassData[] = [
     subtitle: "LKW mit Anhänger / Sattelzug",
     seoTitle: "Führerschein Klasse CE – LKW mit Anhänger | Fahrschule Metropol",
     seoDescription: "Klasse CE: LKW mit schwerem Anhänger oder Sattelzug. Fahrschule Metropol in Hannover, Garbsen & Bremen.",
+    seoKeywords: "Klasse CE, Sattelzug Führerschein, LKW Anhänger, CE Führerschein, Gliederzug, Sattelschlepper Führerschein, CE Hannover, CE Bremen, Berufskraftfahrer CE",
     heroDescription: "Die Königsklasse im Güterverkehr – LKW mit Anhänger oder Sattelzüge ohne Gewichtsbeschränkung.",
     details: {
       minAge: "21 Jahre (18 mit Grundqualifikation)",
@@ -402,6 +411,7 @@ export const licenseClasses: LicenseClassData[] = [
     subtitle: "Leichte LKW bis 7,5 t",
     seoTitle: "Führerschein Klasse C1 – LKW bis 7,5 t | Fahrschule Metropol",
     seoDescription: "Klasse C1: Leichte LKW bis 7,5 t bei Fahrschule Metropol in Hannover, Garbsen & Bremen. Ideal für Lieferfahrzeuge.",
+    seoKeywords: "Klasse C1, LKW 7.5t, leichter LKW Führerschein, C1 Führerschein, Lieferfahrzeug Führerschein, C1 Hannover, C1 Bremen, Transporter Führerschein",
     heroDescription: "LKW bis 7,5 t zulässiges Gesamtgewicht – ideal für Lieferfahrzeuge, Transporter und leichte LKW.",
     details: {
       minAge: "18 Jahre",
