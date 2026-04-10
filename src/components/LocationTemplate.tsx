@@ -19,6 +19,7 @@ interface LocationData {
   mapsLink: string;
   seoTitle: string;
   seoDescription: string;
+  seoKeywords?: string;
   image?: string;
 }
 
@@ -84,7 +85,7 @@ const LocationTemplate = ({ data }: { data: LocationData }) => {
 
   return (
     <div className="min-h-screen pt-20">
-      <SEO title={data.seoTitle} description={data.seoDescription} canonical={`https://fahrschule-metropol.de/standorte/${data.name.toLowerCase()}`} jsonLd={jsonLd} />
+      <SEO title={data.seoTitle} description={data.seoDescription} canonical={`https://fahrschule-metropol.de/standorte/${data.name.toLowerCase()}`} jsonLd={jsonLd} keywords={data.seoKeywords} />
 
       <section className="relative py-20 overflow-hidden">
         {data.image && (

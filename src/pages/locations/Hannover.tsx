@@ -16,6 +16,7 @@ const Hannover = () => (
       mapsLink: "https://www.google.com/maps/dir//Engelbosteler+Damm+1,+30167+Hannover",
       seoTitle: "Fahrschule Hannover – Fahrschule Metropol | Zentral & Flexibel",
       seoDescription: "Fahrschule Metropol Hannover: Zentrale Lage an der Georgstraße. Flexible Zeiten bis 19 Uhr, alle Klassen. 98% Bestehensquote. Jetzt anmelden!",
+      seoKeywords: "Fahrschule Hannover Standort, Fahrschule Engelbosteler Damm, Fahrschule Nordstadt, Öffnungszeiten Fahrschule Hannover, Fahrschule Hannover Kontakt, Fahrschule Hannover Telefon, Fahrschule Mitte Hannover, Beste Fahrschule Hannover, Fahrschule Hannover Bewertung",
       image: locationImage,
     }}
   />
