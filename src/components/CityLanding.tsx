@@ -52,6 +52,7 @@ const cityData: Record<string, CityLandingData> = {
     locationPath: "/standorte/bremen",
     seoTitle: "Fahrschule Bremen – Führerschein aller Klassen | Fahrschule Metropol",
     seoDescription: "Fahrschule in Bremen am Bahnhofsplatz: Führerschein B, B197, Motorrad, LKW. Erfahrene Fahrlehrer, 98% Bestehensquote. Jetzt anmelden!",
+    seoKeywords: "Fahrschule Bremen, Führerschein Bremen, Fahrschule Metropol Bremen, Klasse B Bremen, Motorradführerschein Bremen, LKW Führerschein Bremen, Intensivkurs Bremen, Fahrschule Bahnhofsplatz Bremen, Führerschein machen Bremen, Fahrschule Innenstadt Bremen, BF17 Bremen, Automatik Führerschein Bremen",
     heroText: "Fahrschule Metropol Bremen – direkt am Bahnhofsplatz in der Bremer Innenstadt.",
     introText: "Seit über 20 Jahren ist die Fahrschule Metropol dein verlässlicher Partner für den Führerschein in Bremen. Unser Standort am Bahnhofsplatz ist bestens erreichbar und bietet modernste Ausstattung für deinen Theorieunterricht. Unsere Fahrlehrer kennen die Bremer Prüfstrecken wie ihre Westentasche.",
     advantages: [
