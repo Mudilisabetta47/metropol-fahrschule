@@ -15,6 +15,7 @@ interface CityLandingData {
   locationPath: string;
   seoTitle: string;
   seoDescription: string;
+  seoKeywords: string;
   heroText: string;
   introText: string;
   advantages: string[];
@@ -30,6 +31,7 @@ const cityData: Record<string, CityLandingData> = {
     locationPath: "/standorte/hannover",
     seoTitle: "Fahrschule Hannover – Alle Führerscheinklassen | Fahrschule Metropol",
     seoDescription: "Fahrschule in Hannover: PKW, Motorrad, LKW & Bus. 98% Bestehensquote, flexible Zeiten, zentrale Lage. Jetzt bei Fahrschule Metropol anmelden!",
+    seoKeywords: "Fahrschule Hannover, Führerschein Hannover, Fahrschule Metropol Hannover, Klasse B Hannover, Motorradführerschein Hannover, LKW Führerschein Hannover, Intensivkurs Hannover, BF17 Hannover, Automatik Führerschein Hannover, B197 Hannover, Fahrschule Engelbosteler Damm, Fahrschule Nordstadt Hannover, Führerschein machen Hannover",
     heroText: "Deine Fahrschule in Hannover – zentral gelegen am Engelbosteler Damm mit bester Verkehrsanbindung.",
     introText: "Die Fahrschule Metropol in Hannover bietet dir eine professionelle Fahrausbildung für alle Führerscheinklassen. Ob PKW, Motorrad, LKW oder Bus – unser erfahrenes Team begleitet dich sicher zum Führerschein. Mit über 15.000 erfolgreichen Absolventen und einer Bestehensquote von 98% gehören wir zu den erfolgreichsten Fahrschulen in Hannover und Umgebung.",
     advantages: [
@@ -50,6 +52,7 @@ const cityData: Record<string, CityLandingData> = {
     locationPath: "/standorte/bremen",
     seoTitle: "Fahrschule Bremen – Führerschein aller Klassen | Fahrschule Metropol",
     seoDescription: "Fahrschule in Bremen am Bahnhofsplatz: Führerschein B, B197, Motorrad, LKW. Erfahrene Fahrlehrer, 98% Bestehensquote. Jetzt anmelden!",
+    seoKeywords: "Fahrschule Bremen, Führerschein Bremen, Fahrschule Metropol Bremen, Klasse B Bremen, Motorradführerschein Bremen, LKW Führerschein Bremen, Intensivkurs Bremen, Fahrschule Bahnhofsplatz Bremen, Führerschein machen Bremen, Fahrschule Innenstadt Bremen, BF17 Bremen, Automatik Führerschein Bremen",
     heroText: "Fahrschule Metropol Bremen – direkt am Bahnhofsplatz in der Bremer Innenstadt.",
     introText: "Seit über 20 Jahren ist die Fahrschule Metropol dein verlässlicher Partner für den Führerschein in Bremen. Unser Standort am Bahnhofsplatz ist bestens erreichbar und bietet modernste Ausstattung für deinen Theorieunterricht. Unsere Fahrlehrer kennen die Bremer Prüfstrecken wie ihre Westentasche.",
     advantages: [
@@ -70,6 +73,7 @@ const cityData: Record<string, CityLandingData> = {
     locationPath: "/standorte/garbsen",
     seoTitle: "Fahrschule Garbsen – Entspannt zum Führerschein | Fahrschule Metropol",
     seoDescription: "Fahrschule in Garbsen: Führerschein B, Motorrad & mehr. Familiäre Atmosphäre, eigener Parkplatz, flexible Termine. Jetzt anmelden!",
+    seoKeywords: "Fahrschule Garbsen, Führerschein Garbsen, Fahrschule Metropol Garbsen, Klasse B Garbsen, Motorradführerschein Garbsen, Intensivkurs Garbsen, Fahrschule Planetenring Garbsen, Führerschein machen Garbsen, BF17 Garbsen, Fahrschule Region Hannover, Fahrschule Garbsen günstig",
     heroText: "Fahrschule Metropol Garbsen – familiäre Atmosphäre und individuelle Betreuung.",
     introText: "In Garbsen lernst du das Fahren in einer entspannten Umgebung. Unser Standort am Planetenring bietet ideale Voraussetzungen für den Einstieg: ruhigere Straßen, individuelle Betreuung und ein engagiertes Team. Perfekt, um sicher und stressfrei deinen Führerschein zu machen – bevor es in den Stadtverkehr nach Hannover geht.",
     advantages: [
@@ -128,7 +132,7 @@ const CityLanding = ({ citySlug }: { citySlug: string }) => {
 
   return (
     <div className="min-h-screen pt-20">
-      <SEO title={data.seoTitle} description={data.seoDescription} canonical={`https://fahrschule-metropol.de/fahrschule-${citySlug}`} jsonLd={jsonLd} />
+      <SEO title={data.seoTitle} description={data.seoDescription} canonical={`https://fahrschule-metropol.de/fahrschule-${citySlug}`} jsonLd={jsonLd} keywords={data.seoKeywords} />
 
       {/* Hero */}
       <section className="gradient-dark py-20 noise relative overflow-hidden">

@@ -7,9 +7,10 @@ interface SEOProps {
   canonical?: string;
   jsonLd?: Record<string, unknown> | Record<string, unknown>[];
   ogImage?: string;
+  keywords?: string;
 }
 
-const SEO = ({ title, description, canonical, jsonLd, ogImage }: SEOProps) => {
+const SEO = ({ title, description, canonical, jsonLd, ogImage, keywords }: SEOProps) => {
   const { i18n } = useTranslation();
   useEffect(() => {
     document.title = title;
@@ -33,6 +34,7 @@ const SEO = ({ title, description, canonical, jsonLd, ogImage }: SEOProps) => {
     };
 
     setMeta("description", description);
+    if (keywords) setMeta("keywords", keywords);
     setMeta("og:title", title, "property");
     setMeta("og:description", description, "property");
     setMeta("og:type", "website", "property");
@@ -101,7 +103,7 @@ const SEO = ({ title, description, canonical, jsonLd, ogImage }: SEOProps) => {
       const hreflangs = document.querySelectorAll('link[hreflang]');
       hreflangs.forEach((s) => s.remove());
     };
-  }, [title, description, canonical, jsonLd, ogImage, i18n.language]);
+  }, [title, description, canonical, jsonLd, ogImage, keywords, i18n.language]);
 
   return null;
 };

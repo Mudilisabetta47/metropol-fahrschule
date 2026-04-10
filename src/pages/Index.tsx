@@ -207,6 +207,7 @@ const Index = () => {
         description={t("index.seoDesc")}
         canonical="https://fahrschule-metropol.de/"
         jsonLd={seoJsonLd}
+        keywords="Fahrschule Hannover, Fahrschule Bremen, Fahrschule Garbsen, Führerschein Hannover, Führerschein Bremen, Fahrschule Metropol, Führerschein machen, Fahrschule in der Nähe, Klasse B Hannover, Motorradführerschein Hannover, LKW Führerschein Bremen, Fahrschule Niedersachsen, Intensivkurs Fahrschule, BF17 Hannover, Automatik Führerschein, B197 Hannover"
       />
 
       {/* Hero */}
