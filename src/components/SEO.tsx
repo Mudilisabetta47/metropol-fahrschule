@@ -10,7 +10,7 @@ interface SEOProps {
   keywords?: string;
 }
 
-const SEO = ({ title, description, canonical, jsonLd, ogImage }: SEOProps) => {
+const SEO = ({ title, description, canonical, jsonLd, ogImage, keywords }: SEOProps) => {
   const { i18n } = useTranslation();
   useEffect(() => {
     document.title = title;
