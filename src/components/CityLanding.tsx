@@ -15,6 +15,7 @@ interface CityLandingData {
   locationPath: string;
   seoTitle: string;
   seoDescription: string;
+  seoKeywords: string;
   heroText: string;
   introText: string;
   advantages: string[];
