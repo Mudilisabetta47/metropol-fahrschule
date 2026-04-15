@@ -41,7 +41,7 @@ const FAQ = () => {
         description={t("faq.seoDesc")}
         canonical="https://fahrschule-metropol.de/faq"
         jsonLd={[faqSchema, breadcrumbSchema]}
-        keywords="Fahrschule FAQ, Führerschein Fragen, Fahrschule Anmeldung, Führerschein Dauer, Führerschein Kosten, Theorie Prüfung Tipps, Praktische Prüfung, BF17 Voraussetzungen, Sehtest Führerschein, Erste Hilfe Kurs Führerschein, Fahrschule Metropol FAQ, Führerschein beantragen, Wie lange dauert der Führerschein, Theorieprüfung durchgefallen, Führerschein Unterlagen, Führerschein Anmeldung online, Fahrschule Arabisch, Fahrschule Türkisch"
+        keywords="Fahrschule FAQ, Führerschein Fragen, Fahrschule Anmeldung, Führerschein Dauer, Führerschein Kosten, Theorie Prüfung Tipps, Praktische Prüfung, BF17 Voraussetzungen, Sehtest Führerschein, Erste Hilfe Kurs Führerschein, Fahrschule Metropol FAQ, Führerschein beantragen, Wie lange dauert der Führerschein, Theorieprüfung durchgefallen, Führerschein Unterlagen, Führerschein Anmeldung online, Fahrschule Arabisch, Fahrschule Türkisch, Führerschein Crashkurs, Führerschein Schnellkurs, Führerschein in 2 Wochen, Führerschein Intensivkurs, Wie schnell Führerschein machen, Führerschein 1 Woche, Führerschein Raten, Führerschein Beschränkung 197, Schnell Führerschein machen"
       />
 
       <section className="gradient-dark py-20 noise relative overflow-hidden">

@@ -42,7 +42,7 @@ const ErsteHilfe = () => {
 
   return (
     <div className="min-h-screen">
-      <SEO title={t("ersteHilfe.seoTitle")} description={t("ersteHilfe.seoDesc")} canonical="https://fahrschule-metropol.de/erste-hilfe" jsonLd={[jsonLd, faqJsonLd, breadcrumbSchema]} keywords="Erste Hilfe Kurs, Erste Hilfe Führerschein, Erste Hilfe Kurs Hannover, Erste Hilfe Kurs Bremen, Erste Hilfe Kurs Garbsen, Erste Hilfe Kurs in der Nähe, Lebensrettende Sofortmaßnahmen, Erste Hilfe Fahrschule Metropol, Ersthelfer Kurs, Notfalltraining, Erste Hilfe Kurs Kosten, Erste Hilfe Kurs Dauer, Erste Hilfe Kurs Termine, Erste Hilfe Bescheinigung, LSM Kurs" />
+      <SEO title={t("ersteHilfe.seoTitle")} description={t("ersteHilfe.seoDesc")} canonical="https://fahrschule-metropol.de/erste-hilfe" jsonLd={[jsonLd, faqJsonLd, breadcrumbSchema]} keywords="Erste Hilfe Kurs, Erste Hilfe Führerschein, Erste Hilfe Kurs Hannover, Erste Hilfe Kurs Bremen, Erste Hilfe Kurs Garbsen, Erste Hilfe Kurs in der Nähe, Lebensrettende Sofortmaßnahmen, Erste Hilfe Fahrschule Metropol, Ersthelfer Kurs, Notfalltraining, Erste Hilfe Kurs Kosten, Erste Hilfe Kurs Dauer, Erste Hilfe Kurs Termine, Erste Hilfe Bescheinigung, LSM Kurs, Erste Hilfe Schnellkurs, Erste Hilfe Wochenende, Erste Hilfe Kurs Samstag" />
 
       {/* Hero */}
       <section className="relative min-h-[340px] md:min-h-[480px] flex items-end overflow-hidden">
