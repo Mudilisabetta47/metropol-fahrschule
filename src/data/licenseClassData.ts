@@ -31,7 +31,7 @@ export const licenseClasses: LicenseClassData[] = [
     subtitle: "PKW-Führerschein",
     seoTitle: "Führerschein Klasse B – PKW | Fahrschule Metropol",
     seoDescription: "Führerschein Klasse B bei Fahrschule Metropol: PKW bis 3,5t. Infos zu Ablauf, Voraussetzungen & Anmeldung in Hannover, Bremen & Garbsen.",
-    seoKeywords: "Klasse B, Führerschein Klasse B, PKW Führerschein, Autoführerschein, BF17, Führerschein ab 17, Führerschein Hannover, Führerschein Bremen, Führerschein Garbsen, Fahrschule Metropol Klasse B, Klasse B Kosten, Klasse B Dauer, Führerschein B Preis, Begleitetes Fahren",
+    seoKeywords: "Klasse B, Führerschein Klasse B, PKW Führerschein, Autoführerschein, BF17, Führerschein ab 17, Führerschein Hannover, Führerschein Bremen, Führerschein Garbsen, Fahrschule Metropol Klasse B, Klasse B Kosten, Klasse B Dauer, Führerschein B Preis, Begleitetes Fahren, Führerschein Crashkurs, BE Führerschein Schnellkurs, Führerschein in 2 Wochen, Führerschein schnell, Schneller Führerschein, Führerschein 1 Woche, Führerschein 2 Wochen, Autoführerschein Preise, Führerschein Raten, Führerschein Beschränkung 197, Fahrschule Kosten Fahrstunde, Führerschein Kosten Hannover, Führerschein Kurs, Crashkurs Fahrschule, Intensiv Fahrschule, Schnellkurs Führerschein in der Nähe, Fahrschule in der Nähe Schnellkurs, Führerschein in einer Woche, Führerschein in 14 Tagen Kosten, Crash Kurs Führerschein Kosten, Führerschein Crashkurs Kosten, Intensivkurs Führerschein Kosten, Express Führerschein Kosten, Führerschein Crash Kurs, Führerschein intensiv, Crashkurs Führerschein Preis, Führerschein Intensivkurse, Intensivkurse Führerschein, 2 Wochen Kurs Führerschein, Schnell Führerschein machen, Schnellkurs Fahrschule, Wochenend Fahrschule, Fahrschule Wochenende, Fahrschule Angebote, Fahrschulen Preisvergleich, Führerschein 2 Wochen Kurs, Fahrschule Ferienkurs in der Nähe",
     heroDescription: "Der klassische Autoführerschein – dein Schlüssel zur Mobilität. Fahrzeuge bis 3,5 t zulässiges Gesamtgewicht ab 17 Jahren (BF17) oder 18 Jahren.",
     details: {
       minAge: "17 Jahre (BF17) / 18 Jahre",
@@ -75,7 +75,7 @@ export const licenseClasses: LicenseClassData[] = [
     subtitle: "PKW Automatik + Schaltung",
     seoTitle: "Führerschein Klasse B197 – Automatik & Schaltwagen | Fahrschule Metropol",
     seoDescription: "Klasse B197: Ausbildung auf Automatik mit Schaltprüfung. Volle Flexibilität bei Fahrschule Metropol in Hannover, Bremen & Garbsen.",
-    seoKeywords: "Klasse B197, B197 Führerschein, Automatik Führerschein, Schaltwagen Führerschein, B197 Hannover, B197 Bremen, Automatik und Schaltwagen, Führerschein Automatik, B197 Kosten, B197 Dauer, Automatik Prüfung Schaltwagen",
+    seoKeywords: "Klasse B197, B197 Führerschein, Automatik Führerschein, Schaltwagen Führerschein, B197 Hannover, B197 Bremen, Automatik und Schaltwagen, Führerschein Automatik, B197 Kosten, B197 Dauer, Automatik Prüfung Schaltwagen, Führerschein Beschränkung 197, B197 Schnellkurs, Automatik Crashkurs",
     heroDescription: "Die smarte Kombination: Ausbildung auf Automatik mit zusätzlicher Schaltprüfung. So darfst du beide Varianten fahren – ohne Einschränkung.",
     details: {
       minAge: "17 Jahre (BF17) / 18 Jahre",
@@ -117,7 +117,7 @@ export const licenseClasses: LicenseClassData[] = [
     subtitle: "Motorrad unbeschränkt",
     seoTitle: "Führerschein Klasse A – Motorrad unbeschränkt | Fahrschule Metropol",
     seoDescription: "Motorradführerschein Klasse A ohne Leistungsbeschränkung. Alle Infos bei Fahrschule Metropol in Hannover, Bremen & Garbsen.",
-    seoKeywords: "Klasse A, Motorradführerschein, Motorrad Führerschein, Motorrad unbeschränkt, Klasse A Hannover, Klasse A Bremen, großes Motorrad Führerschein, Motorrad fahren, Klasse A Kosten, Motorradführerschein Dauer, Motorradführerschein Kosten",
+    seoKeywords: "Klasse A, Motorradführerschein, Motorrad Führerschein, Motorrad unbeschränkt, Klasse A Hannover, Klasse A Bremen, großes Motorrad Führerschein, Motorrad fahren, Klasse A Kosten, Motorradführerschein Dauer, Motorradführerschein Kosten, Motorrad Führerschein Schnellkurs, Motorrad Crashkurs, Schnellkurs Motorradführerschein, Motorrad Führerschein in der Nähe, Motorradführerschein günstig, Motorrad Führerschein Schnellkurs in der Nähe, Motorrad Führerschein Schnellkurs Kosten",
     heroDescription: "Die ultimative Freiheit auf zwei Rädern – alle Motorräder ohne Leistungsbeschränkung. Für erfahrene Biker und Aufsteiger.",
     details: {
       minAge: "24 Jahre (Direkteinstieg) / 20 Jahre (Aufstieg von A2)",
@@ -159,7 +159,7 @@ export const licenseClasses: LicenseClassData[] = [
     subtitle: "Motorrad bis 35 kW",
     seoTitle: "Führerschein Klasse A2 – Motorrad bis 35 kW | Fahrschule Metropol",
     seoDescription: "Motorradführerschein Klasse A2 für Motorräder bis 35 kW. Jetzt bei Fahrschule Metropol in Hannover, Bremen & Garbsen anmelden.",
-    seoKeywords: "Klasse A2, Motorrad A2, Motorrad 35 kW, A2 Führerschein, Motorrad ab 18, A2 Hannover, A2 Bremen, Motorrad Einstieg, Leistungsbeschränkung Motorrad, A2 Kosten, A2 Dauer, A2 Aufstieg A",
+    seoKeywords: "Klasse A2, Motorrad A2, Motorrad 35 kW, A2 Führerschein, Motorrad ab 18, A2 Hannover, A2 Bremen, Motorrad Einstieg, Leistungsbeschränkung Motorrad, A2 Kosten, A2 Dauer, A2 Aufstieg A, Motorrad Führerschein Schnellkurs, Motorrad Crashkurs, Motorrad Führerschein in der Nähe, Motorradführerschein günstig",
     heroDescription: "Der perfekte Einstieg in die Motorradwelt – Motorräder mit max. 35 kW Leistung ab 18 Jahren.",
     details: {
       minAge: "18 Jahre",
@@ -201,7 +201,7 @@ export const licenseClasses: LicenseClassData[] = [
     subtitle: "Leichtkrafträder bis 125 ccm",
     seoTitle: "Führerschein Klasse A1 – 125ccm Motorrad | Fahrschule Metropol",
     seoDescription: "Klasse A1 Führerschein für Leichtkrafträder bis 125 ccm ab 16 Jahren. Fahrschule Metropol in Hannover, Bremen & Garbsen.",
-    seoKeywords: "Klasse A1, 125ccm Führerschein, Leichtkraftrad, A1 ab 16, Motorrad ab 16, 125er Führerschein, A1 Hannover, A1 Bremen, Leichtkraftrad Führerschein, A1 Kosten, A1 Dauer",
+    seoKeywords: "Klasse A1, 125ccm Führerschein, Leichtkraftrad, A1 ab 16, Motorrad ab 16, 125er Führerschein, A1 Hannover, A1 Bremen, Leichtkraftrad Führerschein, A1 Kosten, A1 Dauer, Motorrad Führerschein Schnellkurs, 125er Crashkurs",
     heroDescription: "Dein erster Motorradführerschein ab 16 Jahren – für Leichtkrafträder bis 125 ccm und 11 kW Leistung.",
     details: {
       minAge: "16 Jahre",
@@ -326,7 +326,7 @@ export const licenseClasses: LicenseClassData[] = [
     subtitle: "LKW über 3,5 t",
     seoTitle: "Führerschein Klasse C – LKW | Fahrschule Metropol",
     seoDescription: "LKW-Führerschein Klasse C bei Fahrschule Metropol: Fahrzeuge über 3,5 t. Infos zu Ablauf, Voraussetzungen & Anmeldung in Hannover, Garbsen & Bremen.",
-    seoKeywords: "Klasse C, LKW Führerschein, LKW Führerschein Hannover, LKW Führerschein Bremen, Berufskraftfahrer, C Führerschein, LKW fahren, Klasse C Kosten",
+    seoKeywords: "Klasse C, LKW Führerschein, LKW Führerschein Hannover, LKW Führerschein Bremen, Berufskraftfahrer, C Führerschein, LKW fahren, Klasse C Kosten, LKW Führerschein Schnellkurs, LKW Crashkurs, LKW Führerschein Kosten, LKW Intensivkurs",
     heroDescription: "Der Weg zum Berufskraftfahrer – Fahrzeuge über 3,5 t zulässiges Gesamtgewicht. Für alle, die groß denken.",
     details: {
       minAge: "21 Jahre (18 mit Grundqualifikation)",
@@ -537,7 +537,7 @@ export const licenseClasses: LicenseClassData[] = [
     subtitle: "125er mit B-Führerschein",
     seoTitle: "B196 Erweiterung – 125er fahren mit Klasse B | Fahrschule Metropol",
     seoDescription: "B196: Erweiterung des Klasse-B-Führerscheins auf 125er-Motorräder. Keine Prüfung nötig. Fahrschule Metropol informiert.",
-    seoKeywords: "B196, 125ccm mit Autoführerschein, B196 Erweiterung, 125er fahren mit B, B196 Hannover, B196 Bremen, Motorrad ohne Prüfung, B196 Kosten, 125er Schlüsselzahl",
+    seoKeywords: "B196, 125ccm mit Autoführerschein, B196 Erweiterung, 125er fahren mit B, B196 Hannover, B196 Bremen, Motorrad ohne Prüfung, B196 Kosten, 125er Schlüsselzahl, B196 Schnellkurs",
     heroDescription: "Erweitere deinen Klasse-B-Führerschein auf 125er-Motorräder – ohne extra Prüfung! Ab 25 Jahren mit 5 Jahren B-Besitz.",
     details: {
       minAge: "25 Jahre + 5 Jahre Klasse B",

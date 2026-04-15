@@ -19,7 +19,7 @@ const Contact = () => {
 
   return (
     <div className="min-h-screen pt-20">
-      <SEO title={t("contact.seoTitle")} description={t("contact.seoDesc")} canonical="https://fahrschule-metropol.de/kontakt" jsonLd={[breadcrumbSchema]} keywords="Fahrschule Kontakt, Fahrschule Metropol Kontakt, Fahrschule Hannover Kontakt, Fahrschule Bremen Kontakt, Fahrschule Garbsen Kontakt, Fahrschule Telefonnummer, Fahrschule Anmeldung, Fahrschule in der Nähe, Fahrschule Öffnungszeiten, Fahrschule anmelden online, Führerschein anmelden, Fahrschule E-Mail, Fahrschule Beratung, Probestunde Fahrschule" />
+      <SEO title={t("contact.seoTitle")} description={t("contact.seoDesc")} canonical="https://fahrschule-metropol.de/kontakt" jsonLd={[breadcrumbSchema]} keywords="Fahrschule Kontakt, Fahrschule Metropol Kontakt, Fahrschule Hannover Kontakt, Fahrschule Bremen Kontakt, Fahrschule Garbsen Kontakt, Fahrschule Telefonnummer, Fahrschule Anmeldung, Fahrschule in der Nähe, Fahrschule Öffnungszeiten, Fahrschule anmelden online, Führerschein anmelden, Fahrschule E-Mail, Fahrschule Beratung, Probestunde Fahrschule, Führerschein Crashkurs anmelden, Schnellkurs Fahrschule anmelden, Intensivkurs anmelden, Fahrschule Angebote, Führerschein online anmelden" />
 
       <section className="relative overflow-hidden py-20 noise">
         <div className="absolute inset-0">
