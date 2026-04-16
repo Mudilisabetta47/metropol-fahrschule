@@ -198,6 +198,76 @@ const Index = () => {
         "query-input": "required name=search_term_string",
       },
     },
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "Wie lange dauert ein Führerschein-Crashkurs?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Ein Führerschein-Crashkurs bei Fahrschule Metropol dauert in der Regel 2 bis 4 Wochen. In dieser Zeit absolvierst du Theorie- und Praxisunterricht intensiv, oft täglich, sodass du deinen Führerschein deutlich schneller als im klassischen Modell erhältst.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Kann ich den Führerschein in 2 Wochen machen?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Ja, mit einem Intensivkurs ist der Führerschein Klasse B in ca. 2 Wochen möglich, vorausgesetzt du hast bereits einen Sehtest und Erste-Hilfe-Kurs absolviert. Wir bieten Schnellkurse an unseren Standorten Hannover, Garbsen und Bremen an.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Was kostet ein Führerschein-Crashkurs?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Die Kosten für einen Führerschein-Crashkurs Klasse B liegen bei Fahrschule Metropol je nach individuellem Lernfortschritt und Anzahl der benötigten Fahrstunden zwischen 2.500 € und 3.500 €. Eine genaue Kostenaufstellung erhältst du nach einem unverbindlichen Beratungsgespräch.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Was ist der Unterschied zwischen Crashkurs und normalem Kurs?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Beim Crashkurs absolvierst du Theorie und Praxis komprimiert in 2–4 Wochen statt 3–6 Monaten. Der Stundenumfang und die Prüfungsanforderungen sind identisch – du lernst nur deutlich intensiver und schneller.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Welche Voraussetzungen brauche ich für einen Intensivkurs?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Für einen Intensivkurs benötigst du: Mindestalter (17 für BF17, 18 für Klasse B), gültigen Sehtest, Erste-Hilfe-Bescheinigung, biometrisches Passfoto und einen Antrag bei der Führerscheinstelle. Wir helfen dir bei allen Formalitäten.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Bietet Fahrschule Metropol Crashkurse in Hannover, Garbsen und Bremen an?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Ja, wir bieten Crashkurse, Intensivkurse und Schnellkurse an allen drei Standorten an: Hannover (Engelbosteler Damm 1), Garbsen (Planetenring 25–27) und Bremen (Bahnhofsplatz 41). Auch Ferienkurse und Wochenend-Intensivkurse sind möglich.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Kann ich auch einen Motorrad-Crashkurs machen?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Ja, wir bieten Schnellkurse für die Motorradklassen A, A1, A2 und B196 an. Die Kursdauer beträgt je nach Vorerfahrung 1–3 Wochen. Ideal für die Motorradsaison im Frühjahr.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Wie schnell bekomme ich einen Termin für den Intensivkurs?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "In der Regel kannst du innerhalb von 1–2 Wochen mit deinem Intensivkurs starten. Kontaktiere uns telefonisch unter 0511 6425066 oder per Online-Anfrage – wir finden den passenden Starttermin für dich.",
+          },
+        },
+      ],
+    },
   ];
 
   return (
