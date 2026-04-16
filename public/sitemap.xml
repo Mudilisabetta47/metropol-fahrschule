@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- ============================================================ -->
+  <!-- 1. HAUPTSEITEN (Priority 0.9–1.0)                             -->
+  <!-- ============================================================ -->
   <url>
     <loc>https://fahrschule-metropol.de/</loc>
     <lastmod>2026-04-16</lastmod>
@@ -12,20 +17,20 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/" />
   </url>
   <url>
-    <loc>https://fahrschule-metropol.de/ueber-uns</loc>
+    <loc>https://fahrschule-metropol.de/crashkurs</loc>
     <lastmod>2026-04-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/ueber-uns" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://fahrschule-metropol.de/ueber-uns?lang=en" />
-    <xhtml:link rel="alternate" hreflang="tr" href="https://fahrschule-metropol.de/ueber-uns?lang=tr" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://fahrschule-metropol.de/ueber-uns?lang=ar" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/ueber-uns" />
+    <changefreq>weekly</changefreq>
+    <priority>0.95</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/crashkurs" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://fahrschule-metropol.de/crashkurs?lang=en" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fahrschule-metropol.de/crashkurs?lang=tr" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://fahrschule-metropol.de/crashkurs?lang=ar" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/crashkurs" />
   </url>
   <url>
     <loc>https://fahrschule-metropol.de/fuehrerscheinklassen</loc>
     <lastmod>2026-04-16</lastmod>
-    <changefreq>monthly</changefreq>
+    <changefreq>weekly</changefreq>
     <priority>0.9</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/fuehrerscheinklassen" />
     <xhtml:link rel="alternate" hreflang="en" href="https://fahrschule-metropol.de/fuehrerscheinklassen?lang=en" />
@@ -33,12 +38,107 @@
     <xhtml:link rel="alternate" hreflang="ar" href="https://fahrschule-metropol.de/fuehrerscheinklassen?lang=ar" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/fuehrerscheinklassen" />
   </url>
-  <!-- PKW & Anhänger -->
+  <url>
+    <loc>https://fahrschule-metropol.de/preise</loc>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/preise" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://fahrschule-metropol.de/preise?lang=en" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fahrschule-metropol.de/preise?lang=tr" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://fahrschule-metropol.de/preise?lang=ar" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/preise" />
+  </url>
+  <url>
+    <loc>https://fahrschule-metropol.de/standorte</loc>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/standorte" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://fahrschule-metropol.de/standorte?lang=en" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fahrschule-metropol.de/standorte?lang=tr" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://fahrschule-metropol.de/standorte?lang=ar" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/standorte" />
+  </url>
+  <url>
+    <loc>https://fahrschule-metropol.de/kontakt</loc>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/kontakt" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://fahrschule-metropol.de/kontakt?lang=en" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fahrschule-metropol.de/kontakt?lang=tr" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://fahrschule-metropol.de/kontakt?lang=ar" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/kontakt" />
+  </url>
+
+  <!-- ============================================================ -->
+  <!-- 2. STANDORTE (Priority 0.85)                                  -->
+  <!-- ============================================================ -->
+  <url>
+    <loc>https://fahrschule-metropol.de/standorte/hannover</loc>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/standorte/hannover" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://fahrschule-metropol.de/standorte/hannover?lang=en" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fahrschule-metropol.de/standorte/hannover?lang=tr" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://fahrschule-metropol.de/standorte/hannover?lang=ar" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/standorte/hannover" />
+  </url>
+  <url>
+    <loc>https://fahrschule-metropol.de/standorte/bremen</loc>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/standorte/bremen" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://fahrschule-metropol.de/standorte/bremen?lang=en" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fahrschule-metropol.de/standorte/bremen?lang=tr" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://fahrschule-metropol.de/standorte/bremen?lang=ar" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/standorte/bremen" />
+  </url>
+  <url>
+    <loc>https://fahrschule-metropol.de/standorte/garbsen</loc>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/standorte/garbsen" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://fahrschule-metropol.de/standorte/garbsen?lang=en" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fahrschule-metropol.de/standorte/garbsen?lang=tr" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://fahrschule-metropol.de/standorte/garbsen?lang=ar" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/standorte/garbsen" />
+  </url>
+
+  <!-- ============================================================ -->
+  <!-- 3. LOKALE LANDINGPAGES (Priority 0.8)                         -->
+  <!-- ============================================================ -->
+  <url>
+    <loc>https://fahrschule-metropol.de/fahrschule-hannover</loc>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fahrschule-metropol.de/fahrschule-bremen</loc>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://fahrschule-metropol.de/fahrschule-garbsen</loc>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ============================================================ -->
+  <!-- 4. FÜHRERSCHEINKLASSEN – PKW & Anhänger (Priority 0.8)        -->
+  <!-- ============================================================ -->
   <url>
     <loc>https://fahrschule-metropol.de/fuehrerschein/klasse-b</loc>
     <lastmod>2026-04-16</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
+    <priority>0.85</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/fuehrerschein/klasse-b" />
     <xhtml:link rel="alternate" hreflang="en" href="https://fahrschule-metropol.de/fuehrerschein/klasse-b?lang=en" />
     <xhtml:link rel="alternate" hreflang="tr" href="https://fahrschule-metropol.de/fuehrerschein/klasse-b?lang=tr" />
@@ -49,7 +149,7 @@
     <loc>https://fahrschule-metropol.de/fuehrerschein/klasse-b197</loc>
     <lastmod>2026-04-16</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/fuehrerschein/klasse-b197" />
     <xhtml:link rel="alternate" hreflang="en" href="https://fahrschule-metropol.de/fuehrerschein/klasse-b197?lang=en" />
     <xhtml:link rel="alternate" hreflang="tr" href="https://fahrschule-metropol.de/fuehrerschein/klasse-b197?lang=tr" />
@@ -78,7 +178,10 @@
     <xhtml:link rel="alternate" hreflang="ar" href="https://fahrschule-metropol.de/fuehrerschein/klasse-be?lang=ar" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/fuehrerschein/klasse-be" />
   </url>
-  <!-- Motorrad & Roller -->
+
+  <!-- ============================================================ -->
+  <!-- 5. FÜHRERSCHEINKLASSEN – Motorrad & Roller (Priority 0.7–0.8) -->
+  <!-- ============================================================ -->
   <url>
     <loc>https://fahrschule-metropol.de/fuehrerschein/klasse-a</loc>
     <lastmod>2026-04-16</lastmod>
@@ -89,6 +192,17 @@
     <xhtml:link rel="alternate" hreflang="tr" href="https://fahrschule-metropol.de/fuehrerschein/klasse-a?lang=tr" />
     <xhtml:link rel="alternate" hreflang="ar" href="https://fahrschule-metropol.de/fuehrerschein/klasse-a?lang=ar" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/fuehrerschein/klasse-a" />
+  </url>
+  <url>
+    <loc>https://fahrschule-metropol.de/fuehrerschein/klasse-a2</loc>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/fuehrerschein/klasse-a2" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://fahrschule-metropol.de/fuehrerschein/klasse-a2?lang=en" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fahrschule-metropol.de/fuehrerschein/klasse-a2?lang=tr" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://fahrschule-metropol.de/fuehrerschein/klasse-a2?lang=ar" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/fuehrerschein/klasse-a2" />
   </url>
   <url>
     <loc>https://fahrschule-metropol.de/fuehrerschein/klasse-a1</loc>
@@ -102,33 +216,25 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/fuehrerschein/klasse-a1" />
   </url>
   <url>
-    <loc>https://fahrschule-metropol.de/fuehrerschein/klasse-a2</loc>
-    <lastmod>2026-04-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/fuehrerschein/klasse-a2" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://fahrschule-metropol.de/fuehrerschein/klasse-a2?lang=en" />
-    <xhtml:link rel="alternate" hreflang="tr" href="https://fahrschule-metropol.de/fuehrerschein/klasse-a2?lang=tr" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://fahrschule-metropol.de/fuehrerschein/klasse-a2?lang=ar" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/fuehrerschein/klasse-a2" />
-  </url>
-  <url>
     <loc>https://fahrschule-metropol.de/fuehrerschein/klasse-am</loc>
     <lastmod>2026-04-16</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.65</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/fuehrerschein/klasse-am" />
     <xhtml:link rel="alternate" hreflang="en" href="https://fahrschule-metropol.de/fuehrerschein/klasse-am?lang=en" />
     <xhtml:link rel="alternate" hreflang="tr" href="https://fahrschule-metropol.de/fuehrerschein/klasse-am?lang=tr" />
     <xhtml:link rel="alternate" hreflang="ar" href="https://fahrschule-metropol.de/fuehrerschein/klasse-am?lang=ar" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/fuehrerschein/klasse-am" />
   </url>
-  <!-- LKW & Nutzfahrzeuge -->
+
+  <!-- ============================================================ -->
+  <!-- 6. FÜHRERSCHEINKLASSEN – LKW & Nutzfahrzeuge (Priority 0.7)   -->
+  <!-- ============================================================ -->
   <url>
     <loc>https://fahrschule-metropol.de/fuehrerschein/klasse-c</loc>
     <lastmod>2026-04-16</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/fuehrerschein/klasse-c" />
     <xhtml:link rel="alternate" hreflang="en" href="https://fahrschule-metropol.de/fuehrerschein/klasse-c?lang=en" />
     <xhtml:link rel="alternate" hreflang="tr" href="https://fahrschule-metropol.de/fuehrerschein/klasse-c?lang=tr" />
@@ -139,7 +245,7 @@
     <loc>https://fahrschule-metropol.de/fuehrerschein/klasse-ce</loc>
     <lastmod>2026-04-16</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/fuehrerschein/klasse-ce" />
     <xhtml:link rel="alternate" hreflang="en" href="https://fahrschule-metropol.de/fuehrerschein/klasse-ce?lang=en" />
     <xhtml:link rel="alternate" hreflang="tr" href="https://fahrschule-metropol.de/fuehrerschein/klasse-ce?lang=tr" />
@@ -168,7 +274,10 @@
     <xhtml:link rel="alternate" hreflang="ar" href="https://fahrschule-metropol.de/fuehrerschein/klasse-l?lang=ar" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/fuehrerschein/klasse-l" />
   </url>
-  <!-- Bus -->
+
+  <!-- ============================================================ -->
+  <!-- 7. FÜHRERSCHEINKLASSEN – Bus (Priority 0.7)                   -->
+  <!-- ============================================================ -->
   <url>
     <loc>https://fahrschule-metropol.de/fuehrerschein/klasse-d</loc>
     <lastmod>2026-04-16</lastmod>
@@ -191,120 +300,15 @@
     <xhtml:link rel="alternate" hreflang="ar" href="https://fahrschule-metropol.de/fuehrerschein/klasse-de?lang=ar" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/fuehrerschein/klasse-de" />
   </url>
-  <!-- Weitere Seiten -->
-  <url>
-    <loc>https://fahrschule-metropol.de/preise</loc>
-    <lastmod>2026-04-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/preise" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://fahrschule-metropol.de/preise?lang=en" />
-    <xhtml:link rel="alternate" hreflang="tr" href="https://fahrschule-metropol.de/preise?lang=tr" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://fahrschule-metropol.de/preise?lang=ar" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/preise" />
-  </url>
-  <url>
-    <loc>https://fahrschule-metropol.de/faq</loc>
-    <lastmod>2026-04-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/faq" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://fahrschule-metropol.de/faq?lang=en" />
-    <xhtml:link rel="alternate" hreflang="tr" href="https://fahrschule-metropol.de/faq?lang=tr" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://fahrschule-metropol.de/faq?lang=ar" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/faq" />
-  </url>
-  <url>
-    <loc>https://fahrschule-metropol.de/kontakt</loc>
-    <lastmod>2026-04-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/kontakt" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://fahrschule-metropol.de/kontakt?lang=en" />
-    <xhtml:link rel="alternate" hreflang="tr" href="https://fahrschule-metropol.de/kontakt?lang=tr" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://fahrschule-metropol.de/kontakt?lang=ar" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/kontakt" />
-  </url>
-  <url>
-    <loc>https://fahrschule-metropol.de/standorte</loc>
-    <lastmod>2026-04-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/standorte" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://fahrschule-metropol.de/standorte?lang=en" />
-    <xhtml:link rel="alternate" hreflang="tr" href="https://fahrschule-metropol.de/standorte?lang=tr" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://fahrschule-metropol.de/standorte?lang=ar" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/standorte" />
-  </url>
-  <url>
-    <loc>https://fahrschule-metropol.de/standorte/hannover</loc>
-    <lastmod>2026-04-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/standorte/hannover" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://fahrschule-metropol.de/standorte/hannover?lang=en" />
-    <xhtml:link rel="alternate" hreflang="tr" href="https://fahrschule-metropol.de/standorte/hannover?lang=tr" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://fahrschule-metropol.de/standorte/hannover?lang=ar" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/standorte/hannover" />
-  </url>
-  <url>
-    <loc>https://fahrschule-metropol.de/standorte/garbsen</loc>
-    <lastmod>2026-04-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/standorte/garbsen" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://fahrschule-metropol.de/standorte/garbsen?lang=en" />
-    <xhtml:link rel="alternate" hreflang="tr" href="https://fahrschule-metropol.de/standorte/garbsen?lang=tr" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://fahrschule-metropol.de/standorte/garbsen?lang=ar" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/standorte/garbsen" />
-  </url>
-  <url>
-    <loc>https://fahrschule-metropol.de/standorte/bremen</loc>
-    <lastmod>2026-04-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/standorte/bremen" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://fahrschule-metropol.de/standorte/bremen?lang=en" />
-    <xhtml:link rel="alternate" hreflang="tr" href="https://fahrschule-metropol.de/standorte/bremen?lang=tr" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://fahrschule-metropol.de/standorte/bremen?lang=ar" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/standorte/bremen" />
-  </url>
-  <!-- Lokale Keyword Landingpages -->
-  <url>
-    <loc>https://fahrschule-metropol.de/fahrschule-hannover</loc>
-    <lastmod>2026-04-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://fahrschule-metropol.de/fahrschule-bremen</loc>
-    <lastmod>2026-04-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://fahrschule-metropol.de/fahrschule-garbsen</loc>
-    <lastmod>2026-04-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <!-- Crashkurs / Intensivkurs Landingpage -->
-  <url>
-    <loc>https://fahrschule-metropol.de/crashkurs</loc>
-    <lastmod>2026-04-16</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/crashkurs" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://fahrschule-metropol.de/crashkurs?lang=en" />
-    <xhtml:link rel="alternate" hreflang="tr" href="https://fahrschule-metropol.de/crashkurs?lang=tr" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://fahrschule-metropol.de/crashkurs?lang=ar" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/crashkurs" />
-  </url>
+
+  <!-- ============================================================ -->
+  <!-- 8. ZUSATZKURSE & SERVICE (Priority 0.7)                       -->
+  <!-- ============================================================ -->
   <url>
     <loc>https://fahrschule-metropol.de/erste-hilfe</loc>
     <lastmod>2026-04-16</lastmod>
     <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
+    <priority>0.75</priority>
     <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/erste-hilfe" />
     <xhtml:link rel="alternate" hreflang="en" href="https://fahrschule-metropol.de/erste-hilfe?lang=en" />
     <xhtml:link rel="alternate" hreflang="tr" href="https://fahrschule-metropol.de/erste-hilfe?lang=tr" />
@@ -322,6 +326,32 @@
     <xhtml:link rel="alternate" hreflang="ar" href="https://fahrschule-metropol.de/aufbauseminar?lang=ar" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/aufbauseminar" />
   </url>
+  <url>
+    <loc>https://fahrschule-metropol.de/faq</loc>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/faq" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://fahrschule-metropol.de/faq?lang=en" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fahrschule-metropol.de/faq?lang=tr" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://fahrschule-metropol.de/faq?lang=ar" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/faq" />
+  </url>
+  <url>
+    <loc>https://fahrschule-metropol.de/ueber-uns</loc>
+    <lastmod>2026-04-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/ueber-uns" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://fahrschule-metropol.de/ueber-uns?lang=en" />
+    <xhtml:link rel="alternate" hreflang="tr" href="https://fahrschule-metropol.de/ueber-uns?lang=tr" />
+    <xhtml:link rel="alternate" hreflang="ar" href="https://fahrschule-metropol.de/ueber-uns?lang=ar" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/ueber-uns" />
+  </url>
+
+  <!-- ============================================================ -->
+  <!-- 9. RECHTLICHES (Priority 0.3)                                 -->
+  <!-- ============================================================ -->
   <url>
     <loc>https://fahrschule-metropol.de/datenschutz</loc>
     <lastmod>2026-04-16</lastmod>
@@ -344,4 +374,5 @@
     <xhtml:link rel="alternate" hreflang="ar" href="https://fahrschule-metropol.de/impressum?lang=ar" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/impressum" />
   </url>
+
 </urlset>
