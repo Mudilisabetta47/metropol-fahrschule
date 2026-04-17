@@ -78,6 +78,17 @@ const ContactForm = ({ preselectedLocation, compact }: ContactFormProps) => {
 
       setSubmittedName(form.name.trim().split(" ")[0]);
       setSubmitted(true);
+
+      // Google Ads Conversion Tracking
+      // TODO: Replace AW-XXXXXXXXXX/AbCdEfGhIjKlMnOpQr with your Conversion ID/Label
+      if (typeof window !== "undefined" && typeof (window as any).gtag === "function") {
+        (window as any).gtag("event", "conversion", {
+          send_to: "AW-XXXXXXXXXX/AbCdEfGhIjKlMnOpQr",
+          value: 1.0,
+          currency: "EUR",
+        });
+      }
+
       setForm({ name: "", phone: "", email: "", location: preselectedLocation || "", license_class: "", message: "" });
       setConsent(false);
       setTurnstileToken(null);
