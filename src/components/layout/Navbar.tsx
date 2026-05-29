@@ -19,6 +19,16 @@ const Navbar = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
   const location = useLocation();
+  const [preferredLocation, setPreferredLocation] = useState<string | null>(null);
+
+  useEffect(() => {
+    setPreferredLocation(getPreferredLocation());
+    const handler = () => setPreferredLocation(getPreferredLocation());
+    window.addEventListener(LOCATION_CHANGED_EVENT, handler);
+    return () => window.removeEventListener(LOCATION_CHANGED_EVENT, handler);
+  }, []);
+
+  const openLocationModal = () => window.dispatchEvent(new Event(OPEN_LOCATION_MODAL_EVENT));
 
   const fuehrerscheinDropdown = [
     { label: t("nav.licenseClasses"), path: "/fuehrerscheinklassen" },
