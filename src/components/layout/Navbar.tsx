@@ -190,8 +190,23 @@ const Navbar = () => {
             })}
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden lg:flex items-center">
+          {/* CTA Button + Location Switcher */}
+          <div className="hidden lg:flex items-center gap-2">
+            <button
+              onClick={openLocationModal}
+              aria-label="Standort wechseln"
+              className={`group flex items-center gap-2 rounded-full border px-3.5 py-2 text-[13px] font-semibold transition-all duration-200 ${
+                showSolid
+                  ? "border-border bg-card text-foreground hover:border-primary hover:text-primary"
+                  : "border-primary-foreground/20 bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20"
+              }`}
+            >
+              <MapPin className="h-4 w-4 text-primary" />
+              <span className="hidden xl:inline">
+                {preferredLocation ? preferredLocation : "Standort"}
+              </span>
+              <span className="xl:hidden">{preferredLocation ?? "Standort"}</span>
+            </button>
             <Button asChild className="group rounded-full pl-1.5 pr-6 py-2 h-12 gap-3 gradient-primary text-primary-foreground font-bold text-[15px] shadow-cta hover:shadow-glow transition-all duration-300 border-0">
               <Link to="/kontakt">
                 <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-foreground/20 transition-all duration-300 group-hover:bg-primary-foreground/30">
