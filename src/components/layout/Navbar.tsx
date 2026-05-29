@@ -1,10 +1,15 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ArrowRight, ChevronDown } from "lucide-react";
+import { Menu, X, ArrowRight, ChevronDown, MapPin } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import logoImage from "@/assets/logo.avif";
+import {
+  OPEN_LOCATION_MODAL_EVENT,
+  LOCATION_CHANGED_EVENT,
+  getPreferredLocation,
+} from "@/components/LocationWelcomeModal";
 
 const Navbar = () => {
   const { t } = useTranslation();
