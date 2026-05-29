@@ -4,46 +4,46 @@ import { motion, AnimatePresence } from "framer-motion";
 import { MapPin, X, ArrowRight } from "lucide-react";
 
 const STORAGE_KEY = "metropol_preferred_location";
+export const OPEN_LOCATION_MODAL_EVENT = "open-location-modal";
+export const LOCATION_CHANGED_EVENT = "location-changed";
+
+export const getPreferredLocation = () => {
+  if (typeof window === "undefined") return null;
+  const v = localStorage.getItem(STORAGE_KEY);
+  return v && v !== "skipped" ? v : null;
+};
 
 const locations = [
-  {
-    name: "Hannover",
-    path: "/standorte/hannover",
-    address: "Engelbosteler Damm 1",
-    zip: "30167 Hannover",
-  },
-  {
-    name: "Garbsen",
-    path: "/standorte/garbsen",
-    address: "Planetenring 25–27",
-    zip: "30823 Garbsen",
-  },
-  {
-    name: "Bremen",
-    path: "/standorte/bremen",
-    address: "Bahnhofsplatz 41",
-    zip: "28195 Bremen",
-  },
+  { name: "Hannover", path: "/standorte/hannover", address: "Engelbosteler Damm 1", zip: "30167 Hannover" },
+  { name: "Garbsen", path: "/standorte/garbsen", address: "Planetenring 25–27", zip: "30823 Garbsen" },
+  { name: "Bremen", path: "/standorte/bremen", address: "Bahnhofsplatz 41", zip: "28195 Bremen" },
 ];
 
-const LocationWelcomeModal = () => {
+const LocationWelcomeModal = ({ autoOpen = false }: { autoOpen?: boolean }) => {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) return;
-    const timer = setTimeout(() => setOpen(true), 1200);
-    return () => clearTimeout(timer);
+    if (autoOpen && !localStorage.getItem(STORAGE_KEY)) {
+      const timer = setTimeout(() => setOpen(true), 1200);
+      return () => clearTimeout(timer);
+    }
+  }, [autoOpen]);
+
+  useEffect(() => {
+    const handler = () => setOpen(true);
+    window.addEventListener(OPEN_LOCATION_MODAL_EVENT, handler);
+    return () => window.removeEventListener(OPEN_LOCATION_MODAL_EVENT, handler);
   }, []);
 
   const dismiss = () => {
-    localStorage.setItem(STORAGE_KEY, "skipped");
+    if (!localStorage.getItem(STORAGE_KEY)) localStorage.setItem(STORAGE_KEY, "skipped");
     setOpen(false);
   };
 
   const choose = (name: string) => {
     localStorage.setItem(STORAGE_KEY, name);
+    window.dispatchEvent(new CustomEvent(LOCATION_CHANGED_EVENT, { detail: name }));
     setOpen(false);
   };
 
@@ -78,13 +78,13 @@ const LocationWelcomeModal = () => {
                 <MapPin className="h-7 w-7" />
               </div>
               <span className="inline-block rounded-full bg-primary/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-primary">
-                Willkommen
+                Standort wählen
               </span>
               <h2 className="mt-3 text-2xl font-bold text-foreground font-display md:text-3xl">
                 Welcher Standort passt zu dir?
               </h2>
               <p className="mt-2 text-sm text-muted-foreground md:text-base">
-                Wähle deinen Wunsch-Standort – wir zeigen dir direkt Öffnungszeiten, Kontakt und Anmeldung.
+                Wähle deinen Wunsch-Standort – du kannst die Auswahl jederzeit über den Button im Header ändern.
               </p>
             </div>
 

@@ -1,10 +1,15 @@
 import { useState, useEffect, useRef } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ArrowRight, ChevronDown } from "lucide-react";
+import { Menu, X, ArrowRight, ChevronDown, MapPin } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import logoImage from "@/assets/logo.avif";
+import {
+  OPEN_LOCATION_MODAL_EVENT,
+  LOCATION_CHANGED_EVENT,
+  getPreferredLocation,
+} from "@/components/LocationWelcomeModal";
 
 const Navbar = () => {
   const { t } = useTranslation();
@@ -14,6 +19,16 @@ const Navbar = () => {
   const dropdownRef = useRef<HTMLDivElement>(null);
   const timeoutRef = useRef<ReturnType<typeof setTimeout>>();
   const location = useLocation();
+  const [preferredLocation, setPreferredLocation] = useState<string | null>(null);
+
+  useEffect(() => {
+    setPreferredLocation(getPreferredLocation());
+    const handler = () => setPreferredLocation(getPreferredLocation());
+    window.addEventListener(LOCATION_CHANGED_EVENT, handler);
+    return () => window.removeEventListener(LOCATION_CHANGED_EVENT, handler);
+  }, []);
+
+  const openLocationModal = () => window.dispatchEvent(new Event(OPEN_LOCATION_MODAL_EVENT));
 
   const fuehrerscheinDropdown = [
     { label: t("nav.licenseClasses"), path: "/fuehrerscheinklassen" },
@@ -175,8 +190,23 @@ const Navbar = () => {
             })}
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden lg:flex items-center">
+          {/* CTA Button + Location Switcher */}
+          <div className="hidden lg:flex items-center gap-2">
+            <button
+              onClick={openLocationModal}
+              aria-label="Standort wechseln"
+              className={`group flex items-center gap-2 rounded-full border px-3.5 py-2 text-[13px] font-semibold transition-all duration-200 ${
+                showSolid
+                  ? "border-border bg-card text-foreground hover:border-primary hover:text-primary"
+                  : "border-primary-foreground/20 bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20"
+              }`}
+            >
+              <MapPin className="h-4 w-4 text-primary" />
+              <span className="hidden xl:inline">
+                {preferredLocation ? preferredLocation : "Standort"}
+              </span>
+              <span className="xl:hidden">{preferredLocation ?? "Standort"}</span>
+            </button>
             <Button asChild className="group rounded-full pl-1.5 pr-6 py-2 h-12 gap-3 gradient-primary text-primary-foreground font-bold text-[15px] shadow-cta hover:shadow-glow transition-all duration-300 border-0">
               <Link to="/kontakt">
                 <span className="flex h-9 w-9 items-center justify-center rounded-full bg-primary-foreground/20 transition-all duration-300 group-hover:bg-primary-foreground/30">
@@ -187,17 +217,31 @@ const Navbar = () => {
             </Button>
           </div>
 
-          {/* Mobile toggle */}
-          <button
-            onClick={() => setOpen(!open)}
-            aria-expanded={open}
-            aria-label={open ? "Menü schließen" : "Menü öffnen"}
-            className={`flex h-10 w-10 items-center justify-center rounded-xl transition-colors lg:hidden ${
-              showSolid ? "text-foreground hover:bg-secondary" : "text-primary-foreground hover:bg-primary-foreground/10"
-            }`}
-          >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
+          {/* Mobile: location + menu toggle */}
+          <div className="flex items-center gap-1.5 lg:hidden">
+            <button
+              onClick={openLocationModal}
+              aria-label="Standort wechseln"
+              className={`flex h-10 items-center gap-1.5 rounded-xl px-3 text-xs font-semibold transition-colors ${
+                showSolid
+                  ? "bg-secondary text-foreground hover:bg-accent"
+                  : "bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20"
+              }`}
+            >
+              <MapPin className="h-4 w-4 text-primary" />
+              <span className="max-w-[80px] truncate">{preferredLocation ?? "Standort"}</span>
+            </button>
+            <button
+              onClick={() => setOpen(!open)}
+              aria-expanded={open}
+              aria-label={open ? "Menü schließen" : "Menü öffnen"}
+              className={`flex h-10 w-10 items-center justify-center rounded-xl transition-colors ${
+                showSolid ? "text-foreground hover:bg-secondary" : "text-primary-foreground hover:bg-primary-foreground/10"
+              }`}
+            >
+              {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile menu */}

@@ -8,6 +8,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import CookieBanner from "@/components/CookieBanner";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
+import LocationWelcomeModal from "@/components/LocationWelcomeModal";
 
 /* Eagerly load landing page for fast FCP */
 import Index from "./pages/Index";
@@ -83,6 +84,7 @@ const App = () => (
         <Footer />
         <CookieBanner />
         <LanguageSwitcher />
+        <LocationWelcomeModal autoOpen />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
