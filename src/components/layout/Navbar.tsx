@@ -217,17 +217,31 @@ const Navbar = () => {
             </Button>
           </div>
 
-          {/* Mobile toggle */}
-          <button
-            onClick={() => setOpen(!open)}
-            aria-expanded={open}
-            aria-label={open ? "Menü schließen" : "Menü öffnen"}
-            className={`flex h-10 w-10 items-center justify-center rounded-xl transition-colors lg:hidden ${
-              showSolid ? "text-foreground hover:bg-secondary" : "text-primary-foreground hover:bg-primary-foreground/10"
-            }`}
-          >
-            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
-          </button>
+          {/* Mobile: location + menu toggle */}
+          <div className="flex items-center gap-1.5 lg:hidden">
+            <button
+              onClick={openLocationModal}
+              aria-label="Standort wechseln"
+              className={`flex h-10 items-center gap-1.5 rounded-xl px-3 text-xs font-semibold transition-colors ${
+                showSolid
+                  ? "bg-secondary text-foreground hover:bg-accent"
+                  : "bg-primary-foreground/10 text-primary-foreground hover:bg-primary-foreground/20"
+              }`}
+            >
+              <MapPin className="h-4 w-4 text-primary" />
+              <span className="max-w-[80px] truncate">{preferredLocation ?? "Standort"}</span>
+            </button>
+            <button
+              onClick={() => setOpen(!open)}
+              aria-expanded={open}
+              aria-label={open ? "Menü schließen" : "Menü öffnen"}
+              className={`flex h-10 w-10 items-center justify-center rounded-xl transition-colors ${
+                showSolid ? "text-foreground hover:bg-secondary" : "text-primary-foreground hover:bg-primary-foreground/10"
+              }`}
+            >
+              {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile menu */}
