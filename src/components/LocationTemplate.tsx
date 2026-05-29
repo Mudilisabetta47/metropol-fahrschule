@@ -21,6 +21,7 @@ interface LocationData {
   seoDescription: string;
   seoKeywords?: string;
   image?: string;
+  notice?: { title: string; text: string };
 }
 
 const LocationTemplate = ({ data }: { data: LocationData }) => {
