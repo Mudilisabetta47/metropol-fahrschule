@@ -273,6 +273,7 @@ const Index = () => {
 
   return (
     <div className="min-h-screen">
+      <LocationWelcomeModal />
       <SEO
         title={t("index.seoTitle")}
         description={t("index.seoDesc")}
