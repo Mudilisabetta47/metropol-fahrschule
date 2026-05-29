@@ -84,6 +84,7 @@ const App = () => (
         <Footer />
         <CookieBanner />
         <LanguageSwitcher />
+        <LocationWelcomeModal autoOpen />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
