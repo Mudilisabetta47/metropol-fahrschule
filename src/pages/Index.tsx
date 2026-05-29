@@ -36,7 +36,6 @@ import { useCountUp } from "@/hooks/useCountUp";
 import { useSiteImages } from "@/hooks/useSiteImage";
 import { useTranslation } from "react-i18next";
 import SEO from "@/components/SEO";
-import LocationWelcomeModal from "@/components/LocationWelcomeModal";
 
 const locationPills = ["Hannover", "Garbsen", "Bremen"];
 
