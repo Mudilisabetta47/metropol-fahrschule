@@ -22,6 +22,10 @@ const Garbsen = () => (
       seoDescription: "Fahrschule Metropol Garbsen: Fahrausbildung in familiärer Atmosphäre. Eigener Parkplatz, flexible Termine. Klasse B, Motorrad & mehr. Jetzt anmelden!",
       seoKeywords: "Fahrschule Garbsen Standort, Fahrschule Planetenring, Öffnungszeiten Fahrschule Garbsen, Fahrschule Garbsen Kontakt, Beste Fahrschule Garbsen, Fahrschule Garbsen Bewertung, Fahrschule Region Hannover Standort, Führerschein Garbsen günstig",
       image: locationImage,
+      notice: {
+        title: "Neue Theoriezeiten ab 01.07. in Garbsen",
+        text: "Ab dem 01. Juli findet der Theorieunterricht am Standort Garbsen jeden Montag, Dienstag und Donnerstag von 18:30 bis 20:00 Uhr statt. Bitte plane deine Termine entsprechend!",
+      },
     }}
   />
 );

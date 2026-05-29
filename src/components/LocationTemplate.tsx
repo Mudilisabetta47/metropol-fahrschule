@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, Clock, Navigation } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Navigation, Megaphone } from "lucide-react";
 import { Link } from "react-router-dom";
 import InternalLinks from "@/components/InternalLinks";
 import ContactForm from "@/components/ContactForm";
@@ -21,6 +21,7 @@ interface LocationData {
   seoDescription: string;
   seoKeywords?: string;
   image?: string;
+  notice?: { title: string; text: string };
 }
 
 const LocationTemplate = ({ data }: { data: LocationData }) => {
@@ -108,6 +109,35 @@ const LocationTemplate = ({ data }: { data: LocationData }) => {
         <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mx-auto mb-12 max-w-3xl">
           <p className="text-muted-foreground leading-relaxed">{data.longDescription}</p>
         </motion.div>
+
+        {data.notice && (
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="mx-auto mb-10 max-w-4xl"
+          >
+            <div className="relative overflow-hidden rounded-3xl border-2 border-primary/40 bg-primary/10 p-6 shadow-glow md:p-8">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/15 via-transparent to-transparent" />
+              <div className="relative flex flex-col gap-4 md:flex-row md:items-start">
+                <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary text-primary-foreground shadow-md">
+                  <Megaphone className="h-6 w-6" />
+                </div>
+                <div className="flex-1">
+                  <span className="mb-1 inline-block rounded-full bg-primary px-3 py-1 text-[10px] font-bold uppercase tracking-[0.18em] text-primary-foreground">
+                    Neu · Wichtige Info
+                  </span>
+                  <h2 className="mt-2 text-xl font-bold text-foreground font-display md:text-2xl">
+                    {data.notice.title}
+                  </h2>
+                  <p className="mt-2 text-sm leading-relaxed text-foreground/80 md:text-base">
+                    {data.notice.text}
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        )}
 
         <div className="grid gap-8 lg:grid-cols-2">
           <div className="space-y-6">
