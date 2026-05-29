@@ -1,4 +1,4 @@
-import { MapPin, Phone, Mail, Clock, Navigation } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Navigation, Megaphone } from "lucide-react";
 import { Link } from "react-router-dom";
 import InternalLinks from "@/components/InternalLinks";
 import ContactForm from "@/components/ContactForm";
