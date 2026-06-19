@@ -52,20 +52,30 @@ const LocationTemplate = ({ data }: { data: LocationData }) => {
         : data.name === "Garbsen"
         ? { "@type": "GeoCoordinates", latitude: 52.4163, longitude: 9.5980 }
         : { "@type": "GeoCoordinates", latitude: 53.0833, longitude: 8.8137 },
-      openingHoursSpecification: [
-        {
-          "@type": "OpeningHoursSpecification",
-          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-          opens: "10:00",
-          closes: "13:30",
-        },
-        {
-          "@type": "OpeningHoursSpecification",
-          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-          opens: "14:30",
-          closes: "19:00",
-        },
-      ],
+      openingHoursSpecification:
+        data.name === "Garbsen"
+          ? [
+              {
+                "@type": "OpeningHoursSpecification",
+                dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                opens: "14:30",
+                closes: "18:30",
+              },
+            ]
+          : [
+              {
+                "@type": "OpeningHoursSpecification",
+                dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                opens: "10:00",
+                closes: "13:30",
+              },
+              {
+                "@type": "OpeningHoursSpecification",
+                dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+                opens: "14:30",
+                closes: "19:00",
+              },
+            ],
       aggregateRating: { "@type": "AggregateRating", ratingValue: "4.9", reviewCount: "127" },
       sameAs: [
         "https://www.instagram.com/fahrschulemetropol/",
