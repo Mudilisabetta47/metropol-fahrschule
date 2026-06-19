@@ -10,7 +10,7 @@ const Garbsen = () => (
       phone: "05137 8903395",
       email: "garbsen@fahrschule-metropol.de",
       hours: [
-        "Mo–Fr: 10:00–13:30, 14:30–18:30 Uhr",
+        "Mo–Fr: 14:30–18:30 Uhr",
         "Sa–So: Geschlossen",
         "Theorieunterricht ab 01.07.: Mo, Di & Do 18:30–20:00 Uhr",
       ],
