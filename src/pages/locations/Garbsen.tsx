@@ -24,7 +24,7 @@ const Garbsen = () => (
       image: locationImage,
       notice: {
         title: "Neue Theoriezeiten ab 01.07. in Garbsen",
-        text: "Ab dem 01. Juli findet der Theorieunterricht am Standort Garbsen jeden Montag, Dienstag und Donnerstag von 18:30 bis 20:00 Uhr statt. Bitte plane deine Termine entsprechend!",
+        text: "Ab dem 01. Juli findet der Theorieunterricht am Standort Garbsen jeden Montag, Dienstag und Mittwoch von 18:30 bis 20:00 Uhr statt. Bitte plane deine Termine entsprechend!",
       },
     }}
   />
