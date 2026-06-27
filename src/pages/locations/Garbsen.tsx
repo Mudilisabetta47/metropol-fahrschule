@@ -12,7 +12,7 @@ const Garbsen = () => (
       hours: [
         "Mo–Fr: 14:30–18:30 Uhr",
         "Sa–So: Geschlossen",
-        "Theorieunterricht ab 01.07.: Mo, Di & Do 18:30–20:00 Uhr",
+        "Theorieunterricht ab 01.07.: Mo, Di & Mi 18:30–20:00 Uhr",
       ],
       description: "Deine Fahrschule in Garbsen – entspannte Atmosphäre, eigener Parkplatz und top Anbindung.",
       longDescription: "In Garbsen bietet die Fahrschule Metropol eine erstklassige Fahrausbildung in familiärer Atmosphäre. Unser Standort liegt zentral am Planetenring und ist gut erreichbar mit ÖPNV. Das Garbsener Team legt besonderen Wert auf geduldige, individuelle Betreuung. Die ruhigeren Straßenverhältnisse in Garbsen eignen sich hervorragend für den Einstieg, bevor es in den Stadtverkehr nach Hannover geht. Auch Intensivkurse und Ferienkurse bieten wir hier regelmäßig an.",
@@ -24,7 +24,7 @@ const Garbsen = () => (
       image: locationImage,
       notice: {
         title: "Neue Theoriezeiten ab 01.07. in Garbsen",
-        text: "Ab dem 01. Juli findet der Theorieunterricht am Standort Garbsen jeden Montag, Dienstag und Donnerstag von 18:30 bis 20:00 Uhr statt. Bitte plane deine Termine entsprechend!",
+        text: "Ab dem 01. Juli findet der Theorieunterricht am Standort Garbsen jeden Montag, Dienstag und Mittwoch von 18:30 bis 20:00 Uhr statt. Bitte plane deine Termine entsprechend!",
       },
     }}
   />
