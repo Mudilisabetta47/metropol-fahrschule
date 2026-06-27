@@ -61,6 +61,14 @@ const LocationTemplate = ({ data }: { data: LocationData }) => {
                 opens: "14:30",
                 closes: "18:30",
               },
+              {
+                "@type": "OpeningHoursSpecification",
+                name: "Theorieunterricht",
+                dayOfWeek: ["Monday", "Tuesday", "Wednesday"],
+                opens: "18:30",
+                closes: "20:00",
+                validFrom: "2026-07-01",
+              },
             ]
           : [
               {
