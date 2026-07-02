@@ -22,16 +22,34 @@ export const priceData: LocationPrices[] = [
       {
         klasse: "B",
         items: [
-          { leistung: "Grundbetrag", preis: "175,00€" },
-          { leistung: "Lehrmaterial", preis: "70,00€" },
-          { leistung: "Übungsfahrt (45 Min)", preis: "55,00€" },
-          { leistung: "Überlandfahrt (45 Min)", preis: "65,00€" },
-          { leistung: "Autobahnfahrt (45 Min)", preis: "65,00€" },
-          { leistung: "Nachtfahrt (45 Min)", preis: "65,00€" },
-          { leistung: "Vorstellung theoretische Prüfung", preis: "50,00€" },
-          { leistung: "TÜV theoretische Prüfung", preis: "24,99€" },
-          { leistung: "Vorstellung praktische Prüfung", preis: "160,00€" },
-          { leistung: "TÜV praktische Prüfung", preis: "129,83€" },
+          { leistung: "Grundbetrag", preis: "200,00€" },
+          { leistung: "Übungsfahrt (45 Min)", preis: "60,00€" },
+          { leistung: "Sonderfahrt (45 Min)", preis: "70,00€" },
+          { leistung: "Testfahrt B197", preis: "50,00€" },
+          { leistung: "Prüfgebühr Theorie", preis: "50,00€" },
+          { leistung: "Prüfgebühr Praxis", preis: "200,00€" },
+        ],
+      },
+      {
+        klasse: "B96",
+        items: [
+          { leistung: "Pauschal (6 × 45 Min Fahrstunden, 150 Min Theorie)", preis: "490,00€" },
+        ],
+      },
+      {
+        klasse: "B196",
+        items: [
+          { leistung: "Kursentgelt (10 × 45 Min Fahrstunden, 4 × 90 Min Theorie)", preis: "750,00€" },
+        ],
+      },
+      {
+        klasse: "Umschreiber",
+        items: [
+          { leistung: "Grundbetrag", preis: "200,00€" },
+          { leistung: "Übungsfahrt (45 Min)", preis: "70,00€" },
+          { leistung: "Testfahrt B197", preis: "50,00€" },
+          { leistung: "Prüfgebühr Theorie", preis: "50,00€" },
+          { leistung: "Prüfgebühr Praxis", preis: "200,00€" },
         ],
       },
       {
@@ -76,13 +94,10 @@ export const priceData: LocationPrices[] = [
       {
         klasse: "BE",
         items: [
-          { leistung: "Grundbetrag", preis: "175,00€" },
-          { leistung: "Übungsfahrt (45 Min)", preis: "60,00€" },
-          { leistung: "Überlandfahrt (45 Min)", preis: "70,00€" },
-          { leistung: "Autobahnfahrt (45 Min)", preis: "70,00€" },
-          { leistung: "Nachtfahrt (45 Min)", preis: "70,00€" },
-          { leistung: "Vorstellung praktische Prüfung", preis: "185,00€" },
-          { leistung: "TÜV praktische Prüfung", preis: "129,83€" },
+          { leistung: "Grundbetrag", preis: "200,00€" },
+          { leistung: "Übungsfahrt (45 Min)", preis: "65,00€" },
+          { leistung: "Sonderfahrt (45 Min)", preis: "75,00€" },
+          { leistung: "Prüfgebühr Praxis", preis: "225,00€" },
         ],
       },
       {
@@ -173,15 +188,33 @@ export const priceData: LocationPrices[] = [
         klasse: "B",
         items: [
           { leistung: "Grundbetrag", preis: "200,00€" },
-          { leistung: "Lehrmaterial", preis: "70,00€" },
-          { leistung: "Übungsfahrt (45 Min)", preis: "55,00€" },
-          { leistung: "Überlandfahrt (45 Min)", preis: "65,00€" },
-          { leistung: "Autobahnfahrt (45 Min)", preis: "65,00€" },
-          { leistung: "Nachtfahrt (45 Min)", preis: "65,00€" },
-          { leistung: "Vorstellung theoretische Prüfung", preis: "50,00€" },
-          { leistung: "TÜV theoretische Prüfung", preis: "24,99€" },
-          { leistung: "Vorstellung praktische Prüfung", preis: "160,00€" },
-          { leistung: "TÜV praktische Prüfung", preis: "129,83€" },
+          { leistung: "Übungsfahrt (45 Min)", preis: "60,00€" },
+          { leistung: "Sonderfahrt (45 Min)", preis: "70,00€" },
+          { leistung: "Testfahrt B197", preis: "50,00€" },
+          { leistung: "Prüfgebühr Theorie", preis: "50,00€" },
+          { leistung: "Prüfgebühr Praxis", preis: "200,00€" },
+        ],
+      },
+      {
+        klasse: "B96",
+        items: [
+          { leistung: "Pauschal (6 × 45 Min Fahrstunden, 150 Min Theorie)", preis: "490,00€" },
+        ],
+      },
+      {
+        klasse: "B196",
+        items: [
+          { leistung: "Kursentgelt (10 × 45 Min Fahrstunden, 4 × 90 Min Theorie)", preis: "750,00€" },
+        ],
+      },
+      {
+        klasse: "Umschreiber",
+        items: [
+          { leistung: "Grundbetrag", preis: "200,00€" },
+          { leistung: "Übungsfahrt (45 Min)", preis: "70,00€" },
+          { leistung: "Testfahrt B197", preis: "50,00€" },
+          { leistung: "Prüfgebühr Theorie", preis: "50,00€" },
+          { leistung: "Prüfgebühr Praxis", preis: "200,00€" },
         ],
       },
       {
@@ -226,13 +259,10 @@ export const priceData: LocationPrices[] = [
       {
         klasse: "BE",
         items: [
-          { leistung: "Grundbetrag", preis: "175,00€" },
-          { leistung: "Übungsfahrt (45 Min)", preis: "60,00€" },
-          { leistung: "Überlandfahrt (45 Min)", preis: "70,00€" },
-          { leistung: "Autobahnfahrt (45 Min)", preis: "70,00€" },
-          { leistung: "Nachtfahrt (45 Min)", preis: "70,00€" },
-          { leistung: "Vorstellung praktische Prüfung", preis: "185,00€" },
-          { leistung: "TÜV praktische Prüfung", preis: "129,83€" },
+          { leistung: "Grundbetrag", preis: "200,00€" },
+          { leistung: "Übungsfahrt (45 Min)", preis: "65,00€" },
+          { leistung: "Sonderfahrt (45 Min)", preis: "75,00€" },
+          { leistung: "Prüfgebühr Praxis", preis: "225,00€" },
         ],
       },
       {
