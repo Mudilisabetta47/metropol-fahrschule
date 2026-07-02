@@ -259,13 +259,10 @@ export const priceData: LocationPrices[] = [
       {
         klasse: "BE",
         items: [
-          { leistung: "Grundbetrag", preis: "175,00€" },
-          { leistung: "Übungsfahrt (45 Min)", preis: "60,00€" },
-          { leistung: "Überlandfahrt (45 Min)", preis: "70,00€" },
-          { leistung: "Autobahnfahrt (45 Min)", preis: "70,00€" },
-          { leistung: "Nachtfahrt (45 Min)", preis: "70,00€" },
-          { leistung: "Vorstellung praktische Prüfung", preis: "185,00€" },
-          { leistung: "TÜV praktische Prüfung", preis: "129,83€" },
+          { leistung: "Grundbetrag", preis: "200,00€" },
+          { leistung: "Übungsfahrt (45 Min)", preis: "65,00€" },
+          { leistung: "Sonderfahrt (45 Min)", preis: "75,00€" },
+          { leistung: "Prüfgebühr Praxis", preis: "225,00€" },
         ],
       },
       {
