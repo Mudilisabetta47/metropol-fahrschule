@@ -12,6 +12,9 @@ import heroImage from "@/assets/hero-driving.jpg";
 
 const categoryMap: Record<string, { label: string; icon: React.ElementType }> = {
   B: { label: "PKW", icon: Car },
+  B96: { label: "PKW + Anhänger", icon: Car },
+  B196: { label: "Motorrad-Erweiterung", icon: Bike },
+  Umschreiber: { label: "Umschreibung / Wiedererteilung", icon: Car },
   A: { label: "Motorrad", icon: Bike },
   A1: { label: "Motorrad", icon: Bike },
   A2: { label: "Motorrad", icon: Bike },
