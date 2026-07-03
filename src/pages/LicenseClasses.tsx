@@ -123,7 +123,6 @@ const LicenseClasses = () => {
               </Button>
               <Button variant="outline" size="lg" asChild>
                 <a href="#klassen">Alle Klassen ansehen</a>
-ull
               </Button>
             </div>
           </motion.div>
