@@ -1,10 +1,102 @@
-import { MapPin, Phone, Mail, Clock, Navigation, Megaphone } from "lucide-react";
+import { MapPin, Phone, Mail, Clock, Navigation, Megaphone, CheckCircle, Car, Bike, Truck, ArrowRight, HelpCircle, Heart, BookOpen } from "lucide-react";
 import { Link } from "react-router-dom";
 import InternalLinks from "@/components/InternalLinks";
 import ContactForm from "@/components/ContactForm";
 import SEO from "@/components/SEO";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { cityData } from "@/components/CityLanding";
+
+// SEO-Landingpage-Inhalte je Stadt (langer Fließtext, Vorteile, Stadt-FAQ)
+const cityExtras: Record<string, {
+  longText: string[];
+  advantages: string[];
+  faqs: { q: string; a: string }[];
+}> = {
+  hannover: {
+    longText: [
+      "Die Fahrschule Metropol Hannover ist deine Anlaufstelle für einen professionellen und erfolgreichen Führerschein in Hannover. Direkt am Engelbosteler Damm in der Nordstadt gelegen, erreichst du uns bequem mit U-Bahn, Bus, Fahrrad oder Auto – die Haltestellen Christuskirche und Kopernikusstraße liegen nur wenige Gehminuten entfernt. Ob du deinen Autoführerschein Klasse B, den Motorradführerschein Klasse A, den LKW Führerschein Klasse C oder eine Anhänger-Erweiterung machen möchtest: Bei uns bekommst du eine geduldige, individuelle Ausbildung von erfahrenen Fahrlehrern, die den Hannoveraner Stadtverkehr in- und auswendig kennen.",
+      "Der Führerschein in Hannover erfordert Prüfungsstrecken, auf denen du sicher durch enge Innenstadtstraßen, über mehrspurige Kreuzungen wie am Aegidientorplatz oder den Königsworther Platz und über Umgehungsstraßen fährst. Unsere Fahrlehrer trainieren dich gezielt auf diese realen Prüfsituationen. So gehst du selbstbewusst in die praktische Prüfung – unsere Bestehensquote von rund 98 % spricht für sich. Auch für Fahrschüler aus Umgebung wie Langenhagen, Ronnenberg, Laatzen oder Isernhagen sind wir mit unserer zentralen Lage eine echte Empfehlung.",
+      "Neben der regulären Fahrausbildung bieten wir in Hannover auch Intensivkurse und Ferienkurse an: Wenn du deinen Führerschein schnell machen möchtest, ist unser Crashkurs Führerschein Hannover ideal – dann hast du dein Fahrzeug in 2 bis 4 Wochen legal auf der Straße. Zusätzlich unterrichten wir mehrsprachig auf Deutsch, Englisch, Türkisch und Arabisch, damit Sprache nie eine Hürde ist. Egal ob BF17 (Begleitetes Fahren ab 17), B197 (Automatik + Schaltwagen), Motorradführerschein Hannover oder Führerscheinklasse für den Beruf: Bei der Fahrschule Metropol Hannover startest du bei einer der besten Fahrschulen in Hannover.",
+    ],
+    advantages: [
+      "Zentrale Lage am Engelbosteler Damm – perfekt mit ÖPNV erreichbar",
+      "Flexible Unterrichtszeiten Mo–Fr bis 19:00 Uhr",
+      "Moderne Fahrzeugflotte für alle Führerscheinklassen",
+      "Mehrsprachiger Unterricht: Deutsch, Englisch, Türkisch, Arabisch",
+      "Rund 98 % Bestehensquote in Theorie und Praxis",
+      "BF17 – Begleitetes Fahren ab 17 Jahren möglich",
+      "Intensiv- und Crashkurse für einen schnellen Führerschein",
+      "Erfahrung mit allen Prüfstrecken in Hannover",
+    ],
+    faqs: [
+      { q: "Was kostet der Führerschein Klasse B in Hannover?", a: "Die Kosten für den Führerschein Klasse B in Hannover hängen von der Anzahl deiner Fahrstunden ab. Grundgebühren, Lehrmaterial und Prüfungsgebühren sind bei allen Fahrschulen ähnlich – die Fahrstunden machen den Unterschied. Wir beraten dich transparent und ohne versteckte Kosten." },
+      { q: "Wie lange dauert der Führerschein in Hannover?", a: "Mit 2–3 Fahrstunden pro Woche und regelmäßigem Theorieunterricht dauert der Führerschein Klasse B in Hannover ca. 3–4 Monate. Mit einem Intensivkurs bzw. Crashkurs geht es in 2–4 Wochen." },
+      { q: "Bietet die Fahrschule Metropol Hannover Intensivkurse an?", a: "Ja, Intensivkurse, Ferienkurse und Crashkurse gehören zum festen Angebot in Hannover. Damit ist der Führerschein schnell machbar – ideal für Schüler, Studenten und Berufstätige." },
+      { q: "Kann ich in Hannover den Führerschein auf Automatik machen (B197)?", a: "Ja. Mit dem B197 machst du die Prüfung auf einem Automatikfahrzeug, darfst aber später auch Schaltwagen fahren. Ein moderner Weg zum Autoführerschein in Hannover." },
+      { q: "Wo genau ist die Fahrschule Metropol in Hannover?", a: "Unser Standort in Hannover liegt am Engelbosteler Damm 1, 30167 Hannover (Nordstadt) – nur wenige Minuten von der Christuskirche und dem Hauptbahnhof entfernt." },
+      { q: "Gibt es in Hannover Theorieunterricht auf Türkisch oder Arabisch?", a: "Ja, unser Theorieunterricht in Hannover ist auf Deutsch, Englisch, Türkisch und Arabisch verfügbar – ideal für internationale Fahrschüler." },
+    ],
+  },
+  bremen: {
+    longText: [
+      "Die Fahrschule Metropol Bremen ist unser Hauptstandort und liegt direkt am Bahnhofsplatz 41 – nur wenige Schritte vom Bremer Hauptbahnhof entfernt. Damit erreichst du uns aus jeder Ecke Bremens sowie aus dem Umland (Bremerhaven, Delmenhorst, Achim, Weyhe, Osterholz-Scharmbeck) mit Bahn und Bus in wenigen Minuten. Seit über 20 Jahren bilden wir hier Fahrschüler in allen Führerscheinklassen aus – vom klassischen Autoführerschein Klasse B über den Motorradführerschein bis hin zu LKW- und Bus-Klassen für den Berufsverkehr.",
+      "Der Führerschein in Bremen ist anspruchsvoll: Enge Altstadtgassen, Straßenbahnkreuzungen am Domshof und die Bundesstraße 6 fordern Präzision. Genau darauf bereiten wir dich gezielt vor. Unsere Fahrlehrer trainieren dich auf allen relevanten Prüfstrecken in Bremen, sodass du in der praktischen Prüfung selbstbewusst und sicher agierst. Die Bestehensquote von rund 98 % zeigt, dass unsere Methode funktioniert – gerade auch für Wiederholer, die eine strukturierte, faire Ausbildung suchen.",
+      "Wir bieten in Bremen alle relevanten Führerscheinarten an: Klasse B (PKW), B197 (Automatik + Schaltwagen), BE (Anhänger), Motorradführerschein A/A1/A2/AM/B196, LKW-Führerschein Klasse C/CE sowie Busführerschein Klasse D. Zusätzlich zu regulären Kursen kannst du bei uns Intensivkurse und einen Führerschein-Crashkurs in Bremen absolvieren, um deinen Führerschein schnell zu machen. Auch Erste-Hilfe-Kurse und Aufbauseminare (ASF/FES/MPU-Vorbereitung) sind bei uns direkt vor Ort möglich – so hast du alles unter einem Dach.",
+    ],
+    advantages: [
+      "Direkt am Bremer Hauptbahnhof – ideale ÖPNV-Anbindung",
+      "Über 20 Jahre Erfahrung als Fahrschule in Bremen",
+      "Fahrlehrer kennen alle Bremer Prüfstrecken",
+      "Intensivkurse, Ferienkurse und Crashkurse verfügbar",
+      "Mehrsprachiger Unterricht (Deutsch, Englisch, Türkisch, Arabisch)",
+      "Moderne Schulungsräume mit digitaler Ausstattung",
+      "Alle Klassen: PKW, Motorrad, LKW, Bus, Anhänger",
+      "Erste-Hilfe-Kurs und Aufbauseminar direkt vor Ort",
+    ],
+    faqs: [
+      { q: "Was kostet der Führerschein Klasse B in Bremen?", a: "Die Führerscheinkosten in Bremen hängen von der Anzahl der Fahrstunden ab. Grundgebühr, Prüfungsgebühren und Lehrmaterial sind bei allen Fahrschulen vergleichbar. Wir kalkulieren transparent und stimmen alles vorab mit dir ab." },
+      { q: "Wie finde ich die Fahrschule Metropol in Bremen?", a: "Unsere Fahrschule Bremen liegt am Bahnhofsplatz 41, 28195 Bremen – direkt gegenüber vom Hauptbahnhof. Bus, Bahn, Regio-S-Bahn und Fernverkehr halten quasi vor der Tür." },
+      { q: "Bietet die Fahrschule Metropol Bremen Erste-Hilfe-Kurse an?", a: "Ja, anerkannte Erste-Hilfe-Kurse sind direkt bei uns in Bremen buchbar – Voraussetzung für jeden Führerscheinantrag." },
+      { q: "Kann ich in Bremen den Motorradführerschein machen?", a: "Ja, wir bilden alle Motorradklassen in Bremen aus: AM, A1, A2, A und die Erweiterung B196. Auch Umsteiger und Wiedereinsteiger sind willkommen." },
+      { q: "Wie hoch ist die Bestehensquote?", a: "Unsere Bestehensquote in Bremen liegt bei rund 98 % – dank erfahrener Fahrlehrer, die alle Bremer Prüfstrecken kennen und dich individuell vorbereiten." },
+      { q: "Gibt es LKW- und Bus-Führerscheine in Bremen?", a: "Ja, wir bilden in Bremen auch Klasse C/CE (LKW/Sattelzug) und Klasse D (Bus) aus – inkl. der beruflichen Weiterbildung." },
+    ],
+  },
+  garbsen: {
+    longText: [
+      "Die Fahrschule Metropol Garbsen ist deine Fahrschule in der Region Hannover – zentral am Planetenring 25–27 gelegen, mit eigenem Parkplatz direkt vor der Tür und guter Anbindung mit den Buslinien 700, 620 und 630. Aus Garbsen, Berenbostel, Meyenfeld, Havelse, Osterwald und Seelze erreichst du uns in wenigen Minuten. Wer den Führerschein in Garbsen machen möchte, findet bei uns eine ruhige, familiäre Lernatmosphäre – ideal für alle, die stressfrei und geduldig zum Führerschein kommen möchten.",
+      "Garbsen bietet einen entscheidenden Vorteil für Fahranfänger: Auf ruhigeren Straßen kannst du dich zunächst mit dem Fahrzeug vertraut machen, bevor es später auf die anspruchsvolleren Prüfstrecken in Hannover geht. Unsere Fahrlehrer bauen die Ausbildung genau darauf auf: Wir starten strukturiert in Garbsen und erweitern das Training Schritt für Schritt auf den innerstädtischen Verkehr. Das Ergebnis: entspanntes Lernen, mehr Sicherheit und weniger überflüssige Fahrstunden. Viele unserer Fahrschüler schätzen genau diesen Mix aus Ruhe und Praxisnähe.",
+      "Bei uns in Garbsen kannst du alle gängigen Führerscheinklassen machen: Autoführerschein Klasse B, B197 (Automatik), BE (Anhänger), Motorradführerschein A, A1, A2, AM, B196, BF17 (Begleitetes Fahren ab 17) sowie regelmäßig Intensivkurse und Ferienkurse. Neu ab 01.07.: Theorieunterricht in Garbsen jeden Montag, Dienstag und Mittwoch von 18:30 bis 20:00 Uhr – perfekt planbar neben Schule, Ausbildung oder Beruf. Egal ob du eine günstige Fahrschule in Garbsen suchst oder einfach eine Fahrschule in deiner Nähe: Wir sind für dich da.",
+    ],
+    advantages: [
+      "Ruhige Straßen in Garbsen – ideal für Fahranfänger",
+      "Eigener Parkplatz direkt vor der Fahrschule",
+      "Familiäre Atmosphäre und individuelle Betreuung",
+      "Regelmäßige Intensiv- und Ferienkurse",
+      "Neue Theoriezeiten Mo–Mi 18:30–20:00 Uhr (ab 01.07.)",
+      "Gute Anbindung an Hannover und die Region",
+      "Erfahrene, geduldige Fahrlehrer",
+      "BF17 und alle PKW-/Motorradklassen möglich",
+    ],
+    faqs: [
+      { q: "Warum sollte ich meinen Führerschein in Garbsen machen?", a: "Garbsen bietet ruhigere Straßen und eine entspannte Lernumgebung – ideal für Fahranfänger. In der Fahrschule Metropol Garbsen profitierst du zusätzlich von familiärer Atmosphäre und individueller Betreuung." },
+      { q: "Wie komme ich zur Fahrschule Metropol in Garbsen?", a: "Unsere Fahrschule Garbsen liegt am Planetenring 25–27, 30823 Garbsen. Wir haben einen eigenen Parkplatz vor der Tür und sind mit den Buslinien 700, 620 und 630 sehr gut erreichbar." },
+      { q: "Gibt es in Garbsen Intensivkurse für den Führerschein?", a: "Ja, Intensivkurse und Ferienkurse in Garbsen finden regelmäßig statt. So kannst du deinen Führerschein schnell machen – ideal für Ferien oder Semesterpausen." },
+      { q: "Kann ich in Garbsen BF17 (Begleitetes Fahren ab 17) machen?", a: "Ja, BF17 ist in Garbsen verfügbar. Du kannst bereits mit 17 mit der Ausbildung fertig sein und dann mit einer Begleitperson legal fahren." },
+      { q: "Welche Führerscheinklassen bietet Fahrschule Metropol in Garbsen an?", a: "In Garbsen bilden wir alle gängigen Klassen aus: PKW (B, B197, BE), Motorrad (AM, A1, A2, A, B196) sowie BF17." },
+      { q: "Ist die Fahrschule Metropol Garbsen günstiger als in Hannover?", a: "Die Grundgebühren sind an allen Standorten gleich. Da du in Garbsen auf ruhigeren Straßen startest, benötigst du oft weniger Fahrstunden – das kann die Gesamtkosten senken und macht Garbsen zur günstigen Option." },
+    ],
+  },
+};
+
+const popularClassesForCity = [
+  { icon: Car, name: "Klasse B", subtitle: "PKW-Führerschein", path: "/fuehrerschein/klasse-b", desc: "Der beliebteste Führerschein – für Fahrzeuge bis 3,5 t." },
+  { icon: Car, name: "Klasse B197", subtitle: "Automatik + Schaltwagen", path: "/fuehrerschein/klasse-b197", desc: "Prüfung auf Automatik, trotzdem Schaltwagen fahren." },
+  { icon: Bike, name: "Klasse A", subtitle: "Motorrad unbeschränkt", path: "/fuehrerschein/klasse-a", desc: "Alle Motorräder – ohne Limits." },
+  { icon: Truck, name: "Klasse C/CE", subtitle: "LKW-Führerschein", path: "/fuehrerschein/klasse-c", desc: "LKW & Sattelzüge – dein Einstieg in den Güterverkehr." },
+];
 
 interface LocationData {
   name: string;
