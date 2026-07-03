@@ -166,6 +166,13 @@ const Prices = () => {
           <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="mb-8 text-center">
             <span className="mb-1 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">{t("prices.selectLocation")}</span>
             <h2 className="text-2xl font-extrabold text-foreground font-display md:text-3xl">{t("prices.currentPrices")}</h2>
+            <div className="mt-3 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-xs font-semibold text-primary">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75"></span>
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-primary"></span>
+              </span>
+              Gültig ab Juli 2026
+            </div>
           </motion.div>
 
           <Tabs defaultValue="hannover" className="w-full">
