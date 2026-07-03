@@ -82,67 +82,63 @@ const LicenseClasses = () => {
       />
 
       {/* ── HERO ─────────────────────────────────────────────── */}
-      <section className="relative overflow-hidden bg-background pt-28 md:pt-36">
+      <section className="relative min-h-[85vh] overflow-hidden">
+        {/* Full-bleed background image */}
+        <div className="absolute inset-0">
+          <img
+            src={heroKlassen}
+            alt="Fahrschule Metropol Flotte"
+            className="h-full w-full object-cover"
+            loading="eager"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/70 to-background/30" />
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent" />
+        </div>
+
+        <div className="container relative mx-auto flex min-h-[85vh] flex-col justify-end px-4 pb-16 pt-28 md:pb-24 md:pt-36">
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+            className="max-w-3xl"
+          >
+            <div className="mb-8 flex items-center gap-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-foreground">
+              <span className="h-px w-10 bg-foreground/40" />
+              <span>Führerscheinklassen · Übersicht</span>
+            </div>
+
+            <h1 className="font-display text-5xl font-extrabold leading-[0.98] tracking-tight text-foreground md:text-7xl lg:text-[5.25rem]">
+              Deine Klasse.<br />
+              <span className="text-primary">Dein Weg.</span>
+            </h1>
+
+            <p className="mt-8 max-w-lg text-base leading-relaxed text-muted-foreground md:text-lg">
+              Von Roller bis Sattelzug – die Fahrschule Metropol bildet in allen 14 Führerscheinklassen aus.
+              Persönlich, transparent, mit über 40 Jahren Erfahrung.
+            </p>
+
+            <div className="mt-10 flex flex-wrap gap-3">
+              <Button variant="hero" size="lg" asChild>
+                <Link to="/kontakt">Beratung anfragen</Link>
+              </Button>
+              <Button variant="outline" size="lg" asChild>
+                <a href="#klassen">Alle Klassen ansehen</a>
+ull
+              </Button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Stats bar */}
+      <section className="border-y border-border/70 bg-background">
         <div className="container mx-auto px-4">
-          <div className="grid gap-12 md:grid-cols-12 md:gap-16">
-            {/* Left: text */}
-            <motion.div
-              initial={{ opacity: 0, y: 24 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-              className="md:col-span-7 md:pt-8"
-            >
-              <div className="mb-8 flex items-center gap-4 text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-foreground">
-                <span className="h-px w-10 bg-foreground/40" />
-                <span>Führerscheinklassen · Übersicht</span>
-              </div>
-
-              <h1 className="font-display text-5xl font-extrabold leading-[0.98] tracking-tight text-foreground md:text-7xl lg:text-[5.25rem]">
-                Deine Klasse.<br />
-                <span className="text-muted-foreground/50">Dein Weg.</span>
-              </h1>
-
-              <p className="mt-8 max-w-lg text-base leading-relaxed text-muted-foreground md:text-lg">
-                Von Roller bis Sattelzug – die Fahrschule Metropol bildet in allen 14 Führerscheinklassen aus.
-                Persönlich, transparent, mit über 40 Jahren Erfahrung.
-              </p>
-
-              <div className="mt-10 flex flex-wrap gap-3">
-                <Button variant="hero" size="lg" asChild>
-                  <Link to="/kontakt">Beratung anfragen</Link>
-                </Button>
-                <Button variant="outline" size="lg" asChild>
-                  <a href="#klassen">Alle Klassen ansehen</a>
-                </Button>
-              </div>
-            </motion.div>
-
-            {/* Right: image with framed treatment */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.96 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.9, delay: 0.15, ease: [0.16, 1, 0.3, 1] }}
-              className="relative md:col-span-5"
-            >
-              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-sm bg-muted">
-                <img src={heroKlassen} alt="Fahrschule Metropol Flotte" className="h-full w-full object-cover" loading="eager" />
-                <div className="absolute inset-0 bg-gradient-to-t from-foreground/40 via-transparent to-transparent" />
-              </div>
-              <div className="absolute -bottom-6 -left-6 hidden rounded-sm border border-border bg-card px-6 py-4 shadow-[0_20px_50px_-20px_hsl(var(--foreground)/0.25)] md:block">
-                <span className="block text-[10px] font-semibold uppercase tracking-[0.22em] text-muted-foreground">
-                  Standort
-                </span>
-                <span className="mt-1 block font-display text-lg font-bold text-foreground">Hannover · Garbsen · Langenhagen</span>
-              </div>
-            </motion.div>
-          </div>
-
-          {/* Stats bar */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.3 }}
-            className="mt-20 grid grid-cols-2 gap-y-8 border-y border-border/70 py-8 md:mt-28 md:grid-cols-4"
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="grid grid-cols-2 gap-y-8 py-10 md:grid-cols-4"
           >
             {stats.map((s) => (
               <div key={s.label} className="flex flex-col px-2">
