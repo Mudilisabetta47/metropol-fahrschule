@@ -147,7 +147,7 @@ const Prices = () => {
 
   return (
     <div className="min-h-screen">
-      <SEO title={t("prices.seoTitle")} description={t("prices.seoDesc")} canonical="https://fahrschule-metropol.de/preise" jsonLd={[breadcrumbSchema]} keywords="Fahrschule Preise, Führerschein Kosten, Fahrschule Metropol Preise, Klasse B Kosten, Motorradführerschein Kosten, LKW Führerschein Preise, Führerschein Preise Hannover, Führerschein Preise Bremen, Führerschein Preise Garbsen, Fahrschule günstig, Ratenzahlung Führerschein, Intensivkurs Kosten, Was kostet der Führerschein, Führerschein Kosten 2025, Fahrschule Preise Vergleich, Führerschein Finanzierung, Fahrstunde Preis, Sonderfahrten Kosten, Theorieprüfung Kosten, Praktische Prüfung Kosten, Führerschein Raten, Autoführerschein Preise, Fahrschule Kosten Fahrstunde, Fahrschulen Preisvergleich, Crashkurs Führerschein Preis, Führerschein in 14 Tagen Kosten, Crash Kurs Führerschein Kosten, Führerschein Crashkurs Kosten, Intensivkurs Führerschein Kosten, Express Führerschein Kosten, Kosten Intensivkurs Führerschein, Motorrad Führerschein Schnellkurs Kosten, Motorradführerschein günstig, Führerschein Kosten Hannover, Führerschein BE Schnellkurs" />
+      <SEO title={t("prices.seoTitle")} description={t("prices.seoDesc")} canonical="https://fahrschule-metropol.de/preise" jsonLd={[breadcrumbSchema]} keywords="Fahrschule Preise, Führerschein Kosten, Fahrschule Metropol Preise, Klasse B Kosten, Motorradführerschein Kosten, LKW Führerschein Preise, Führerschein Preise Hannover, Führerschein Preise Bremen, Führerschein Preise Garbsen, Fahrschule günstig, Ratenzahlung Führerschein, Intensivkurs Kosten, Was kostet der Führerschein, Führerschein Kosten 2026, Fahrschule Preise Vergleich, Führerschein Finanzierung, Fahrstunde Preis, Sonderfahrten Kosten, Theorieprüfung Kosten, Praktische Prüfung Kosten, Führerschein Raten, Autoführerschein Preise, Fahrschule Kosten Fahrstunde, Fahrschulen Preisvergleich, Crashkurs Führerschein Preis, Führerschein in 14 Tagen Kosten, Crash Kurs Führerschein Kosten, Führerschein Crashkurs Kosten, Intensivkurs Führerschein Kosten, Express Führerschein Kosten, Kosten Intensivkurs Führerschein, Motorrad Führerschein Schnellkurs Kosten, Motorradführerschein günstig, Führerschein Kosten Hannover, Führerschein BE Schnellkurs" />
 
       <section className="relative min-h-[280px] md:min-h-[340px] flex items-end overflow-hidden">
         <img src={heroImage} alt="Fahrschule Metropol Preise" className="absolute inset-0 h-full w-full object-cover" loading="eager" />
@@ -166,6 +166,13 @@ const Prices = () => {
           <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5 }} className="mb-8 text-center">
             <span className="mb-1 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">{t("prices.selectLocation")}</span>
             <h2 className="text-2xl font-extrabold text-foreground font-display md:text-3xl">{t("prices.currentPrices")}</h2>
+            <div className="mt-3 inline-flex items-center gap-2 rounded-full bg-primary/10 px-4 py-1.5 text-xs font-semibold text-primary">
+              <span className="relative flex h-2 w-2">
+                <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75"></span>
+                <span className="relative inline-flex h-2 w-2 rounded-full bg-primary"></span>
+              </span>
+              Gültig ab Juli 2026
+            </div>
           </motion.div>
 
           <Tabs defaultValue="hannover" className="w-full">
