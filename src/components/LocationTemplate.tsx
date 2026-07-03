@@ -6,7 +6,7 @@ import SEO from "@/components/SEO";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
-import { cityData } from "@/components/CityLanding";
+
 
 // SEO-Landingpage-Inhalte je Stadt (langer Fließtext, Vorteile, Stadt-FAQ)
 const cityExtras: Record<string, {
