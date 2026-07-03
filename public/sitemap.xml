@@ -109,27 +109,9 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/standorte/garbsen" />
   </url>
 
-  <!-- ============================================================ -->
-  <!-- 3. LOKALE LANDINGPAGES (Priority 0.8)                         -->
-  <!-- ============================================================ -->
-  <url>
-    <loc>https://fahrschule-metropol.de/fahrschule-hannover</loc>
-    <lastmod>2026-04-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://fahrschule-metropol.de/fahrschule-bremen</loc>
-    <lastmod>2026-04-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://fahrschule-metropol.de/fahrschule-garbsen</loc>
-    <lastmod>2026-04-16</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
+  <!-- (Legacy /fahrschule-* URLs entfernt: konsolidiert auf /standorte/* zur Vermeidung von Duplicate Content) -->
+
+
 
   <!-- ============================================================ -->
   <!-- 4. FÜHRERSCHEINKLASSEN – PKW & Anhänger (Priority 0.8)        -->
