@@ -253,7 +253,7 @@ const Prices = () => {
                 Gültig ab Juli 2026
               </span>
               <p className="mt-3 text-sm text-background/70">
-                Alle Preise inkl. 19 % MwSt. Barzahlung oder Überweisung.
+                Alle Preise inkl. 19 % MwSt. Barzahlung oder Kartenzahlung vor Ort möglich.
               </p>
             </div>
           </motion.div>
@@ -378,11 +378,11 @@ const Prices = () => {
             >
               <span className="text-[11px] font-bold uppercase tracking-[0.24em] text-primary">Zahlung</span>
               <h3 className="mt-2 font-display text-2xl font-extrabold">
-                Bar oder per Überweisung
+                Bar oder Karte vor Ort
               </h3>
               <p className="mt-3 text-sm text-background/70">{t("prices.paymentMethods")}</p>
               <div className="mt-5 flex flex-wrap gap-2">
-                {["Barzahlung", "Überweisung", "Inkl. 19% MwSt."].map((c) => (
+                {["Barzahlung", "Kartenzahlung vor Ort", "Inkl. 19% MwSt."].map((c) => (
                   <span key={c} className="rounded-full border border-background/20 px-3 py-1 text-[11px] font-semibold">
                     {c}
                   </span>
