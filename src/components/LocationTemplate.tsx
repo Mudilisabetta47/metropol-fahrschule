@@ -289,6 +289,132 @@ const LocationTemplate = ({ data }: { data: LocationData }) => {
         </div>
       </div>
 
+      {/* SEO-Landingpage-Inhalte: lange Beschreibung, Vorteile, beliebte Klassen, Stadt-FAQ */}
+      {(() => {
+        const slug = data.name.toLowerCase();
+        const extras = cityExtras[slug];
+        if (!extras) return null;
+        return (
+          <>
+            {/* Long-form intro */}
+            <section className="py-16 gradient-section">
+              <div className="container mx-auto px-4">
+                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mx-auto max-w-3xl">
+                  <h2 className="mb-6 text-2xl font-extrabold text-foreground font-display md:text-3xl">
+                    Führerschein in {data.name} – deine Fahrschule Metropol
+                  </h2>
+                  <div className="space-y-5 text-muted-foreground leading-relaxed">
+                    {extras.longText.map((p, i) => <p key={i}>{p}</p>)}
+                  </div>
+                </motion.div>
+              </div>
+            </section>
+
+            {/* Vorteile */}
+            <section className="py-12">
+              <div className="container mx-auto px-4">
+                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mx-auto max-w-4xl">
+                  <h2 className="mb-8 text-xl font-bold text-foreground font-display md:text-2xl">Deine Vorteile bei Fahrschule Metropol {data.name}</h2>
+                  <div className="grid gap-3 sm:grid-cols-2">
+                    {extras.advantages.map((adv, i) => (
+                      <div key={i} className="flex items-start gap-3 rounded-xl border border-border bg-card p-4 shadow-card">
+                        <CheckCircle className="mt-0.5 h-4 w-4 text-primary shrink-0" />
+                        <span className="text-sm text-muted-foreground">{adv}</span>
+                      </div>
+                    ))}
+                  </div>
+                </motion.div>
+              </div>
+            </section>
+
+            {/* Beliebte Klassen */}
+            <section className="py-12 gradient-section">
+              <div className="container mx-auto px-4">
+                <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-8 mx-auto max-w-4xl">
+                  <h2 className="text-xl font-bold text-foreground font-display md:text-2xl">Beliebte Führerscheinklassen in {data.name}</h2>
+                  <p className="mt-2 text-sm text-muted-foreground">Wir bilden alle Klassen aus – hier die beliebtesten:</p>
+                </motion.div>
+                <div className="mx-auto grid max-w-4xl gap-4 sm:grid-cols-2 lg:grid-cols-4">
+                  {popularClassesForCity.map((cls, i) => (
+                    <motion.div key={cls.name} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.06 }}>
+                      <Link to={cls.path} className="group flex h-full flex-col rounded-2xl border border-border bg-card p-5 shadow-card transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1">
+                        <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-accent text-accent-foreground transition-all group-hover:gradient-primary group-hover:text-primary-foreground">
+                          <cls.icon className="h-5 w-5" />
+                        </div>
+                        <h3 className="mb-0.5 text-base font-bold text-foreground font-display">{cls.name}</h3>
+                        <p className="mb-2 text-xs font-semibold text-primary">{cls.subtitle}</p>
+                        <p className="mb-3 text-xs text-muted-foreground leading-relaxed flex-1">{cls.desc}</p>
+                        <span className="flex items-center gap-1 text-xs font-bold text-primary group-hover:gap-2 transition-all">
+                          Mehr erfahren <ArrowRight className="h-3 w-3" />
+                        </span>
+                      </Link>
+                    </motion.div>
+                  ))}
+                </div>
+                <div className="mt-6 text-center">
+                  <Link to="/fuehrerscheinklassen" className="inline-flex items-center gap-1.5 text-sm font-bold text-primary hover:gap-2.5 transition-all">
+                    Alle Führerscheinklassen ansehen <ArrowRight className="h-4 w-4" />
+                  </Link>
+                </div>
+              </div>
+            </section>
+
+            {/* Weitere Angebote */}
+            <section className="py-12">
+              <div className="container mx-auto px-4">
+                <div className="mx-auto max-w-4xl">
+                  <h2 className="mb-6 text-xl font-bold text-foreground font-display">Weitere Angebote in {data.name}</h2>
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <Link to="/erste-hilfe" className="group flex flex-col rounded-2xl border border-border bg-card p-6 shadow-card transition-all hover:shadow-card-hover hover:-translate-y-1">
+                      <Heart className="mb-3 h-6 w-6 text-primary" />
+                      <h3 className="mb-2 text-sm font-bold text-foreground">Erste-Hilfe-Kurs {data.name}</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">Anerkannter Erste-Hilfe-Kurs in {data.name} – Pflicht für jeden Führerscheinantrag.</p>
+                    </Link>
+                    <Link to="/aufbauseminar" className="group flex flex-col rounded-2xl border border-border bg-card p-6 shadow-card transition-all hover:shadow-card-hover hover:-translate-y-1">
+                      <BookOpen className="mb-3 h-6 w-6 text-primary" />
+                      <h3 className="mb-2 text-sm font-bold text-foreground">Aufbauseminar (ASF) in {data.name}</h3>
+                      <p className="text-sm text-muted-foreground leading-relaxed">Aufbauseminar für Fahranfänger in {data.name} – bei Punkten in der Probezeit oder MPU-Vorbereitung.</p>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </section>
+
+            {/* Stadt-FAQ */}
+            {extras.faqs.length > 0 && (
+              <section className="py-16 gradient-section">
+                <div className="container mx-auto px-4">
+                  <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mx-auto max-w-3xl">
+                    <div className="mb-8 flex items-center gap-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-accent text-accent-foreground">
+                        <HelpCircle className="h-5 w-5" />
+                      </div>
+                      <h2 className="text-2xl font-extrabold text-foreground font-display md:text-3xl">
+                        Häufige Fragen zur Fahrschule in {data.name}
+                      </h2>
+                    </div>
+                    <Accordion type="single" collapsible className="space-y-3">
+                      {extras.faqs.map((faq, i) => (
+                        <AccordionItem key={i} value={`faq-${i}`} className="rounded-xl border border-border bg-card px-6 shadow-card">
+                          <AccordionTrigger className="text-left text-sm font-bold text-foreground hover:text-primary py-4">
+                            {faq.q}
+                          </AccordionTrigger>
+                          <AccordionContent className="text-sm text-muted-foreground leading-relaxed pb-4">
+                            {faq.a}
+                          </AccordionContent>
+                        </AccordionItem>
+                      ))}
+                    </Accordion>
+                  </motion.div>
+                </div>
+              </section>
+            )}
+          </>
+        );
+      })()}
+
+
+
       {/* Related links for SEO */}
       <section className="py-12">
         <div className="container mx-auto px-4">
