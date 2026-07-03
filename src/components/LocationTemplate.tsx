@@ -192,6 +192,17 @@ const LocationTemplate = ({ data }: { data: LocationData }) => {
         { "@type": "ListItem", position: 3, name: data.name, item: `https://fahrschule-metropol.de/standorte/${data.name.toLowerCase()}` },
       ],
     },
+    ...(cityExtras[data.name.toLowerCase()]?.faqs.length
+      ? [{
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          mainEntity: cityExtras[data.name.toLowerCase()]!.faqs.map((f) => ({
+            "@type": "Question",
+            name: f.q,
+            acceptedAnswer: { "@type": "Answer", text: f.a },
+          })),
+        }]
+      : []),
   ];
 
   return (
