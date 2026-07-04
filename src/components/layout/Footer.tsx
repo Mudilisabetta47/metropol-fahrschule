@@ -83,10 +83,10 @@ const Footer = () => {
               <h4 className="mb-5 text-base font-bold font-display">{t("footer.ourClasses")}</h4>
               <ul className="space-y-2.5 text-sm">
                 {[
-                  { label: "PKW – Klasse B / B197", path: "/fuehrerschein/b" },
-                  { label: "Motorrad – Klasse A", path: "/fuehrerschein/a" },
-                  { label: "LKW – Klasse C/CE", path: "/fuehrerschein/c" },
-                  { label: "Bus – Klasse D/DE", path: "/fuehrerschein/d" },
+                  { label: "PKW – Klasse B / B197", path: "/fuehrerschein/klasse-b" },
+                  { label: "Motorrad – Klasse A", path: "/fuehrerschein/klasse-a" },
+                  { label: "LKW – Klasse C/CE", path: "/fuehrerschein/klasse-c" },
+                  { label: "Bus – Klasse D/DE", path: "/fuehrerschein/klasse-d" },
                   { label: t("nav.firstAid"), path: "/erste-hilfe" },
                   { label: t("nav.seminar"), path: "/aufbauseminar" },
                   { label: t("footer.allClasses"), path: "/fuehrerscheinklassen" },
