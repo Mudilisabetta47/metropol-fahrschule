@@ -238,38 +238,36 @@ Deno.serve(async (req) => {
       locationInfo: { phone: loc.phone, address: loc.address, email: loc.email },
     });
 
-    // Send both emails in parallel
-    const [staffRes, confirmRes] = await Promise.all([
-      fetch("https://api.resend.com/emails", {
-        method: "POST",
-        headers: { Authorization: `Bearer ${RESEND_API_KEY}`, "Content-Type": "application/json" },
-        body: JSON.stringify({
-          from: "Fahrschule Metropol <noreply@fahrschule-metropol.de>",
-          to: [loc.email],
-          subject: `🚗 Neue Anfrage von ${name} – ${license_class || "Allgemein"} (${location})`,
-          html: staffHtml,
-          reply_to: email,
-        }),
-      }),
-      fetch("https://api.resend.com/emails", {
-        method: "POST",
-        headers: { Authorization: `Bearer ${RESEND_API_KEY}`, "Content-Type": "application/json" },
-        body: JSON.stringify({
-          from: "Fahrschule Metropol <noreply@fahrschule-metropol.de>",
-          to: [email],
-          subject: `✅ Deine Anfrage bei Fahrschule Metropol – wir melden uns!`,
-          html: confirmHtml,
-        }),
-      }),
+    // Send both emails in parallel, each with independent retry/backoff
+    const [staffResult, confirmResult] = await Promise.all([
+      sendEmailWithRetry(RESEND_API_KEY, {
+        from: "Fahrschule Metropol <noreply@fahrschule-metropol.de>",
+        to: [loc.email],
+        subject: `🚗 Neue Anfrage von ${name} – ${license_class || "Allgemein"} (${location})`,
+        html: staffHtml,
+        reply_to: email,
+      }, `staff-${location}`),
+      sendEmailWithRetry(RESEND_API_KEY, {
+        from: "Fahrschule Metropol <noreply@fahrschule-metropol.de>",
+        to: [email],
+        subject: `✅ Deine Anfrage bei Fahrschule Metropol – wir melden uns!`,
+        html: confirmHtml,
+      }, `confirm-${email}`),
     ]);
 
-    const staffData = await staffRes.json();
-    if (!staffRes.ok) throw new Error(`Staff email error [${staffRes.status}]: ${JSON.stringify(staffData)}`);
+    // Staff mail is critical — surface failure so the client can react.
+    if (!staffResult.ok) {
+      throw new Error(`Staff email failed after ${staffResult.attempts} attempts: ${staffResult.error}`);
+    }
+    if (!confirmResult.ok) {
+      console.error(`Confirmation email failed after ${confirmResult.attempts} attempts:`, confirmResult.error);
+    }
 
-    const confirmData = await confirmRes.json();
-    if (!confirmRes.ok) console.error("Confirmation email failed:", confirmData);
-
-    return new Response(JSON.stringify({ success: true }), {
+    return new Response(JSON.stringify({
+      success: true,
+      staff: { attempts: staffResult.attempts },
+      confirm: { ok: confirmResult.ok, attempts: confirmResult.attempts },
+    }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   } catch (err) {
