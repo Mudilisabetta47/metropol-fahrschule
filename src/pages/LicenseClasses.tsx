@@ -49,7 +49,7 @@ const stats = [
   { value: "14", label: "Führerschein­klassen" },
   { value: "98%", label: "Bestehens­quote" },
   { value: "3", label: "Standorte" },
-  { value: "40+", label: "Jahre Erfahrung" },
+  { value: "20+", label: "Jahre Erfahrung" },
 ];
 
 const breadcrumbSchema = {
@@ -114,7 +114,7 @@ const LicenseClasses = () => {
 
             <p className="mt-8 max-w-lg text-base leading-relaxed text-muted-foreground md:text-lg">
               Von Roller bis Sattelzug – die Fahrschule Metropol bildet in allen 14 Führerscheinklassen aus.
-              Persönlich, transparent, mit über 40 Jahren Erfahrung.
+              Persönlich, transparent, mit über 20 Jahren Erfahrung.
             </p>
 
             <div className="mt-10 flex flex-wrap gap-3">
