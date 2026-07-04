@@ -357,4 +357,249 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/impressum" />
   </url>
 
+
+  <!-- ============================================================ -->
+  <!-- 8. STADTTEILE & UMLAND (SEO-Landingpages, Priority 0.65)      -->
+  <!-- ============================================================ -->
+  <url>
+    <loc>https://fahrschule-metropol.de/fahrschule-hannover-nordstadt</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/fahrschule-hannover-nordstadt" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/fahrschule-hannover-nordstadt" />
+  </url>
+  <url>
+    <loc>https://fahrschule-metropol.de/fahrschule-hannover-list</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/fahrschule-hannover-list" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/fahrschule-hannover-list" />
+  </url>
+  <url>
+    <loc>https://fahrschule-metropol.de/fahrschule-hannover-linden</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/fahrschule-hannover-linden" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/fahrschule-hannover-linden" />
+  </url>
+  <url>
+    <loc>https://fahrschule-metropol.de/fahrschule-hannover-suedstadt</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/fahrschule-hannover-suedstadt" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/fahrschule-hannover-suedstadt" />
+  </url>
+  <url>
+    <loc>https://fahrschule-metropol.de/fahrschule-hannover-vahrenwald</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/fahrschule-hannover-vahrenwald" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/fahrschule-hannover-vahrenwald" />
+  </url>
+  <url>
+    <loc>https://fahrschule-metropol.de/fahrschule-hannover-bothfeld</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/fahrschule-hannover-bothfeld" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/fahrschule-hannover-bothfeld" />
+  </url>
+  <url>
+    <loc>https://fahrschule-metropol.de/fahrschule-hannover-ricklingen</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/fahrschule-hannover-ricklingen" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/fahrschule-hannover-ricklingen" />
+  </url>
+  <url>
+    <loc>https://fahrschule-metropol.de/fahrschule-hannover-misburg</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/fahrschule-hannover-misburg" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/fahrschule-hannover-misburg" />
+  </url>
+  <url>
+    <loc>https://fahrschule-metropol.de/fahrschule-langenhagen</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/fahrschule-langenhagen" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/fahrschule-langenhagen" />
+  </url>
+  <url>
+    <loc>https://fahrschule-metropol.de/fahrschule-laatzen</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/fahrschule-laatzen" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/fahrschule-laatzen" />
+  </url>
+  <url>
+    <loc>https://fahrschule-metropol.de/fahrschule-hemmingen</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/fahrschule-hemmingen" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/fahrschule-hemmingen" />
+  </url>
+  <url>
+    <loc>https://fahrschule-metropol.de/fahrschule-lehrte</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/fahrschule-lehrte" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/fahrschule-lehrte" />
+  </url>
+  <url>
+    <loc>https://fahrschule-metropol.de/fahrschule-isernhagen</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/fahrschule-isernhagen" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/fahrschule-isernhagen" />
+  </url>
+  <url>
+    <loc>https://fahrschule-metropol.de/fahrschule-berenbostel</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/fahrschule-berenbostel" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/fahrschule-berenbostel" />
+  </url>
+  <url>
+    <loc>https://fahrschule-metropol.de/fahrschule-havelse</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/fahrschule-havelse" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/fahrschule-havelse" />
+  </url>
+  <url>
+    <loc>https://fahrschule-metropol.de/fahrschule-seelze</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/fahrschule-seelze" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/fahrschule-seelze" />
+  </url>
+  <url>
+    <loc>https://fahrschule-metropol.de/fahrschule-wunstorf</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/fahrschule-wunstorf" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/fahrschule-wunstorf" />
+  </url>
+  <url>
+    <loc>https://fahrschule-metropol.de/fahrschule-ronnenberg</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/fahrschule-ronnenberg" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/fahrschule-ronnenberg" />
+  </url>
+  <url>
+    <loc>https://fahrschule-metropol.de/fahrschule-barsinghausen</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/fahrschule-barsinghausen" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/fahrschule-barsinghausen" />
+  </url>
+  <url>
+    <loc>https://fahrschule-metropol.de/fahrschule-wedemark</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/fahrschule-wedemark" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/fahrschule-wedemark" />
+  </url>
+  <url>
+    <loc>https://fahrschule-metropol.de/fahrschule-neustadt-am-ruebenberge</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/fahrschule-neustadt-am-ruebenberge" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/fahrschule-neustadt-am-ruebenberge" />
+  </url>
+  <url>
+    <loc>https://fahrschule-metropol.de/fahrschule-bremen-neustadt</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/fahrschule-bremen-neustadt" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/fahrschule-bremen-neustadt" />
+  </url>
+  <url>
+    <loc>https://fahrschule-metropol.de/fahrschule-bremen-findorff</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/fahrschule-bremen-findorff" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/fahrschule-bremen-findorff" />
+  </url>
+  <url>
+    <loc>https://fahrschule-metropol.de/fahrschule-bremen-schwachhausen</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/fahrschule-bremen-schwachhausen" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/fahrschule-bremen-schwachhausen" />
+  </url>
+  <url>
+    <loc>https://fahrschule-metropol.de/fahrschule-bremen-walle</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/fahrschule-bremen-walle" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/fahrschule-bremen-walle" />
+  </url>
+  <url>
+    <loc>https://fahrschule-metropol.de/fahrschule-bremen-hemelingen</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/fahrschule-bremen-hemelingen" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/fahrschule-bremen-hemelingen" />
+  </url>
+  <url>
+    <loc>https://fahrschule-metropol.de/fahrschule-bremen-huchting</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/fahrschule-bremen-huchting" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/fahrschule-bremen-huchting" />
+  </url>
+  <url>
+    <loc>https://fahrschule-metropol.de/fahrschule-bremen-vegesack</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/fahrschule-bremen-vegesack" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/fahrschule-bremen-vegesack" />
+  </url>
+  <url>
+    <loc>https://fahrschule-metropol.de/fahrschule-bremen-groepelingen</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/fahrschule-bremen-groepelingen" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/fahrschule-bremen-groepelingen" />
+  </url>
+  <url>
+    <loc>https://fahrschule-metropol.de/fahrschule-bremen-horn-lehe</loc>
+    <lastmod>2026-07-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.65</priority>
+    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/fahrschule-bremen-horn-lehe" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/fahrschule-bremen-horn-lehe" />
+  </url>
+
 </urlset>
