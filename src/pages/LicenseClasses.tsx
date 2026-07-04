@@ -49,7 +49,7 @@ const stats = [
   { value: "14", label: "Führerschein­klassen" },
   { value: "98%", label: "Bestehens­quote" },
   { value: "3", label: "Standorte" },
-  { value: "40+", label: "Jahre Erfahrung" },
+  { value: "20+", label: "Jahre Erfahrung" },
 ];
 
 const breadcrumbSchema = {
