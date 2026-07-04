@@ -1,3 +1,5 @@
+import { sendEmailWithRetry } from "../_shared/send-with-retry.ts";
+
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
@@ -79,19 +81,14 @@ Deno.serve(async (req) => {
   }
 
   const results = await Promise.all(RECIPIENTS.map(async (to) => {
-    const res = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: { Authorization: `Bearer ${RESEND_API_KEY}`, "Content-Type": "application/json" },
-      body: JSON.stringify({
-        from: "Fahrschule Metropol IT <noreply@fahrschule-metropol.de>",
-        to: [to],
-        subject: SUBJECT,
-        html: HTML,
-        reply_to: "vedat@fahrschule-metropol.de",
-      }),
-    });
-    const data = await res.json().catch(() => ({}));
-    return { to, status: res.status, ok: res.ok, data };
+    const r = await sendEmailWithRetry(RESEND_API_KEY, {
+      from: "Fahrschule Metropol IT <noreply@fahrschule-metropol.de>",
+      to: [to],
+      subject: SUBJECT,
+      html: HTML,
+      reply_to: "vedat@fahrschule-metropol.de",
+    }, `urgent-${to}`);
+    return { to, ok: r.ok, status: r.status, attempts: r.attempts, error: r.error };
   }));
 
   return new Response(JSON.stringify({ sent: results }, null, 2), {

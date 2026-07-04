@@ -1,4 +1,5 @@
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
+import { sendEmailWithRetry } from "../_shared/send-with-retry.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -128,24 +129,18 @@ Deno.serve(async (req) => {
 
     const htmlBody = buildEscalationHtml(overdue);
 
-    const res = await fetch("https://api.resend.com/emails", {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${RESEND_API_KEY}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        from: "Fahrschule Metropol <noreply@fahrschule-metropol.de>",
-        to: [CHEF_EMAIL],
-        subject: `⚠️ ${overdue.length} unbearbeitete Anfrage${overdue.length > 1 ? "n" : ""} – Eskalation`,
-        html: htmlBody,
-      }),
-    });
+    const result = await sendEmailWithRetry(RESEND_API_KEY, {
+      from: "Fahrschule Metropol <noreply@fahrschule-metropol.de>",
+      to: [CHEF_EMAIL],
+      subject: `⚠️ ${overdue.length} unbearbeitete Anfrage${overdue.length > 1 ? "n" : ""} – Eskalation`,
+      html: htmlBody,
+    }, "escalation-chef");
 
-    const data = await res.json();
-    if (!res.ok) throw new Error(`Resend API error [${res.status}]: ${JSON.stringify(data)}`);
+    if (!result.ok) {
+      throw new Error(`Escalation email failed after ${result.attempts} attempts: ${result.error}`);
+    }
 
-    return new Response(JSON.stringify({ success: true, escalated: overdue.length }), {
+    return new Response(JSON.stringify({ success: true, escalated: overdue.length, attempts: result.attempts }), {
       headers: { ...corsHeaders, "Content-Type": "application/json" },
     });
   } catch (err) {
