@@ -1,4 +1,4 @@
-const corsHeaders = {
+import { sendEmailWithRetry } from "../_shared/send-with-retry.ts";
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
