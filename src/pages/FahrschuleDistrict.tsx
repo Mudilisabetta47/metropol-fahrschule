@@ -1,4 +1,4 @@
-import { useParams, Navigate, Link } from "react-router-dom";
+import { useLocation, Navigate, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, MapPin, Phone, CheckCircle, Car, Bike, Truck, HelpCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -40,7 +40,7 @@ const popularClasses = [
 ];
 
 const FahrschuleDistrict = () => {
-  const { slug = "" } = useParams();
+  const slug = useLocation().pathname.replace(/^\/fahrschule-/, "");
   const district = getDistrict(slug);
 
   if (!district) return <Navigate to="/standorte" replace />;

@@ -37,6 +37,7 @@ const FahrschuleBremen = lazy(() => import("./pages/FahrschuleBremen"));
 const FahrschuleGarbsen = lazy(() => import("./pages/FahrschuleGarbsen"));
 const Crashkurs = lazy(() => import("./pages/Crashkurs"));
 const FahrschuleDistrict = lazy(() => import("./pages/FahrschuleDistrict"));
+import { districts } from "./data/districtData";
 
 const queryClient = new QueryClient();
 
@@ -75,7 +76,9 @@ const App = () => (
               <Route path="/fahrschule-bremen" element={<FahrschuleBremen />} />
               <Route path="/fahrschule-garbsen" element={<FahrschuleGarbsen />} />
               <Route path="/crashkurs" element={<Crashkurs />} />
-              <Route path="/fahrschule-:slug" element={<FahrschuleDistrict />} />
+              {districts.map((d) => (
+                <Route key={d.slug} path={`/fahrschule-${d.slug}`} element={<FahrschuleDistrict />} />
+              ))}
               <Route path="/login" element={<Auth />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/dashboard/bilder" element={<ImageManager />} />
