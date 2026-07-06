@@ -1,4 +1,4 @@
-import { useParams, Navigate, Link } from "react-router-dom";
+import { useLocation, Navigate, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { ArrowRight, MapPin, Phone, CheckCircle, Car, Bike, Truck, HelpCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
