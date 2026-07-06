@@ -40,7 +40,7 @@ const popularClasses = [
 ];
 
 const FahrschuleDistrict = () => {
-  const { slug = "" } = useParams();
+  const slug = useLocation().pathname.replace(/^\/fahrschule-/, "");
   const district = getDistrict(slug);
 
   if (!district) return <Navigate to="/standorte" replace />;
