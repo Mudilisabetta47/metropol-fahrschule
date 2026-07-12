@@ -36,6 +36,12 @@ import { useCountUp } from "@/hooks/useCountUp";
 import { useSiteImages } from "@/hooks/useSiteImage";
 import { useTranslation } from "react-i18next";
 import SEO from "@/components/SEO";
+import SplitText from "@/components/premium/SplitText";
+import MagneticButton from "@/components/premium/MagneticButton";
+import TiltCard from "@/components/premium/TiltCard";
+import FloatingOrbs from "@/components/premium/FloatingOrbs";
+import Reveal from "@/components/premium/Reveal";
+
 
 const locationPills = ["Hannover", "Garbsen", "Bremen"];
 
