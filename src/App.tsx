@@ -9,6 +9,10 @@ import Footer from "@/components/layout/Footer";
 import CookieBanner from "@/components/CookieBanner";
 import LanguageSwitcher from "@/components/LanguageSwitcher";
 import LocationWelcomeModal from "@/components/LocationWelcomeModal";
+import ScrollProgress from "@/components/premium/ScrollProgress";
+import CursorFollower from "@/components/premium/CursorFollower";
+import PageLoaderIntro from "@/components/premium/PageLoader";
+
 
 /* Eagerly load landing page for fast FCP */
 import Index from "./pages/Index";
