@@ -299,6 +299,7 @@ const Index = () => {
           />
         </motion.div>
         <div className="hero-overlay absolute inset-0 noise" />
+        <FloatingOrbs />
 
         <motion.div style={{ opacity: heroOpacity }} className="container relative z-10 mx-auto px-4 pt-20">
           <div className="max-w-3xl">
@@ -306,28 +307,32 @@ const Index = () => {
               <AnimatedPills />
             </motion.div>
 
-            <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.3 }} className="mb-6 text-5xl font-extrabold leading-[1.08] text-primary-foreground font-display md:text-7xl lg:text-8xl">
-              {t("index.heroTitle1")}
-              <br />
-              <span className="gradient-text">{t("index.heroTitle2")}</span>
-            </motion.h1>
+            <h1 className="mb-6 text-5xl font-extrabold leading-[1.08] text-primary-foreground font-display md:text-7xl lg:text-8xl">
+              <SplitText as="span" text={t("index.heroTitle1")} delay={0.25} className="block" />
+              <SplitText as="span" text={t("index.heroTitle2")} delay={0.55} className="block gradient-text" />
+            </h1>
 
-            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.5 }} className="mb-10 max-w-xl text-lg text-primary-foreground/60 leading-relaxed md:text-xl">
+            <motion.p initial={{ opacity: 0, y: 20, filter: "blur(8px)" }} animate={{ opacity: 1, y: 0, filter: "blur(0px)" }} transition={{ duration: 0.8, delay: 0.9 }} className="mb-10 max-w-xl text-lg text-primary-foreground/60 leading-relaxed md:text-xl">
               {t("index.heroSubtitle")}
             </motion.p>
 
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.7 }} className="flex flex-wrap gap-4">
-              <Button variant="hero" asChild>
-                <Link to="/kontakt">
-                  {t("index.heroCta")} <ChevronRight className="h-5 w-5" />
-                </Link>
-              </Button>
-              <Button variant="hero-outline" asChild>
-                <a href="tel:+495116425066">
-                  <Phone className="h-5 w-5" /> {t("index.heroCall")}
-                </a>
-              </Button>
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 1.1 }} className="flex flex-wrap gap-4">
+              <MagneticButton>
+                <Button variant="hero" asChild className="btn-glow">
+                  <Link to="/kontakt">
+                    {t("index.heroCta")} <ChevronRight className="h-5 w-5" />
+                  </Link>
+                </Button>
+              </MagneticButton>
+              <MagneticButton strength={0.25}>
+                <Button variant="hero-outline" asChild className="btn-glow">
+                  <a href="tel:+495116425066">
+                    <Phone className="h-5 w-5" /> {t("index.heroCall")}
+                  </a>
+                </Button>
+              </MagneticButton>
             </motion.div>
+
 
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 1 }} className="mt-12 flex flex-wrap gap-x-6 gap-y-2">
               {trustItems.map((ti) => (
