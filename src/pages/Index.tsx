@@ -504,23 +504,30 @@ const Index = () => {
 
           <div className="grid gap-6 md:grid-cols-3">
             {testimonials.map((tm, i) => (
-              <motion.div key={tm.name} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.12 }} className="relative rounded-3xl border border-border bg-card p-8 shadow-card">
-                <Quote className="absolute top-6 right-6 h-8 w-8 text-primary/10" />
-                <div className="mb-4 flex gap-0.5">
-                  {Array.from({ length: tm.rating }).map((_, j) => (
-                    <Star key={j} className="h-4 w-4 fill-primary text-primary" />
-                  ))}
-                </div>
-                <p className="mb-6 text-sm leading-relaxed text-muted-foreground italic">„{tm.text}"</p>
-                <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full gradient-primary text-primary-foreground text-sm font-bold">{tm.name.charAt(0)}</div>
-                  <div>
-                    <div className="text-sm font-bold text-foreground">{tm.name}</div>
-                    <div className="flex items-center gap-1 text-xs text-muted-foreground"><MapPin className="h-3 w-3" /> {tm.location}</div>
+              <motion.div key={tm.name} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ delay: i * 0.12, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}>
+                <TiltCard max={6} className="rounded-3xl h-full">
+                  <div className="group relative h-full rounded-3xl border border-border bg-card p-8 shadow-card transition-shadow duration-500 hover:shadow-card-hover">
+                    <Quote className="absolute top-6 right-6 h-8 w-8 text-primary/10 transition-all duration-500 group-hover:text-primary/30 group-hover:rotate-6" />
+                    <div className="mb-4 flex gap-0.5">
+                      {Array.from({ length: tm.rating }).map((_, j) => (
+                        <motion.span key={j} initial={{ scale: 0, rotate: -30 }} whileInView={{ scale: 1, rotate: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 + j * 0.06, type: "spring", stiffness: 300 }}>
+                          <Star className="h-4 w-4 fill-primary text-primary" />
+                        </motion.span>
+                      ))}
+                    </div>
+                    <p className="mb-6 text-sm leading-relaxed text-muted-foreground italic">„{tm.text}"</p>
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full gradient-primary text-primary-foreground text-sm font-bold shadow-glow">{tm.name.charAt(0)}</div>
+                      <div>
+                        <div className="text-sm font-bold text-foreground">{tm.name}</div>
+                        <div className="flex items-center gap-1 text-xs text-muted-foreground"><MapPin className="h-3 w-3" /> {tm.location}</div>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                </TiltCard>
               </motion.div>
             ))}
+
           </div>
         </div>
       </section>
