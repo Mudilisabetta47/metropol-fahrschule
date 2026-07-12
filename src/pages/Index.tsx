@@ -481,15 +481,30 @@ const Index = () => {
           </motion.div>
 
           <div className="grid gap-6 md:grid-cols-3">
-            {features.map((f, i) => (
-              <motion.div key={f.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1, duration: 0.5 }} className="group relative rounded-3xl border border-border bg-card p-8 shadow-card transition-all duration-500 hover:shadow-card-hover hover:-translate-y-1">
-                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-accent text-accent-foreground transition-all duration-500 group-hover:gradient-primary group-hover:text-primary-foreground group-hover:shadow-glow group-hover:scale-110">
-                  <f.icon className="h-6 w-6" />
-                </div>
-                <h3 className="mb-2 text-xl font-bold text-foreground font-display">{f.title}</h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">{f.desc}</p>
-              </motion.div>
-            ))}
+            {features.map((f, i) => {
+              const dirs = ["left", "up", "right"] as const;
+              return (
+                <motion.div
+                  key={f.title}
+                  initial={{ opacity: 0, y: 40, filter: "blur(8px)" }}
+                  whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ delay: i * 0.12, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  <TiltCard max={6} className="h-full rounded-3xl">
+                    <div className="group relative h-full rounded-3xl border border-border bg-card p-8 shadow-card transition-shadow duration-500 hover:shadow-card-hover">
+                      <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-accent text-accent-foreground transition-all duration-500 group-hover:gradient-primary group-hover:text-primary-foreground group-hover:shadow-glow group-hover:scale-110 group-hover:-rotate-3">
+                        <f.icon className="h-6 w-6" />
+                      </div>
+                      <h3 className="mb-2 text-xl font-bold text-foreground font-display">{f.title}</h3>
+                      <p className="text-sm leading-relaxed text-muted-foreground">{f.desc}</p>
+                      <div className="pointer-events-none absolute inset-0 rounded-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" style={{ background: "radial-gradient(circle at 50% 0%, hsl(var(--primary) / 0.08), transparent 60%)" }} />
+                    </div>
+                  </TiltCard>
+                </motion.div>
+              );
+            })}
+
           </div>
         </div>
       </section>
