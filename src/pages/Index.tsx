@@ -441,22 +441,25 @@ const Index = () => {
 
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
             {licenseClasses.map((lc, i) => (
-              <motion.div key={lc.label} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}>
-                <Link to={lc.path} className="group flex flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-card transition-all duration-500 hover:shadow-card-hover hover:-translate-y-1">
-                  <div className="relative h-36 overflow-hidden">
-                    <img src={img(lc.imageKey)} alt={lc.label} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent" />
-                    <div className="absolute bottom-3 left-3 flex h-10 w-10 items-center justify-center rounded-xl gradient-primary text-primary-foreground shadow-glow">
-                      <lc.icon className="h-5 w-5" />
+              <motion.div key={lc.label} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ delay: i * 0.08, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}>
+                <TiltCard className="h-full rounded-3xl">
+                  <Link to={lc.path} className="group flex flex-col h-full overflow-hidden rounded-3xl border border-border bg-card shadow-card transition-all duration-500 hover:shadow-card-hover">
+                    <div className="relative h-36 overflow-hidden">
+                      <img src={img(lc.imageKey)} alt={lc.label} className="h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.12]" loading="lazy" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent" />
+                      <div className="absolute bottom-3 left-3 flex h-10 w-10 items-center justify-center rounded-xl gradient-primary text-primary-foreground shadow-glow transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
+                        <lc.icon className="h-5 w-5" />
+                      </div>
                     </div>
-                  </div>
-                  <div className="p-4 text-center">
-                    <div className="text-lg font-bold text-foreground font-display">{lc.label}</div>
-                    <div className="text-xs text-muted-foreground">{lc.desc}</div>
-                  </div>
-                </Link>
+                    <div className="p-4 text-center">
+                      <div className="text-lg font-bold text-foreground font-display">{lc.label}</div>
+                      <div className="text-xs text-muted-foreground">{lc.desc}</div>
+                    </div>
+                  </Link>
+                </TiltCard>
               </motion.div>
             ))}
+
           </div>
 
           <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="mt-8 text-center">
