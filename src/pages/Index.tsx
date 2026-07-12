@@ -543,23 +543,27 @@ const Index = () => {
 
           <div className="grid gap-6 md:grid-cols-3">
             {locationsData.map((loc, i) => (
-              <motion.div key={loc.name} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.12, duration: 0.5 }}>
-                <Link to={loc.path} className="group flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-card transition-all duration-500 hover:shadow-card-hover hover:-translate-y-2">
-                  <div className="relative h-44 overflow-hidden">
-                    <img src={img(loc.imageKey)} alt={`Standort ${loc.name}`} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-card/60 to-transparent" />
-                  </div>
-                  <div className="flex flex-1 flex-col p-6">
-                    <h3 className="mb-1 text-2xl font-bold text-foreground font-display">{loc.name}</h3>
-                    <p className="mb-1 text-sm text-muted-foreground">{loc.addr}</p>
-                    <p className="mb-6 text-sm text-muted-foreground/70">{loc.desc}</p>
-                    <span className="mt-auto flex items-center gap-1.5 text-sm font-bold text-primary transition-all group-hover:gap-2.5">
-                      {t("locations.viewLocation")} <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                    </span>
-                  </div>
-                </Link>
+              <motion.div key={loc.name} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ delay: i * 0.12, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}>
+                <TiltCard max={7} className="rounded-3xl h-full">
+                  <Link to={loc.path} className="group flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-card transition-shadow duration-500 hover:shadow-card-hover">
+                    <div className="relative h-44 overflow-hidden">
+                      <img src={img(loc.imageKey)} alt={`Standort ${loc.name}`} className="h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.12]" loading="lazy" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-card/70 via-card/10 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/0 transition-all duration-500 group-hover:from-primary/10 group-hover:to-transparent" />
+                    </div>
+                    <div className="flex flex-1 flex-col p-6">
+                      <h3 className="mb-1 text-2xl font-bold text-foreground font-display">{loc.name}</h3>
+                      <p className="mb-1 text-sm text-muted-foreground">{loc.addr}</p>
+                      <p className="mb-6 text-sm text-muted-foreground/70">{loc.desc}</p>
+                      <span className="mt-auto flex items-center gap-1.5 text-sm font-bold text-primary transition-all group-hover:gap-2.5">
+                        {t("locations.viewLocation")} <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                      </span>
+                    </div>
+                  </Link>
+                </TiltCard>
               </motion.div>
             ))}
+
           </div>
         </div>
       </section>
