@@ -57,7 +57,11 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <PageLoaderIntro />
+        <ScrollProgress />
+        <CursorFollower />
         <Navbar />
+
         <main className="bg-driving-pattern">
           <Suspense fallback={<PageLoader />}>
             <Routes>
