@@ -36,6 +36,12 @@ import { useCountUp } from "@/hooks/useCountUp";
 import { useSiteImages } from "@/hooks/useSiteImage";
 import { useTranslation } from "react-i18next";
 import SEO from "@/components/SEO";
+import SplitText from "@/components/premium/SplitText";
+import MagneticButton from "@/components/premium/MagneticButton";
+import TiltCard from "@/components/premium/TiltCard";
+import FloatingOrbs from "@/components/premium/FloatingOrbs";
+
+
 
 const locationPills = ["Hannover", "Garbsen", "Bremen"];
 
@@ -293,6 +299,7 @@ const Index = () => {
           />
         </motion.div>
         <div className="hero-overlay absolute inset-0 noise" />
+        <FloatingOrbs />
 
         <motion.div style={{ opacity: heroOpacity }} className="container relative z-10 mx-auto px-4 pt-20">
           <div className="max-w-3xl">
@@ -300,28 +307,32 @@ const Index = () => {
               <AnimatedPills />
             </motion.div>
 
-            <motion.h1 initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.3 }} className="mb-6 text-5xl font-extrabold leading-[1.08] text-primary-foreground font-display md:text-7xl lg:text-8xl">
-              {t("index.heroTitle1")}
-              <br />
-              <span className="gradient-text">{t("index.heroTitle2")}</span>
-            </motion.h1>
+            <h1 className="mb-6 text-5xl font-extrabold leading-[1.08] text-primary-foreground font-display md:text-7xl lg:text-8xl">
+              <SplitText as="span" text={t("index.heroTitle1")} delay={0.25} className="block" />
+              <SplitText as="span" text={t("index.heroTitle2")} delay={0.55} className="block gradient-text" />
+            </h1>
 
-            <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.5 }} className="mb-10 max-w-xl text-lg text-primary-foreground/60 leading-relaxed md:text-xl">
+            <motion.p initial={{ opacity: 0, y: 20, filter: "blur(8px)" }} animate={{ opacity: 1, y: 0, filter: "blur(0px)" }} transition={{ duration: 0.8, delay: 0.9 }} className="mb-10 max-w-xl text-lg text-primary-foreground/60 leading-relaxed md:text-xl">
               {t("index.heroSubtitle")}
             </motion.p>
 
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.7 }} className="flex flex-wrap gap-4">
-              <Button variant="hero" asChild>
-                <Link to="/kontakt">
-                  {t("index.heroCta")} <ChevronRight className="h-5 w-5" />
-                </Link>
-              </Button>
-              <Button variant="hero-outline" asChild>
-                <a href="tel:+495116425066">
-                  <Phone className="h-5 w-5" /> {t("index.heroCall")}
-                </a>
-              </Button>
+            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 1.1 }} className="flex flex-wrap gap-4">
+              <MagneticButton>
+                <Button variant="hero" asChild className="btn-glow">
+                  <Link to="/kontakt">
+                    {t("index.heroCta")} <ChevronRight className="h-5 w-5" />
+                  </Link>
+                </Button>
+              </MagneticButton>
+              <MagneticButton strength={0.25}>
+                <Button variant="hero-outline" asChild className="btn-glow">
+                  <a href="tel:+495116425066">
+                    <Phone className="h-5 w-5" /> {t("index.heroCall")}
+                  </a>
+                </Button>
+              </MagneticButton>
             </motion.div>
+
 
             <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ duration: 0.6, delay: 1 }} className="mt-12 flex flex-wrap gap-x-6 gap-y-2">
               {trustItems.map((ti) => (
@@ -430,22 +441,25 @@ const Index = () => {
 
           <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
             {licenseClasses.map((lc, i) => (
-              <motion.div key={lc.label} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.08 }}>
-                <Link to={lc.path} className="group flex flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-card transition-all duration-500 hover:shadow-card-hover hover:-translate-y-1">
-                  <div className="relative h-36 overflow-hidden">
-                    <img src={img(lc.imageKey)} alt={lc.label} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent" />
-                    <div className="absolute bottom-3 left-3 flex h-10 w-10 items-center justify-center rounded-xl gradient-primary text-primary-foreground shadow-glow">
-                      <lc.icon className="h-5 w-5" />
+              <motion.div key={lc.label} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ delay: i * 0.08, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}>
+                <TiltCard className="h-full rounded-3xl">
+                  <Link to={lc.path} className="group flex flex-col h-full overflow-hidden rounded-3xl border border-border bg-card shadow-card transition-all duration-500 hover:shadow-card-hover">
+                    <div className="relative h-36 overflow-hidden">
+                      <img src={img(lc.imageKey)} alt={lc.label} className="h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.12]" loading="lazy" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-card/80 to-transparent" />
+                      <div className="absolute bottom-3 left-3 flex h-10 w-10 items-center justify-center rounded-xl gradient-primary text-primary-foreground shadow-glow transition-transform duration-500 group-hover:scale-110 group-hover:rotate-6">
+                        <lc.icon className="h-5 w-5" />
+                      </div>
                     </div>
-                  </div>
-                  <div className="p-4 text-center">
-                    <div className="text-lg font-bold text-foreground font-display">{lc.label}</div>
-                    <div className="text-xs text-muted-foreground">{lc.desc}</div>
-                  </div>
-                </Link>
+                    <div className="p-4 text-center">
+                      <div className="text-lg font-bold text-foreground font-display">{lc.label}</div>
+                      <div className="text-xs text-muted-foreground">{lc.desc}</div>
+                    </div>
+                  </Link>
+                </TiltCard>
               </motion.div>
             ))}
+
           </div>
 
           <motion.div initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} viewport={{ once: true }} className="mt-8 text-center">
@@ -467,15 +481,30 @@ const Index = () => {
           </motion.div>
 
           <div className="grid gap-6 md:grid-cols-3">
-            {features.map((f, i) => (
-              <motion.div key={f.title} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.1, duration: 0.5 }} className="group relative rounded-3xl border border-border bg-card p-8 shadow-card transition-all duration-500 hover:shadow-card-hover hover:-translate-y-1">
-                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-accent text-accent-foreground transition-all duration-500 group-hover:gradient-primary group-hover:text-primary-foreground group-hover:shadow-glow group-hover:scale-110">
-                  <f.icon className="h-6 w-6" />
-                </div>
-                <h3 className="mb-2 text-xl font-bold text-foreground font-display">{f.title}</h3>
-                <p className="text-sm leading-relaxed text-muted-foreground">{f.desc}</p>
-              </motion.div>
-            ))}
+            {features.map((f, i) => {
+              const dirs = ["left", "up", "right"] as const;
+              return (
+                <motion.div
+                  key={f.title}
+                  initial={{ opacity: 0, y: 40, filter: "blur(8px)" }}
+                  whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                  viewport={{ once: true, amount: 0.2 }}
+                  transition={{ delay: i * 0.12, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+                >
+                  <TiltCard max={6} className="h-full rounded-3xl">
+                    <div className="group relative h-full rounded-3xl border border-border bg-card p-8 shadow-card transition-shadow duration-500 hover:shadow-card-hover">
+                      <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-accent text-accent-foreground transition-all duration-500 group-hover:gradient-primary group-hover:text-primary-foreground group-hover:shadow-glow group-hover:scale-110 group-hover:-rotate-3">
+                        <f.icon className="h-6 w-6" />
+                      </div>
+                      <h3 className="mb-2 text-xl font-bold text-foreground font-display">{f.title}</h3>
+                      <p className="text-sm leading-relaxed text-muted-foreground">{f.desc}</p>
+                      <div className="pointer-events-none absolute inset-0 rounded-3xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" style={{ background: "radial-gradient(circle at 50% 0%, hsl(var(--primary) / 0.08), transparent 60%)" }} />
+                    </div>
+                  </TiltCard>
+                </motion.div>
+              );
+            })}
+
           </div>
         </div>
       </section>
@@ -490,23 +519,30 @@ const Index = () => {
 
           <div className="grid gap-6 md:grid-cols-3">
             {testimonials.map((tm, i) => (
-              <motion.div key={tm.name} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.12 }} className="relative rounded-3xl border border-border bg-card p-8 shadow-card">
-                <Quote className="absolute top-6 right-6 h-8 w-8 text-primary/10" />
-                <div className="mb-4 flex gap-0.5">
-                  {Array.from({ length: tm.rating }).map((_, j) => (
-                    <Star key={j} className="h-4 w-4 fill-primary text-primary" />
-                  ))}
-                </div>
-                <p className="mb-6 text-sm leading-relaxed text-muted-foreground italic">„{tm.text}"</p>
-                <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-full gradient-primary text-primary-foreground text-sm font-bold">{tm.name.charAt(0)}</div>
-                  <div>
-                    <div className="text-sm font-bold text-foreground">{tm.name}</div>
-                    <div className="flex items-center gap-1 text-xs text-muted-foreground"><MapPin className="h-3 w-3" /> {tm.location}</div>
+              <motion.div key={tm.name} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ delay: i * 0.12, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}>
+                <TiltCard max={6} className="rounded-3xl h-full">
+                  <div className="group relative h-full rounded-3xl border border-border bg-card p-8 shadow-card transition-shadow duration-500 hover:shadow-card-hover">
+                    <Quote className="absolute top-6 right-6 h-8 w-8 text-primary/10 transition-all duration-500 group-hover:text-primary/30 group-hover:rotate-6" />
+                    <div className="mb-4 flex gap-0.5">
+                      {Array.from({ length: tm.rating }).map((_, j) => (
+                        <motion.span key={j} initial={{ scale: 0, rotate: -30 }} whileInView={{ scale: 1, rotate: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 + j * 0.06, type: "spring", stiffness: 300 }}>
+                          <Star className="h-4 w-4 fill-primary text-primary" />
+                        </motion.span>
+                      ))}
+                    </div>
+                    <p className="mb-6 text-sm leading-relaxed text-muted-foreground italic">„{tm.text}"</p>
+                    <div className="flex items-center gap-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full gradient-primary text-primary-foreground text-sm font-bold shadow-glow">{tm.name.charAt(0)}</div>
+                      <div>
+                        <div className="text-sm font-bold text-foreground">{tm.name}</div>
+                        <div className="flex items-center gap-1 text-xs text-muted-foreground"><MapPin className="h-3 w-3" /> {tm.location}</div>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                </TiltCard>
               </motion.div>
             ))}
+
           </div>
         </div>
       </section>
@@ -522,23 +558,27 @@ const Index = () => {
 
           <div className="grid gap-6 md:grid-cols-3">
             {locationsData.map((loc, i) => (
-              <motion.div key={loc.name} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * 0.12, duration: 0.5 }}>
-                <Link to={loc.path} className="group flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-card transition-all duration-500 hover:shadow-card-hover hover:-translate-y-2">
-                  <div className="relative h-44 overflow-hidden">
-                    <img src={img(loc.imageKey)} alt={`Standort ${loc.name}`} className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110" loading="lazy" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-card/60 to-transparent" />
-                  </div>
-                  <div className="flex flex-1 flex-col p-6">
-                    <h3 className="mb-1 text-2xl font-bold text-foreground font-display">{loc.name}</h3>
-                    <p className="mb-1 text-sm text-muted-foreground">{loc.addr}</p>
-                    <p className="mb-6 text-sm text-muted-foreground/70">{loc.desc}</p>
-                    <span className="mt-auto flex items-center gap-1.5 text-sm font-bold text-primary transition-all group-hover:gap-2.5">
-                      {t("locations.viewLocation")} <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
-                    </span>
-                  </div>
-                </Link>
+              <motion.div key={loc.name} initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ delay: i * 0.12, duration: 0.7, ease: [0.16, 1, 0.3, 1] }}>
+                <TiltCard max={7} className="rounded-3xl h-full">
+                  <Link to={loc.path} className="group flex h-full flex-col overflow-hidden rounded-3xl border border-border bg-card shadow-card transition-shadow duration-500 hover:shadow-card-hover">
+                    <div className="relative h-44 overflow-hidden">
+                      <img src={img(loc.imageKey)} alt={`Standort ${loc.name}`} className="h-full w-full object-cover transition-transform duration-[900ms] ease-out group-hover:scale-[1.12]" loading="lazy" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-card/70 via-card/10 to-transparent" />
+                      <div className="absolute inset-0 bg-gradient-to-br from-primary/0 to-primary/0 transition-all duration-500 group-hover:from-primary/10 group-hover:to-transparent" />
+                    </div>
+                    <div className="flex flex-1 flex-col p-6">
+                      <h3 className="mb-1 text-2xl font-bold text-foreground font-display">{loc.name}</h3>
+                      <p className="mb-1 text-sm text-muted-foreground">{loc.addr}</p>
+                      <p className="mb-6 text-sm text-muted-foreground/70">{loc.desc}</p>
+                      <span className="mt-auto flex items-center gap-1.5 text-sm font-bold text-primary transition-all group-hover:gap-2.5">
+                        {t("locations.viewLocation")} <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                      </span>
+                    </div>
+                  </Link>
+                </TiltCard>
               </motion.div>
             ))}
+
           </div>
         </div>
       </section>
@@ -612,15 +652,20 @@ const Index = () => {
               {t("index.bottomCtaTitle")}
             </h2>
             <div className="flex flex-wrap justify-center gap-4">
-              <Button variant="hero" asChild className="bg-white text-primary hover:bg-white/90">
-                <Link to="/kontakt">
-                  {t("common.contactUs")} <ChevronRight className="h-5 w-5" />
-                </Link>
-              </Button>
-              <Button variant="hero-outline" asChild className="border-white text-white hover:bg-white/10">
-                <Link to="/fuehrerscheinklassen">{t("index.allClasses")}</Link>
-              </Button>
+              <MagneticButton>
+                <Button variant="hero" asChild className="btn-glow bg-white text-primary hover:bg-white/90">
+                  <Link to="/kontakt">
+                    {t("common.contactUs")} <ChevronRight className="h-5 w-5" />
+                  </Link>
+                </Button>
+              </MagneticButton>
+              <MagneticButton strength={0.25}>
+                <Button variant="hero-outline" asChild className="btn-glow border-white text-white hover:bg-white/10">
+                  <Link to="/fuehrerscheinklassen">{t("index.allClasses")}</Link>
+                </Button>
+              </MagneticButton>
             </div>
+
           </motion.div>
         </div>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-96 w-96 rounded-full bg-white/10 blur-[120px]" />

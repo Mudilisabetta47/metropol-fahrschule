@@ -78,6 +78,16 @@
 }
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.001ms !important;
+      transition-duration: 0.001ms !important;
+    }
+  }
   * {
     @apply border-border;
   }
@@ -90,6 +100,7 @@
     @apply font-bold tracking-tight;
   }
 }
+
 
 @layer utilities {
   /* Premium overlays & gradients */
@@ -237,4 +248,63 @@
     0%, 100% { box-shadow: 0 0 20px hsla(134, 100%, 40%, 0.15); }
     50% { box-shadow: 0 0 40px hsla(134, 100%, 40%, 0.35), 0 0 80px hsla(134, 100%, 40%, 0.1); }
   }
+
+  /* Animated premium gradient background (slow drift) */
+  .gradient-animated {
+    background: linear-gradient(
+      135deg,
+      hsl(134 100% 40% / 0.12),
+      hsl(160 85% 35% / 0.10),
+      hsl(220 25% 8% / 0.02),
+      hsl(134 100% 40% / 0.12)
+    );
+    background-size: 300% 300%;
+    animation: gradient-drift 18s ease infinite;
+  }
+  @keyframes gradient-drift {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  /* Premium glass panel */
+  .glass-premium {
+    background: hsla(0, 0%, 100%, 0.55);
+    backdrop-filter: blur(20px) saturate(180%);
+    -webkit-backdrop-filter: blur(20px) saturate(180%);
+    border: 1px solid hsla(0, 0%, 100%, 0.6);
+  }
+
+  /* Soft section mask (edge blur transitions) */
+  .section-mask-top {
+    mask-image: linear-gradient(to bottom, transparent, black 8%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 8%);
+  }
+  .section-mask-bottom {
+    mask-image: linear-gradient(to top, transparent, black 8%);
+    -webkit-mask-image: linear-gradient(to top, transparent, black 8%);
+  }
+
+  /* Premium button glow on hover */
+  .btn-glow {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s ease;
+  }
+  .btn-glow::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(120deg, transparent 30%, hsla(0, 0%, 100%, 0.25) 50%, transparent 70%);
+    transform: translateX(-100%);
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+  }
+  .btn-glow:hover::after { transform: translateX(100%); }
+  .btn-glow:hover { transform: translateY(-2px); box-shadow: 0 12px 40px hsla(134, 100%, 40%, 0.35); }
+
+  /* Utility to disable native cursor when premium cursor active (optional) */
+  .cursor-premium, .cursor-premium a, .cursor-premium button {
+    cursor: none;
+  }
 }
+
