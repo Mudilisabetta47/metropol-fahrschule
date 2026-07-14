@@ -488,6 +488,42 @@ const Index = () => {
         </div>
       </section>
 
+      {/* BMW / Premium Fleet */}
+      <FleetSection
+        cars={[
+          {
+            model: "BMW 1er – Schaltung",
+            tag: "Klasse B",
+            image: img("class-pkw"),
+            specs: [
+              { icon: Settings2, label: "Manuell" },
+              { icon: Gauge, label: "Lane Assist" },
+              { icon: Fuel, label: "Effizient" },
+            ],
+          },
+          {
+            model: "BMW 1er – Automatik",
+            tag: "B / B197",
+            image: img("class-pkw"),
+            specs: [
+              { icon: Settings2, label: "Automatik" },
+              { icon: Gauge, label: "Parkassistent" },
+              { icon: Shield, label: "Sicher" },
+            ],
+          },
+          {
+            model: "BMW Motorrad",
+            tag: "Klasse A",
+            image: img("class-motorrad"),
+            specs: [
+              { icon: Gauge, label: "ABS" },
+              { icon: Settings2, label: "Traktionskontrolle" },
+              { icon: Shield, label: "Premium" },
+            ],
+          },
+        ]}
+      />
+
       {/* Features / Why us */}
       <section className="relative py-28 bg-warm bg-driving-pattern overflow-hidden">
         <div className="absolute top-0 right-0 h-80 w-80 rounded-full bg-primary/5 blur-[100px]" />
