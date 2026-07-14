@@ -12,6 +12,7 @@ import LocationWelcomeModal from "@/components/LocationWelcomeModal";
 import ScrollProgress from "@/components/premium/ScrollProgress";
 import CursorFollower from "@/components/premium/CursorFollower";
 import PageLoaderIntro from "@/components/premium/PageLoader";
+import FloatingActions from "@/components/premium/FloatingActions";
 
 
 /* Eagerly load landing page for fast FCP */
@@ -98,6 +99,7 @@ const App = () => (
         <CookieBanner />
         <LanguageSwitcher />
         <LocationWelcomeModal autoOpen />
+        <FloatingActions />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>

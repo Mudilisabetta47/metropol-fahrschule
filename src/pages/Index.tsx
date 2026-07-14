@@ -30,7 +30,7 @@ import locationHannover from "@/assets/location-hannover.jpg";
 import locationGarbsen from "@/assets/location-garbsen.jpg";
 import locationBremen from "@/assets/location-bremen.jpg";
 import heroDriving from "@/assets/hero-driving.jpg";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { useCountUp } from "@/hooks/useCountUp";
 import { useSiteImages } from "@/hooks/useSiteImage";
@@ -40,6 +40,10 @@ import SplitText from "@/components/premium/SplitText";
 import MagneticButton from "@/components/premium/MagneticButton";
 import TiltCard from "@/components/premium/TiltCard";
 import FloatingOrbs from "@/components/premium/FloatingOrbs";
+import FleetSection from "@/components/premium/FleetSection";
+import GoogleReviewsSection from "@/components/premium/GoogleReviewsSection";
+import GallerySection from "@/components/premium/GallerySection";
+import { Fuel, Settings2 } from "lucide-react";
 
 
 
@@ -80,7 +84,21 @@ const Index = () => {
   const heroRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({ target: heroRef, offset: ["start start", "end start"] });
   const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+  const heroScale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
   const heroOpacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+
+  // Mouse parallax on hero content
+  const mx = useMotionValue(0);
+  const my = useMotionValue(0);
+  const smx = useSpring(mx, { stiffness: 60, damping: 20 });
+  const smy = useSpring(my, { stiffness: 60, damping: 20 });
+  const parallaxX = useTransform(smx, [-0.5, 0.5], [-15, 15]);
+  const parallaxY = useTransform(smy, [-0.5, 0.5], [-10, 10]);
+  const handleHeroMouse = (e: React.MouseEvent<HTMLDivElement>) => {
+    const r = e.currentTarget.getBoundingClientRect();
+    mx.set((e.clientX - r.left) / r.width - 0.5);
+    my.set((e.clientY - r.top) / r.height - 0.5);
+  };
 
   const stat1 = useCountUp(15000, 2000);
   const stat2 = useCountUp(98, 1800);
@@ -287,8 +305,8 @@ const Index = () => {
       />
 
       {/* Hero */}
-      <section ref={heroRef} className="relative flex min-h-screen items-center overflow-hidden">
-        <motion.div style={{ y: heroY }} className="absolute inset-0 overflow-hidden">
+      <section ref={heroRef} onMouseMove={handleHeroMouse} className="relative flex min-h-screen items-center overflow-hidden">
+        <motion.div style={{ y: heroY, scale: heroScale }} className="absolute inset-0 overflow-hidden will-change-transform">
           <iframe
             src="https://www.youtube.com/embed/lLDmN1AnqgE?autoplay=1&mute=1&loop=1&playlist=lLDmN1AnqgE&controls=0&showinfo=0&modestbranding=1&rel=0&disablekb=1&iv_load_policy=3&playsinline=1"
             title="Fahrschule Metropol"
@@ -301,7 +319,7 @@ const Index = () => {
         <div className="hero-overlay absolute inset-0 noise" />
         <FloatingOrbs />
 
-        <motion.div style={{ opacity: heroOpacity }} className="container relative z-10 mx-auto px-4 pt-20">
+        <motion.div style={{ opacity: heroOpacity, x: parallaxX, y: parallaxY }} className="container relative z-10 mx-auto px-4 pt-20 will-change-transform">
           <div className="max-w-3xl">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="mb-6">
               <AnimatedPills />
@@ -470,6 +488,42 @@ const Index = () => {
         </div>
       </section>
 
+      {/* BMW / Premium Fleet */}
+      <FleetSection
+        cars={[
+          {
+            model: "BMW 1er – Schaltung",
+            tag: "Klasse B",
+            image: img("class-pkw"),
+            specs: [
+              { icon: Settings2, label: "Manuell" },
+              { icon: Gauge, label: "Lane Assist" },
+              { icon: Fuel, label: "Effizient" },
+            ],
+          },
+          {
+            model: "BMW 1er – Automatik",
+            tag: "B / B197",
+            image: img("class-pkw"),
+            specs: [
+              { icon: Settings2, label: "Automatik" },
+              { icon: Gauge, label: "Parkassistent" },
+              { icon: Shield, label: "Sicher" },
+            ],
+          },
+          {
+            model: "BMW Motorrad",
+            tag: "Klasse A",
+            image: img("class-motorrad"),
+            specs: [
+              { icon: Gauge, label: "ABS" },
+              { icon: Settings2, label: "Traktionskontrolle" },
+              { icon: Shield, label: "Premium" },
+            ],
+          },
+        ]}
+      />
+
       {/* Features / Why us */}
       <section className="relative py-28 bg-warm bg-driving-pattern overflow-hidden">
         <div className="absolute top-0 right-0 h-80 w-80 rounded-full bg-primary/5 blur-[100px]" />
@@ -509,43 +563,22 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Testimonials */}
-      <section className="gradient-section py-28">
-        <div className="container mx-auto px-4">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16 text-center">
-            <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">{t("index.testimonialsSubtitle")}</span>
-            <h2 className="text-3xl font-extrabold text-foreground font-display md:text-5xl">{t("index.testimonialsTitle")}</h2>
-          </motion.div>
+      {/* Google Reviews */}
+      <GoogleReviewsSection reviews={testimonials} average={4.9} total={347} />
 
-          <div className="grid gap-6 md:grid-cols-3">
-            {testimonials.map((tm, i) => (
-              <motion.div key={tm.name} initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, amount: 0.2 }} transition={{ delay: i * 0.12, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}>
-                <TiltCard max={6} className="rounded-3xl h-full">
-                  <div className="group relative h-full rounded-3xl border border-border bg-card p-8 shadow-card transition-shadow duration-500 hover:shadow-card-hover">
-                    <Quote className="absolute top-6 right-6 h-8 w-8 text-primary/10 transition-all duration-500 group-hover:text-primary/30 group-hover:rotate-6" />
-                    <div className="mb-4 flex gap-0.5">
-                      {Array.from({ length: tm.rating }).map((_, j) => (
-                        <motion.span key={j} initial={{ scale: 0, rotate: -30 }} whileInView={{ scale: 1, rotate: 0 }} viewport={{ once: true }} transition={{ delay: 0.2 + j * 0.06, type: "spring", stiffness: 300 }}>
-                          <Star className="h-4 w-4 fill-primary text-primary" />
-                        </motion.span>
-                      ))}
-                    </div>
-                    <p className="mb-6 text-sm leading-relaxed text-muted-foreground italic">„{tm.text}"</p>
-                    <div className="flex items-center gap-3">
-                      <div className="flex h-10 w-10 items-center justify-center rounded-full gradient-primary text-primary-foreground text-sm font-bold shadow-glow">{tm.name.charAt(0)}</div>
-                      <div>
-                        <div className="text-sm font-bold text-foreground">{tm.name}</div>
-                        <div className="flex items-center gap-1 text-xs text-muted-foreground"><MapPin className="h-3 w-3" /> {tm.location}</div>
-                      </div>
-                    </div>
-                  </div>
-                </TiltCard>
-              </motion.div>
-            ))}
-
-          </div>
-        </div>
-      </section>
+      {/* Gallery */}
+      <GallerySection
+        images={[
+          { src: img("hero-index"), alt: "Fahrstunde in Hannover" },
+          { src: img("class-pkw"), alt: "BMW 1er Fahrschulwagen" },
+          { src: img("location-hannover"), alt: "Standort Hannover" },
+          { src: img("class-motorrad"), alt: "Motorradausbildung" },
+          { src: img("location-garbsen"), alt: "Standort Garbsen" },
+          { src: img("class-lkw"), alt: "LKW-Ausbildung" },
+          { src: img("location-bremen"), alt: "Standort Bremen" },
+          { src: img("class-bus"), alt: "Bus-Ausbildung" },
+        ]}
+      />
 
       {/* Locations */}
       <section className="relative py-28 bg-warm bg-driving-pattern overflow-hidden">
