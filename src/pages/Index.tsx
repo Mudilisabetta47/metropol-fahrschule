@@ -30,7 +30,7 @@ import locationHannover from "@/assets/location-hannover.jpg";
 import locationGarbsen from "@/assets/location-garbsen.jpg";
 import locationBremen from "@/assets/location-bremen.jpg";
 import heroDriving from "@/assets/hero-driving.jpg";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
 import { useRef, useState, useEffect } from "react";
 import { useCountUp } from "@/hooks/useCountUp";
 import { useSiteImages } from "@/hooks/useSiteImage";
@@ -40,6 +40,10 @@ import SplitText from "@/components/premium/SplitText";
 import MagneticButton from "@/components/premium/MagneticButton";
 import TiltCard from "@/components/premium/TiltCard";
 import FloatingOrbs from "@/components/premium/FloatingOrbs";
+import FleetSection from "@/components/premium/FleetSection";
+import GoogleReviewsSection from "@/components/premium/GoogleReviewsSection";
+import GallerySection from "@/components/premium/GallerySection";
+import { Fuel, Gauge, Settings2 } from "lucide-react";
 
 
 
