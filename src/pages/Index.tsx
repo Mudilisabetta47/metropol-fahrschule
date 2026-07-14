@@ -43,7 +43,7 @@ import FloatingOrbs from "@/components/premium/FloatingOrbs";
 import FleetSection from "@/components/premium/FleetSection";
 import GoogleReviewsSection from "@/components/premium/GoogleReviewsSection";
 import GallerySection from "@/components/premium/GallerySection";
-import { Fuel, Gauge, Settings2 } from "lucide-react";
+import { Fuel, Settings2 } from "lucide-react";
 
 
 
