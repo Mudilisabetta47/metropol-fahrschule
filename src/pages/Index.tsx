@@ -305,8 +305,8 @@ const Index = () => {
       />
 
       {/* Hero */}
-      <section ref={heroRef} className="relative flex min-h-screen items-center overflow-hidden">
-        <motion.div style={{ y: heroY }} className="absolute inset-0 overflow-hidden">
+      <section ref={heroRef} onMouseMove={handleHeroMouse} className="relative flex min-h-screen items-center overflow-hidden">
+        <motion.div style={{ y: heroY, scale: heroScale }} className="absolute inset-0 overflow-hidden will-change-transform">
           <iframe
             src="https://www.youtube.com/embed/lLDmN1AnqgE?autoplay=1&mute=1&loop=1&playlist=lLDmN1AnqgE&controls=0&showinfo=0&modestbranding=1&rel=0&disablekb=1&iv_load_policy=3&playsinline=1"
             title="Fahrschule Metropol"
@@ -319,7 +319,7 @@ const Index = () => {
         <div className="hero-overlay absolute inset-0 noise" />
         <FloatingOrbs />
 
-        <motion.div style={{ opacity: heroOpacity }} className="container relative z-10 mx-auto px-4 pt-20">
+        <motion.div style={{ opacity: heroOpacity, x: parallaxX, y: parallaxY }} className="container relative z-10 mx-auto px-4 pt-20 will-change-transform">
           <div className="max-w-3xl">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="mb-6">
               <AnimatedPills />
