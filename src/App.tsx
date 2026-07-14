@@ -99,6 +99,7 @@ const App = () => (
         <CookieBanner />
         <LanguageSwitcher />
         <LocationWelcomeModal autoOpen />
+        <FloatingActions />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
