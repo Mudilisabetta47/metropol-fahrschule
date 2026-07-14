@@ -97,8 +97,8 @@ const FleetSection = ({ cars }: FleetSectionProps) => {
           className="mt-12 flex flex-wrap justify-center gap-6 text-xs text-muted-foreground"
         >
           {[
-            { icon: Shield, text: "TÜV geprüft" },
-            { icon: Gauge, text: "Assistenzsysteme" },
+            { icon: Shield, text: "Zertifizierte Ausbildung" },
+            { icon: Gauge, text: "Moderne Assistenzsysteme" },
             { icon: Fuel, text: "Regelmäßig gewartet" },
           ].map((f) => (
             <span key={f.text} className="flex items-center gap-1.5">
