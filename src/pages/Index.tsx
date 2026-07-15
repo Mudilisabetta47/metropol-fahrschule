@@ -367,37 +367,26 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Marquee trust banner */}
-      <section className="relative z-10 -mt-16 mb-8">
-        <div className="container mx-auto px-4">
-          <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-card">
-            <div className="relative overflow-hidden py-4">
-              <div className="marquee-track">
-                {[...Array(2)].map((_, setIdx) => (
-                  <div key={setIdx} className="flex shrink-0 items-center gap-8 px-4">
-                    {marqueeItems.map((item) => (
-                      <span key={item} className="whitespace-nowrap text-sm font-semibold text-muted-foreground">{item}</span>
-                    ))}
-                  </div>
+      {/* Slim trust marquee — borderless editorial strip */}
+      <section className="relative z-10 -mt-10 mb-4">
+        <div className="relative overflow-hidden border-y border-border/60 bg-card/40 backdrop-blur-sm py-3">
+          <div className="marquee-track">
+            {[...Array(2)].map((_, setIdx) => (
+              <div key={setIdx} className="flex shrink-0 items-center gap-12 px-6">
+                {marqueeItems.map((item) => (
+                  <span key={item} className="flex items-center gap-3 whitespace-nowrap text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-foreground">
+                    <span className="h-1 w-1 rounded-full bg-primary/60" />
+                    {item}
+                  </span>
                 ))}
               </div>
-            </div>
+            ))}
           </div>
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background to-transparent" />
         </div>
       </section>
 
-      {/* Animated text ticker */}
-      <section className="py-6 overflow-hidden">
-        <div className="relative">
-          <div className="flex animate-marquee-slow whitespace-nowrap">
-            {[...Array(3)].map((_, i) => (
-              <span key={i} className="mx-4 text-7xl md:text-9xl font-extrabold font-display text-transparent" style={{ WebkitTextStroke: "1.5px hsl(var(--border))" }}>
-                {t("index.tickerText")}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Stats */}
       <section className="relative z-10">
