@@ -638,7 +638,7 @@ const Index = () => {
         <div className="container relative z-10 mx-auto px-4">
           <div className="grid gap-10 items-start lg:grid-cols-2">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <SectionKicker label={t("contact.subtitle")} center />
+              <SectionKicker label={t("contact.subtitle")} />
               <h2 className="text-3xl font-extrabold text-foreground font-display md:text-5xl lg:text-6xl mb-4">
                 {t("index.ctaTitle")}
                 <br />
