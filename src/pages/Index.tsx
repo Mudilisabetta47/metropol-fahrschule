@@ -518,7 +518,7 @@ const Index = () => {
         <div className="absolute top-0 right-0 h-80 w-80 rounded-full bg-primary/5 blur-[100px]" />
         <div className="container relative z-10 mx-auto px-4">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16 max-w-2xl">
-            <SectionKicker label={t("index.whySubtitle")} center />
+            <SectionKicker label={t("index.whySubtitle")} />
             <h2 className="text-3xl font-extrabold text-foreground font-display md:text-5xl">{t("index.whyTitle")}</h2>
             <p className="mt-4 text-muted-foreground leading-relaxed">{t("index.whyDesc")}</p>
           </motion.div>
