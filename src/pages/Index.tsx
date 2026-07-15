@@ -322,7 +322,7 @@ const Index = () => {
         <motion.div style={{ opacity: heroOpacity, x: parallaxX, y: parallaxY }} className="container relative z-10 mx-auto px-4 pt-20 will-change-transform">
           <div className="max-w-3xl">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="mb-6">
-              <AnimatedPills />
+              <HeroLocationStrip />
             </motion.div>
 
             <h1 className="mb-6 text-5xl font-extrabold leading-[1.08] text-primary-foreground font-display md:text-7xl lg:text-8xl">
