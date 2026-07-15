@@ -49,35 +49,35 @@ import { Fuel, Settings2 } from "lucide-react";
 
 const locationPills = ["Hannover", "Garbsen", "Bremen"];
 
-const AnimatedPills = () => {
-  const [active, setActive] = useState(0);
-  useEffect(() => {
-    const interval = setInterval(() => setActive((a) => (a + 1) % locationPills.length), 2500);
-    return () => clearInterval(interval);
-  }, []);
-  return (
-    <div className="flex gap-2">
+/** Editorial location strip — quiet, high-end. Replaces the coloured animated pills. */
+const HeroLocationStrip = () => (
+  <div className="flex items-center gap-3 text-primary-foreground/70">
+    <span className="h-px w-10 bg-primary-foreground/40" />
+    <span className="text-[11px] font-semibold uppercase tracking-[0.32em]">
+      Fahrschule seit 2003
+    </span>
+    <span className="hidden sm:inline text-primary-foreground/30">·</span>
+    <span className="hidden sm:flex items-center gap-2 text-[11px] uppercase tracking-[0.28em]">
       {locationPills.map((l, i) => (
-        <motion.span
-          key={l}
-          animate={{
-            scale: i === active ? 1.05 : 1,
-            opacity: i === active ? 1 : 0.6,
-          }}
-          transition={{ type: "spring", stiffness: 300, damping: 20 }}
-          className={`rounded-full px-4 py-1.5 text-sm font-semibold transition-colors duration-300 ${
-            i === active
-              ? "gradient-primary text-primary-foreground shadow-cta"
-              : "bg-primary-foreground/10 text-primary-foreground/70 backdrop-blur-sm"
-          }`}
-        >
-          <MapPin className="inline h-3.5 w-3.5 mr-1 -mt-0.5" />
+        <span key={l} className="flex items-center gap-2">
+          {i > 0 && <span className="h-1 w-1 rounded-full bg-primary" />}
           {l}
-        </motion.span>
+        </span>
       ))}
-    </div>
-  );
-};
+    </span>
+  </div>
+);
+
+/** Reusable editorial section kicker: leading line + label. */
+const SectionKicker = ({ label, center = false }: { label: string; center?: boolean }) => (
+  <div className={`mb-4 flex items-center gap-3 ${center ? "justify-center" : ""}`}>
+    <span className="h-px w-8 bg-primary/70" />
+    <span className="text-[11px] font-bold uppercase tracking-[0.32em] text-primary">
+      {label}
+    </span>
+  </div>
+);
+
 
 const Index = () => {
   const { t } = useTranslation();
