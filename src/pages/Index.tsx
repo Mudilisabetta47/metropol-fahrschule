@@ -49,35 +49,35 @@ import { Fuel, Settings2 } from "lucide-react";
 
 const locationPills = ["Hannover", "Garbsen", "Bremen"];
 
-const AnimatedPills = () => {
-  const [active, setActive] = useState(0);
-  useEffect(() => {
-    const interval = setInterval(() => setActive((a) => (a + 1) % locationPills.length), 2500);
-    return () => clearInterval(interval);
-  }, []);
-  return (
-    <div className="flex gap-2">
+/** Editorial location strip — quiet, high-end. Replaces the coloured animated pills. */
+const HeroLocationStrip = () => (
+  <div className="flex items-center gap-3 text-primary-foreground/70">
+    <span className="h-px w-10 bg-primary-foreground/40" />
+    <span className="text-[11px] font-semibold uppercase tracking-[0.32em]">
+      Fahrschule seit 2003
+    </span>
+    <span className="hidden sm:inline text-primary-foreground/30">·</span>
+    <span className="hidden sm:flex items-center gap-2 text-[11px] uppercase tracking-[0.28em]">
       {locationPills.map((l, i) => (
-        <motion.span
-          key={l}
-          animate={{
-            scale: i === active ? 1.05 : 1,
-            opacity: i === active ? 1 : 0.6,
-          }}
-          transition={{ type: "spring", stiffness: 300, damping: 20 }}
-          className={`rounded-full px-4 py-1.5 text-sm font-semibold transition-colors duration-300 ${
-            i === active
-              ? "gradient-primary text-primary-foreground shadow-cta"
-              : "bg-primary-foreground/10 text-primary-foreground/70 backdrop-blur-sm"
-          }`}
-        >
-          <MapPin className="inline h-3.5 w-3.5 mr-1 -mt-0.5" />
+        <span key={l} className="flex items-center gap-2">
+          {i > 0 && <span className="h-1 w-1 rounded-full bg-primary" />}
           {l}
-        </motion.span>
+        </span>
       ))}
-    </div>
-  );
-};
+    </span>
+  </div>
+);
+
+/** Reusable editorial section kicker: leading line + label. */
+const SectionKicker = ({ label, center = false }: { label: string; center?: boolean }) => (
+  <div className={`mb-4 flex items-center gap-3 ${center ? "justify-center" : ""}`}>
+    <span className="h-px w-8 bg-primary/70" />
+    <span className="text-[11px] font-bold uppercase tracking-[0.32em] text-primary">
+      {label}
+    </span>
+  </div>
+);
+
 
 const Index = () => {
   const { t } = useTranslation();
@@ -322,7 +322,7 @@ const Index = () => {
         <motion.div style={{ opacity: heroOpacity, x: parallaxX, y: parallaxY }} className="container relative z-10 mx-auto px-4 pt-20 will-change-transform">
           <div className="max-w-3xl">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="mb-6">
-              <AnimatedPills />
+              <HeroLocationStrip />
             </motion.div>
 
             <h1 className="mb-6 text-5xl font-extrabold leading-[1.08] text-primary-foreground font-display md:text-7xl lg:text-8xl">
@@ -367,37 +367,26 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Marquee trust banner */}
-      <section className="relative z-10 -mt-16 mb-8">
-        <div className="container mx-auto px-4">
-          <div className="overflow-hidden rounded-2xl border border-border bg-card shadow-card">
-            <div className="relative overflow-hidden py-4">
-              <div className="marquee-track">
-                {[...Array(2)].map((_, setIdx) => (
-                  <div key={setIdx} className="flex shrink-0 items-center gap-8 px-4">
-                    {marqueeItems.map((item) => (
-                      <span key={item} className="whitespace-nowrap text-sm font-semibold text-muted-foreground">{item}</span>
-                    ))}
-                  </div>
+      {/* Slim trust marquee — borderless editorial strip */}
+      <section className="relative z-10 -mt-10 mb-4">
+        <div className="relative overflow-hidden border-y border-border/60 bg-card/40 backdrop-blur-sm py-3">
+          <div className="marquee-track">
+            {[...Array(2)].map((_, setIdx) => (
+              <div key={setIdx} className="flex shrink-0 items-center gap-12 px-6">
+                {marqueeItems.map((item) => (
+                  <span key={item} className="flex items-center gap-3 whitespace-nowrap text-[11px] font-semibold uppercase tracking-[0.28em] text-muted-foreground">
+                    <span className="h-1 w-1 rounded-full bg-primary/60" />
+                    {item}
+                  </span>
                 ))}
               </div>
-            </div>
+            ))}
           </div>
+          <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-background to-transparent" />
+          <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-background to-transparent" />
         </div>
       </section>
 
-      {/* Animated text ticker */}
-      <section className="py-6 overflow-hidden">
-        <div className="relative">
-          <div className="flex animate-marquee-slow whitespace-nowrap">
-            {[...Array(3)].map((_, i) => (
-              <span key={i} className="mx-4 text-7xl md:text-9xl font-extrabold font-display text-transparent" style={{ WebkitTextStroke: "1.5px hsl(var(--border))" }}>
-                {t("index.tickerText")}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Stats */}
       <section className="relative z-10">
@@ -452,7 +441,7 @@ const Index = () => {
       <section className="gradient-section py-20">
         <div className="container mx-auto px-4">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12 text-center">
-            <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">{t("index.classesSubtitle")}</span>
+            <SectionKicker label={t("index.classesSubtitle")} center />
             <h2 className="text-3xl font-extrabold text-foreground font-display md:text-5xl">{t("index.classesTitle")}</h2>
             <p className="mx-auto mt-4 max-w-lg text-muted-foreground">{t("index.classesDesc")}</p>
           </motion.div>
@@ -529,7 +518,7 @@ const Index = () => {
         <div className="absolute top-0 right-0 h-80 w-80 rounded-full bg-primary/5 blur-[100px]" />
         <div className="container relative z-10 mx-auto px-4">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16 max-w-2xl">
-            <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">{t("index.whySubtitle")}</span>
+            <SectionKicker label={t("index.whySubtitle")} />
             <h2 className="text-3xl font-extrabold text-foreground font-display md:text-5xl">{t("index.whyTitle")}</h2>
             <p className="mt-4 text-muted-foreground leading-relaxed">{t("index.whyDesc")}</p>
           </motion.div>
@@ -585,7 +574,7 @@ const Index = () => {
         <div className="absolute bottom-0 left-0 h-80 w-80 rounded-full bg-primary/5 blur-[100px]" />
         <div className="container relative z-10 mx-auto px-4">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16 text-center">
-            <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">{t("index.locationsSubtitle")}</span>
+            <SectionKicker label={t("index.locationsSubtitle")} center />
             <h2 className="text-3xl font-extrabold text-foreground font-display md:text-5xl">{t("index.locationsTitle")}</h2>
           </motion.div>
 
@@ -620,7 +609,7 @@ const Index = () => {
       <section className="gradient-section py-28">
         <div className="container mx-auto px-4">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16 text-center">
-            <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">{t("index.stepsSubtitle")}</span>
+            <SectionKicker label={t("index.stepsSubtitle")} center />
             <h2 className="text-3xl font-extrabold text-foreground font-display md:text-5xl">{t("index.stepsTitle")}</h2>
             <p className="mx-auto mt-4 max-w-lg text-muted-foreground">{t("index.stepsDesc")}</p>
           </motion.div>
@@ -649,7 +638,7 @@ const Index = () => {
         <div className="container relative z-10 mx-auto px-4">
           <div className="grid gap-10 items-start lg:grid-cols-2">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">{t("contact.subtitle")}</span>
+              <SectionKicker label={t("contact.subtitle")} />
               <h2 className="text-3xl font-extrabold text-foreground font-display md:text-5xl lg:text-6xl mb-4">
                 {t("index.ctaTitle")}
                 <br />
