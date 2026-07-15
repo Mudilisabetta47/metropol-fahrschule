@@ -441,7 +441,7 @@ const Index = () => {
       <section className="gradient-section py-20">
         <div className="container mx-auto px-4">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-12 text-center">
-            <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">{t("index.classesSubtitle")}</span>
+            <SectionKicker label={t("index.classesSubtitle")} center />
             <h2 className="text-3xl font-extrabold text-foreground font-display md:text-5xl">{t("index.classesTitle")}</h2>
             <p className="mx-auto mt-4 max-w-lg text-muted-foreground">{t("index.classesDesc")}</p>
           </motion.div>
@@ -518,7 +518,7 @@ const Index = () => {
         <div className="absolute top-0 right-0 h-80 w-80 rounded-full bg-primary/5 blur-[100px]" />
         <div className="container relative z-10 mx-auto px-4">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16 max-w-2xl">
-            <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">{t("index.whySubtitle")}</span>
+            <SectionKicker label={t("index.whySubtitle")} center />
             <h2 className="text-3xl font-extrabold text-foreground font-display md:text-5xl">{t("index.whyTitle")}</h2>
             <p className="mt-4 text-muted-foreground leading-relaxed">{t("index.whyDesc")}</p>
           </motion.div>
@@ -574,7 +574,7 @@ const Index = () => {
         <div className="absolute bottom-0 left-0 h-80 w-80 rounded-full bg-primary/5 blur-[100px]" />
         <div className="container relative z-10 mx-auto px-4">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16 text-center">
-            <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">{t("index.locationsSubtitle")}</span>
+            <SectionKicker label={t("index.locationsSubtitle")} center />
             <h2 className="text-3xl font-extrabold text-foreground font-display md:text-5xl">{t("index.locationsTitle")}</h2>
           </motion.div>
 
@@ -609,7 +609,7 @@ const Index = () => {
       <section className="gradient-section py-28">
         <div className="container mx-auto px-4">
           <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="mb-16 text-center">
-            <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">{t("index.stepsSubtitle")}</span>
+            <SectionKicker label={t("index.stepsSubtitle")} center />
             <h2 className="text-3xl font-extrabold text-foreground font-display md:text-5xl">{t("index.stepsTitle")}</h2>
             <p className="mx-auto mt-4 max-w-lg text-muted-foreground">{t("index.stepsDesc")}</p>
           </motion.div>
@@ -638,7 +638,7 @@ const Index = () => {
         <div className="container relative z-10 mx-auto px-4">
           <div className="grid gap-10 items-start lg:grid-cols-2">
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
-              <span className="mb-3 inline-block text-xs font-bold uppercase tracking-[0.2em] text-primary">{t("contact.subtitle")}</span>
+              <SectionKicker label={t("contact.subtitle")} center />
               <h2 className="text-3xl font-extrabold text-foreground font-display md:text-5xl lg:text-6xl mb-4">
                 {t("index.ctaTitle")}
                 <br />
