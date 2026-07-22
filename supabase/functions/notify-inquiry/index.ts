@@ -231,12 +231,12 @@ function buildConfirmationHtml(data: {
     <table width="100%" cellpadding="0" cellspacing="0">
       <tr>
         <td align="center" style="padding:6px;">
-          <a href="tel:${locationInfo.phone}" style="display:inline-block;background:#111827;color:#fff;font-size:14px;font-weight:700;padding:14px 28px;border-radius:10px;text-decoration:none;">📞 ${locationInfo.phone}</a>
+          <a href="tel:${locationInfo.phoneTel}" style="display:inline-block;background:#111827;color:#fff;font-size:14px;font-weight:700;padding:14px 28px;border-radius:10px;text-decoration:none;">📞 ${locationInfo.phone}</a>
         </td>
       </tr>
       <tr>
         <td align="center" style="padding:6px;">
-          <a href="mailto:${locationInfo.email}" style="display:inline-block;background:#f9fafb;color:#111827;font-size:13px;font-weight:600;padding:12px 28px;border-radius:10px;text-decoration:none;border:1px solid #e5e7eb;">✉️ ${locationInfo.email}</a>
+          <a href="mailto:${locationInfo.emailAttr}" style="display:inline-block;background:#f9fafb;color:#111827;font-size:13px;font-weight:600;padding:12px 28px;border-radius:10px;text-decoration:none;border:1px solid #e5e7eb;">✉️ ${locationInfo.email}</a>
         </td>
       </tr>
     </table>
