@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import InternalLinks from "@/components/InternalLinks";
 import ContactForm from "@/components/ContactForm";
 import SEO from "@/components/SEO";
+import OpenStatusBadge from "@/components/OpenStatusBadge";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -279,7 +280,10 @@ const LocationTemplate = ({ data }: { data: LocationData }) => {
                 </li>
                 <li className="flex items-start gap-3">
                   <Clock className="mt-0.5 h-5 w-5 text-primary" />
-                  <div>{data.hours.map((h, i) => <div key={i} className="text-foreground">{h}</div>)}</div>
+                  <div className="space-y-2">
+                    <OpenStatusBadge location={data.name} />
+                    <div>{data.hours.map((h, i) => <div key={i} className="text-foreground">{h}</div>)}</div>
+                  </div>
                 </li>
               </ul>
               <a href={data.mapsLink} target="_blank" rel="noopener noreferrer" className="mt-6 inline-flex items-center gap-2 rounded-xl bg-accent px-4 py-2.5 text-sm font-semibold text-accent-foreground transition-colors hover:bg-primary hover:text-primary-foreground">
