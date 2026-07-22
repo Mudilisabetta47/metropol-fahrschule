@@ -60,7 +60,16 @@ function buildStaffEmailHtml(data: {
   message?: string;
   locationInfo: { phone: string; address: string };
 }) {
-  const { name, email, phone, location, license_class, message, locationInfo } = data;
+  const name = esc(data.name);
+  const email = esc(data.email);
+  const emailAttr = encodeURIComponent(data.email);
+  const phone = data.phone ? esc(data.phone) : "";
+  const phoneTel = data.phone ? data.phone.replace(/[^0-9+]/g, "") : "";
+  const phoneWa = data.phone ? data.phone.replace(/[^0-9]/g, "").replace(/^0/, "49") : "";
+  const location = esc(data.location);
+  const license_class = data.license_class ? esc(data.license_class) : "";
+  const message = data.message ? esc(data.message) : "";
+  const locationInfo = { phone: esc(data.locationInfo.phone), address: esc(data.locationInfo.address) };
   const now = new Date().toLocaleString("de-DE", { dateStyle: "long", timeStyle: "short", timeZone: "Europe/Berlin" });
 
   return `
