@@ -481,7 +481,7 @@ const Index = () => {
       <FleetSection
         cars={[
           {
-            model: "BMW 1er – Schaltung",
+            model: "Golf 8 R line",
             tag: "Klasse B",
             image: img("class-pkw"),
             specs: [
@@ -491,7 +491,7 @@ const Index = () => {
             ],
           },
           {
-            model: "BMW 1er – Automatik",
+            model: "BMW X1 M Paket",
             tag: "B / B197",
             image: img("class-pkw"),
             specs: [
@@ -501,7 +501,7 @@ const Index = () => {
             ],
           },
           {
-            model: "BMW Motorrad",
+            model: "Motorrad",
             tag: "Klasse A",
             image: img("class-motorrad"),
             specs: [
