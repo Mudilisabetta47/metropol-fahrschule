@@ -28,8 +28,8 @@ const PageLoader = () => {
             className="relative"
           >
             <img
-              src="/src/assets/logo.avif"
-              alt="Fahrschule Metropol Logo"
+              src={logo}
+              alt="Fahrschule Metropol"
               className="h-20 w-auto object-contain"
             />
             <motion.div
