@@ -26,11 +26,15 @@ const PageLoader = () => {
             transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
             className="relative"
           >
-            <div className="h-16 w-16 rounded-2xl gradient-primary shadow-glow" />
+            <img
+              src="/src/assets/logo.avif"
+              alt="Fahrschule Metropol Logo"
+              className="h-20 w-auto object-contain"
+            />
             <motion.div
               animate={{ rotate: 360 }}
               transition={{ repeat: Infinity, duration: 1.2, ease: "linear" }}
-              className="absolute -inset-3 rounded-3xl border-2 border-primary/40 border-t-transparent"
+              className="absolute -inset-4 rounded-3xl border-2 border-primary/40 border-t-transparent"
             />
           </motion.div>
         </motion.div>
