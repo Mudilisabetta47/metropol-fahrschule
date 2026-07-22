@@ -327,7 +327,7 @@ const Index = () => {
 
             <h1 className="mb-6 text-5xl font-extrabold leading-[1.08] text-primary-foreground font-display md:text-7xl lg:text-8xl">
               <SplitText as="span" text={t("index.heroTitle1")} delay={0.25} className="block" />
-              <SplitText as="span" text={t("index.heroTitle2")} delay={0.55} className="block gradient-text" />
+              <SplitText as="span" text={t("index.heroTitle2")} delay={0.55} className="block text-primary" />
             </h1>
 
             <motion.p initial={{ opacity: 0, y: 20, filter: "blur(8px)" }} animate={{ opacity: 1, y: 0, filter: "blur(0px)" }} transition={{ duration: 0.8, delay: 0.9 }} className="mb-10 max-w-xl text-lg text-primary-foreground/60 leading-relaxed md:text-xl">
