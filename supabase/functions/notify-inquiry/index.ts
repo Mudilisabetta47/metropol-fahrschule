@@ -1,5 +1,30 @@
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 import { sendEmailWithRetry } from "../_shared/send-with-retry.ts";
+import { esc, isEmail } from "../_shared/html-escape.ts";
+
+const CAPTCHA_MAX_AGE_MS = 10 * 60 * 1000; // 10 minutes
+
+function verifyMathCaptcha(token: unknown): boolean {
+  if (typeof token !== "string" || token.length === 0 || token.length > 512) return false;
+  try {
+    const decoded = JSON.parse(atob(token));
+    const { a, b, answer, t } = decoded ?? {};
+    if (typeof a !== "number" || typeof b !== "number" || typeof answer !== "number" || typeof t !== "number") return false;
+    if (a + b !== answer) return false;
+    const age = Date.now() - t;
+    if (age < 0 || age > CAPTCHA_MAX_AGE_MS) return false;
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+function str(v: unknown, max: number): string | null {
+  if (typeof v !== "string") return null;
+  const trimmed = v.trim();
+  if (trimmed.length === 0 || trimmed.length > max) return null;
+  return trimmed;
+}
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -35,7 +60,16 @@ function buildStaffEmailHtml(data: {
   message?: string;
   locationInfo: { phone: string; address: string };
 }) {
-  const { name, email, phone, location, license_class, message, locationInfo } = data;
+  const name = esc(data.name);
+  const email = esc(data.email);
+  const emailAttr = encodeURIComponent(data.email);
+  const phone = data.phone ? esc(data.phone) : "";
+  const phoneTel = data.phone ? data.phone.replace(/[^0-9+]/g, "") : "";
+  const phoneWa = data.phone ? data.phone.replace(/[^0-9]/g, "").replace(/^0/, "49") : "";
+  const location = esc(data.location);
+  const license_class = data.license_class ? esc(data.license_class) : "";
+  const message = data.message ? esc(data.message) : "";
+  const locationInfo = { phone: esc(data.locationInfo.phone), address: esc(data.locationInfo.address) };
   const now = new Date().toLocaleString("de-DE", { dateStyle: "long", timeStyle: "short", timeZone: "Europe/Berlin" });
 
   return `
@@ -65,8 +99,8 @@ function buildStaffEmailHtml(data: {
         <p style="margin:0 0 12px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#9ca3af;">Kontaktdaten</p>
         <table width="100%" cellpadding="0" cellspacing="0">
           <tr><td style="padding:6px 0;color:#6b7280;font-size:14px;width:130px;">👤 Name</td><td style="padding:6px 0;color:#111827;font-size:14px;font-weight:600;">${name}</td></tr>
-          <tr><td style="padding:6px 0;color:#6b7280;font-size:14px;">✉️ E-Mail</td><td style="padding:6px 0;"><a href="mailto:${email}" style="color:#2563eb;font-size:14px;font-weight:600;text-decoration:none;">${email}</a></td></tr>
-          ${phone ? `<tr><td style="padding:6px 0;color:#6b7280;font-size:14px;">📞 Telefon</td><td style="padding:6px 0;"><a href="tel:${phone}" style="color:#2563eb;font-size:14px;font-weight:600;text-decoration:none;">${phone}</a></td></tr>` : ""}
+          <tr><td style="padding:6px 0;color:#6b7280;font-size:14px;">✉️ E-Mail</td><td style="padding:6px 0;"><a href="mailto:${emailAttr}" style="color:#2563eb;font-size:14px;font-weight:600;text-decoration:none;">${email}</a></td></tr>
+          ${phone ? `<tr><td style="padding:6px 0;color:#6b7280;font-size:14px;">📞 Telefon</td><td style="padding:6px 0;"><a href="tel:${phoneTel}" style="color:#2563eb;font-size:14px;font-weight:600;text-decoration:none;">${phone}</a></td></tr>` : ""}
           <tr><td style="padding:6px 0;color:#6b7280;font-size:14px;">📍 Standort</td><td style="padding:6px 0;color:#111827;font-size:14px;font-weight:600;">${location}</td></tr>
           ${license_class ? `<tr><td style="padding:6px 0;color:#6b7280;font-size:14px;">🪪 Klasse</td><td style="padding:6px 0;"><span style="background:#00cc28;color:#fff;font-size:12px;font-weight:700;padding:3px 10px;border-radius:6px;">${license_class}</span></td></tr>` : ""}
         </table>
@@ -81,12 +115,12 @@ function buildStaffEmailHtml(data: {
     </td></tr></table>` : ""}
     <table width="100%" cellpadding="0" cellspacing="0">
       <tr><td align="center" style="padding:8px 4px;">
-        <a href="mailto:${email}?subject=Re: Deine Anfrage bei Fahrschule Metropol ${location}&body=Hallo ${name},%0A%0Avielen Dank für deine Anfrage bei Fahrschule Metropol.%0A%0A" style="display:inline-block;background:#00cc28;color:#fff;font-size:14px;font-weight:700;padding:14px 32px;border-radius:10px;text-decoration:none;min-width:180px;text-align:center;">✉️ Per E-Mail antworten</a>
+        <a href="mailto:${emailAttr}?subject=Re: Deine Anfrage bei Fahrschule Metropol ${location}" style="display:inline-block;background:#00cc28;color:#fff;font-size:14px;font-weight:700;padding:14px 32px;border-radius:10px;text-decoration:none;min-width:180px;text-align:center;">✉️ Per E-Mail antworten</a>
       </td></tr>
       ${phone ? `<tr><td align="center" style="padding:8px 4px;">
         <table cellpadding="0" cellspacing="0"><tr>
-          <td style="padding:0 6px;"><a href="tel:${phone}" style="display:inline-block;background:#111827;color:#fff;font-size:13px;font-weight:600;padding:12px 24px;border-radius:10px;text-decoration:none;">📞 Anrufen</a></td>
-          <td style="padding:0 6px;"><a href="https://wa.me/${phone.replace(/[^0-9]/g, "").replace(/^0/, "49")}" style="display:inline-block;background:#25D366;color:#fff;font-size:13px;font-weight:600;padding:12px 24px;border-radius:10px;text-decoration:none;">💬 WhatsApp</a></td>
+          <td style="padding:0 6px;"><a href="tel:${phoneTel}" style="display:inline-block;background:#111827;color:#fff;font-size:13px;font-weight:600;padding:12px 24px;border-radius:10px;text-decoration:none;">📞 Anrufen</a></td>
+          <td style="padding:0 6px;"><a href="https://wa.me/${phoneWa}" style="display:inline-block;background:#25D366;color:#fff;font-size:13px;font-weight:600;padding:12px 24px;border-radius:10px;text-decoration:none;">💬 WhatsApp</a></td>
         </tr></table>
       </td></tr>` : ""}
     </table>
@@ -112,8 +146,18 @@ function buildConfirmationHtml(data: {
   message?: string;
   locationInfo: { phone: string; address: string; email: string };
 }) {
-  const { name, location, license_class, message, locationInfo } = data;
-  const firstName = name.split(" ")[0];
+  const name = esc(data.name);
+  const location = esc(data.location);
+  const license_class = data.license_class ? esc(data.license_class) : "";
+  const message = data.message ? esc(data.message) : "";
+  const locationInfo = {
+    phone: esc(data.locationInfo.phone),
+    phoneTel: data.locationInfo.phone.replace(/[^0-9+]/g, ""),
+    address: esc(data.locationInfo.address),
+    email: esc(data.locationInfo.email),
+    emailAttr: encodeURIComponent(data.locationInfo.email),
+  };
+  const firstName = esc(data.name.split(" ")[0]);
 
   return `
 <!DOCTYPE html>
@@ -187,12 +231,12 @@ function buildConfirmationHtml(data: {
     <table width="100%" cellpadding="0" cellspacing="0">
       <tr>
         <td align="center" style="padding:6px;">
-          <a href="tel:${locationInfo.phone}" style="display:inline-block;background:#111827;color:#fff;font-size:14px;font-weight:700;padding:14px 28px;border-radius:10px;text-decoration:none;">📞 ${locationInfo.phone}</a>
+          <a href="tel:${locationInfo.phoneTel}" style="display:inline-block;background:#111827;color:#fff;font-size:14px;font-weight:700;padding:14px 28px;border-radius:10px;text-decoration:none;">📞 ${locationInfo.phone}</a>
         </td>
       </tr>
       <tr>
         <td align="center" style="padding:6px;">
-          <a href="mailto:${locationInfo.email}" style="display:inline-block;background:#f9fafb;color:#111827;font-size:13px;font-weight:600;padding:12px 28px;border-radius:10px;text-decoration:none;border:1px solid #e5e7eb;">✉️ ${locationInfo.email}</a>
+          <a href="mailto:${locationInfo.emailAttr}" style="display:inline-block;background:#f9fafb;color:#111827;font-size:13px;font-weight:600;padding:12px 28px;border-radius:10px;text-decoration:none;border:1px solid #e5e7eb;">✉️ ${locationInfo.email}</a>
         </td>
       </tr>
     </table>
@@ -222,8 +266,36 @@ Deno.serve(async (req) => {
     const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
     if (!RESEND_API_KEY) throw new Error("RESEND_API_KEY is not configured");
 
-    const { name, email, phone, location, license_class, message } = await req.json();
-    if (!name || !email || !location) throw new Error("Missing required fields");
+    const body = await req.json();
+
+    // 1. Captcha (proof-of-effort). Blocks trivially-scripted spam.
+    if (!verifyMathCaptcha(body?.turnstile_token)) {
+      return new Response(JSON.stringify({ error: "Invalid or expired captcha" }), {
+        status: 400,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+
+    // 2. Strict server-side field validation.
+    const name = str(body?.name, 100);
+    const email = typeof body?.email === "string" ? body.email.trim() : null;
+    const location = str(body?.location, 50);
+    const phone = body?.phone == null || body.phone === "" ? undefined : str(body.phone, 40);
+    const license_class = body?.license_class == null || body.license_class === "" ? undefined : str(body.license_class, 20);
+    const message = body?.message == null || body.message === "" ? undefined : str(body.message, 5000);
+
+    if (!name || !email || !isEmail(email) || !location) {
+      return new Response(JSON.stringify({ error: "Missing or invalid fields" }), {
+        status: 400,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+    if (phone === null || license_class === null || message === null) {
+      return new Response(JSON.stringify({ error: "Invalid field length" }), {
+        status: 400,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
 
     const loc = locationEmails[location];
     if (!loc) throw new Error(`Unknown location: ${location}`);

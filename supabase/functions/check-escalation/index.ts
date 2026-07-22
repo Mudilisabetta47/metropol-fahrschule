@@ -1,5 +1,6 @@
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 import { sendEmailWithRetry } from "../_shared/send-with-retry.ts";
+import { esc } from "../_shared/html-escape.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -25,27 +26,33 @@ function buildEscalationHtml(inquiries: Array<{
       dateStyle: "medium", timeStyle: "short", timeZone: "Europe/Berlin",
     });
     const hoursAgo = Math.round((Date.now() - new Date(inq.created_at).getTime()) / 3600000);
-    const loc = locationInfo[inq.location];
+    const name = esc(inq.name);
+    const email = esc(inq.email);
+    const emailAttr = encodeURIComponent(inq.email);
+    const phone = inq.phone ? esc(inq.phone) : "";
+    const phoneTel = inq.phone ? inq.phone.replace(/[^0-9+]/g, "") : "";
+    const location = esc(inq.location);
+    const license_class = inq.license_class ? esc(inq.license_class) : "–";
 
     return `
     <tr>
       <td style="padding:12px 16px;border-bottom:1px solid #e5e7eb;">
-        <strong style="color:#111827;">${inq.name}</strong><br/>
-        <a href="mailto:${inq.email}" style="color:#2563eb;font-size:13px;">${inq.email}</a>
-        ${inq.phone ? `<br/><a href="tel:${inq.phone}" style="color:#2563eb;font-size:13px;">${inq.phone}</a>` : ""}
+        <strong style="color:#111827;">${name}</strong><br/>
+        <a href="mailto:${emailAttr}" style="color:#2563eb;font-size:13px;">${email}</a>
+        ${phone ? `<br/><a href="tel:${phoneTel}" style="color:#2563eb;font-size:13px;">${phone}</a>` : ""}
       </td>
       <td style="padding:12px 16px;border-bottom:1px solid #e5e7eb;text-align:center;">
-        <span style="background:#00cc28;color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:6px;">${inq.location}</span>
+        <span style="background:#00cc28;color:#fff;font-size:11px;font-weight:700;padding:3px 10px;border-radius:6px;">${location}</span>
       </td>
       <td style="padding:12px 16px;border-bottom:1px solid #e5e7eb;text-align:center;font-size:13px;color:#6b7280;">
-        ${inq.license_class || "–"}
+        ${license_class}
       </td>
       <td style="padding:12px 16px;border-bottom:1px solid #e5e7eb;text-align:center;">
         <span style="color:#dc2626;font-weight:700;font-size:13px;">${hoursAgo}h</span><br/>
-        <span style="color:#9ca3af;font-size:11px;">${created}</span>
+        <span style="color:#9ca3af;font-size:11px;">${esc(created)}</span>
       </td>
       <td style="padding:12px 16px;border-bottom:1px solid #e5e7eb;text-align:center;">
-        <a href="mailto:${inq.email}?subject=Re: Deine Anfrage bei Fahrschule Metropol" style="display:inline-block;background:#00cc28;color:#fff;font-size:12px;font-weight:700;padding:8px 16px;border-radius:8px;text-decoration:none;">Antworten</a>
+        <a href="mailto:${emailAttr}?subject=Re: Deine Anfrage bei Fahrschule Metropol" style="display:inline-block;background:#00cc28;color:#fff;font-size:12px;font-weight:700;padding:8px 16px;border-radius:8px;text-decoration:none;">Antworten</a>
       </td>
     </tr>`;
   }).join("");
@@ -98,6 +105,38 @@ function buildEscalationHtml(inquiries: Array<{
 Deno.serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
+  }
+
+  // Auth: only accept calls from our own server (cron/edge invocations) that
+  // present the service-role bearer token, OR an admin-issued JWT.
+  const authHeader = req.headers.get("Authorization") ?? "";
+  const bearer = authHeader.startsWith("Bearer ") ? authHeader.slice(7) : "";
+  const serviceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY") ?? "";
+  const isService = bearer !== "" && bearer === serviceKey;
+
+  if (!isService) {
+    // Fall back to admin-user check.
+    try {
+      const authClient = createClient(
+        Deno.env.get("SUPABASE_URL")!,
+        Deno.env.get("SUPABASE_ANON_KEY")!,
+        { global: { headers: { Authorization: authHeader } } },
+      );
+      const { data: userData } = await authClient.auth.getUser();
+      const userId = userData?.user?.id;
+      if (!userId) throw new Error("no user");
+      const adminClient = createClient(
+        Deno.env.get("SUPABASE_URL")!,
+        Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
+      );
+      const { data: isAdmin } = await adminClient.rpc("has_role", { _user_id: userId, _role: "admin" });
+      if (!isAdmin) throw new Error("not admin");
+    } catch {
+      return new Response(JSON.stringify({ error: "Unauthorized" }), {
+        status: 401,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
   }
 
   try {
