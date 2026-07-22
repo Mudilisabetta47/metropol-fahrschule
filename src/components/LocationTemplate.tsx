@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import InternalLinks from "@/components/InternalLinks";
 import ContactForm from "@/components/ContactForm";
 import SEO from "@/components/SEO";
+import OpenStatusBadge from "@/components/OpenStatusBadge";
 import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
