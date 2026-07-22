@@ -1,5 +1,30 @@
 import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 import { sendEmailWithRetry } from "../_shared/send-with-retry.ts";
+import { esc, isEmail } from "../_shared/html-escape.ts";
+
+const CAPTCHA_MAX_AGE_MS = 10 * 60 * 1000; // 10 minutes
+
+function verifyMathCaptcha(token: unknown): boolean {
+  if (typeof token !== "string" || token.length === 0 || token.length > 512) return false;
+  try {
+    const decoded = JSON.parse(atob(token));
+    const { a, b, answer, t } = decoded ?? {};
+    if (typeof a !== "number" || typeof b !== "number" || typeof answer !== "number" || typeof t !== "number") return false;
+    if (a + b !== answer) return false;
+    const age = Date.now() - t;
+    if (age < 0 || age > CAPTCHA_MAX_AGE_MS) return false;
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+function str(v: unknown, max: number): string | null {
+  if (typeof v !== "string") return null;
+  const trimmed = v.trim();
+  if (trimmed.length === 0 || trimmed.length > max) return null;
+  return trimmed;
+}
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
