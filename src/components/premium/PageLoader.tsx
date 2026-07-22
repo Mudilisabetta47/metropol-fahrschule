@@ -1,5 +1,6 @@
 import { motion, AnimatePresence } from "framer-motion";
 import { useEffect, useState } from "react";
+import logo from "@/assets/logo.avif";
 
 const PageLoader = () => {
   const [visible, setVisible] = useState(true);
