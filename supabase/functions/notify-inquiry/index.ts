@@ -99,8 +99,8 @@ function buildStaffEmailHtml(data: {
         <p style="margin:0 0 12px;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#9ca3af;">Kontaktdaten</p>
         <table width="100%" cellpadding="0" cellspacing="0">
           <tr><td style="padding:6px 0;color:#6b7280;font-size:14px;width:130px;">👤 Name</td><td style="padding:6px 0;color:#111827;font-size:14px;font-weight:600;">${name}</td></tr>
-          <tr><td style="padding:6px 0;color:#6b7280;font-size:14px;">✉️ E-Mail</td><td style="padding:6px 0;"><a href="mailto:${email}" style="color:#2563eb;font-size:14px;font-weight:600;text-decoration:none;">${email}</a></td></tr>
-          ${phone ? `<tr><td style="padding:6px 0;color:#6b7280;font-size:14px;">📞 Telefon</td><td style="padding:6px 0;"><a href="tel:${phone}" style="color:#2563eb;font-size:14px;font-weight:600;text-decoration:none;">${phone}</a></td></tr>` : ""}
+          <tr><td style="padding:6px 0;color:#6b7280;font-size:14px;">✉️ E-Mail</td><td style="padding:6px 0;"><a href="mailto:${emailAttr}" style="color:#2563eb;font-size:14px;font-weight:600;text-decoration:none;">${email}</a></td></tr>
+          ${phone ? `<tr><td style="padding:6px 0;color:#6b7280;font-size:14px;">📞 Telefon</td><td style="padding:6px 0;"><a href="tel:${phoneTel}" style="color:#2563eb;font-size:14px;font-weight:600;text-decoration:none;">${phone}</a></td></tr>` : ""}
           <tr><td style="padding:6px 0;color:#6b7280;font-size:14px;">📍 Standort</td><td style="padding:6px 0;color:#111827;font-size:14px;font-weight:600;">${location}</td></tr>
           ${license_class ? `<tr><td style="padding:6px 0;color:#6b7280;font-size:14px;">🪪 Klasse</td><td style="padding:6px 0;"><span style="background:#00cc28;color:#fff;font-size:12px;font-weight:700;padding:3px 10px;border-radius:6px;">${license_class}</span></td></tr>` : ""}
         </table>
@@ -115,12 +115,12 @@ function buildStaffEmailHtml(data: {
     </td></tr></table>` : ""}
     <table width="100%" cellpadding="0" cellspacing="0">
       <tr><td align="center" style="padding:8px 4px;">
-        <a href="mailto:${email}?subject=Re: Deine Anfrage bei Fahrschule Metropol ${location}&body=Hallo ${name},%0A%0Avielen Dank für deine Anfrage bei Fahrschule Metropol.%0A%0A" style="display:inline-block;background:#00cc28;color:#fff;font-size:14px;font-weight:700;padding:14px 32px;border-radius:10px;text-decoration:none;min-width:180px;text-align:center;">✉️ Per E-Mail antworten</a>
+        <a href="mailto:${emailAttr}?subject=Re: Deine Anfrage bei Fahrschule Metropol ${location}" style="display:inline-block;background:#00cc28;color:#fff;font-size:14px;font-weight:700;padding:14px 32px;border-radius:10px;text-decoration:none;min-width:180px;text-align:center;">✉️ Per E-Mail antworten</a>
       </td></tr>
       ${phone ? `<tr><td align="center" style="padding:8px 4px;">
         <table cellpadding="0" cellspacing="0"><tr>
-          <td style="padding:0 6px;"><a href="tel:${phone}" style="display:inline-block;background:#111827;color:#fff;font-size:13px;font-weight:600;padding:12px 24px;border-radius:10px;text-decoration:none;">📞 Anrufen</a></td>
-          <td style="padding:0 6px;"><a href="https://wa.me/${phone.replace(/[^0-9]/g, "").replace(/^0/, "49")}" style="display:inline-block;background:#25D366;color:#fff;font-size:13px;font-weight:600;padding:12px 24px;border-radius:10px;text-decoration:none;">💬 WhatsApp</a></td>
+          <td style="padding:0 6px;"><a href="tel:${phoneTel}" style="display:inline-block;background:#111827;color:#fff;font-size:13px;font-weight:600;padding:12px 24px;border-radius:10px;text-decoration:none;">📞 Anrufen</a></td>
+          <td style="padding:0 6px;"><a href="https://wa.me/${phoneWa}" style="display:inline-block;background:#25D366;color:#fff;font-size:13px;font-weight:600;padding:12px 24px;border-radius:10px;text-decoration:none;">💬 WhatsApp</a></td>
         </tr></table>
       </td></tr>` : ""}
     </table>
