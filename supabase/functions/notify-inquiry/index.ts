@@ -146,8 +146,18 @@ function buildConfirmationHtml(data: {
   message?: string;
   locationInfo: { phone: string; address: string; email: string };
 }) {
-  const { name, location, license_class, message, locationInfo } = data;
-  const firstName = name.split(" ")[0];
+  const name = esc(data.name);
+  const location = esc(data.location);
+  const license_class = data.license_class ? esc(data.license_class) : "";
+  const message = data.message ? esc(data.message) : "";
+  const locationInfo = {
+    phone: esc(data.locationInfo.phone),
+    phoneTel: data.locationInfo.phone.replace(/[^0-9+]/g, ""),
+    address: esc(data.locationInfo.address),
+    email: esc(data.locationInfo.email),
+    emailAttr: encodeURIComponent(data.locationInfo.email),
+  };
+  const firstName = esc(data.name.split(" ")[0]);
 
   return `
 <!DOCTYPE html>
