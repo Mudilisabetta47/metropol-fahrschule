@@ -266,8 +266,36 @@ Deno.serve(async (req) => {
     const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
     if (!RESEND_API_KEY) throw new Error("RESEND_API_KEY is not configured");
 
-    const { name, email, phone, location, license_class, message } = await req.json();
-    if (!name || !email || !location) throw new Error("Missing required fields");
+    const body = await req.json();
+
+    // 1. Captcha (proof-of-effort). Blocks trivially-scripted spam.
+    if (!verifyMathCaptcha(body?.turnstile_token)) {
+      return new Response(JSON.stringify({ error: "Invalid or expired captcha" }), {
+        status: 400,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+
+    // 2. Strict server-side field validation.
+    const name = str(body?.name, 100);
+    const email = typeof body?.email === "string" ? body.email.trim() : null;
+    const location = str(body?.location, 50);
+    const phone = body?.phone == null || body.phone === "" ? undefined : str(body.phone, 40);
+    const license_class = body?.license_class == null || body.license_class === "" ? undefined : str(body.license_class, 20);
+    const message = body?.message == null || body.message === "" ? undefined : str(body.message, 5000);
+
+    if (!name || !email || !isEmail(email) || !location) {
+      return new Response(JSON.stringify({ error: "Missing or invalid fields" }), {
+        status: 400,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+    if (phone === null || license_class === null || message === null) {
+      return new Response(JSON.stringify({ error: "Invalid field length" }), {
+        status: 400,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
 
     const loc = locationEmails[location];
     if (!loc) throw new Error(`Unknown location: ${location}`);
