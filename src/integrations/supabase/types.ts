@@ -14,6 +14,30 @@ export type Database = {
   }
   public: {
     Tables: {
+      email_inbox_state: {
+        Row: {
+          id: number
+          last_error: string | null
+          last_run_at: string | null
+          last_uid: number
+          updated_at: string
+        }
+        Insert: {
+          id?: number
+          last_error?: string | null
+          last_run_at?: string | null
+          last_uid?: number
+          updated_at?: string
+        }
+        Update: {
+          id?: number
+          last_error?: string | null
+          last_run_at?: string | null
+          last_uid?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
       email_send_log: {
         Row: {
           created_at: string
@@ -103,48 +127,140 @@ export type Database = {
       }
       inquiries: {
         Row: {
+          ai_category: string | null
+          ai_confidence: number | null
+          ai_recommendation: string | null
+          ai_summary: string | null
           assigned_to: string | null
+          auto_replied_at: string | null
           created_at: string
           email: string
+          escalated_at: string | null
           id: string
+          is_irrelevant: boolean
           license_class: string | null
           location: string
           message: string | null
           name: string
           notes: string | null
+          outbound_message_id: string | null
           phone: string | null
+          replied_at: string | null
+          response_time_minutes: number | null
           status: string
+          tracking_code: string | null
           updated_at: string
         }
         Insert: {
+          ai_category?: string | null
+          ai_confidence?: number | null
+          ai_recommendation?: string | null
+          ai_summary?: string | null
           assigned_to?: string | null
+          auto_replied_at?: string | null
           created_at?: string
           email: string
+          escalated_at?: string | null
           id?: string
+          is_irrelevant?: boolean
           license_class?: string | null
           location: string
           message?: string | null
           name: string
           notes?: string | null
+          outbound_message_id?: string | null
           phone?: string | null
+          replied_at?: string | null
+          response_time_minutes?: number | null
           status?: string
+          tracking_code?: string | null
           updated_at?: string
         }
         Update: {
+          ai_category?: string | null
+          ai_confidence?: number | null
+          ai_recommendation?: string | null
+          ai_summary?: string | null
           assigned_to?: string | null
+          auto_replied_at?: string | null
           created_at?: string
           email?: string
+          escalated_at?: string | null
           id?: string
+          is_irrelevant?: boolean
           license_class?: string | null
           location?: string
           message?: string | null
           name?: string
           notes?: string | null
+          outbound_message_id?: string | null
           phone?: string | null
+          replied_at?: string | null
+          response_time_minutes?: number | null
           status?: string
+          tracking_code?: string | null
           updated_at?: string
         }
         Relationships: []
+      }
+      inquiry_messages: {
+        Row: {
+          ai_category: string | null
+          body_text: string | null
+          created_at: string
+          direction: string
+          email_references: string | null
+          from_email: string | null
+          id: string
+          in_reply_to: string | null
+          inquiry_id: string
+          is_auto_generated: boolean
+          message_id: string | null
+          received_at: string
+          subject: string | null
+          to_email: string | null
+        }
+        Insert: {
+          ai_category?: string | null
+          body_text?: string | null
+          created_at?: string
+          direction: string
+          email_references?: string | null
+          from_email?: string | null
+          id?: string
+          in_reply_to?: string | null
+          inquiry_id: string
+          is_auto_generated?: boolean
+          message_id?: string | null
+          received_at?: string
+          subject?: string | null
+          to_email?: string | null
+        }
+        Update: {
+          ai_category?: string | null
+          body_text?: string | null
+          created_at?: string
+          direction?: string
+          email_references?: string | null
+          from_email?: string | null
+          id?: string
+          in_reply_to?: string | null
+          inquiry_id?: string
+          is_auto_generated?: boolean
+          message_id?: string | null
+          received_at?: string
+          subject?: string | null
+          to_email?: string | null
+        }
+        Relationships: [
+          {
+            foreignKeyName: "inquiry_messages_inquiry_id_fkey"
+            columns: ["inquiry_id"]
+            isOneToOne: false
+            referencedRelation: "inquiries"
+            referencedColumns: ["id"]
+          },
+        ]
       }
       inquiry_notes: {
         Row: {
