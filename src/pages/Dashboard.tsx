@@ -416,6 +416,11 @@ const Dashboard = () => {
                     </div>
                   )}
 
+                  {/* KI-Analyse & E-Mail-Verlauf */}
+                  <InquiryConversation inquiry={selected} />
+
+
+
                   {/* Status Pills */}
                   <div className="mb-6">
                     <p className="mb-2 text-[10px] font-bold uppercase text-muted-foreground/50 tracking-widest">Status ändern</p>
