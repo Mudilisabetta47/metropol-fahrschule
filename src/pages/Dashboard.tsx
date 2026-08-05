@@ -16,6 +16,8 @@ import {
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import type { User } from "@supabase/supabase-js";
+import InquiryConversation from "@/components/dashboard/InquiryConversation";
+
 
 interface Inquiry {
   id: string;
@@ -415,6 +417,11 @@ const Dashboard = () => {
                       </div>
                     </div>
                   )}
+
+                  {/* KI-Analyse & E-Mail-Verlauf */}
+                  <InquiryConversation inquiry={selected} />
+
+
 
                   {/* Status Pills */}
                   <div className="mb-6">

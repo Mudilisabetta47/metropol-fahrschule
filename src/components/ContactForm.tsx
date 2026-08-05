@@ -68,13 +68,12 @@ const ContactForm = ({ preselectedLocation, compact }: ContactFormProps) => {
         status: "neu",
       };
 
+      // Die Edge Function speichert die Anfrage (inkl. Tracking-Code) und versendet die E-Mails
       const { error: fnError } = await supabase.functions.invoke("notify-inquiry", {
         body: { ...inquiryPayload, turnstile_token: turnstileToken },
       });
       if (fnError) throw fnError;
 
-      const { error } = await supabase.from("inquiries").insert(inquiryPayload);
-      if (error) throw error;
 
       setSubmittedName(form.name.trim().split(" ")[0]);
       setSubmitted(true);
