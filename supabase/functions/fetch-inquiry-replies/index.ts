@@ -73,15 +73,29 @@ Deno.serve(async (req) => {
   const authHeader = req.headers.get("Authorization") ?? "";
   const token = authHeader.replace(/^Bearer\s+/i, "");
   const serviceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
-  if (token !== serviceKey) {
+  const unauthorized = (status: number) =>
+    new Response(JSON.stringify({ error: "Nicht autorisiert" }), {
+      status,
+      headers: { ...corsHeaders, "Content-Type": "application/json" },
+    });
+
+  let isService = token.length > 0 && token === serviceKey;
+  if (!isService && token.length > 0) {
+    // Andere gültige Service-Keys (z. B. nach Rotation) erkennen: nur Service-Role
+    // darf email_send_state lesen (RLS), deshalb ist ein Treffer hier beweisend.
+    const probe = createClient(Deno.env.get("SUPABASE_URL")!, token, { auth: { persistSession: false } });
+    const { error } = await probe.from("email_send_state").select("id").limit(1);
+    isService = !error;
+  }
+
+  if (!isService) {
     const { data: userData } = await supabase.auth.getUser(token);
     const uid = userData?.user?.id;
-    if (!uid) return new Response(JSON.stringify({ error: "Nicht autorisiert" }), { status: 401, headers: { ...corsHeaders, "Content-Type": "application/json" } });
+    if (!uid) return unauthorized(401);
     const { data: roles } = await supabase.from("user_roles").select("role").eq("user_id", uid).eq("role", "admin");
-    if (!roles || roles.length === 0) {
-      return new Response(JSON.stringify({ error: "Nicht autorisiert" }), { status: 403, headers: { ...corsHeaders, "Content-Type": "application/json" } });
-    }
+    if (!roles || roles.length === 0) return unauthorized(403);
   }
+
 
   const host = Deno.env.get("IMAP_HOST");
   const user = Deno.env.get("IMAP_USER");
