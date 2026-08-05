@@ -300,10 +300,39 @@ Deno.serve(async (req) => {
     const loc = locationEmails[location];
     if (!loc) throw new Error(`Unknown location: ${location}`);
 
+    // Versteckte Anfrage-ID: eindeutiger Tracking-Code + eigene Message-ID
+    const trackingCode = `MP-${crypto.randomUUID().replace(/-/g, "").slice(0, 12).toUpperCase()}`;
+    const outboundMessageId = `<${crypto.randomUUID()}@fahrschule-metropol.de>`;
+    const replyInbox = Deno.env.get("REPLY_INBOX") || "anfragen@fahrschule-metropol.de";
+
+    // Anfrage serverseitig speichern (inkl. Tracking-Daten)
+    const supabase = createClient(
+      Deno.env.get("SUPABASE_URL")!,
+      Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
+      { auth: { persistSession: false } },
+    );
+
+    const { data: inquiryRow, error: insertError } = await supabase
+      .from("inquiries")
+      .insert({
+        name, email, location,
+        phone: phone ?? null,
+        license_class: license_class ?? null,
+        message: message ?? null,
+        status: "neu",
+        tracking_code: trackingCode,
+        outbound_message_id: outboundMessageId,
+      })
+      .select("id")
+      .single();
+    if (insertError) throw new Error(`Anfrage konnte nicht gespeichert werden: ${insertError.message}`);
+
+    const trackingMarkup = `<div style="display:none;color:transparent;font-size:1px;line-height:1px;max-height:0;overflow:hidden;">Ref: ${esc(trackingCode)}</div>`;
+
     const staffHtml = buildStaffEmailHtml({
       name, email, phone, location, license_class, message,
       locationInfo: { phone: loc.phone, address: loc.address },
-    });
+    }).replace("</body>", `${trackingMarkup}</body>`);
 
     const confirmHtml = buildConfirmationHtml({
       name, location, license_class, message,
@@ -315,9 +344,15 @@ Deno.serve(async (req) => {
       sendEmailWithRetry(RESEND_API_KEY, {
         from: "Fahrschule Metropol <noreply@fahrschule-metropol.de>",
         to: [loc.email],
-        subject: `🚗 Neue Anfrage von ${name} – ${license_class || "Allgemein"} (${location})`,
+        subject: `🚗 Neue Anfrage von ${name} – ${license_class || "Allgemein"} (${location}) [${trackingCode}]`,
         html: staffHtml,
-        reply_to: email,
+        reply_to: replyInbox,
+        headers: {
+          "Message-ID": outboundMessageId,
+          "X-Metropol-Request-ID": trackingCode,
+          "X-Tracking-ID": trackingCode,
+          "X-Metropol-Inquiry": inquiryRow.id,
+        },
       }, `staff-${location}`),
       sendEmailWithRetry(RESEND_API_KEY, {
         from: "Fahrschule Metropol <noreply@fahrschule-metropol.de>",
@@ -327,6 +362,16 @@ Deno.serve(async (req) => {
       }, `confirm-${email}`),
     ]);
 
+    await supabase.from("inquiry_messages").insert({
+      inquiry_id: inquiryRow.id,
+      direction: "outbound",
+      from_email: "noreply@fahrschule-metropol.de",
+      to_email: loc.email,
+      subject: `Neue Anfrage von ${name} – ${license_class || "Allgemein"} (${location})`,
+      body_text: message ?? "(keine Nachricht)",
+      message_id: outboundMessageId,
+    });
+
     // Staff mail is critical — surface failure so the client can react.
     if (!staffResult.ok) {
       throw new Error(`Staff email failed after ${staffResult.attempts} attempts: ${staffResult.error}`);
@@ -334,6 +379,7 @@ Deno.serve(async (req) => {
     if (!confirmResult.ok) {
       console.error(`Confirmation email failed after ${confirmResult.attempts} attempts:`, confirmResult.error);
     }
+
 
     return new Response(JSON.stringify({
       success: true,
