@@ -16,6 +16,8 @@ import {
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import type { User } from "@supabase/supabase-js";
+import InquiryConversation from "@/components/dashboard/InquiryConversation";
+
 
 interface Inquiry {
   id: string;
