@@ -216,6 +216,7 @@ Deno.serve(async (req) => {
     if (analysis.is_irrelevant) {
       filtered++;
       if (analysis.category === "spam") update.status = "spam";
+      else update.status = CATEGORY_STATUS[analysis.category] ?? "in bearbeitung";
     } else {
       if (!alreadyReplied) {
         update.replied_at = now.toISOString();
@@ -224,8 +225,9 @@ Deno.serve(async (req) => {
       update.status = CATEGORY_STATUS[analysis.category] ?? "beantwortet";
     }
 
-    // Standardanfragen automatisch beantworten
-    if (!analysis.is_irrelevant && analysis.auto_reply_body && analysis.confidence >= 0.7 && fromEmail) {
+    // Standardanfragen automatisch beantworten – nur aus hinterlegtem Wissen
+    let autoAnswered = false;
+    if (analysis.can_auto_answer && analysis.auto_reply_body && fromEmail) {
       const replyMessageId = `<${crypto.randomUUID()}@fahrschule-metropol.de>`;
       const outcome = await sendMail({
         from: "Fahrschule Metropol <noreply@fahrschule-metropol.de>",
@@ -244,7 +246,9 @@ Deno.serve(async (req) => {
 
       if (outcome.ok) {
         autoReplied++;
+        autoAnswered = true;
         update.auto_replied_at = now.toISOString();
+        update.status = STATUS_AUTO;
         await supabase.from("inquiry_messages").insert({
           inquiry_id: inquiry.id,
           direction: "outbound",
@@ -259,13 +263,20 @@ Deno.serve(async (req) => {
       }
     }
 
-    // Nur wichtige Fälle an die Geschäftsführung
-    const managerEmail = Deno.env.get("MANAGER_EMAIL") || "info@fahrschule-metropol.de";
-    if (!analysis.is_irrelevant && analysis.needs_manager) {
-      const reason = analysis.category === "absage" ? "Fahrschule hat abgelehnt" : "Anfrage benötigt Ihre Aufmerksamkeit";
+    // Alles, was nicht sicher automatisch beantwortbar ist, geht an Mitarbeiter
+    const needsHuman = !analysis.is_irrelevant && !autoAnswered &&
+      (analysis.needs_manager || !analysis.can_auto_answer);
+
+    if (needsHuman) {
+      update.status = STATUS_MANUAL;
+      const managerEmail = Deno.env.get("MANAGER_EMAIL") || "info@fahrschule-metropol.de";
+      const locationEmail = LOCATION_EMAILS[String(inquiry.location)] ?? null;
+      const recipients = Array.from(new Set([managerEmail, locationEmail].filter(Boolean) as string[]));
+      const reason = MANUAL_REASONS[analysis.category] ?? "Manuelle Bearbeitung erforderlich";
+
       const outcome = await sendMail({
         from: "Fahrschule Metropol <noreply@fahrschule-metropol.de>",
-        to: managerEmail,
+        to: recipients.join(", "),
         subject: `⚠️ ${reason} – ${inquiry.name} (${inquiry.location})`,
         html: managerHtml({
           reason,
@@ -281,6 +292,7 @@ Deno.serve(async (req) => {
         update.escalated_at = now.toISOString();
       }
     }
+
 
     await supabase.from("inquiries").update(update).eq("id", inquiry.id);
   }
