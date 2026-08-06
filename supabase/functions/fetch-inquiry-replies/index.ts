@@ -12,12 +12,15 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
+const STATUS_AUTO = "automatisch beantwortet";
+const STATUS_MANUAL = "manuelle bearbeitung erforderlich";
+
 const CATEGORY_STATUS: Record<string, string> = {
-  absage: "erledigt",
   spam: "spam",
   irrelevant: "in bearbeitung",
   abwesenheit: "in bearbeitung",
 };
+
 
 function addressOf(header: string | undefined): string {
   if (!header) return "";
