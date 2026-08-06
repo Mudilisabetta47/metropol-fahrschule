@@ -37,11 +37,23 @@ const statusConfig: Record<string, { color: string; icon: typeof Inbox; label: s
   neu: { color: "bg-primary/10 text-primary border-primary/30", icon: Sparkles, label: "Neu" },
   "in bearbeitung": { color: "bg-blue-500/10 text-blue-600 border-blue-500/30", icon: Clock, label: "In Bearbeitung" },
   "rückruf geplant": { color: "bg-amber-500/10 text-amber-600 border-amber-500/30", icon: PhoneForwarded, label: "Rückruf" },
+  beantwortet: { color: "bg-blue-500/10 text-blue-600 border-blue-500/30", icon: Clock, label: "Beantwortet" },
+  "automatisch beantwortet": { color: "bg-primary/10 text-primary border-primary/30", icon: Sparkles, label: "Automatisch beantwortet" },
+  "manuelle bearbeitung erforderlich": { color: "bg-amber-500/10 text-amber-600 border-amber-500/30", icon: AlertCircle, label: "Manuelle Bearbeitung" },
   erledigt: { color: "bg-emerald-500/10 text-emerald-600 border-emerald-500/30", icon: CheckCircle, label: "Erledigt" },
   spam: { color: "bg-destructive/10 text-destructive border-destructive/30", icon: Trash2, label: "Spam" },
 };
 
-const statusOptions = ["neu", "in bearbeitung", "rückruf geplant", "erledigt", "spam"];
+const statusOptions = [
+  "neu",
+  "in bearbeitung",
+  "rückruf geplant",
+  "automatisch beantwortet",
+  "manuelle bearbeitung erforderlich",
+  "erledigt",
+  "spam",
+];
+
 
 function timeAgo(dateStr: string): string {
   const now = new Date();
