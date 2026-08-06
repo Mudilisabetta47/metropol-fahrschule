@@ -21,6 +21,24 @@ const CATEGORY_STATUS: Record<string, string> = {
   abwesenheit: "in bearbeitung",
 };
 
+const LOCATION_EMAILS: Record<string, string> = {
+  Hannover: "hannover@fahrschule-metropol.de",
+  Garbsen: "garbsen@fahrschule-metropol.de",
+  Bremen: "bremen@fahrschule-metropol.de",
+};
+
+const MANUAL_REASONS: Record<string, string> = {
+  preisverhandlung: "Preisverhandlung – manuelle Bearbeitung erforderlich",
+  rabatt: "Rabattanfrage – manuelle Bearbeitung erforderlich",
+  beschwerde: "Beschwerde – manuelle Bearbeitung erforderlich",
+  vertrag: "Vertrag/Kündigung – manuelle Bearbeitung erforderlich",
+  rechtliches: "Rechtliche Frage – manuelle Bearbeitung erforderlich",
+  unklar: "Unklare Anfrage – manuelle Bearbeitung erforderlich",
+  absage: "Absage – manuelle Bearbeitung erforderlich",
+  dokument_angefordert: "Dokumente angefordert – manuelle Bearbeitung erforderlich",
+};
+
+
 
 function addressOf(header: string | undefined): string {
   if (!header) return "";
