@@ -346,7 +346,9 @@ Deno.serve(async (req) => {
         to: [loc.email],
         subject: `🚗 Neue Anfrage von ${name} – ${license_class || "Allgemein"} (${location}) [${trackingCode}]`,
         html: staffHtml,
-        reply_to: replyInbox,
+        // Antwort eines Mitarbeiters geht direkt an den Interessenten;
+        // der gemeinsame Posteingang wird mitgeführt, damit der Verlauf erfasst bleibt.
+        reply_to: [email, replyInbox],
         headers: {
           "Message-ID": outboundMessageId,
           "X-Metropol-Request-ID": trackingCode,
