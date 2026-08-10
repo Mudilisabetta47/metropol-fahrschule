@@ -11,7 +11,7 @@ import {
   Search, LogOut, MessageSquare, Send, ChevronRight,
   Phone, Mail, MapPin, Clock, CheckCircle, AlertCircle,
   PhoneCall, MailOpen, ExternalLink, Inbox, PhoneForwarded,
-  Trash2, Users, Sparkles, Image as ImageIcon,
+  Trash2, Users, Sparkles, Image as ImageIcon, ShieldCheck,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
@@ -200,6 +200,11 @@ const Dashboard = () => {
             <Button variant="outline" size="sm" asChild>
               <Link to="/dashboard/bilder">
                 <ImageIcon className="h-4 w-4 mr-1" /> Bilder
+              </Link>
+            </Button>
+            <Button variant="outline" size="sm" asChild>
+              <Link to="/dashboard/sicherheit">
+                <ShieldCheck className="h-4 w-4 mr-1" /> Sicherheit
               </Link>
             </Button>
             <Button variant="ghost" size="sm" onClick={handleLogout} className="text-muted-foreground hover:text-foreground">
