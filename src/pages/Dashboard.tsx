@@ -11,7 +11,7 @@ import {
   Search, LogOut, MessageSquare, Send, ChevronRight,
   Phone, Mail, MapPin, Clock, CheckCircle, AlertCircle,
   PhoneCall, MailOpen, ExternalLink, Inbox, PhoneForwarded,
-  Trash2, Users, Sparkles, Image as ImageIcon,
+  Trash2, Users, Sparkles, Image as ImageIcon, ShieldCheck,
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
