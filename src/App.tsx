@@ -33,6 +33,7 @@ const Auth = lazy(() => import("./pages/Auth"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 const ImageManager = lazy(() => import("./pages/ImageManager"));
+const Security = lazy(() => import("./pages/Security"));
 const ErsteHilfe = lazy(() => import("./pages/ErsteHilfe"));
 const Aufbauseminar = lazy(() => import("./pages/Aufbauseminar"));
 const Datenschutz = lazy(() => import("./pages/Datenschutz"));
