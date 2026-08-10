@@ -92,6 +92,7 @@ const App = () => (
               <Route path="/login" element={<Auth />} />
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/dashboard/bilder" element={<ImageManager />} />
+              <Route path="/dashboard/sicherheit" element={<Security />} />
               <Route path="*" element={<NotFound />} />
             </Routes>
           </Suspense>
