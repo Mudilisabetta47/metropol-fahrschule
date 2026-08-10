@@ -202,6 +202,11 @@ const Dashboard = () => {
                 <ImageIcon className="h-4 w-4 mr-1" /> Bilder
               </Link>
             </Button>
+            <Button variant="outline" size="sm" asChild>
+              <Link to="/dashboard/sicherheit">
+                <ShieldCheck className="h-4 w-4 mr-1" /> Sicherheit
+              </Link>
+            </Button>
             <Button variant="ghost" size="sm" onClick={handleLogout} className="text-muted-foreground hover:text-foreground">
               <LogOut className="h-4 w-4 mr-1" /> Abmelden
             </Button>
