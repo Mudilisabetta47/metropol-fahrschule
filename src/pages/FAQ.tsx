@@ -10,7 +10,7 @@ import SEO from "@/components/SEO";
 const FAQ = () => {
   const { t } = useTranslation();
 
-  const faqs = Array.from({ length: 8 }, (_, i) => ({
+  const faqs = Array.from({ length: 7 }, (_, i) => ({
     q: t(`faq.q${i + 1}`),
     a: t(`faq.a${i + 1}`),
   }));
