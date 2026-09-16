@@ -22,7 +22,7 @@ FÜHRERSCHEINKLASSEN
 B (Auto), B197 (Automatik-Ausbildung mit Schaltnachweis), B196 (Motorrad 125 cm³ mit Klasse B),
 B96 (Anhänger), BE, A, A1, A2, AM, L. Zusätzlich Umschreibung/Wiedererteilung.
 Fahrzeuge: sowohl Schaltwagen als auch Automatikfahrzeuge vorhanden.
-Zusatzangebote: Erste-Hilfe-Kurs, Crashkurs/Intensivkurs, Aufbauseminar (ASF).
+Zusatzangebote: Erste-Hilfe-Kurs, Aufbauseminar (ASF).
 
 PREISE (Stand Juli 2026, Hannover & Garbsen; Bremen auf Anfrage beim Standort)
 Klasse B: Grundbetrag 200,00 € · Übungsfahrt (45 Min) 60,00 € · Sonderfahrt (45 Min) 70,00 € ·

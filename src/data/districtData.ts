@@ -32,7 +32,6 @@ export const districts: DistrictData[] = [
       "Beliebt bei Studierenden der Leibniz Universität",
       "Prüfstrecken durch Nordstadt & City bestens bekannt",
       "Theorie in Deutsch, Englisch, Türkisch, Arabisch",
-      "BF17 & Intensivkurse regelmäßig verfügbar",
     ],
   },
   {
@@ -100,7 +99,6 @@ export const districts: DistrictData[] = [
       "Prüfungsstrecken direkt vor der Tür",
       "Alle gängigen Führerscheinklassen",
       "Mehrsprachig – DE, EN, TR, AR",
-      "Ferien- und Intensivkurse",
     ],
   },
   {
@@ -150,7 +148,6 @@ export const districts: DistrictData[] = [
       "Fahrstundenstart auf Wunsch ab Wohnort",
       "Prüfstrecken Misburg/Anderten bekannt",
       "Klasse B, BE, Motorrad, LKW & Bus",
-      "Intensivkurse in den Ferien",
       "Persönliche Beratung",
     ],
   },
@@ -187,7 +184,6 @@ export const districts: DistrictData[] = [
       "Prüfstreckenkenntnis Laatzen & Umgebung",
       "Alle Klassen inkl. Automatik B197",
       "Faire Preise ohne versteckte Kosten",
-      "Ferien- & Intensivkurse",
     ],
   },
   {
@@ -220,7 +216,6 @@ export const districts: DistrictData[] = [
       "S-Bahn 3 – schnelle Verbindung",
       "Fahrstundenstart optional ab Lehrte",
       "Alle Klassen inkl. LKW & Bus",
-      "Intensiv- und Ferienkurse",
       "Faire, transparente Kosten",
     ],
   },
@@ -257,7 +252,6 @@ export const districts: DistrictData[] = [
       "Ruhige Straßen zum Einstieg",
       "Eigener Parkplatz vor der Tür",
       "Familiäre Atmosphäre",
-      "BF17 & Intensivkurse",
     ],
   },
   {
@@ -290,7 +284,6 @@ export const districts: DistrictData[] = [
       "Nahe Anbindung an Standort Garbsen",
       "Prüfungsvorbereitung Region Hannover-West",
       "Alle gängigen Klassen",
-      "Ferienkurse regelmäßig",
       "Eigener Parkplatz in Garbsen",
     ],
   },
@@ -324,7 +317,6 @@ export const districts: DistrictData[] = [
       "Persönliche Betreuung in Garbsen",
       "Ruhige Anfangsstrecken",
       "Alle Klassen inkl. Automatik",
-      "BF17 & Intensivkurse",
       "Eigener Parkplatz",
     ],
   },
@@ -341,7 +333,6 @@ export const districts: DistrictData[] = [
       "Familiäre Ausbildung in Garbsen",
       "Kleine Theoriegruppen",
       "Klasse B, BE, A, C",
-      "Ferien- und Intensivkurse",
       "Persönlicher Fahrlehrer",
     ],
   },
@@ -395,7 +386,6 @@ export const districts: DistrictData[] = [
       "Prüfstrecken Neustadt/Innenstadt bekannt",
       "Klasse B, B197, A, C, D",
       "Mehrsprachiger Unterricht",
-      "Intensiv- und Ferienkurse",
     ],
   },
   {
@@ -446,7 +436,6 @@ export const districts: DistrictData[] = [
       "Prüfungsvorbereitung Walle & Überseestadt",
       "Alle Klassen inkl. Automatik",
       "Mehrsprachig – DE, EN, TR, AR",
-      "Ferienkurse regelmäßig",
     ],
   },
   {
@@ -480,7 +469,6 @@ export const districts: DistrictData[] = [
       "Prüfstrecken Huchting/Roland-Center",
       "Alle Klassen inkl. Motorrad",
       "Mehrsprachiger Unterricht",
-      "BF17 & Intensivkurse",
     ],
   },
   {
@@ -496,7 +484,6 @@ export const districts: DistrictData[] = [
       "Regio-S-Bahn RS1 direkt zum Hbf",
       "Erfahrung mit Bremen-Nord-Fahrschülern",
       "Klasse B, B197, A, C, CE",
-      "Ferien- & Intensivkurse",
       "Faire, transparente Kosten",
     ],
   },

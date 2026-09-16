@@ -15,7 +15,7 @@ const Garbsen = () => (
         "Theorieunterricht ab 01.07.: Mo, Di & Mi 18:30–20:00 Uhr",
       ],
       description: "Deine Fahrschule in Garbsen – entspannte Atmosphäre, eigener Parkplatz und top Anbindung.",
-      longDescription: "In Garbsen bietet die Fahrschule Metropol eine erstklassige Fahrausbildung in familiärer Atmosphäre. Unser Standort liegt zentral am Planetenring und ist gut erreichbar mit ÖPNV. Das Garbsener Team legt besonderen Wert auf geduldige, individuelle Betreuung. Die ruhigeren Straßenverhältnisse in Garbsen eignen sich hervorragend für den Einstieg, bevor es in den Stadtverkehr nach Hannover geht. Auch Intensivkurse und Ferienkurse bieten wir hier regelmäßig an.",
+      longDescription: "In Garbsen bietet die Fahrschule Metropol eine erstklassige Fahrausbildung in familiärer Atmosphäre. Unser Standort liegt zentral am Planetenring und ist gut erreichbar mit ÖPNV. Das Garbsener Team legt besonderen Wert auf geduldige, individuelle Betreuung. Die ruhigeren Straßenverhältnisse in Garbsen eignen sich hervorragend für den Einstieg, bevor es in den Stadtverkehr nach Hannover geht.",
       mapEmbed: "https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=Planetenring+25,+30823+Garbsen,+Germany&zoom=16",
       mapsLink: "https://www.google.com/maps/dir//Planetenring+25,+30823+Garbsen",
       seoTitle: "Fahrschule Garbsen – Fahrschule Metropol | Entspannt zum Führerschein",
