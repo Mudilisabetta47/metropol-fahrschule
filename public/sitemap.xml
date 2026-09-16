@@ -17,17 +17,6 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/" />
   </url>
   <url>
-    <loc>https://fahrschule-metropol.de/crashkurs</loc>
-    <lastmod>2026-07-03</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.95</priority>
-    <xhtml:link rel="alternate" hreflang="de" href="https://fahrschule-metropol.de/crashkurs" />
-    <xhtml:link rel="alternate" hreflang="en" href="https://fahrschule-metropol.de/crashkurs?lang=en" />
-    <xhtml:link rel="alternate" hreflang="tr" href="https://fahrschule-metropol.de/crashkurs?lang=tr" />
-    <xhtml:link rel="alternate" hreflang="ar" href="https://fahrschule-metropol.de/crashkurs?lang=ar" />
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://fahrschule-metropol.de/crashkurs" />
-  </url>
-  <url>
     <loc>https://fahrschule-metropol.de/fuehrerscheinklassen</loc>
     <lastmod>2026-07-03</lastmod>
     <changefreq>weekly</changefreq>

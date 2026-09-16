@@ -32,7 +32,7 @@ const cityData: Record<string, CityLandingData> = {
     locationPath: "/standorte/hannover",
     seoTitle: "Fahrschule Hannover – Alle Führerscheinklassen | Fahrschule Metropol",
     seoDescription: "Fahrschule in Hannover: PKW, Motorrad, LKW & Bus. 98% Bestehensquote, flexible Zeiten, zentrale Lage. Jetzt bei Fahrschule Metropol anmelden!",
-    seoKeywords: "Fahrschule Hannover, Führerschein Hannover, Fahrschule Metropol Hannover, Klasse B Hannover, Motorradführerschein Hannover, LKW Führerschein Hannover, Intensivkurs Hannover, BF17 Hannover, Automatik Führerschein Hannover, B197 Hannover, Fahrschule Engelbosteler Damm, Fahrschule Nordstadt Hannover, Führerschein machen Hannover, Beste Fahrschule Hannover, Fahrschule Hannover Bewertung, Führerschein Kosten Hannover, Fahrschule Arabisch Hannover, Fahrschule Türkisch Hannover, Führerschein umschreiben Hannover, Crashkurs Führerschein Hannover, Ferienkurs Hannover, Theorie lernen Hannover, Begleitetes Fahren Hannover, Schnellkurs Führerschein Hannover, Führerschein Crashkurs Hannover, Wochenend Fahrschule Hannover, Fahrschule Ferienkurs Hannover, Motorrad Führerschein Hannover, Fahrschule in der Nähe Hannover, Führerschein schnell Hannover",
+    seoKeywords: "Fahrschule Hannover, Führerschein Hannover, Fahrschule Metropol Hannover, Klasse B Hannover, Motorradführerschein Hannover, LKW Führerschein Hannover, BF17 Hannover, Automatik Führerschein Hannover, B197 Hannover, Fahrschule Engelbosteler Damm, Fahrschule Nordstadt Hannover, Führerschein machen Hannover, Beste Fahrschule Hannover, Fahrschule Hannover Bewertung, Führerschein Kosten Hannover, Fahrschule Arabisch Hannover, Fahrschule Türkisch Hannover, Führerschein umschreiben Hannover, Theorie lernen Hannover, Begleitetes Fahren Hannover, Wochenend Fahrschule Hannover, Motorrad Führerschein Hannover, Fahrschule in der Nähe Hannover, Führerschein schnell Hannover",
     heroText: "Deine Fahrschule in Hannover – zentral gelegen am Engelbosteler Damm mit bester Verkehrsanbindung.",
     introText: "Die Fahrschule Metropol in Hannover bietet dir eine professionelle Fahrausbildung für alle Führerscheinklassen. Ob PKW, Motorrad, LKW oder Bus – unser erfahrenes Team begleitet dich sicher zum Führerschein. Mit über 15.000 erfolgreichen Absolventen und einer Bestehensquote von 98% gehören wir zu den erfolgreichsten Fahrschulen in Hannover und Umgebung.",
     advantages: [
@@ -53,14 +53,13 @@ const cityData: Record<string, CityLandingData> = {
     locationPath: "/standorte/bremen",
     seoTitle: "Fahrschule Bremen – Führerschein aller Klassen | Fahrschule Metropol",
     seoDescription: "Fahrschule in Bremen am Bahnhofsplatz: Führerschein B, B197, Motorrad, LKW. Erfahrene Fahrlehrer, 98% Bestehensquote. Jetzt anmelden!",
-    seoKeywords: "Fahrschule Bremen, Führerschein Bremen, Fahrschule Metropol Bremen, Klasse B Bremen, Motorradführerschein Bremen, LKW Führerschein Bremen, Intensivkurs Bremen, Fahrschule Bahnhofsplatz Bremen, Führerschein machen Bremen, Fahrschule Innenstadt Bremen, BF17 Bremen, Automatik Führerschein Bremen, Beste Fahrschule Bremen, Fahrschule Bremen Bewertung, Führerschein Kosten Bremen, Fahrschule Arabisch Bremen, Fahrschule Türkisch Bremen, Führerschein umschreiben Bremen, Crashkurs Führerschein Bremen, Ferienkurs Bremen, Begleitetes Fahren Bremen, Fahrschule Hauptbahnhof Bremen, Schnellkurs Führerschein Bremen, Führerschein Crashkurs Bremen, Wochenend Fahrschule Bremen, Fahrschule in der Nähe Bremen, Motorrad Führerschein Bremen",
+    seoKeywords: "Fahrschule Bremen, Führerschein Bremen, Fahrschule Metropol Bremen, Klasse B Bremen, Motorradführerschein Bremen, LKW Führerschein Bremen, Fahrschule Bahnhofsplatz Bremen, Führerschein machen Bremen, Fahrschule Innenstadt Bremen, BF17 Bremen, Automatik Führerschein Bremen, Beste Fahrschule Bremen, Fahrschule Bremen Bewertung, Führerschein Kosten Bremen, Fahrschule Arabisch Bremen, Fahrschule Türkisch Bremen, Führerschein umschreiben Bremen, Begleitetes Fahren Bremen, Fahrschule Hauptbahnhof Bremen, Wochenend Fahrschule Bremen, Fahrschule in der Nähe Bremen, Motorrad Führerschein Bremen",
     heroText: "Fahrschule Metropol Bremen – direkt am Bahnhofsplatz in der Bremer Innenstadt.",
     introText: "Seit über 20 Jahren ist die Fahrschule Metropol dein verlässlicher Partner für den Führerschein in Bremen. Unser Standort am Bahnhofsplatz ist bestens erreichbar und bietet modernste Ausstattung für deinen Theorieunterricht. Unsere Fahrlehrer kennen die Bremer Prüfstrecken wie ihre Westentasche.",
     advantages: [
       "Direkt am Bremer Hauptbahnhof – optimal erreichbar",
       "Über 20 Jahre Erfahrung in Bremen",
       "Bremer Prüfstrecken-Experten im Team",
-      "Intensivkurse und Ferienkurse verfügbar",
       "Mehrsprachiger Unterricht",
       "Moderne Schulungsräume mit digitaler Ausstattung",
     ],
@@ -74,14 +73,13 @@ const cityData: Record<string, CityLandingData> = {
     locationPath: "/standorte/garbsen",
     seoTitle: "Fahrschule Garbsen – Entspannt zum Führerschein | Fahrschule Metropol",
     seoDescription: "Fahrschule in Garbsen: Führerschein B, Motorrad & mehr. Familiäre Atmosphäre, eigener Parkplatz, flexible Termine. Jetzt anmelden!",
-    seoKeywords: "Fahrschule Garbsen, Führerschein Garbsen, Fahrschule Metropol Garbsen, Klasse B Garbsen, Motorradführerschein Garbsen, Intensivkurs Garbsen, Fahrschule Planetenring Garbsen, Führerschein machen Garbsen, BF17 Garbsen, Fahrschule Region Hannover, Fahrschule Garbsen günstig, Beste Fahrschule Garbsen, Fahrschule Garbsen Bewertung, Führerschein Kosten Garbsen, Fahrschule Arabisch Garbsen, Fahrschule Türkisch Garbsen, Crashkurs Führerschein Garbsen, Ferienkurs Garbsen, Begleitetes Fahren Garbsen, Schnellkurs Führerschein Garbsen, Führerschein Crashkurs Garbsen, Fahrschule in der Nähe Garbsen",
+    seoKeywords: "Fahrschule Garbsen, Führerschein Garbsen, Fahrschule Metropol Garbsen, Klasse B Garbsen, Motorradführerschein Garbsen, Fahrschule Planetenring Garbsen, Führerschein machen Garbsen, BF17 Garbsen, Fahrschule Region Hannover, Fahrschule Garbsen günstig, Beste Fahrschule Garbsen, Fahrschule Garbsen Bewertung, Führerschein Kosten Garbsen, Fahrschule Arabisch Garbsen, Fahrschule Türkisch Garbsen, Begleitetes Fahren Garbsen, Fahrschule in der Nähe Garbsen",
     heroText: "Fahrschule Metropol Garbsen – familiäre Atmosphäre und individuelle Betreuung.",
     introText: "In Garbsen lernst du das Fahren in einer entspannten Umgebung. Unser Standort am Planetenring bietet ideale Voraussetzungen für den Einstieg: ruhigere Straßen, individuelle Betreuung und ein engagiertes Team. Perfekt, um sicher und stressfrei deinen Führerschein zu machen – bevor es in den Stadtverkehr nach Hannover geht.",
     advantages: [
       "Familiäre Atmosphäre mit individueller Betreuung",
       "Eigener Parkplatz direkt vor der Tür",
       "Ruhigere Straßen ideal für Fahranfänger",
-      "Regelmäßige Intensiv- und Ferienkurse",
       "Gute Anbindung an Hannover",
       "Geduldige und erfahrene Fahrlehrer",
     ],
@@ -91,8 +89,6 @@ const cityData: Record<string, CityLandingData> = {
 const cityFaqs: Record<string, { q: string; a: string }[]> = {
   hannover: [
     { q: "Was kostet der Führerschein Klasse B in Hannover?", a: "Die Kosten für den Führerschein Klasse B in Hannover variieren je nach Anzahl der benötigten Fahrstunden. Kontaktiere uns für ein individuelles Angebot – wir beraten dich transparent und ohne versteckte Kosten." },
-    { q: "Wie lange dauert die Führerscheinausbildung in Hannover?", a: "Bei regelmäßiger Teilnahme am Theorieunterricht und 2–3 Fahrstunden pro Woche kannst du deinen Führerschein in Hannover in ca. 3–4 Monaten machen. Mit einem Intensivkurs geht es noch schneller." },
-    { q: "Bietet Fahrschule Metropol Hannover Intensivkurse an?", a: "Ja, wir bieten Intensivkurse und Ferienkurse in Hannover an. So kannst du deinen Führerschein in nur 2–4 Wochen machen. Ideal für Schüler und Studenten." },
     { q: "Kann ich in Hannover den Führerschein auf Automatik machen?", a: "Ja, mit dem Führerschein Klasse B197 machst du die Prüfung auf Automatik und darfst trotzdem Schaltwagen fahren. Das bieten wir in Hannover an." },
     { q: "Wo ist die Fahrschule Metropol in Hannover?", a: "Unsere Fahrschule in Hannover befindet sich am Engelbosteler Damm 1, 30167 Hannover – zentral gelegen und bestens mit Bus und Bahn erreichbar." },
     { q: "Gibt es bei Fahrschule Metropol Hannover Unterricht in anderen Sprachen?", a: "Ja, unser Theorieunterricht in Hannover ist auf Deutsch, Englisch, Türkisch und Arabisch verfügbar." },
@@ -108,7 +104,6 @@ const cityFaqs: Record<string, { q: string; a: string }[]> = {
   garbsen: [
     { q: "Warum sollte ich meinen Führerschein in Garbsen machen?", a: "Garbsen bietet ruhigere Straßen und eine entspannte Lernumgebung – ideal für Fahranfänger. Unsere Fahrschule am Planetenring bietet familiäre Atmosphäre und individuelle Betreuung." },
     { q: "Wie komme ich zur Fahrschule Metropol in Garbsen?", a: "Unsere Fahrschule befindet sich am Planetenring 25–27, 30823 Garbsen. Wir haben einen eigenen Parkplatz direkt vor der Tür und sind auch mit dem Bus gut erreichbar." },
-    { q: "Gibt es in Garbsen Intensivkurse für den Führerschein?", a: "Ja, wir bieten in Garbsen regelmäßig Intensiv- und Ferienkurse an. So kannst du deinen Führerschein schnell und effizient machen." },
     { q: "Kann ich in Garbsen BF17 (Begleitetes Fahren ab 17) machen?", a: "Ja, BF17 ist in Garbsen verfügbar. Du kannst bereits mit 17 Jahren deinen Führerschein machen und mit einer Begleitperson fahren." },
     { q: "Welche Führerscheinklassen bietet Fahrschule Metropol in Garbsen an?", a: "In Garbsen bieten wir alle gängigen Klassen an: PKW (B, B197, BE), Motorrad (AM, A1, A2, A) und weitere." },
     { q: "Ist Fahrschule Metropol Garbsen günstiger als in Hannover?", a: "Die Grundgebühren sind an allen Standorten gleich. Da du in Garbsen auf ruhigeren Straßen startest, brauchst du oft weniger Fahrstunden – das kann die Gesamtkosten senken." },

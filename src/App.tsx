@@ -41,7 +41,6 @@ const Impressum = lazy(() => import("./pages/Impressum"));
 const FahrschuleHannover = lazy(() => import("./pages/FahrschuleHannover"));
 const FahrschuleBremen = lazy(() => import("./pages/FahrschuleBremen"));
 const FahrschuleGarbsen = lazy(() => import("./pages/FahrschuleGarbsen"));
-const Crashkurs = lazy(() => import("./pages/Crashkurs"));
 const FahrschuleDistrict = lazy(() => import("./pages/FahrschuleDistrict"));
 import { districts } from "./data/districtData";
 
@@ -85,7 +84,6 @@ const App = () => (
               <Route path="/fahrschule-hannover" element={<FahrschuleHannover />} />
               <Route path="/fahrschule-bremen" element={<FahrschuleBremen />} />
               <Route path="/fahrschule-garbsen" element={<FahrschuleGarbsen />} />
-              <Route path="/crashkurs" element={<Crashkurs />} />
               {districts.map((d) => (
                 <Route key={d.slug} path={`/fahrschule-${d.slug}`} element={<FahrschuleDistrict />} />
               ))}

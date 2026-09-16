@@ -56,7 +56,6 @@ const FahrschuleDistrict = () => {
     `Führerschein machen ${district.name}`,
     `Klasse B ${district.name}`,
     `Motorradführerschein ${district.name}`,
-    `Intensivkurs ${district.name}`,
     `BF17 ${district.name}`,
     `Fahrschule Metropol ${district.name}`,
     `Fahrschule in der Nähe ${district.name}`,
@@ -80,10 +79,6 @@ const FahrschuleDistrict = () => {
     {
       q: `Was kostet der Führerschein für Fahrschüler aus ${district.name}?`,
       a: `Die Kosten sind für alle Fahrschüler gleich – transparent und ohne versteckte Gebühren. Konkrete Preise findest du auf unserer Preisseite oder in einem persönlichen Beratungsgespräch.`,
-    },
-    {
-      q: `Bietet ihr Intensivkurse für ${district.name} an?`,
-      a: `Ja, in den Schulferien und ganzjährig bieten wir Intensiv- und Ferienkurse an. So kannst du deinen Führerschein aus ${district.name} in wenigen Wochen abschließen.`,
     },
   ];
 
