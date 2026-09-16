@@ -221,17 +221,15 @@
     "q1": "How do I register at Fahrschule Metropol?",
     "a1": "You can register directly via our online form or visit us at one of our branches in Bremen, Garbsen or Hannover. We need a valid ID and a passport photo.",
     "q2": "How long does the driving training take?",
-    "a2": "The duration depends on the license class and your availability. On average, a Class B license takes 2–4 months. With our intensive course, also in 2–3 weeks.",
+    "a2": "The duration depends on the license class and your availability. On average, a Class B license takes 2–4 months.",
     "q3": "What payment methods does Fahrschule Metropol offer?",
     "a3": "We offer cash payment and bank transfer. Feel free to ask about individual payment options.",
     "q4": "What happens if I don't pass the exam?",
     "a4": "No problem! We prepare you with additional practice sessions and register you for the exam again. About 98% of our students pass on the first or second attempt.",
-    "q5": "Do you offer intensive or holiday courses?",
-    "a5": "Yes, at all three locations we offer intensive courses. This way you can get your license in just 2–3 weeks – ideal for students.",
-    "q6": "At what age can I get my license?",
-    "a6": "For Class B, you can start theory 6 months before your 17th birthday (BF17). You can find the exact minimum ages on our license classes page.",
-    "q7": "At which locations is Fahrschule Metropol represented?",
-    "a7": "We are available in Hannover (Engelbosteler Damm 1), Garbsen (Planetenring 25–27) and Bremen (Bahnhofsplatz 41)."
+    "q5": "At what age can I get my license?",
+    "a5": "For Class B, you can start theory 6 months before your 17th birthday (BF17). You can find the exact minimum ages on our license classes page.",
+    "q6": "At which locations is Fahrschule Metropol represented?",
+    "a6": "We are available in Hannover (Engelbosteler Damm 1), Garbsen (Planetenring 25–27) and Bremen (Bahnhofsplatz 41)."
   },
   "locations": {
     "seoTitle": "Locations – Fahrschule Metropol | Bremen, Garbsen & Hannover",
