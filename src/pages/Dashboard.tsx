@@ -31,6 +31,10 @@ interface Inquiry {
   assigned_to: string | null;
   notes: string | null;
   created_at: string;
+  source?: string | null;
+  campaign?: string | null;
+  birth_date?: string | null;
+  contact_preference?: string | null;
 }
 
 const statusConfig: Record<string, { color: string; icon: typeof Inbox; label: string }> = {
@@ -174,7 +178,7 @@ const Dashboard = () => {
 
   const filtered = inquiries.filter((i) => {
     const matchesSearch = !search || [i.name, i.email, i.phone || "", i.location].some((f) => f.toLowerCase().includes(search.toLowerCase()));
-    const matchesFilter = activeFilter === "Alle" || i.status === activeFilter;
+    const matchesFilter = activeFilter === "Alle" || (activeFilter === "Messe" ? i.source === "messe" : i.status === activeFilter);
     return matchesSearch && matchesFilter;
   });
 
@@ -339,6 +343,7 @@ const Dashboard = () => {
 
                       <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2 text-[10px] text-muted-foreground/60">
+                          {inq.source === "messe" && <span className="rounded bg-primary px-1.5 py-0.5 font-bold text-primary-foreground">MESSE</span>}
                           <span className="flex items-center gap-0.5"><MapPin className="h-3 w-3" />{inq.location}</span>
                           <span>·</span>
                           <span>{inq.license_class || "Keine Klasse"}</span>
