@@ -133,6 +133,9 @@ export type Database = {
           ai_summary: string | null
           assigned_to: string | null
           auto_replied_at: string | null
+          birth_date: string | null
+          campaign: string | null
+          contact_preference: string | null
           created_at: string
           email: string
           escalated_at: string | null
@@ -147,6 +150,7 @@ export type Database = {
           phone: string | null
           replied_at: string | null
           response_time_minutes: number | null
+          source: string
           status: string
           tracking_code: string | null
           updated_at: string
@@ -158,6 +162,9 @@ export type Database = {
           ai_summary?: string | null
           assigned_to?: string | null
           auto_replied_at?: string | null
+          birth_date?: string | null
+          campaign?: string | null
+          contact_preference?: string | null
           created_at?: string
           email: string
           escalated_at?: string | null
@@ -172,6 +179,7 @@ export type Database = {
           phone?: string | null
           replied_at?: string | null
           response_time_minutes?: number | null
+          source?: string
           status?: string
           tracking_code?: string | null
           updated_at?: string
@@ -183,6 +191,9 @@ export type Database = {
           ai_summary?: string | null
           assigned_to?: string | null
           auto_replied_at?: string | null
+          birth_date?: string | null
+          campaign?: string | null
+          contact_preference?: string | null
           created_at?: string
           email?: string
           escalated_at?: string | null
@@ -197,6 +208,7 @@ export type Database = {
           phone?: string | null
           replied_at?: string | null
           response_time_minutes?: number | null
+          source?: string
           status?: string
           tracking_code?: string | null
           updated_at?: string
