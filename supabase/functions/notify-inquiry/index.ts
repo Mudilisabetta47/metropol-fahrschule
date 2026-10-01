@@ -281,8 +281,12 @@ Deno.serve(async (req) => {
     const email = typeof body?.email === "string" ? body.email.trim() : null;
     const location = str(body?.location, 50);
     const phone = body?.phone == null || body.phone === "" ? undefined : str(body.phone, 40);
-    const license_class = body?.license_class == null || body.license_class === "" ? undefined : str(body.license_class, 20);
+    const license_class = body?.license_class == null || body.license_class === "" ? undefined : str(body.license_class, 50);
     const message = body?.message == null || body.message === "" ? undefined : str(body.message, 5000);
+    const source = body?.source === "messe" ? "messe" : "website";
+    const campaign = source === "messe" && typeof body?.campaign === "string" && /^[A-Z0-9_]{1,40}$/.test(body.campaign) ? body.campaign : null;
+    const birth_date = typeof body?.birth_date === "string" && /^\d{4}-\d{2}-\d{2}$/.test(body.birth_date) ? body.birth_date : null;
+    const contact_preference = ["telefon", "email", "whatsapp"].includes(body?.contact_preference) ? body.contact_preference : null;
 
     if (!name || !email || !isEmail(email) || !location) {
       return new Response(JSON.stringify({ error: "Missing or invalid fields" }), {
