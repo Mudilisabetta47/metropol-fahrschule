@@ -169,6 +169,7 @@ const Dashboard = () => {
 
   const filterTabs = [
     { key: "Alle", label: "Alle", count: kpis.total },
+    { key: "Messe", label: "Messe", count: inquiries.filter((i) => i.source === "messe").length },
     { key: "neu", label: "Neu", count: kpis.neu },
     { key: "in bearbeitung", label: "Offen", count: kpis.offen },
     { key: "rückruf geplant", label: "Rückruf", count: kpis.rueckruf },
@@ -378,6 +379,9 @@ const Dashboard = () => {
                       <div className="mt-1 flex flex-wrap items-center gap-3 text-xs text-muted-foreground">
                         <span className="flex items-center gap-1"><Mail className="h-3.5 w-3.5" />{selected.email}</span>
                         {selected.phone && <span className="flex items-center gap-1"><Phone className="h-3.5 w-3.5" />{selected.phone}</span>}
+                        {selected.source === "messe" && <span className="rounded bg-primary px-1.5 py-0.5 font-bold text-primary-foreground">Quelle: Messe{selected.campaign ? ` · ${selected.campaign}` : ""}</span>}
+                        {selected.birth_date && <span>Geb.: {new Date(selected.birth_date).toLocaleDateString("de-DE")}</span>}
+                        {selected.contact_preference && <span>Kontakt per {selected.contact_preference}</span>}
                       </div>
                     </div>
                     <Badge variant="outline" className={`capitalize text-xs font-bold gap-1 ${statusConfig[selected.status]?.color || ""}`}>
