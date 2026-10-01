@@ -10,7 +10,7 @@ import MathCaptcha from "@/components/MathCaptcha";
 import SEO from "@/components/SEO";
 import { supabase } from "@/integrations/supabase/client";
 import { licenseClasses, type LicenseClassData } from "@/data/licenseClassData";
-import logo from "@/assets/logo.avif";
+import logo from "@/assets/logo-crop.png";
 import heroImg from "@/assets/fahrschule-hero.jpg";
 import imgPkw from "@/assets/class-pkw.jpg";
 import imgMotorrad from "@/assets/class-motorrad.jpg";
@@ -169,7 +169,7 @@ const Messe = () => {
       <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
         <div className="mx-auto flex max-w-3xl items-center justify-between px-4 py-3">
           <button onClick={() => setStep("start")} className="flex items-center gap-2">
-            <img src={logo} alt="Fahrschule Metropol" className="h-9 w-auto" />
+            <img src={logo} alt="Fahrschule Metropol" className="h-11 w-auto" />
           </button>
           <motion.span
             animate={{ scale: [1, 1.06, 1] }}
