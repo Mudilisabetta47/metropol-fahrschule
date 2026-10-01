@@ -41,6 +41,7 @@ const Impressum = lazy(() => import("./pages/Impressum"));
 const FahrschuleHannover = lazy(() => import("./pages/FahrschuleHannover"));
 const FahrschuleBremen = lazy(() => import("./pages/FahrschuleBremen"));
 const FahrschuleGarbsen = lazy(() => import("./pages/FahrschuleGarbsen"));
+const Messe = lazy(() => import("./pages/Messe"));
 const FahrschuleDistrict = lazy(() => import("./pages/FahrschuleDistrict"));
 import { districts } from "./data/districtData";
 
@@ -52,7 +53,20 @@ const PageLoader = () => (
   </div>
 );
 
-const App = () => (
+const isMesseHost = typeof window !== "undefined" && window.location.hostname.startsWith("messe.");
+
+const MesseApp = () => (
+  <QueryClientProvider client={queryClient}>
+    <TooltipProvider>
+      <Toaster />
+      <Suspense fallback={<PageLoader />}>
+        <Messe />
+      </Suspense>
+    </TooltipProvider>
+  </QueryClientProvider>
+);
+
+const MainApp = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
@@ -104,5 +118,7 @@ const App = () => (
     </TooltipProvider>
   </QueryClientProvider>
 );
+
+const App = () => (isMesseHost ? <MesseApp /> : <MainApp />);
 
 export default App;

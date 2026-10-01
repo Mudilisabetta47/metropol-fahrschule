@@ -116,7 +116,7 @@ const Messe = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      <SEO title="Messe 2026 – Fahrschule Metropol" description="Wähle jetzt deinen Führerscheinkurs bei der Fahrschule Metropol und sende direkt deine Anfrage – exklusiv auf der Messe 2026." path="/messe" />
+      <SEO title="Messe 2026 – Fahrschule Metropol" description="Wähle jetzt deinen Führerscheinkurs bei der Fahrschule Metropol und sende direkt deine Anfrage – exklusiv auf der Messe 2026." canonical="https://messe.fahrschule-metropol.de/" />
 
       <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
         <div className="mx-auto flex max-w-3xl items-center justify-between px-4 py-3">
