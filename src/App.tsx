@@ -53,7 +53,7 @@ const PageLoader = () => (
   </div>
 );
 
-const isMesseHost = typeof window !== "undefined" && window.location.hostname.startsWith("messe.");
+const isMesseHost = typeof window !== "undefined" && (window.location.hostname.startsWith("messe.") || window.location.pathname.startsWith("/messe"));
 
 const MesseApp = () => (
   <QueryClientProvider client={queryClient}>
