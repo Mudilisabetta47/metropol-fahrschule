@@ -1,0 +1,1 @@
+ALTER TABLE public.inquiries ADD COLUMN IF NOT EXISTS source text NOT NULL DEFAULT 'website', ADD COLUMN IF NOT EXISTS campaign text, ADD COLUMN IF NOT EXISTS birth_date date, ADD COLUMN IF NOT EXISTS contact_preference text;
