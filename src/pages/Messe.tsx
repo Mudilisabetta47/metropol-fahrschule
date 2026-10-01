@@ -1,5 +1,3 @@
-// ============= Full file contents =============
-
 import { useEffect, useMemo, useRef, useState } from "react";
 import { motion, AnimatePresence, useInView } from "framer-motion";
 import { ArrowLeft, ArrowRight, Car, Bike, Truck, Tractor, Check, CheckCircle, Phone, Sparkles, Loader2, Star, MapPin, ShieldCheck } from "lucide-react";
@@ -309,7 +307,7 @@ const Messe = () => {
                   ].map(({ icon: Icon, title, text }) => (
                     <motion.div key={title} variants={fadeUp} whileHover={{ y: -4 }} className="rounded-2xl border border-border bg-card p-5 shadow-sm transition-shadow hover:shadow-lg">
                       <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-primary">
-                        <Icon className="h-5.5 w-5.5" />
+                        <Icon className="h-5 w-5" />
                       </div>
                       <div className="font-bold text-foreground">{title}</div>
                       <p className="mt-1 text-sm text-muted-foreground">{text}</p>
