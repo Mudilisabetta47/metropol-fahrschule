@@ -169,7 +169,9 @@ const Messe = () => {
       <header className="sticky top-0 z-40 border-b border-border bg-background/90 backdrop-blur">
         <div className="mx-auto flex max-w-3xl items-center justify-between px-4 py-3">
           <button onClick={() => setStep("start")} className="flex items-center gap-2">
-            <img src={logo} alt="Fahrschule Metropol" className="h-11 w-auto" />
+<span className="flex items-center rounded-xl bg-foreground px-2.5 py-1.5 shadow-md">
+              <img src={logo} alt="Fahrschule Metropol" className="h-8 w-auto" />
+            </span>
           </button>
           <motion.span
             animate={{ scale: [1, 1.06, 1] }}
